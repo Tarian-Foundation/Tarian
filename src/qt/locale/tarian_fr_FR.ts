@@ -6332,8 +6332,8 @@ Portefeuille TARIAN Core</translation>
         <translation>Vous devez spécifier une masternodeprivkey dans la configuration. Veuillez consulter la documentation pour obtenir de l'aide.</translation>
     </message>
     <message>
-        <source>(51472 could be used only on mainnet)</source>
-        <translation>(51472 ne peut être utilisé que pour le mainnet)</translation>
+        <source>(54444 could be used only on mainnet)</source>
+        <translation>(54444 ne peut être utilisé que pour le mainnet)</translation>
     </message>
     <message>
         <source>(default: %s)</source>
@@ -6344,8 +6344,8 @@ Portefeuille TARIAN Core</translation>
         <translation>(default: 1)</translation>
     </message>
     <message>
-        <source>(must be 51472 for mainnet)</source>
-        <translation>(doit être 51472 pour le mainnet)</translation>
+        <source>(must be 54444 for mainnet)</source>
+        <translation>(doit être 54444 pour le mainnet)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>

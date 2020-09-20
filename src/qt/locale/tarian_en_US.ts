@@ -6361,8 +6361,8 @@ TARIAN Core Wallet</translation>
         <translation>You must specify a masternodeprivkey in the configuration. Please see documentation for help.</translation>
     </message>
     <message>
-        <source>(51472 could be used only on mainnet)</source>
-        <translation>(51472 could be used only on mainnet)</translation>
+        <source>(54444 could be used only on mainnet)</source>
+        <translation>(54444 could be used only on mainnet)</translation>
     </message>
     <message>
         <source>(default: %s)</source>
@@ -6373,8 +6373,8 @@ TARIAN Core Wallet</translation>
         <translation>(default: 1)</translation>
     </message>
     <message>
-        <source>(must be 51472 for mainnet)</source>
-        <translation>(must be 51472 for mainnet)</translation>
+        <source>(must be 54444 for mainnet)</source>
+        <translation>(must be 54444 for mainnet)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>

@@ -190,7 +190,7 @@ public:
         pchMessageStart[1] = 0xa3;
         pchMessageStart[2] = 0x72;
         pchMessageStart[3] = 0x34;
-        nDefaultPort = 51472;
+        nDefaultPort = 54444;
 
         // Note that of those with the service bits flag, most only support a subset of possible options
         vSeeds.push_back(CDNSSeedData("", "", true));
@@ -320,7 +320,7 @@ public:
         pchMessageStart[1] = 0xa3;
         pchMessageStart[2] = 0x72;
         pchMessageStart[3] = 0x34;
-        nDefaultPort = 51474;
+        nDefaultPort = 54446;
 
         // Note that of those with the service bits flag, most only support a subset of possible options
         vSeeds.push_back(CDNSSeedData("", "", true));
@@ -445,7 +445,7 @@ public:
         pchMessageStart[1] = 0xa3;
         pchMessageStart[2] = 0x72;
         pchMessageStart[3] = 0x34;
-        nDefaultPort = 51476;
+        nDefaultPort = 54448;
 
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Testnet mode doesn't have any DNS seeds.

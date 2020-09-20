@@ -5807,8 +5807,8 @@ Portfel TARIAN Core</translation>
         <translation>Musisz określić masternodeprivkey w konfiguracji. Aby uzyskać pomoc, zapoznaj się z dokumentacją.</translation>
     </message>
     <message>
-        <source>(51472 could be used only on mainnet)</source>
-        <translation>(51472 może być używany tylko w sieci mainnet)</translation>
+        <source>(54444 could be used only on mainnet)</source>
+        <translation>(54444 może być używany tylko w sieci mainnet)</translation>
     </message>
     <message>
         <source>(default: %s)</source>
@@ -5819,8 +5819,8 @@ Portfel TARIAN Core</translation>
         <translation>(domyślnie: 1)</translation>
     </message>
     <message>
-        <source>(must be 51472 for mainnet)</source>
-        <translation>(musi być 51472 dla mainnetu)</translation>
+        <source>(must be 54444 for mainnet)</source>
+        <translation>(musi być 54444 dla mainnetu)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>
