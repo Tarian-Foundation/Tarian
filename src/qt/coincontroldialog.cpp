@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2020 The PIVX developers
+// Copyright (c) 2015-2020 The TARIAN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -18,7 +18,7 @@
 #include "main.h"
 #include "wallet/wallet.h"
 
-#include "qt/pivx/qtutils.h"
+#include "qt/tarian/qtutils.h"
 
 #include <boost/assign/list_of.hpp> // for 'map_list_of()'
 
@@ -31,6 +31,8 @@
 #include <QSettings>
 #include <QString>
 #include <QTreeWidget>
+
+CCoinControl* CoinControlDialog::coinControl = new CCoinControl();
 
 
 bool CCoinControlWidgetItem::operator<(const QTreeWidgetItem &other) const {
@@ -46,7 +48,6 @@ CoinControlDialog::CoinControlDialog(QWidget* parent, bool _forDelegation) : QDi
                                                         model(0),
                                                         forDelegation(_forDelegation)
 {
-    coinControl = new CCoinControl();
     ui->setupUi(this);
 
     /* Open CSS when configured */
@@ -204,7 +205,6 @@ CoinControlDialog::~CoinControlDialog()
     settings.setValue("nCoinControlSortOrder", (int)sortOrder);
 
     delete ui;
-    delete coinControl;
 }
 
 void CoinControlDialog::setModel(WalletModel* model)
@@ -645,7 +645,7 @@ void CoinControlDialog::updateLabels()
         nBytes += 10;
 
         // Priority
-        double mempoolEstimatePriority = mempool.estimateSmartPriority(nTxConfirmTarget);
+        double mempoolEstimatePriority = mempool.estimatePriority(nTxConfirmTarget);
         dPriority = dPriorityInputs / (nBytes - nBytesInputs + (nQuantityUncompressed * 29)); // 29 = 180 - 151 (uncompressed public keys are over the limit. max 151 bytes of the input are ignored for priority)
         sPriorityLabel = CoinControlDialog::getPriorityLabel(dPriority, mempoolEstimatePriority);
 
@@ -654,8 +654,8 @@ void CoinControlDialog::updateLabels()
 
         // IX Fee
         if (coinControl->useSwiftTX) nPayFee = std::max(nPayFee, CENT);
-        // Allow free? (require at least hard-coded threshold and default to that if no estimate)
-        double dPriorityNeeded = std::max(mempoolEstimatePriority, AllowFreeThreshold());
+        // Allow free?
+        double dPriorityNeeded = mempoolEstimatePriority;
         if (dPriorityNeeded <= 0)
             dPriorityNeeded = AllowFreeThreshold(); // not enough data, back to hard-coded
         fAllowFree = (dPriority >= dPriorityNeeded);
@@ -687,7 +687,7 @@ void CoinControlDialog::updateLabels()
     }
 
     // actually update labels
-    int nDisplayUnit = BitcoinUnits::PIV;
+    int nDisplayUnit = BitcoinUnits::TARN;
     if (model && model->getOptionsModel())
         nDisplayUnit = model->getOptionsModel()->getDisplayUnit();
 
@@ -733,7 +733,7 @@ void CoinControlDialog::updateLabels()
     if (payTxFee.GetFeePerK() > 0)
         dFeeVary = (double)std::max(CWallet::GetRequiredFee(1000), payTxFee.GetFeePerK()) / 1000;
     else
-        dFeeVary = (double)std::max(CWallet::GetRequiredFee(1000), mempool.estimateSmartFee(nTxConfirmTarget).GetFeePerK()) / 1000;
+        dFeeVary = (double)std::max(CWallet::GetRequiredFee(1000), mempool.estimateFee(nTxConfirmTarget).GetFeePerK()) / 1000;
     QString toolTip4 = tr("Can vary +/- %1 u%2 per input.").arg(dFeeVary).arg(CURRENCY_UNIT.c_str());
 
     ui->labelCoinControlFee->setToolTip(toolTip4);
@@ -772,7 +772,7 @@ void CoinControlDialog::updateView()
     QFlags<Qt::ItemFlag> flgTristate = Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsUserCheckable | Qt::ItemIsTristate;
 
     int nDisplayUnit = model->getOptionsModel()->getDisplayUnit();
-//    double mempoolEstimatePriority = mempool.estimateSmartPriority(nTxConfirmTarget);
+//    double mempoolEstimatePriority = mempool.estimatePriority(nTxConfirmTarget);
 
     nSelectableInputs = 0;
     std::map<QString, std::vector<COutput>> mapCoins;
@@ -840,7 +840,7 @@ void CoinControlDialog::updateView()
             if (haveDest) {
                 sAddress = QString::fromStdString(EncodeDestination(outputAddress));
 
-                // if listMode or change => show PIVX address. In tree mode, address is not shown again for direct wallet address outputs
+                // if listMode or change => show TARIAN address. In tree mode, address is not shown again for direct wallet address outputs
                 if (!treeMode || (!(sAddress == sWalletAddress)))
                     itemOutput->setText(COLUMN_ADDRESS, sAddress);
                 else

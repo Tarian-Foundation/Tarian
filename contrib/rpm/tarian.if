@@ -1,0 +1,157 @@
+
+## <summary>policy for tarian</summary>
+
+
+########################################
+## <summary>
+##	Transition to tarian.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`tarian_domtrans',`
+	gen_require(`
+		type tarian_t, tarian_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, tarian_exec_t, tarian_t)
+')
+
+
+########################################
+## <summary>
+##	Execute tarian server in the tarian domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`tarian_initrc_domtrans',`
+	gen_require(`
+		type tarian_initrc_exec_t;
+	')
+
+	init_labeled_script_domtrans($1, tarian_initrc_exec_t)
+')
+
+
+########################################
+## <summary>
+##	Search tarian lib directories.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`tarian_search_lib',`
+	gen_require(`
+		type tarian_var_lib_t;
+	')
+
+	allow $1 tarian_var_lib_t:dir search_dir_perms;
+	files_search_var_lib($1)
+')
+
+########################################
+## <summary>
+##	Read tarian lib files.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`tarian_read_lib_files',`
+	gen_require(`
+		type tarian_var_lib_t;
+	')
+
+	files_search_var_lib($1)
+	read_files_pattern($1, tarian_var_lib_t, tarian_var_lib_t)
+')
+
+########################################
+## <summary>
+##	Manage tarian lib files.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`tarian_manage_lib_files',`
+	gen_require(`
+		type tarian_var_lib_t;
+	')
+
+	files_search_var_lib($1)
+	manage_files_pattern($1, tarian_var_lib_t, tarian_var_lib_t)
+')
+
+########################################
+## <summary>
+##	Manage tarian lib directories.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`tarian_manage_lib_dirs',`
+	gen_require(`
+		type tarian_var_lib_t;
+	')
+
+	files_search_var_lib($1)
+	manage_dirs_pattern($1, tarian_var_lib_t, tarian_var_lib_t)
+')
+
+
+########################################
+## <summary>
+##	All of the rules required to administrate
+##	a tarian environment
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+## <param name="role">
+##	<summary>
+##	Role allowed access.
+##	</summary>
+## </param>
+## <rolecap/>
+#
+interface(`tarian_admin',`
+	gen_require(`
+		type tarian_t;
+		type tarian_initrc_exec_t;
+		type tarian_var_lib_t;
+	')
+
+	allow $1 tarian_t:process { ptrace signal_perms };
+	ps_process_pattern($1, tarian_t)
+
+	tarian_initrc_domtrans($1)
+	domain_system_change_exemption($1)
+	role_transition $2 tarian_initrc_exec_t system_r;
+	allow $2 system_r;
+
+	files_search_var_lib($1)
+	admin_pattern($1, tarian_var_lib_t)
+
+')
+

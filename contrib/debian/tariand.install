@@ -1,0 +1,3 @@
+usr/local/bin/tariand usr/bin
+usr/local/bin/tarian-cli usr/bin
+debian/examples/tarian.conf etc/tarian

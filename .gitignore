@@ -89,11 +89,6 @@ pivx-qt
 PIVX-Qt.app
 background.tiff*
 
-# Rust
-.cargo/.configured-for-*
-.cargo/config
-target/
-
 # Unit-tests
 Makefile.test
 pivx-qt_test

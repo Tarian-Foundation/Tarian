@@ -6,13 +6,7 @@
 
 export LC_ALL=C.UTF-8
 
-cd "build/pivx-$HOST" || (echo "could not enter distdir build/pivx-$HOST"; exit 1)
-
-if [ "$RUN_UNIT_TESTS" = "true" ] || [ "$RUN_FUNCTIONAL_TESTS" = "true" ]; then
-  BEGIN_FOLD params
-    DOCKER_EXEC util/fetch-params.sh $PARAMS_DIR
-  END_FOLD
-fi
+cd "build/tarian-$HOST" || (echo "could not enter distdir build/tarian-$HOST"; exit 1)
 
 if [ "$RUN_UNIT_TESTS" = "true" ]; then
   BEGIN_FOLD unit-tests

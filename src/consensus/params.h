@@ -25,6 +25,7 @@ namespace Consensus {
 */
 enum UpgradeIndex : uint32_t {
     BASE_NETWORK,
+    UPGRADE_TESTDUMMY,
     UPGRADE_POS,
     UPGRADE_POS_V2,
     UPGRADE_ZC,
@@ -34,7 +35,6 @@ enum UpgradeIndex : uint32_t {
     UPGRADE_V3_4,
     UPGRADE_V4_0,
     UPGRADE_V5_DUMMY,
-    UPGRADE_TESTDUMMY,
     // NOTE: Also add new upgrades to NetworkUpgradeInfo in upgrades.cpp
     MAX_NETWORK_UPGRADES
 };
@@ -121,8 +121,8 @@ struct Params {
     int height_ZC_RecalcAccumulators;
 
     // validation by-pass
-    int64_t nPivxBadBlockTime;
-    unsigned int nPivxBadBlockBits;
+    int64_t nTarianBadBlockTime;
+    unsigned int nTarianBadBlockBits;
 
     // Map with network updates
     NetworkUpgrade vUpgrades[MAX_NETWORK_UPGRADES];

@@ -28,21 +28,14 @@ def assert_fee_amount(fee, tx_size, fee_per_kB):
     """Assert the fee was in range"""
     target_fee = round(tx_size * fee_per_kB / 1000, 8)
     if fee < target_fee:
-        raise AssertionError("Fee of %s PIV too low! (Should be %s PIV)" % (str(fee), str(target_fee)))
+        raise AssertionError("Fee of %s TARN too low! (Should be %s TARN)" % (str(fee), str(target_fee)))
     # allow the wallet's estimation to be at most 2 bytes off
     if fee > (tx_size + 20) * fee_per_kB / 1000:
-        raise AssertionError("Fee of %s PIV too high! (Should be %s PIV)" % (str(fee), str(target_fee)))
+        raise AssertionError("Fee of %s TARN too high! (Should be %s TARN)" % (str(fee), str(target_fee)))
 
 def assert_equal(thing1, thing2, *args):
     if thing1 != thing2 or any(thing1 != arg for arg in args):
         raise AssertionError("not(%s)" % " == ".join(str(arg) for arg in (thing1, thing2) + args))
-
-def assert_true(condition, message = ""):
-    if not condition:
-        raise AssertionError(message)
-
-def assert_false(condition, message = ""):
-    assert_true(not condition, message)
 
 def assert_greater_than(thing1, thing2):
     if thing1 <= thing2:
@@ -295,7 +288,7 @@ def initialize_datadir(dirname, n):
     if not os.path.isdir(datadir):
         os.makedirs(datadir)
     rpc_u, rpc_p = rpc_auth_pair(n)
-    with open(os.path.join(datadir, "pivx.conf"), 'w', encoding='utf8') as f:
+    with open(os.path.join(datadir, "tarian.conf"), 'w', encoding='utf8') as f:
         f.write("regtest=1\n")
         f.write("rpcuser=" + rpc_u + "\n")
         f.write("rpcpassword=" + rpc_p + "\n")
@@ -318,8 +311,8 @@ def get_datadir_path(dirname, n):
 def get_auth_cookie(datadir):
     user = None
     password = None
-    if os.path.isfile(os.path.join(datadir, "pivx.conf")):
-        with open(os.path.join(datadir, "pivx.conf"), 'r', encoding='utf8') as f:
+    if os.path.isfile(os.path.join(datadir, "tarian.conf")):
+        with open(os.path.join(datadir, "tarian.conf"), 'r', encoding='utf8') as f:
             for line in f:
                 if line.startswith("rpcuser="):
                     assert user is None  # Ensure that there is only one rpcuser line
@@ -387,39 +380,56 @@ def sync_blocks(rpc_connections, *, wait=1, timeout=60):
     one node already synced to the latest, stable tip, otherwise there's a
     chance it might return before all nodes are stably synced.
     """
-    stop_time = time.time() + timeout
-    while time.time() <= stop_time:
+    # Use getblockcount() instead of waitforblockheight() to determine the
+    # initial max height because the two RPCs look at different internal global
+    # variables (chainActive vs latestBlock) and the former gets updated
+    # earlier.
+    time.sleep(5)
+    maxheight = max(x.getblockcount() for x in rpc_connections)
+    start_time = cur_time = time.time()
+    while cur_time <= start_time + timeout:
+        tips = [r.waitforblockheight(maxheight, int(wait * 1000)) for r in rpc_connections]
+        if all(t["height"] == maxheight for t in tips):
+            if all(t["hash"] == tips[0]["hash"] for t in tips):
+                return
+            raise AssertionError("Block sync failed, mismatched block hashes:{}".format(
+                                 "".join("\n  {!r}".format(tip) for tip in tips)))
+        cur_time = time.time()
+    raise AssertionError("Block sync to height {} timed out:{}".format(
+                         maxheight, "".join("\n  {!r}".format(tip) for tip in tips)))
+
+def sync_chain(rpc_connections, *, wait=1, timeout=60):
+    """
+    Wait until everybody has the same best block
+    """
+    while timeout > 0:
         best_hash = [x.getbestblockhash() for x in rpc_connections]
-        if best_hash.count(best_hash[0]) == len(rpc_connections):
+        if best_hash == [best_hash[0]] * len(best_hash):
             return
-        # Check that each peer has at least one connection
-        assert (all([len(x.getpeerinfo()) for x in rpc_connections]))
         time.sleep(wait)
-    raise AssertionError("Block sync timed out after {}s:{}".format(
-        timeout,
-        "".join("\n  {!r}".format(b) for b in best_hash),
-    ))
+        timeout -= wait
+    raise AssertionError("Chain sync failed: Best block hashes don't match")
 
 def sync_mempools(rpc_connections, *, wait=1, timeout=60, flush_scheduler=True):
     """
     Wait until everybody has the same transactions in their memory
     pools
     """
-    stop_time = time.time() + timeout
-    while time.time() <= stop_time:
-        pool = [set(r.getrawmempool()) for r in rpc_connections]
-        if pool.count(pool[0]) == len(rpc_connections):
+    while timeout > 0:
+        pool = set(rpc_connections[0].getrawmempool())
+        num_match = 1
+        for i in range(1, len(rpc_connections)):
+            if set(rpc_connections[i].getrawmempool()) == pool:
+                num_match = num_match + 1
+        if num_match == len(rpc_connections):
             #if flush_scheduler:
-            #    for r in rpc_connections:
-            #        r.syncwithvalidationinterfacequeue()
+                #for r in rpc_connections:
+                #    r.syncwithvalidationinterfacequeue()
             return
-        # Check that each peer has at least one connection
-        assert (all([len(x.getpeerinfo()) for x in rpc_connections]))
         time.sleep(wait)
-    raise AssertionError("Mempool sync timed out after {}s:{}".format(
-        timeout,
-        "".join("\n  {!r}".format(m) for m in pool),
-    ))
+        timeout -= wait
+    raise AssertionError("Mempool sync failed")
+
 
 # Transaction/Block functions
 #############################
@@ -592,7 +602,7 @@ def find_vout_for_address(node, txid, addr):
             return i
     raise RuntimeError("Vout not found for address: txid=%s, addr=%s" % (txid, addr))
 
-### PIVX specific utils ###
+### TARIAN specific utils ###
 vZC_DENOMS = [1, 5, 10, 50, 100, 500, 1000, 5000]
 DEFAULT_FEE = 0.01
 SPORK_ACTIVATION_TIME = 1563253447

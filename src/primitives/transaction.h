@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2015-2020 The PIVX developers
+// Copyright (c) 2015-2020 The TARIAN developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -58,7 +58,7 @@ public:
 
     size_t DynamicMemoryUsage() const { return 0; }
 
-    uint256 GetHash() const;
+    uint256 GetHash();
 
 };
 
@@ -190,6 +190,7 @@ public:
     }
 
     bool IsZerocoinMint() const;
+    CAmount GetZerocoinMinted() const;
 
     friend bool operator==(const CTxOut& a, const CTxOut& b)
     {
@@ -283,7 +284,12 @@ public:
         return HasZerocoinSpendInputs() || HasZerocoinMintOutputs();
     }
 
+    CAmount GetZerocoinMinted() const;
     CAmount GetZerocoinSpent() const;
+    int GetZerocoinMintCount() const;
+
+    bool UsesUTXO(const COutPoint out);
+    std::list<COutPoint> GetOutPoints() const;
 
     bool IsCoinBase() const
     {

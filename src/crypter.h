@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2017-2020 The PIVX developers
+// Copyright (c) 2017-2020 The TARIAN developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,7 +9,6 @@
 #include "allocators.h"
 #include "keystore.h"
 #include "serialize.h"
-#include "streams.h"
 
 class uint256;
 
@@ -75,18 +74,6 @@ namespace wallet_crypto
     class TestCrypter;
 }
 
-class CSecureDataStream : public CBaseDataStream<CKeyingMaterial>
-{
-public:
-    explicit CSecureDataStream(int nTypeIn, int nVersionIn) : CBaseDataStream(nTypeIn, nVersionIn) { }
-
-    CSecureDataStream(const_iterator pbegin, const_iterator pend, int nTypeIn, int nVersionIn) :
-            CBaseDataStream(pbegin, pend, nTypeIn, nVersionIn) { }
-
-    CSecureDataStream(const vector_type& vchIn, int nTypeIn, int nVersionIn) :
-            CBaseDataStream(vchIn, nTypeIn, nVersionIn) { }
-};
-
 /** Encryption/decryption context with key information */
 class CCrypter
 {
@@ -134,15 +121,13 @@ bool DecryptSecret(const CKeyingMaterial& vMasterKey, const std::vector<unsigned
 class CCryptoKeyStore : public CBasicKeyStore
 {
 private:
-    //! if fUseCrypto is true, mapKeys and mapSaplingSpendingKeys must be empty
+    //! if fUseCrypto is true, mapKeys must be empty
     //! if fUseCrypto is false, vMasterKey must be empty
     bool fUseCrypto;
 
 protected:
     // TODO: In the future, move this variable to the wallet class directly following upstream's structure.
     CKeyingMaterial vMasterKey;
-    // Sapling
-    CryptedSaplingSpendingKeyMap mapCryptedSaplingSpendingKeys;
 
     bool SetCrypted();
 
@@ -150,9 +135,6 @@ protected:
     bool EncryptKeys(CKeyingMaterial& vMasterKeyIn);
 
     CryptedKeyMap mapCryptedKeys;
-
-    // Unlock Sapling keys
-    bool UnlockSaplingKeys(const CKeyingMaterial& vMasterKeyIn, bool fDecryptionThoroughlyChecked);
 
 public:
     CCryptoKeyStore() : fUseCrypto(false) { }
@@ -202,14 +184,6 @@ public:
             mi++;
         }
     }
-
-    //! Sapling
-    virtual bool AddCryptedSaplingSpendingKey(
-            const libzcash::SaplingExtendedFullViewingKey &extfvk,
-            const std::vector<unsigned char> &vchCryptedSecret,
-            const libzcash::SaplingPaymentAddress &defaultAddr);
-    bool HaveSaplingSpendingKey(const libzcash::SaplingFullViewingKey &fvk) const;
-    bool GetSaplingSpendingKey(const libzcash::SaplingFullViewingKey &fvk, libzcash::SaplingExtendedSpendingKey &skOut) const;
 
     /**
      * Wallet status (encrypted, locked) changed.
