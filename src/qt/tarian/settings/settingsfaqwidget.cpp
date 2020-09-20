@@ -96,7 +96,7 @@ void SettingsFaqWidget::showEvent(QShowEvent *event)
 
 void SettingsFaqWidget::setSection(int num)
 {
-    if (num < 1 || num > 10)
+    if (num < 1 || num > 6)
         return;
     pos = num;
 }
@@ -129,5 +129,3 @@ SettingsFaqWidget::~SettingsFaqWidget()
 {
     delete ui;
 }
-
-
