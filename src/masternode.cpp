@@ -586,7 +586,7 @@ bool CMasternodeBroadcast::CheckInputsAndAdd(int& nDoS)
     CMutableTransaction tx = CMutableTransaction();
     CScript dummyScript;
     dummyScript << ToByteVector(pubKeyCollateralAddress) << OP_CHECKSIG;
-    CTxOut vout = CTxOut(GetCollateral()-0.01) * COIN, dummyScript);
+    CTxOut vout = CTxOut(GetCollateral()-0.01 * COIN, dummyScript);
     tx.vin.push_back(vin);
     tx.vout.push_back(vout);
 
