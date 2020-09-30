@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="30px" height="22px" viewBox="0 0 30 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
-    <title>Add purple</title>
-    <desc>Created with Sketch.</desc>
-    <g id="Add-purple" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="ic-add-purple" transform="translate(5.000000, 3.000000)">
-            <polygon id="Path_18951" fill="#b088ff" points="14 7 9 7 9 2 7 2 7 7 2 7 2 9 7 9 7 14 9 14 9 9 14 9"></polygon>
-            <polygon id="Rectangle_4603" points="0 0 16 0 16 16 0 16"></polygon>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 521 384" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Add-purple">
+        <g id="ic-add-purple">
+            <path id="Path_18951" d="M329.863,173.613L243.054,173.613L243.054,86.804L208.333,86.804L208.333,173.613L121.529,173.613L121.529,208.333L208.333,208.333L208.333,295.137L243.054,295.137L243.054,208.333L329.863,208.333L329.863,173.613Z" style="fill:rgb(73,231,249);"/>
+            <rect id="Rectangle_4603" x="86.804" y="52.083" width="277.779" height="277.779" style="fill:none;"/>
         </g>
     </g>
 </svg>
