@@ -1,11 +1,11 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin developers
-// Copyright (c) 2017-2020 The PIVX developers
+// Copyright (c) 2017-2020 The TARIAN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifdef HAVE_CONFIG_H
-#include "config/pivx-config.h"
+#include "config/tarian-config.h"
 #endif
 
 #include "netbase.h"
@@ -19,12 +19,20 @@
 
 #include <atomic>
 
+#ifdef HAVE_GETADDRINFO_A
+#include <netdb.h>
+#endif
+
 #ifndef WIN32
+#if HAVE_INET_PTON
+#include <arpa/inet.h>
+#endif
 #include <fcntl.h>
 #endif
 
 #include <boost/algorithm/string/case_conv.hpp> // for to_lower()
 #include <boost/algorithm/string/predicate.hpp> // for startswith() and endswith()
+#include <boost/thread.hpp>
 
 #if !defined(HAVE_MSG_NOSIGNAL) && !defined(MSG_NOSIGNAL)
 #define MSG_NOSIGNAL 0
@@ -40,7 +48,6 @@ bool fNameLookup = false;
 
 // Need ample time for negotiation for very slow proxies such as Tor (milliseconds)
 static const int SOCKS5_RECV_TIMEOUT = 20 * 1000;
-static std::atomic<bool> interruptSocks5Recv(false);
 
 enum Network ParseNetwork(std::string net)
 {
@@ -101,19 +108,19 @@ bool static LookupIntern(const char* pszName, std::vector<CNetAddr>& vIP, unsign
     struct in_addr ipv4_addr;
 #ifdef HAVE_INET_PTON
     if (inet_pton(AF_INET, pszName, &ipv4_addr) > 0) {
-        vIP.emplace_back(ipv4_addr);
+        vIP.push_back(CNetAddr(ipv4_addr));
         return true;
     }
 
     struct in6_addr ipv6_addr;
     if (inet_pton(AF_INET6, pszName, &ipv6_addr) > 0) {
-        vIP.emplace_back(ipv6_addr);
+        vIP.push_back(CNetAddr(ipv6_addr));
         return true;
     }
 #else
     ipv4_addr.s_addr = inet_addr(pszName);
     if (ipv4_addr.s_addr != INADDR_NONE) {
-        vIP.emplace_back(ipv4_addr);
+        vIP.push_back(CNetAddr(ipv4_addr));
         return true;
     }
 #endif
@@ -163,12 +170,12 @@ bool static LookupIntern(const char* pszName, std::vector<CNetAddr>& vIP, unsign
     while (aiTrav != NULL && (nMaxSolutions == 0 || vIP.size() < nMaxSolutions)) {
         if (aiTrav->ai_family == AF_INET) {
             assert(aiTrav->ai_addrlen >= sizeof(sockaddr_in));
-            vIP.emplace_back(((struct sockaddr_in*)(aiTrav->ai_addr))->sin_addr);
+            vIP.push_back(CNetAddr(((struct sockaddr_in*)(aiTrav->ai_addr))->sin_addr));
         }
 
         if (aiTrav->ai_family == AF_INET6) {
             assert(aiTrav->ai_addrlen >= sizeof(sockaddr_in6));
-            vIP.emplace_back(((struct sockaddr_in6*)(aiTrav->ai_addr))->sin6_addr);
+            vIP.push_back(CNetAddr(((struct sockaddr_in6*)(aiTrav->ai_addr))->sin6_addr));
         }
 
         aiTrav = aiTrav->ai_next;
@@ -258,7 +265,7 @@ enum class IntrRecvError {
 /**
  * Read bytes from socket. This will either read the full number of bytes requested
  * or return False on error or timeout.
- * This function can be interrupted by calling InterruptSocks5()
+ * This function can be interrupted by boost thread interrupt.
  *
  * @param data Buffer to receive into
  * @param len  Length of data to receive
@@ -298,8 +305,7 @@ static IntrRecvError InterruptibleRecv(char* data, size_t len, int timeout, SOCK
                 return IntrRecvError::NetworkError;
             }
         }
-        if (interruptSocks5Recv)
-            return IntrRecvError::Interrupted;
+        boost::this_thread::interruption_point();
         curTime = GetTimeMillis();
     }
     return len == 0 ? IntrRecvError::OK : IntrRecvError::Timeout;
@@ -645,8 +651,8 @@ bool ConnectSocketByName(CService& addr, SOCKET& hSocketRet, const char* pszDest
 
     SplitHostPort(std::string(pszDest), port, strDest);
 
-    proxyType proxy;
-    GetNameProxy(proxy);
+    proxyType nameProxy;
+    GetNameProxy(nameProxy);
 
     std::vector<CService> addrResolved;
     if (Lookup(strDest.c_str(), addrResolved, port, fNameLookup && !HaveNameProxy(), 256)) {
@@ -660,7 +666,7 @@ bool ConnectSocketByName(CService& addr, SOCKET& hSocketRet, const char* pszDest
 
     if (!HaveNameProxy())
         return false;
-    return ConnectThroughProxy(proxy, strDest, port, hSocketRet, nTimeout, outProxyConnectionFailed);
+    return ConnectThroughProxy(nameProxy, strDest, port, hSocketRet, nTimeout, outProxyConnectionFailed);
 }
 
 bool LookupSubNet(const char* pszName, CSubNet& ret)
@@ -767,9 +773,4 @@ bool SetSocketNonBlocking(SOCKET& hSocket, bool fNonBlocking)
     }
 
     return true;
-}
-
-void InterruptSocks5(bool interrupt)
-{
-    interruptSocks5Recv = interrupt;
 }

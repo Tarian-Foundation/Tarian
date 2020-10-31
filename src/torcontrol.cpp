@@ -1,6 +1,6 @@
 // Copyright (c) 2015-2016 The Bitcoin Core developers
 // Copyright (c) 2017 The Zcash developers
-// Copyright (c) 2017-2020 The PIVX developers
+// Copyright (c) 2017-2020 The TARIAN developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -770,10 +770,14 @@ void InterruptTorControl()
 
 void StopTorControl()
 {
-    // try_join_for() avoids the wallet not closing during a repair-restart. For a 'normal' wallet exit
+    // timed_join() avoids the wallet not closing during a repair-restart. For a 'normal' wallet exit
     // it behaves for our cases exactly like the normal join()
     if (gBase) {
+#if BOOST_VERSION >= 105000
         torControlThread.try_join_for(boost::chrono::seconds(1));
+#else
+        torControlThread.timed_join(boost::posix_time::seconds(1));
+#endif
         event_base_free(gBase);
         gBase = 0;
     }

@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2013 The PPCoin developers
 // Copyright (c) 2013-2014 The NovaCoin Developers
 // Copyright (c) 2014-2018 The BlackCoin Developers
-// Copyright (c) 2015-2020 The PIVX developers
+// Copyright (c) 2015-2020 The TARIAN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -14,8 +14,8 @@
 #include "policy/policy.h"
 #include "stakeinput.h"
 #include "utilmoneystr.h"
-#include "zpivchain.h"
-#include "zpiv/zpos.h"
+#include "ztarnchain.h"
+#include "ztarn/zpos.h"
 
 #include <boost/assign/list_of.hpp>
 
@@ -106,10 +106,10 @@ bool LoadStakeInput(const CBlock& block, const CBlockIndex* pindexPrev, std::uni
         return error("called on non PoS block");
 
     // Construct the stakeinput object
-    const CTxIn& txin = block.vtx[1]->vin[0];
+    const CTxIn& txin = block.vtx[1].vin[0];
     stake = txin.IsZerocoinSpend() ?
-            std::unique_ptr<CStakeInput>(new CLegacyZPivStake()) :
-            std::unique_ptr<CStakeInput>(new CPivStake());
+            std::unique_ptr<CStakeInput>(new CLegacyZTarnStake()) :
+            std::unique_ptr<CStakeInput>(new CTarnStake());
 
     return stake->InitFromTxIn(txin);
 }
@@ -173,7 +173,7 @@ bool CheckProofOfStake(const CBlock& block, std::string& strError, const CBlockI
     }
 
     // zPoS disabled (ContextCheck) before blocks V7, and the tx input signature is in CoinSpend
-    if (stakeInput->IsZPIV()) return true;
+    if (stakeInput->IsZTARN()) return true;
 
     // Verify tx input signature
     CTxOut stakePrevout;
@@ -181,11 +181,11 @@ bool CheckProofOfStake(const CBlock& block, std::string& strError, const CBlockI
         strError = "unable to get stake prevout for coinstake";
         return false;
     }
-    const auto& tx = block.vtx[1];
-    const CTxIn& txin = tx->vin[0];
+    const CTransaction& tx = block.vtx[1];
+    const CTxIn& txin = tx.vin[0];
     ScriptError serror;
     if (!VerifyScript(txin.scriptSig, stakePrevout.scriptPubKey, STANDARD_SCRIPT_VERIFY_FLAGS,
-             TransactionSignatureChecker(tx.get(), 0, stakePrevout.nValue), &serror)) {
+             TransactionSignatureChecker(&tx, 0), &serror)) {
         strError = strprintf("signature fails: %s", serror ? ScriptErrorString(serror) : "");
         return false;
     }

@@ -4,7 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifdef HAVE_CONFIG_H
-#include "config/pivx-config.h"
+#include "config/tarian-config.h"
 #endif
 
 #include "netaddress.h"
@@ -197,8 +197,8 @@ bool CNetAddr::IsValid() const
         return false;
 
     // unspecified IPv6 address (::/128)
-    unsigned char ipNone6[16] = {};
-    if (memcmp(ip, ipNone6, 16) == 0)
+    unsigned char ipNone[16] = {};
+    if (memcmp(ip, ipNone, 16) == 0)
         return false;
 
     // documentation IPv6 address

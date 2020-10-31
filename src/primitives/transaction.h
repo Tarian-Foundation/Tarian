@@ -1,8 +1,8 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2015-2020 The PIVX developers
+// Copyright (c) 2015-2020 The TARIAN developers
 // Distributed under the MIT software license, see the accompanying
-// file COPYING or https://www.opensource.org/licenses/mit-license.php.
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef BITCOIN_PRIMITIVES_TRANSACTION_H
 #define BITCOIN_PRIMITIVES_TRANSACTION_H
@@ -11,29 +11,21 @@
 #include "memusage.h"
 #include "script/script.h"
 #include "serialize.h"
-#include "optional.h"
 #include "uint256.h"
 
-#include "sapling/sapling_transaction.h"
-
-#include <atomic>
 #include <list>
 
 class CTransaction;
 
-// contextual flag to guard the serialization for v5 upgrade.
-// can be removed once v5 enforcement is activated.
-extern std::atomic<bool> g_IsSaplingActive;
-
 /** An outpoint - a combination of a transaction hash and an index n into its vout */
-class BaseOutPoint
+class COutPoint
 {
 public:
     uint256 hash;
     uint32_t n;
 
-    BaseOutPoint() { SetNull(); }
-    BaseOutPoint(uint256 hashIn, uint32_t nIn) { hash = hashIn; n = nIn; }
+    COutPoint() { SetNull(); }
+    COutPoint(uint256 hashIn, uint32_t nIn) { hash = hashIn; n = nIn; }
 
     ADD_SERIALIZE_METHODS;
 
@@ -46,17 +38,17 @@ public:
     void SetNull() { hash.SetNull(); n = (uint32_t) -1; }
     bool IsNull() const { return (hash.IsNull() && n == (uint32_t) -1); }
 
-    friend bool operator<(const BaseOutPoint& a, const BaseOutPoint& b)
+    friend bool operator<(const COutPoint& a, const COutPoint& b)
     {
         return (a.hash < b.hash || (a.hash == b.hash && a.n < b.n));
     }
 
-    friend bool operator==(const BaseOutPoint& a, const BaseOutPoint& b)
+    friend bool operator==(const COutPoint& a, const COutPoint& b)
     {
         return (a.hash == b.hash && a.n == b.n);
     }
 
-    friend bool operator!=(const BaseOutPoint& a, const BaseOutPoint& b)
+    friend bool operator!=(const COutPoint& a, const COutPoint& b)
     {
         return !(a == b);
     }
@@ -66,27 +58,8 @@ public:
 
     size_t DynamicMemoryUsage() const { return 0; }
 
-    uint256 GetHash() const;
+    uint256 GetHash();
 
-};
-
-/** An outpoint - a combination of a transaction hash and an index n into its vout */
-class COutPoint : public BaseOutPoint
-{
-public:
-    COutPoint() : BaseOutPoint() {};
-    COutPoint(uint256 hashIn, uint32_t nIn) : BaseOutPoint(hashIn, nIn) {};
-    std::string ToString() const;
-};
-
-/** An outpoint - a combination of a transaction hash and an index n into its sapling
- * output description (vShieldedOutput) */
-class SaplingOutPoint : public BaseOutPoint
-{
-public:
-    SaplingOutPoint() : BaseOutPoint() {};
-    SaplingOutPoint(uint256 hashIn, uint32_t nIn) : BaseOutPoint(hashIn, nIn) {};
-    std::string ToString() const;
 };
 
 /** An input of a transaction.  It contains the location of the previous
@@ -211,12 +184,13 @@ public:
         return 3 * minRelayTxFee.GetFee(nSize);
     }
 
-    bool IsDust(const CFeeRate& minRelayTxFee) const
+    bool IsDust(CFeeRate minRelayTxFee) const
     {
         return (nValue < GetDustThreshold(minRelayTxFee));
     }
 
     bool IsZerocoinMint() const;
+    CAmount GetZerocoinMinted() const;
 
     friend bool operator==(const CTxOut& a, const CTxOut& b)
     {
@@ -248,10 +222,7 @@ private:
     void UpdateHash() const;
 
 public:
-    static const int32_t STANDARD_VERSION = 1;
-    static const int32_t SAPLING_VERSION = 2;
-
-    static const int32_t CURRENT_VERSION = STANDARD_VERSION;
+    static const int32_t CURRENT_VERSION=1;
 
     // The local variables are made const to prevent unintended modification
     // without updating the cached hash value. However, CTransaction is not
@@ -262,14 +233,13 @@ public:
     std::vector<CTxIn> vin;
     std::vector<CTxOut> vout;
     const uint32_t nLockTime;
-    Optional<SaplingTxData> sapData{SaplingTxData()}; // Future: Don't initialize it by default
+    //const unsigned int nTime;
 
     /** Construct a CTransaction that qualifies as IsNull() */
     CTransaction();
 
     /** Convert a CMutableTransaction into a CTransaction. */
     CTransaction(const CMutableTransaction &tx);
-    CTransaction(CMutableTransaction &&tx);
 
     CTransaction& operator=(const CTransaction& tx);
 
@@ -281,17 +251,9 @@ public:
         READWRITE(*const_cast<std::vector<CTxIn>*>(&vin));
         READWRITE(*const_cast<std::vector<CTxOut>*>(&vout));
         READWRITE(*const_cast<uint32_t*>(&nLockTime));
-
-        if (g_IsSaplingActive && nVersion == CTransaction::SAPLING_VERSION) {
-            READWRITE(*const_cast<Optional<SaplingTxData>*>(&sapData));
-        }
-
         if (ser_action.ForRead())
             UpdateHash();
     }
-
-    template <typename Stream>
-    CTransaction(deserialize_type, Stream& s) : CTransaction(CMutableTransaction(deserialize, s)) {}
 
     bool IsNull() const {
         return vin.empty() && vout.empty();
@@ -301,32 +263,10 @@ public:
         return hash;
     }
 
-    bool hasSaplingData() const
-    {
-        return sapData != nullopt &&
-            (!sapData->vShieldedOutput.empty() ||
-            !sapData->vShieldedSpend.empty());
-    };
-
-    bool isSapling() const
-    {
-        return nVersion == SAPLING_VERSION;
-    }
-
-    /*
-     * Context for the two methods below:
-     * We can think of the Sapling shielded part of the transaction as an input
-     * or output according to whether valueBalance - the sum of shielded input
-     * values minus the sum of shielded output values - is positive or negative.
-     */
-
     // Return sum of txouts.
     CAmount GetValueOut() const;
     // GetValueIn() is a method on CCoinsViewCache, because
     // inputs must be known to compute value in.
-
-    // Return sum of (positive valueBalance or zero) and JoinSplit vpub_new
-    CAmount GetShieldedValueIn() const;
 
     // Compute priority, given priority of inputs and (optionally) tx size
     double ComputePriority(double dPriorityInputs, unsigned int nTxSize=0) const;
@@ -344,7 +284,12 @@ public:
         return HasZerocoinSpendInputs() || HasZerocoinMintOutputs();
     }
 
+    CAmount GetZerocoinMinted() const;
     CAmount GetZerocoinSpent() const;
+    int GetZerocoinMintCount() const;
+
+    bool UsesUTXO(const COutPoint out);
+    std::list<COutPoint> GetOutPoints() const;
 
     bool IsCoinBase() const
     {
@@ -379,7 +324,6 @@ struct CMutableTransaction
     std::vector<CTxIn> vin;
     std::vector<CTxOut> vout;
     uint32_t nLockTime;
-    Optional<SaplingTxData> sapData{SaplingTxData()}; // Future: Don't initialize it by default
 
     CMutableTransaction();
     CMutableTransaction(const CTransaction& tx);
@@ -392,15 +336,6 @@ struct CMutableTransaction
         READWRITE(vin);
         READWRITE(vout);
         READWRITE(nLockTime);
-
-        if (g_IsSaplingActive && nVersion == CTransaction::SAPLING_VERSION) {
-            READWRITE(*const_cast<Optional<SaplingTxData>*>(&sapData));
-        }
-    }
-
-    template <typename Stream>
-    CMutableTransaction(deserialize_type, Stream& s) {
-        Unserialize(s);
     }
 
     /** Compute the hash of this CMutableTransaction. This is computed on the
@@ -410,11 +345,5 @@ struct CMutableTransaction
 
     std::string ToString() const;
 };
-
-typedef std::shared_ptr<const CTransaction> CTransactionRef;
-static inline CTransactionRef MakeTransactionRef() { return std::make_shared<const CTransaction>(); }
-template <typename Tx> static inline CTransactionRef MakeTransactionRef(Tx&& txIn) { return std::make_shared<const CTransaction>(std::forward<Tx>(txIn)); }
-static inline CTransactionRef MakeTransactionRef(const CTransactionRef& txIn) { return txIn; }
-static inline CTransactionRef MakeTransactionRef(CTransactionRef&& txIn) { return std::move(txIn); }
 
 #endif // BITCOIN_PRIMITIVES_TRANSACTION_H

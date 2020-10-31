@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,2,2)">
+        <g id="Artboard">
+            <g id="ic-copy">
+                <g id="Group_8993" transform="matrix(1,0,0,1,3,2)">
+                    <path id="Path_18959" d="M2.5,13L0.5,13L0.5,0L10.5,0L10.5,2L2.5,2L2.5,13Z" style="fill:rgb(41,176,198);fill-rule:nonzero;"/>
+                </g>
+                <path id="Rectangle_4640" d="M0,0L20,0L20,20L0,20L0,0Z" style="fill:none;"/>
+                <g id="Group_8994" transform="matrix(1,0,0,1,6,5)">
+                    <path id="Path_18960" d="M10.5,13L0.5,13L0.5,0L10.5,0L10.5,13ZM2.5,11L8.5,11L8.5,2L2.5,2L2.5,11Z" style="fill:rgb(41,176,198);fill-rule:nonzero;"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

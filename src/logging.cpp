@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2018 The Bitcoin developers
-// Copyright (c) 2015-2020 The PIVX developers
+// Copyright (c) 2015-2020 The TARIAN developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -123,7 +123,6 @@ const CLogCategoryDesc LogCategories[] = {
         {BCLog::MASTERNODE,     "masternode"},
         {BCLog::MNBUDGET,       "mnbudget"},
         {BCLog::LEGACYZC,       "zero"},
-        {BCLog::MNPING,         "mnping"},
         {BCLog::ALL,            "1"},
         {BCLog::ALL,            "all"},
 };

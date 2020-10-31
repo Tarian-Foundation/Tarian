@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2020 The PIVX developers
+// Copyright (c) 2015-2020 The TARIAN developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -117,15 +117,22 @@ void RPCTypeCheckObj(const UniValue& o,
     }
 }
 
+static inline int64_t roundint64(double d)
+{
+    return (int64_t)(d > 0 ? d + 0.5 : d - 0.5);
+}
+
 CAmount AmountFromValue(const UniValue& value)
 {
-    if (!value.isNum() && !value.isStr())
-        throw JSONRPCError(RPC_TYPE_ERROR,"Amount is not a number or string");
-    CAmount nAmount;
-    if (!ParseFixedPoint(value.getValStr(), 8, &nAmount))
+    if (!value.isNum())
+        throw JSONRPCError(RPC_TYPE_ERROR, "Amount is not a number");
+
+    double dAmount = value.get_real();
+    if (dAmount <= 0.0 || dAmount > 21000000.0)
         throw JSONRPCError(RPC_TYPE_ERROR, "Invalid amount");
+    CAmount nAmount = roundint64(dAmount * COIN);
     if (!Params().GetConsensus().MoneyRange(nAmount))
-        throw JSONRPCError(RPC_TYPE_ERROR, "Amount out of range");
+        throw JSONRPCError(RPC_TYPE_ERROR, "Invalid amount");
     return nAmount;
 }
 
@@ -200,21 +207,23 @@ std::string CRPCTable::help(std::string strCommand) const
     std::set<rpcfn_type> setDone;
     std::vector<std::pair<std::string, const CRPCCommand*> > vCommands;
 
-    for (const auto& entry : mapCommands)
-        vCommands.emplace_back(entry.second->category + entry.first, entry.second);
+    for (std::map<std::string, const CRPCCommand*>::const_iterator mi = mapCommands.begin(); mi != mapCommands.end(); ++mi)
+        vCommands.push_back(std::make_pair(mi->second->category + mi->first, mi->second));
     std::sort(vCommands.begin(), vCommands.end());
 
-    for (const std::pair<std::string, const CRPCCommand*>& command : vCommands) {
+    for (const PAIRTYPE(std::string, const CRPCCommand*) & command : vCommands) {
         const CRPCCommand* pcmd = command.second;
         std::string strMethod = pcmd->name;
+        // We already filter duplicates, but these deprecated screw up the sort order
+        if (strMethod.find("label") != std::string::npos)
+            continue;
         if ((strCommand != "" || pcmd->category == "hidden") && strMethod != strCommand)
             continue;
         try {
-            JSONRPCRequest jreq;
-            jreq.fHelp = true;
+            UniValue params;
             rpcfn_type pfn = pcmd->actor;
             if (setDone.insert(pfn).second)
-                (*pfn)(jreq);
+                (*pfn)(params, true);
         } catch (const std::exception& e) {
             // Help text is returned in an exception
             std::string strHelp = std::string(e.what());
@@ -240,9 +249,9 @@ std::string CRPCTable::help(std::string strCommand) const
     return strRet;
 }
 
-UniValue help(const JSONRPCRequest& jsonRequest)
+UniValue help(const UniValue& params, bool fHelp)
 {
-    if (jsonRequest.fHelp || jsonRequest.params.size() > 1)
+    if (fHelp || params.size() > 1)
         throw std::runtime_error(
             "help ( \"command\" )\n"
             "\nList all commands, or get help for a specified command.\n"
@@ -252,24 +261,24 @@ UniValue help(const JSONRPCRequest& jsonRequest)
             "\"text\"     (string) The help text\n");
 
     std::string strCommand;
-    if (jsonRequest.params.size() > 0)
-        strCommand = jsonRequest.params[0].get_str();
+    if (params.size() > 0)
+        strCommand = params[0].get_str();
 
     return tableRPC.help(strCommand);
 }
 
 
-UniValue stop(const JSONRPCRequest& jsonRequest)
+UniValue stop(const UniValue& params, bool fHelp)
 {
     // Accept the deprecated and ignored 'detach' boolean argument
-    if (jsonRequest.fHelp || jsonRequest.params.size() > 1)
+    if (fHelp || params.size() > 1)
         throw std::runtime_error(
             "stop\n"
-            "\nStop PIVX server.");
+            "\nStop TARIAN server.");
     // Event loop will exit after current HTTP requests have been handled, so
     // this reply will get back to the client.
     StartShutdown();
-    return "PIVX server stopping";
+    return "TARIAN server stopping";
 }
 
 
@@ -349,42 +358,44 @@ static const CRPCCommand vRPCCommands[] =
         {"util", "validateaddress", &validateaddress, true }, /* uses wallet if enabled */
         {"util", "verifymessage", &verifymessage, true },
         {"util", "estimatefee", &estimatefee, true },
-        { "util","estimatesmartfee",       &estimatesmartfee,       true  },
+        {"util", "estimatepriority", &estimatepriority, true },
 
-                /* Not shown in help */
-        {"hidden", "invalidateblock", &invalidateblock, true },
-        {"hidden", "reconsiderblock", &reconsiderblock, true },
-        {"hidden", "setmocktime", &setmocktime, true },
+        /* Not shown in help */
+        {"hidden",              "invalidateblock",        &invalidateblock,        true },
+        {"hidden",              "reconsiderblock",        &reconsiderblock,        true },
+        {"hidden",              "setmocktime",            &setmocktime,            true },
         { "hidden",             "waitfornewblock",        &waitfornewblock,        true },
         { "hidden",             "waitforblock",           &waitforblock,           true },
         { "hidden",             "waitforblockheight",     &waitforblockheight,     true },
+        { "hidden",             "makekeypair",            &makekeypair,            true },
 
-        /* PIVX features */
-        {"pivx", "listmasternodes", &listmasternodes, true },
-        {"pivx", "getmasternodecount", &getmasternodecount, true },
-        {"pivx", "createmasternodebroadcast", &createmasternodebroadcast, true },
-        {"pivx", "decodemasternodebroadcast", &decodemasternodebroadcast, true },
-        {"pivx", "relaymasternodebroadcast", &relaymasternodebroadcast, true },
-        {"pivx", "masternodecurrent", &masternodecurrent, true },
-        {"pivx", "startmasternode", &startmasternode, true },
-        {"pivx", "createmasternodekey", &createmasternodekey, true },
-        {"pivx", "getmasternodeoutputs", &getmasternodeoutputs, true },
-        {"pivx", "listmasternodeconf", &listmasternodeconf, true },
-        {"pivx", "getmasternodestatus", &getmasternodestatus, true },
-        {"pivx", "getmasternodewinners", &getmasternodewinners, true },
-        {"pivx", "getmasternodescores", &getmasternodescores, true },
-        {"pivx", "preparebudget", &preparebudget, true },
-        {"pivx", "submitbudget", &submitbudget, true },
-        {"pivx", "mnbudgetvote", &mnbudgetvote, true },
-        {"pivx", "getbudgetvotes", &getbudgetvotes, true },
-        {"pivx", "getnextsuperblock", &getnextsuperblock, true },
-        {"pivx", "getbudgetprojection", &getbudgetprojection, true },
-        {"pivx", "getbudgetinfo", &getbudgetinfo, true },
-        {"pivx", "mnbudgetrawvote", &mnbudgetrawvote, true },
-        {"pivx", "mnfinalbudget", &mnfinalbudget, true },
-        {"pivx", "checkbudgets", &checkbudgets, true },
-        {"pivx", "mnsync", &mnsync, true },
-        {"pivx", "spork", &spork, true },
+        /* TARIAN features */
+        {"tarian", "listmasternodes", &listmasternodes, true },
+        {"tarian", "getmasternodecount", &getmasternodecount, true },
+        {"tarian", "createmasternodebroadcast", &createmasternodebroadcast, true },
+        {"tarian", "decodemasternodebroadcast", &decodemasternodebroadcast, true },
+        {"tarian", "relaymasternodebroadcast", &relaymasternodebroadcast, true },
+        {"tarian", "masternodecurrent", &masternodecurrent, true },
+        {"tarian", "masternodedebug", &masternodedebug, true },
+        {"tarian", "startmasternode", &startmasternode, true },
+        {"tarian", "createmasternodekey", &createmasternodekey, true },
+        {"tarian", "getmasternodeoutputs", &getmasternodeoutputs, true },
+        {"tarian", "listmasternodeconf", &listmasternodeconf, true },
+        {"tarian", "getmasternodestatus", &getmasternodestatus, true },
+        {"tarian", "getmasternodewinners", &getmasternodewinners, true },
+        {"tarian", "getmasternodescores", &getmasternodescores, true },
+        {"tarian", "preparebudget", &preparebudget, true },
+        {"tarian", "submitbudget", &submitbudget, true },
+        {"tarian", "mnbudgetvote", &mnbudgetvote, true },
+        {"tarian", "getbudgetvotes", &getbudgetvotes, true },
+        {"tarian", "getnextsuperblock", &getnextsuperblock, true },
+        {"tarian", "getbudgetprojection", &getbudgetprojection, true },
+        {"tarian", "getbudgetinfo", &getbudgetinfo, true },
+        {"tarian", "mnbudgetrawvote", &mnbudgetrawvote, true },
+        {"tarian", "mnfinalbudget", &mnfinalbudget, true },
+        {"tarian", "checkbudgets", &checkbudgets, true },
+        {"tarian", "mnsync", &mnsync, true },
+        {"tarian", "spork", &spork, true },
 
 #ifdef ENABLE_WALLET
         /* Wallet */
@@ -409,11 +420,11 @@ static const CRPCCommand vRPCCommands[] =
         {"zerocoin", "exportzerocoins", &exportzerocoins, false },
         {"zerocoin", "reconsiderzerocoins", &reconsiderzerocoins, false },
         {"zerocoin", "getspentzerocoinamount", &getspentzerocoinamount, false },
-        {"zerocoin", "getzpivseed", &getzpivseed, false },
-        {"zerocoin", "setzpivseed", &setzpivseed, false },
+        {"zerocoin", "getztarnseed", &getztarnseed, false },
+        {"zerocoin", "setztarnseed", &setztarnseed, false },
         {"zerocoin", "generatemintlist", &generatemintlist, false },
-        {"zerocoin", "searchdzpiv", &searchdzpiv, false },
-        {"zerocoin", "dzpivstate", &dzpivstate, false },
+        {"zerocoin", "searchdztarn", &searchdztarn, false },
+        {"zerocoin", "dztarnstate", &dztarnstate, false },
 
 #endif // ENABLE_WALLET
 };
@@ -499,7 +510,7 @@ bool RPCIsInWarmup(std::string* outStatus)
     return fRPCInWarmup;
 }
 
-void JSONRPCRequest::parse(const UniValue& valRequest)
+void JSONRequest::parse(const UniValue& valRequest)
 {
     // Parse request
     if (!valRequest.isObject())
@@ -529,22 +540,16 @@ void JSONRPCRequest::parse(const UniValue& valRequest)
         throw JSONRPCError(RPC_INVALID_REQUEST, "Params must be an array");
 }
 
-bool IsDeprecatedRPCEnabled(const std::string& method)
-{
-    const std::vector<std::string> enabled_methods = mapMultiArgs["-deprecatedrpc"];
-
-    return find(enabled_methods.begin(), enabled_methods.end(), method) != enabled_methods.end();
-}
 
 static UniValue JSONRPCExecOne(const UniValue& req)
 {
     UniValue rpc_result(UniValue::VOBJ);
 
-    JSONRPCRequest jreq;
+    JSONRequest jreq;
     try {
         jreq.parse(req);
 
-        UniValue result = tableRPC.execute(jreq);
+        UniValue result = tableRPC.execute(jreq.strMethod, jreq.params);
         rpc_result = JSONRPCReplyObj(result, NullUniValue, jreq.id);
     } catch (const UniValue& objError) {
         rpc_result = JSONRPCReplyObj(NullUniValue, objError, jreq.id);
@@ -565,10 +570,10 @@ std::string JSONRPCExecBatch(const UniValue& vReq)
     return ret.write() + "\n";
 }
 
-UniValue CRPCTable::execute(const JSONRPCRequest &request) const
+UniValue CRPCTable::execute(const std::string &strMethod, const UniValue &params) const
 {
     // Find method
-    const CRPCCommand* pcmd = tableRPC[request.strMethod];
+    const CRPCCommand* pcmd = tableRPC[strMethod];
     if (!pcmd)
         throw JSONRPCError(RPC_METHOD_NOT_FOUND, "Method not found");
 
@@ -576,7 +581,7 @@ UniValue CRPCTable::execute(const JSONRPCRequest &request) const
 
     try {
         // Execute
-        return pcmd->actor(request);
+        return pcmd->actor(params, false);
     } catch (const std::exception& e) {
         throw JSONRPCError(RPC_MISC_ERROR, e.what());
     }
@@ -597,14 +602,14 @@ std::vector<std::string> CRPCTable::listCommands() const
 
 std::string HelpExampleCli(std::string methodname, std::string args)
 {
-    return "> pivx-cli " + methodname + " " + args + "\n";
+    return "> tarian-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(std::string methodname, std::string args)
 {
     return "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", "
            "\"method\": \"" +
-           methodname + "\", \"params\": [" + args + "] }' -H 'content-type: text/plain;' http://127.0.0.1:51473/\n";
+           methodname + "\", \"params\": [" + args + "] }' -H 'content-type: text/plain;' http://127.0.0.1:54445/\n";
 }
 
 void RPCSetTimerInterfaceIfUnset(RPCTimerInterface *iface)
@@ -630,7 +635,7 @@ void RPCRunLater(const std::string& name, std::function<void(void)> func, int64_
         throw JSONRPCError(RPC_INTERNAL_ERROR, "No timer handler registered for RPC");
     deadlineTimers.erase(name);
     LogPrint(BCLog::RPC, "queue run of timer %s in %i seconds (using %s)\n", name, nSeconds, timerInterface->Name());
-    deadlineTimers.emplace(name, boost::shared_ptr<RPCTimerBase>(timerInterface->NewTimer(func, nSeconds*1000)));
+    deadlineTimers.insert(std::make_pair(name, boost::shared_ptr<RPCTimerBase>(timerInterface->NewTimer(func, nSeconds*1000))));
 }
 
 CRPCTable tableRPC;

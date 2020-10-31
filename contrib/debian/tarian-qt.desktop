@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=TARIAN Core
+Comment=TARIAN P2P Cryptocurrency
+Comment[fr]=TARIAN, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=TARIAN, eşten eşe kriptografik sanal para birimi
+Exec=tarian-qt %u
+Terminal=false
+Type=Application
+Icon=tarian128
+MimeType=x-scheme-handler/tarian;
+Categories=Office;Finance;
+StartupWMClass=Tarian-qt

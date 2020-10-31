@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2017-2020 The PIVX developers
+// Copyright (c) 2017-2020 The TARIAN developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -248,8 +248,8 @@ bool ExtractDestinations(const CScript& scriptPubKey, txnouttype& typeRet, std::
         if (vSolutions.size() < 2)
             return false;
         nRequiredRet = 2;
-        addressRet.emplace_back(uint160(vSolutions[0]));
-        addressRet.emplace_back(uint160(vSolutions[1]));
+        addressRet.push_back(CKeyID(uint160(vSolutions[0])));
+        addressRet.push_back(CKeyID(uint160(vSolutions[1])));
         return true;
 
     } else

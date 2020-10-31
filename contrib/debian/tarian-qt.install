@@ -1,0 +1,6 @@
+usr/local/bin/tarian-qt usr/bin
+share/pixmaps/tarian32.xpm usr/share/pixmaps
+share/pixmaps/tarian16.xpm usr/share/pixmaps
+share/pixmaps/tarian128.png usr/share/pixmaps
+debian/tarian-qt.desktop usr/share/applications
+debian/tarian-qt.protocol usr/share/kde4/services/

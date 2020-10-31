@@ -1,5 +1,5 @@
 // Copyright (c) 2013 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The PIVX developers
+// Copyright (c) 2017-2020 The TARIAN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,7 +12,7 @@
 #include "script/interpreter.h"
 #include "util.h"
 #include "version.h"
-#include "test_pivx.h"
+#include "test_tarian.h"
 
 #include <iostream>
 
@@ -100,7 +100,7 @@ void static RandomTransaction(CMutableTransaction &tx, bool fSingle) {
     int ins = (InsecureRandBits(2)) + 1;
     int outs = fSingle ? ins : (InsecureRandBits(2)) + 1;
     for (int in = 0; in < ins; in++) {
-        tx.vin.emplace_back();
+        tx.vin.push_back(CTxIn());
         CTxIn &txin = tx.vin.back();
         txin.prevout.hash = InsecureRand256();
         txin.prevout.n = InsecureRandBits(2);
@@ -108,7 +108,7 @@ void static RandomTransaction(CMutableTransaction &tx, bool fSingle) {
         txin.nSequence = (InsecureRandBool()) ? InsecureRand32() : (unsigned int)-1;
     }
     for (int out = 0; out < outs; out++) {
-        tx.vout.emplace_back();
+        tx.vout.push_back(CTxOut());
         CTxOut &txout = tx.vout.back();
         txout.nValue = InsecureRandRange(100000000);
         RandomScript(txout.scriptPubKey);
@@ -140,7 +140,7 @@ BOOST_AUTO_TEST_CASE(sighash_test)
 
         uint256 sh, sho;
         sho = SignatureHashOld(scriptCode, txTo, nIn, nHashType);
-        sh = SignatureHash(scriptCode, txTo, nIn, nHashType, 0, SIGVERSION_BASE);
+        sh = SignatureHash(scriptCode, txTo, nIn, nHashType);
         #if defined(PRINT_SIGHASH_JSON)
         CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
         ss << txTo;
@@ -207,7 +207,7 @@ BOOST_AUTO_TEST_CASE(sighash_from_data)
           continue;
         }
 
-        sh = SignatureHash(scriptCode, tx, nIn, nHashType, 0, SIGVERSION_BASE);
+        sh = SignatureHash(scriptCode, tx, nIn, nHashType);
         BOOST_CHECK_MESSAGE(sh.GetHex() == sigHashHex, strTest);
     }
 }

@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2019-2020 The PIVX developers
+// Copyright (c) 2019-2020 The TARIAN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -21,6 +21,9 @@
 #include <boost/thread.hpp>
 #include <boost/version.hpp>
 
+
+
+unsigned int nWalletDBUpdated;
 
 
 //
@@ -81,7 +84,7 @@ bool CDBEnv::Open(const fs::path& pathIn)
     LogPrintf("CDBEnv::Open: LogDir=%s ErrorFile=%s\n", pathLogDir.string(), pathErrorFile.string());
 
     unsigned int nEnvFlags = 0;
-    if (GetBoolArg("-privdb", DEFAULT_WALLET_PRIVDB))
+    if (GetBoolArg("-privdb", true))
         nEnvFlags |= DB_PRIVATE;
 
     dbenv->set_lg_dir(pathLogDir.string().c_str());
@@ -203,7 +206,7 @@ bool CDBEnv::Salvage(std::string strFile, bool fAggressive, std::vector<CDBEnv::
         getline(strDump, keyHex);
         if (keyHex != "DATA=END") {
             getline(strDump, valueHex);
-            vResult.emplace_back(ParseHex(keyHex), ParseHex(valueHex));
+            vResult.push_back(std::make_pair(ParseHex(keyHex), ParseHex(valueHex)));
         }
     }
 

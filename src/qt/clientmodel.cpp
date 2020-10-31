@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2020 The PIVX developers
+// Copyright (c) 2015-2020 The TARIAN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -49,6 +49,8 @@ ClientModel::ClientModel(OptionsModel* optionsModel, QObject* parent) : QObject(
 
     pollMnTimer = new QTimer(this);
     connect(pollMnTimer, &QTimer::timeout, this, &ClientModel::updateMnTimer);
+    // no need to update as frequent as data for balances/txes/blocks
+    pollMnTimer->start(MODEL_UPDATE_DELAY * 40);
 
     subscribeToCoreSignals();
 }
@@ -60,18 +62,16 @@ ClientModel::~ClientModel()
 
 int ClientModel::getNumConnections(unsigned int flags) const
 {
-    CConnman::NumConnections connections = CConnman::CONNECTIONS_NONE;
+    LOCK(cs_vNodes);
+    if (flags == CONNECTIONS_ALL) // Shortcut if we want total
+        return vNodes.size();
 
-    if(flags == CONNECTIONS_IN)
-        connections = CConnman::CONNECTIONS_IN;
-    else if (flags == CONNECTIONS_OUT)
-        connections = CConnman::CONNECTIONS_OUT;
-    else if (flags == CONNECTIONS_ALL)
-        connections = CConnman::CONNECTIONS_ALL;
+    int nNum = 0;
+    for (CNode* pnode : vNodes)
+        if (flags & (pnode->fInbound ? CONNECTIONS_IN : CONNECTIONS_OUT))
+            nNum++;
 
-    if (g_connman)
-         return g_connman->GetNodeCount(connections);
-    return 0;
+    return nNum;
 }
 
 QString ClientModel::getMasternodeCountString() const
@@ -100,16 +100,12 @@ int ClientModel::getNumBlocksAtStartup()
 
 quint64 ClientModel::getTotalBytesRecv() const
 {
-    if(!g_connman)
-        return 0;
-    return g_connman->GetTotalBytesRecv();
+    return CNode::GetTotalBytesRecv();
 }
 
 quint64 ClientModel::getTotalBytesSent() const
 {
-    if(!g_connman)
-        return 0;
-    return g_connman->GetTotalBytesSent();
+    return CNode::GetTotalBytesSent();
 }
 
 QDateTime ClientModel::getLastBlockDate() const
@@ -151,21 +147,6 @@ void ClientModel::updateMnTimer()
         cachedMasternodeCountString = newMasternodeCountString;
 
         Q_EMIT strMasternodesChanged(cachedMasternodeCountString);
-    }
-}
-
-void ClientModel::startMasternodesTimer()
-{
-    if (!pollMnTimer->isActive()) {
-        // no need to update as frequent as data for balances/txes/blocks
-        pollMnTimer->start(MODEL_UPDATE_DELAY * 40);
-    }
-}
-
-void ClientModel::stopMasternodesTimer()
-{
-    if (pollMnTimer->isActive()) {
-        pollMnTimer->stop();
     }
 }
 

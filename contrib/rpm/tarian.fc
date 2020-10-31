@@ -1,0 +1,8 @@
+/usr/bin/tarian-cli		--	gen_context(system_u:object_r:tarian_exec_t,s0)
+/usr/sbin/tariand		--	gen_context(system_u:object_r:tarian_exec_t,s0)
+/usr/lib(64)?/tarian/tariand		--	gen_context(system_u:object_r:tarian_exec_t,s0)
+
+/etc/tarian(/.*)?		gen_context(system_u:object_r:tarian_conf_t,s0)
+/var/lib/tarian(/.*)?		gen_context(system_u:object_r:tarian_var_lib_t,s0)
+
+(/var)?/run/tariand(/.*)?   gen_context(system_u:object_r:tarian_var_run_t,s0)

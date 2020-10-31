@@ -1,5 +1,5 @@
 // Copyright (c) 2012-2013 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The PIVX developers
+// Copyright (c) 2017-2020 The TARIAN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,7 +9,7 @@
 #include "uint256.h"
 #include "version.h"
 #include "consensus/merkle.h"
-#include "test/test_pivx.h"
+#include "test/test_tarian.h"
 
 #include <vector>
 
@@ -42,14 +42,14 @@ BOOST_AUTO_TEST_CASE(pmt_test1)
         for (unsigned int j=0; j<nTx; j++) {
             CMutableTransaction tx;
             tx.nLockTime = rand(); // actual transaction data doesn't matter; just make the nLockTime's unique
-            block.vtx.emplace_back(std::make_shared<const CTransaction>(tx));
+            block.vtx.push_back(CTransaction(tx));
         }
 
         // calculate actual merkle root and height
         uint256 merkleRoot1 = BlockMerkleRoot(block);
         std::vector<uint256> vTxid(nTx, UINT256_ZERO);
         for (unsigned int j=0; j<nTx; j++)
-            vTxid[j] = block.vtx[j]->GetHash();
+            vTxid[j] = block.vtx[j].GetHash();
         int nHeight = 1, nTx_ = nTx;
         while (nTx_ > 1) {
             nTx_ = (nTx_+1)/2;

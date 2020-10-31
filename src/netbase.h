@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2015 The Bitcoin developers
-// Copyright (c) 2017-2019 The PIVX developers
+// Copyright (c) 2017-2019 The TARIAN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,7 +7,7 @@
 #define BITCOIN_NETBASE_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/pivx-config.h"
+#include "config/tarian-config.h"
 #endif
 
 #include "compat.h"
@@ -30,7 +30,7 @@ class proxyType
 {
 public:
     proxyType(): randomize_credentials(false) {}
-    proxyType(const CService &_proxy, bool _randomize_credentials=false): proxy(_proxy), randomize_credentials(_randomize_credentials) {}
+    proxyType(const CService &proxy, bool randomize_credentials=false): proxy(proxy), randomize_credentials(randomize_credentials) {}
 
     bool IsValid() const { return proxy.IsValid(); }
 
@@ -64,6 +64,5 @@ bool SetSocketNonBlocking(SOCKET& hSocket, bool fNonBlocking);
  * Convert milliseconds to a struct timeval for e.g. select.
  */
 struct timeval MillisToTimeval(int64_t nTimeout);
-void InterruptSocks5(bool interrupt);
 
 #endif // BITCOIN_NETBASE_H

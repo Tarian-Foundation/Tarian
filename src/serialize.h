@@ -1,20 +1,17 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2015-2019 The PIVX developers
+// Copyright (c) 2015-2019 The TARIAN developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_SERIALIZE_H
-#define PIVX_SERIALIZE_H
+#ifndef TARIAN_SERIALIZE_H
+#define TARIAN_SERIALIZE_H
 
 #include <algorithm>
-#include <array>
 #include <assert.h>
 #include <ios>
 #include <limits>
-#include <list>
 #include <map>
-#include <memory>
 #include <set>
 #include <stdint.h>
 #include <string.h>
@@ -25,27 +22,11 @@
 #include "compat/endian.h"
 #include "libzerocoin/Denominations.h"
 #include "libzerocoin/SpendType.h"
-#include "optional.h"
 #include "prevector.h"
 #include "sporkid.h"
 
-class CScript;
 
 static const unsigned int MAX_SIZE = 0x02000000;
-
-/**
- * Dummy data type to identify deserializing constructors.
- *
- * By convention, a constructor of a type T with signature
- *
- *   template <typename Stream> T::T(deserialize_type, Stream& s)
- *
- * is a deserializing constructor, which builds the type by
- * deserializing it from s. If T contains const fields, this
- * is likely the only way to do so.
- */
-struct deserialize_type {};
-constexpr deserialize_type deserialize {};
 
 /**
  * Used to bypass the rule against non-const reference to temporary
@@ -184,7 +165,6 @@ enum {
 };
 
 #define READWRITE(obj) (::SerReadWrite(s, (obj), ser_action))
-#define READWRITEMANY(...)      (::SerReadWriteMany(s, ser_action, __VA_ARGS__))
 
 /**
  * Implement three methods for serializable objects. These are actually wrappers over
@@ -571,94 +551,6 @@ template<typename Stream, typename T, typename A, typename V> void Unserialize_i
 template<typename Stream, typename T, typename A> inline void Unserialize(Stream& is, std::vector<T, A>& v);
 
 /**
- * array
- */
-template<typename T, std::size_t N> unsigned int GetSerializeSize(const std::array<T, N> &item);
-template<typename Stream, typename T, std::size_t N> void Serialize(Stream& os, const std::array<T, N>& item);
-template<typename Stream, typename T, std::size_t N> void Unserialize(Stream& is, std::array<T, N>& item);
-
-/**
- * optional
- */
-template<typename T> unsigned int GetSerializeSize(const Optional<T> &item);
-template<typename Stream, typename T> void Serialize(Stream& os, const Optional<T>& item);
-template<typename Stream, typename T> void Unserialize(Stream& is, Optional<T>& item);
-
-/**
- * array
- */
-template<typename T, std::size_t N>
-unsigned int GetSerializeSize(const std::array<T, N> &item)
-{
-    unsigned int size = 0;
-    for (size_t i = 0; i < N; i++) {
-        size += GetSerializeSize(item[0]);
-    }
-    return size;
-}
-
-/**
-  * optional
-  */
-template<typename T>
-unsigned int GetSerializeSize(const Optional<T> &item)
-{
-    if (item) {
-        return 1 + GetSerializeSize(*item);
-    } else {
-        return 1;
-    }
-}
-
-template<typename Stream, typename T>
-void Serialize(Stream& os, const Optional<T>& item)
-{
-    // If the value is there, put 0x01 and then serialize the value.
-    // If it's not, put 0x00.
-    if (item) {
-        unsigned char discriminant = 0x01;
-        Serialize(os, discriminant);
-        Serialize(os, *item);
-    } else {
-        unsigned char discriminant = 0x00;
-        Serialize(os, discriminant);
-    }
-}
-
-template<typename Stream, typename T>
-void Unserialize(Stream& is, Optional<T>& item)
-{
-    unsigned char discriminant = 0x00;
-    Unserialize(is, discriminant);
-
-    if (discriminant == 0x00) {
-        item = boost::none;
-    } else {
-        T object;
-        Unserialize(is, object);
-        item = object;
-    }
-}
-
-
-template<typename Stream, typename T, std::size_t N>
-void Serialize(Stream& os, const std::array<T, N>& item)
-{
-    for (size_t i = 0; i < N; i++) {
-        Serialize(os, item[i]);
-    }
-}
-
-template<typename Stream, typename T, std::size_t N>
-void Unserialize(Stream& is, std::array<T, N>& item)
-{
-    for (size_t i = 0; i < N; i++) {
-        Unserialize(is, item[i]);
-    }
-}
-
-
-/**
  * pair
  */
 template<typename Stream, typename K, typename T> void Serialize(Stream& os, const std::pair<K, T>& item);
@@ -675,19 +567,6 @@ template<typename Stream, typename K, typename T, typename Pred, typename A> voi
  */
 template<typename Stream, typename K, typename Pred, typename A> void Serialize(Stream& os, const std::set<K, Pred, A>& m);
 template<typename Stream, typename K, typename Pred, typename A> void Unserialize(Stream& is, std::set<K, Pred, A>& m);
-
-/**
- * shared_ptr
- */
-template<typename Stream, typename T> void Serialize(Stream& os, const std::shared_ptr<const T>& p);
-template<typename Stream, typename T> void Unserialize(Stream& os, std::shared_ptr<const T>& p);
-
-/**
- * unique_ptr
- */
-template<typename Stream, typename T> void Serialize(Stream& os, const std::unique_ptr<const T>& p);
-template<typename Stream, typename T> void Unserialize(Stream& os, std::unique_ptr<const T>& p);
-
 
 
 /**
@@ -726,43 +605,6 @@ void Unserialize(Stream& is, std::basic_string<C>& str)
         is.read((char*)&str[0], nSize * sizeof(str[0]));
 }
 
-/**
-  * list
-  */
-template<typename T, typename A> unsigned int GetSerializeSize(const std::list<T, A>& m, int nType, int nVersion);
-template<typename Stream, typename T, typename A> void Serialize(Stream& os, const std::list<T, A>& m, int nType, int nVersion);
-template<typename Stream, typename T, typename A> void Unserialize(Stream& is, std::list<T, A>& m, int nType, int nVersion);
-
-template<typename T, typename A>
-unsigned int GetSerializeSize(const std::list<T, A>& l, int nType, int nVersion)
-{
-    unsigned int nSize = GetSizeOfCompactSize(l.size());
-    for (typename std::list<T, A>::const_iterator it = l.begin(); it != l.end(); ++it)
-        nSize += GetSerializeSize((*it), nType, nVersion);
-    return nSize;
-}
-
-template<typename Stream, typename T, typename A>
-void Serialize(Stream& os, const std::list<T, A>& l, int nType, int nVersion)
-{
-    WriteCompactSize(os, l.size());
-    for (typename std::list<T, A>::const_iterator it = l.begin(); it != l.end(); ++it)
-        Serialize(os, (*it), nType, nVersion);
-}
-
-template<typename Stream, typename T, typename A>
-void Unserialize(Stream& is, std::list<T, A>& l, int nType, int nVersion)
-{
-    l.clear();
-    unsigned int nSize = ReadCompactSize(is);
-    typename std::list<T, A>::iterator it = l.begin();
-    for (unsigned int i = 0; i < nSize; i++)
-    {
-        T item;
-        Unserialize(is, item, nType, nVersion);
-        l.push_back(item);
-    }
-}
 
 
 /**
@@ -967,41 +809,6 @@ void Unserialize(Stream& is, std::set<K, Pred, A>& m)
 }
 
 
-
-/**
- * unique_ptr
- */
-template<typename Stream, typename T> void
-Serialize(Stream& os, const std::unique_ptr<const T>& p)
-{
-    Serialize(os, *p);
-}
-
-template<typename Stream, typename T>
-void Unserialize(Stream& is, std::unique_ptr<const T>& p)
-{
-    p.reset(new T(deserialize, is));
-}
-
-
-
-/**
- * shared_ptr
- */
-template<typename Stream, typename T> void
-Serialize(Stream& os, const std::shared_ptr<const T>& p)
-{
-    Serialize(os, *p);
-}
-
-template<typename Stream, typename T>
-void Unserialize(Stream& is, std::shared_ptr<const T>& p)
-{
-    p = std::make_shared<const T>(deserialize, is);
-}
-
-
-
 /**
  * Support for ADD_SERIALIZE_METHODS and READWRITE macro
  */
@@ -1075,54 +882,6 @@ public:
     int GetType() const { return nType; }
 };
 
-template<typename Stream>
-void SerializeMany(Stream& s)
-{
-}
-
-template<typename Stream, typename Arg>
-void SerializeMany(Stream& s, Arg&& arg)
-{
-    ::Serialize(s, std::forward<Arg>(arg));
-}
-
-template<typename Stream, typename Arg, typename... Args>
-void SerializeMany(Stream& s, Arg&& arg, Args&&... args)
-{
-    ::Serialize(s, std::forward<Arg>(arg));
-    ::SerializeMany(s, std::forward<Args>(args)...);
-}
-
-template<typename Stream>
-inline void UnserializeMany(Stream& s)
-{
-}
-
-template<typename Stream, typename Arg>
-inline void UnserializeMany(Stream& s, Arg& arg)
-{
-    ::Unserialize(s, arg);
-}
-
-template<typename Stream, typename Arg, typename... Args>
-inline void UnserializeMany(Stream& s, Arg& arg, Args&... args)
-{
-    ::Unserialize(s, arg);
-    ::UnserializeMany(s, args...);
-}
-
-template<typename Stream, typename... Args>
-inline void SerReadWriteMany(Stream& s, CSerActionSerialize ser_action, Args&&... args)
-{
-    ::SerializeMany(s, std::forward<Args>(args)...);
-}
-
-template<typename Stream, typename... Args>
-inline void SerReadWriteMany(Stream& s, CSerActionUnserialize ser_action, Args&... args)
-{
-    ::UnserializeMany(s, args...);
-}
-
 template<typename I>
 inline void WriteVarInt(CSizeComputer &s, I n)
 {
@@ -1146,4 +905,4 @@ size_t GetSerializeSize(const S& s, const T& t)
     return (CSizeComputer(s.GetType(), s.GetVersion()) << t).size();
 }
 
-#endif // PIVX_SERIALIZE_H
+#endif // TARIAN_SERIALIZE_H

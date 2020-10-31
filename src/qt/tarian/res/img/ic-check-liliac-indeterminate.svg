@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 92 92" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Page-1">
+        <g id="ic-check-active">
+            <g id="Group_8199">
+                <path id="check_on_light" d="M81.483,0L10.183,0C4.567,0.018 0.018,4.567 0,10.183L0,81.483C0.018,87.1 4.567,91.648 10.183,91.667L81.483,91.667C87.1,91.648 91.648,87.1 91.667,81.483L91.667,10.183C91.648,4.567 87.1,0.018 81.483,0ZM12.5,41.667L79.167,41.667L79.167,54.167L12.5,54.167L12.5,41.667Z" style="fill:rgb(73,231,249);"/>
+            </g>
+            <rect id="Rectangle_4538" x="-4.167" y="-4.167" width="100" height="100" style="fill:none;"/>
+        </g>
+    </g>
+</svg>

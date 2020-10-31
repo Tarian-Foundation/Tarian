@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2013 The Bitcoin developers
-// Copyright (c) 2015-2020 The PIVX developers
+// Copyright (c) 2015-2020 The TARIAN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -82,12 +82,13 @@ class CBlock : public CBlockHeader
 {
 public:
     // network and disk
-    std::vector<CTransactionRef> vtx;
+    std::vector<CTransaction> vtx;
 
     // ppcoin: block signature - signed by one of the coin base txout[N]'s owner
     std::vector<unsigned char> vchBlockSig;
 
     // memory only
+    mutable CScript payee;
     mutable bool fChecked;
 
     CBlock()
@@ -107,8 +108,8 @@ public:
     inline void SerializationOp(Stream& s, Operation ser_action) {
         READWRITE(*(CBlockHeader*)this);
         READWRITE(vtx);
-        if(vtx.size() > 1 && vtx[1]->IsCoinStake())
-            READWRITE(vchBlockSig);
+	if(vtx.size() > 1 && vtx[1].IsCoinStake())
+		READWRITE(vchBlockSig);
     }
 
     void SetNull()
@@ -116,6 +117,7 @@ public:
         CBlockHeader::SetNull();
         vtx.clear();
         fChecked = false;
+        payee = CScript();
         vchBlockSig.clear();
     }
 
@@ -135,12 +137,19 @@ public:
 
     bool IsProofOfStake() const
     {
-        return (vtx.size() > 1 && vtx[1]->IsCoinStake());
+        return (vtx.size() > 1 && vtx[1].IsCoinStake());
     }
 
     bool IsProofOfWork() const
     {
         return !IsProofOfStake();
+    }
+
+    bool IsZerocoinStake() const;
+
+    std::pair<COutPoint, unsigned int> GetProofOfStake() const
+    {
+        return IsProofOfStake()? std::make_pair(vtx[1].vin[0].prevout, nTime) : std::make_pair(COutPoint(), (unsigned int)0);
     }
 
     std::string ToString() const;

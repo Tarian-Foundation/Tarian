@@ -1,5 +1,5 @@
 // Copyright (c) 2013 The Bitcoin Core developers
-// Copyright (c) 2019-2020 The PIVX developers
+// Copyright (c) 2019-2020 The TARIAN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -27,7 +27,7 @@ struct TestVector {
     TestVector(std::string strHexMasterIn) : strHexMaster(strHexMasterIn) {}
 
     TestVector& operator()(std::string pub, std::string prv, unsigned int nChild) {
-        vDerive.emplace_back();
+        vDerive.push_back(TestDerivation());
         TestDerivation &der = vDerive.back();
         der.pub = pub;
         der.prv = prv;

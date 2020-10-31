@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2019 The PIVX developers
+// Copyright (c) 2015-2019 The TARIAN developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -19,7 +19,7 @@
 
 
 /**
- * JSON-RPC protocol.  PIVX speaks version 1.0 for maximum compatibility,
+ * JSON-RPC protocol.  TARIAN speaks version 1.0 for maximum compatibility,
  * but uses JSON-RPC 1.1/2.0 standards for parts of the 1.0 standard that were
  * unspecified (HTTP errors and contents of 'error').
  *
@@ -28,24 +28,24 @@
  * http://www.codeproject.com/KB/recipes/JSON_Spirit.aspx
  */
 
-UniValue JSONRPCRequestObj(const std::string& strMethod, const UniValue& params, const UniValue& id)
+std::string JSONRPCRequest(const std::string& strMethod, const UniValue& params, const UniValue& id)
 {
     UniValue request(UniValue::VOBJ);
-    request.pushKV("method", strMethod);
-    request.pushKV("params", params);
-    request.pushKV("id", id);
-    return request;
+    request.push_back(Pair("method", strMethod));
+    request.push_back(Pair("params", params));
+    request.push_back(Pair("id", id));
+    return request.write() + "\n";
 }
 
 UniValue JSONRPCReplyObj(const UniValue& result, const UniValue& error, const UniValue& id)
 {
     UniValue reply(UniValue::VOBJ);
     if (!error.isNull())
-        reply.pushKV("result", NullUniValue);
+        reply.push_back(Pair("result", NullUniValue));
     else
-        reply.pushKV("result", result);
-    reply.pushKV("error", error);
-    reply.pushKV("id", id);
+        reply.push_back(Pair("result", result));
+    reply.push_back(Pair("error", error));
+    reply.push_back(Pair("id", id));
     return reply;
 }
 
@@ -58,8 +58,8 @@ std::string JSONRPCReply(const UniValue& result, const UniValue& error, const Un
 UniValue JSONRPCError(int code, const std::string& message)
 {
     UniValue error(UniValue::VOBJ);
-    error.pushKV("code", code);
-    error.pushKV("message", message);
+    error.push_back(Pair("code", code));
+    error.push_back(Pair("message", message));
     return error;
 }
 
@@ -73,7 +73,8 @@ static const std::string COOKIEAUTH_FILE = ".cookie";
 fs::path GetAuthCookieFile()
 {
     fs::path path(GetArg("-rpccookiefile", COOKIEAUTH_FILE));
-    return AbsPathForConfigVal(path);
+    if (!path.is_complete()) path = GetDataDir() / path;
+    return path;
 }
 
 bool GenerateAuthCookie(std::string *cookie_out)
