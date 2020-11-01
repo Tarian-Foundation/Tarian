@@ -176,7 +176,7 @@ public:
 
         consensus.vUpgrades[Consensus::UPGRADE_ZC].hashActivationBlock          = uint256S("0x1");
         consensus.vUpgrades[Consensus::UPGRADE_ZC_V2].hashActivationBlock       = uint256S("0x1");
-        consensus.vUpgrades[Consensus::UPGRADE_BIP65].hashActivationBlock       = uint256S("0x");
+        consensus.vUpgrades[Consensus::UPGRADE_BIP65].hashActivationBlock       = uint256S("0x000002301ce038d4bcf0d6ef41844463b0be300888b85da7b936073d02944c99");
         consensus.vUpgrades[Consensus::UPGRADE_ZC_PUBLIC].hashActivationBlock   = uint256S("0x1");
         consensus.vUpgrades[Consensus::UPGRADE_V3_4].hashActivationBlock        = uint256S("0x1");
         consensus.vUpgrades[Consensus::UPGRADE_V4_0].hashActivationBlock        = uint256S("0x1");
@@ -238,7 +238,7 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("0x148723258586946f5463cf095941823596a831f897260dbcbb3670529b028c5f"));
 
         consensus.fPowAllowMinDifficultyBlocks           = false;
-        consensus.powLimit                               = ~UINT256_ZERO >> 20;    // CARI starting difficulty is 1 / 2^12
+        consensus.powLimit                               = ~UINT256_ZERO >> 20;    // TARIAN starting difficulty is 1 / 2^12
         consensus.posLimitV1                             = ~UINT256_ZERO >> 24;
         consensus.posLimitV2                             = ~UINT256_ZERO >> 20;
         consensus.nBudgetCycleBlocks                     = 43200;                  // approx. 1 every 30 days
@@ -306,7 +306,7 @@ public:
 
         consensus.vUpgrades[Consensus::UPGRADE_ZC].hashActivationBlock          = uint256S("0x1");
         consensus.vUpgrades[Consensus::UPGRADE_ZC_V2].hashActivationBlock       = uint256S("0x1");
-        consensus.vUpgrades[Consensus::UPGRADE_BIP65].hashActivationBlock       = uint256S("0x");
+        consensus.vUpgrades[Consensus::UPGRADE_BIP65].hashActivationBlock       = uint256S("0x000002301ce038d4bcf0d6ef41844463b0be300888b85da7b936073d02944c99");
         consensus.vUpgrades[Consensus::UPGRADE_ZC_PUBLIC].hashActivationBlock   = uint256S("0x1");
         consensus.vUpgrades[Consensus::UPGRADE_V3_4].hashActivationBlock        = uint256S("0x1");
         consensus.vUpgrades[Consensus::UPGRADE_V4_0].hashActivationBlock        = uint256S("0x1");
@@ -363,7 +363,7 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("0x148723258586946f5463cf095941823596a831f897260dbcbb3670529b028c5f"));
 
         consensus.fPowAllowMinDifficultyBlocks           = false;
-        consensus.powLimit                               = ~UINT256_ZERO >> 20;    // CARI starting difficulty is 1 / 2^12
+        consensus.powLimit                               = ~UINT256_ZERO >> 20;    // TARIAN starting difficulty is 1 / 2^12
         consensus.posLimitV1                             = ~UINT256_ZERO >> 24;
         consensus.posLimitV2                             = ~UINT256_ZERO >> 20;
         consensus.nBudgetCycleBlocks                     = 43200;                  // approx. 1 every 30 days
@@ -431,7 +431,7 @@ public:
 
         consensus.vUpgrades[Consensus::UPGRADE_ZC].hashActivationBlock          = uint256S("0x1");
         consensus.vUpgrades[Consensus::UPGRADE_ZC_V2].hashActivationBlock       = uint256S("0x1");
-        consensus.vUpgrades[Consensus::UPGRADE_BIP65].hashActivationBlock       = uint256S("0x");
+        consensus.vUpgrades[Consensus::UPGRADE_BIP65].hashActivationBlock       = uint256S("0x000002301ce038d4bcf0d6ef41844463b0be300888b85da7b936073d02944c99");
         consensus.vUpgrades[Consensus::UPGRADE_ZC_PUBLIC].hashActivationBlock   = uint256S("0x1");
         consensus.vUpgrades[Consensus::UPGRADE_V3_4].hashActivationBlock        = uint256S("0x1");
         consensus.vUpgrades[Consensus::UPGRADE_V4_0].hashActivationBlock        = uint256S("0x1");
