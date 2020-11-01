@@ -259,7 +259,6 @@ void WelcomeContentWidget::onNextClicked()
             ui->pushName3->setChecked(true);
             ui->pushName2->setChecked(true);
             ui->pushName1->setChecked(true);
-
             icConfirm2->setVisible(true);
             break;
         }
@@ -343,7 +342,6 @@ void WelcomeContentWidget::onBackClicked()
             ui->pushName3->setChecked(false);
             ui->pushName2->setChecked(true);
             ui->pushName1->setChecked(true);
-
             icConfirm2->setVisible(false);
             break;
         }
