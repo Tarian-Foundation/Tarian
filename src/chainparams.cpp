@@ -49,7 +49,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "";
+    const char* pszTimestamp = "Bitcoin up 375% since Peter Schiff accidentally called the exact bottom | 11/17/2020";
     const CScript genesisOutputScript = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -66,11 +66,11 @@ static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits
  */
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256S("000002301ce038d4bcf0d6ef41844463b0be300888b85da7b936073d02944c99"));
+    (0, uint256S("000007d1345b010abd2bf2773ca01c8586cf74250bda476b3e32eae018a2f870"));
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1600458983, // * UNIX timestamp of last checkpoint block
+    1605647897, // * UNIX timestamp of last checkpoint block
     0,          // * total number of transactions between genesis and last checkpoint
     3000};      // * estimated number of transactions per day after checkpoint
 
@@ -80,7 +80,7 @@ static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
 
     static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1600458983,
+    1605647897,
     0,
     250};
 
@@ -90,7 +90,7 @@ static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
 
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
-    1600458983,
+    1605647897,
     0,
     100};
 
@@ -102,10 +102,10 @@ public:
         networkID = CBaseChainParams::MAIN;
         strNetworkID = "main";
 
-        genesis = CreateGenesisBlock(1600458983, 1112032, 0x1e0ffff0, 1, 250 * COIN);
+        genesis = CreateGenesisBlock(1605647897, 205175, 0x1e0ffff0, 1, 0 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x000002301ce038d4bcf0d6ef41844463b0be300888b85da7b936073d02944c99"));
-        assert(genesis.hashMerkleRoot == uint256S("0x148723258586946f5463cf095941823596a831f897260dbcbb3670529b028c5f"));
+        assert(consensus.hashGenesisBlock == uint256S("0x000007d1345b010abd2bf2773ca01c8586cf74250bda476b3e32eae018a2f870"));
+        assert(genesis.hashMerkleRoot == uint256S("0x25aefec95191bae275e8ab0bc1bc1c91f40f03620622f034e29b4388bfb9d9e4"));
 
         consensus.fPowAllowMinDifficultyBlocks           = false;
         consensus.powLimit                               = ~UINT256_ZERO >> 20;    // Tarian starting difficulty is 1 / 2^12
@@ -117,7 +117,7 @@ public:
         consensus.nFutureTimeDriftPoW                    = 7200;
         consensus.nFutureTimeDriftPoS                    = 180;
         consensus.nMasternodeCountDrift                  = 20;                     // num of MN we allow the see-saw payments to be off by
-        consensus.nMaxMoneyOut                           = 10191520 * COIN;
+        consensus.nMaxMoneyOut                           = 18000000 * COIN;
         consensus.nPoolMaxTransactions                   = 3;
         consensus.nProposalEstablishmentTime             = 60 * 60 * 24;           // must be at least a day old to make it into a budget
         consensus.nStakeMinAge                           = 60 * 60;
@@ -158,7 +158,7 @@ public:
         consensus.ZC_MinMintConfirmations                = 20;
         consensus.ZC_MinMintFee                          = 1 * CENT;
         consensus.ZC_MinStakeDepth                       = 200;
-        consensus.ZC_TimeStart                           = 1508214600;  // October 17, 2017 4:30:00 AM
+        consensus.ZC_TimeStart                           = 1605647897;
         consensus.ZC_WrappedSerialsSupply                = 0 * COIN;    // zerocoin supply at height_last_ZC_WrappedSerials
 
         // Network upgrades
@@ -176,7 +176,7 @@ public:
 
         consensus.vUpgrades[Consensus::UPGRADE_ZC].hashActivationBlock          = uint256S("0x1");
         consensus.vUpgrades[Consensus::UPGRADE_ZC_V2].hashActivationBlock       = uint256S("0x1");
-        consensus.vUpgrades[Consensus::UPGRADE_BIP65].hashActivationBlock       = uint256S("0x000002301ce038d4bcf0d6ef41844463b0be300888b85da7b936073d02944c99");
+        consensus.vUpgrades[Consensus::UPGRADE_BIP65].hashActivationBlock       = uint256S("0x000007d1345b010abd2bf2773ca01c8586cf74250bda476b3e32eae018a2f870");
         consensus.vUpgrades[Consensus::UPGRADE_ZC_PUBLIC].hashActivationBlock   = uint256S("0x1");
         consensus.vUpgrades[Consensus::UPGRADE_V3_4].hashActivationBlock        = uint256S("0x1");
         consensus.vUpgrades[Consensus::UPGRADE_V4_0].hashActivationBlock        = uint256S("0x1");
@@ -228,14 +228,10 @@ public:
         networkID = CBaseChainParams::TESTNET;
         strNetworkID = "test";
 
-        genesis = CreateGenesisBlock(1600458983, 0, 0x1e0ffff0, 1, 250 * COIN);
-
-
-
-        genesis = CreateGenesisBlock(1600458983, 1112032, 0x1e0ffff0, 1, 250 * COIN);
+        genesis = CreateGenesisBlock(1605647897, 205175, 0x1e0ffff0, 1, 0 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x000002301ce038d4bcf0d6ef41844463b0be300888b85da7b936073d02944c99"));
-        assert(genesis.hashMerkleRoot == uint256S("0x148723258586946f5463cf095941823596a831f897260dbcbb3670529b028c5f"));
+        assert(consensus.hashGenesisBlock == uint256S("0x000007d1345b010abd2bf2773ca01c8586cf74250bda476b3e32eae018a2f870"));
+        assert(genesis.hashMerkleRoot == uint256S("0x25aefec95191bae275e8ab0bc1bc1c91f40f03620622f034e29b4388bfb9d9e4"));
 
         consensus.fPowAllowMinDifficultyBlocks           = false;
         consensus.powLimit                               = ~UINT256_ZERO >> 20;    // TARIAN starting difficulty is 1 / 2^12
@@ -288,7 +284,7 @@ public:
         consensus.ZC_MinMintConfirmations                = 20;
         consensus.ZC_MinMintFee                          = 1 * CENT;
         consensus.ZC_MinStakeDepth                       = 200;
-        consensus.ZC_TimeStart                           = 1508214600;  // October 17, 2017 4:30:00 AM
+        consensus.ZC_TimeStart                           = 1605647897;
         consensus.ZC_WrappedSerialsSupply                = 0 * COIN;    // zerocoin supply at height_last_ZC_WrappedSerials
 
         // Network upgrades
@@ -306,7 +302,7 @@ public:
 
         consensus.vUpgrades[Consensus::UPGRADE_ZC].hashActivationBlock          = uint256S("0x1");
         consensus.vUpgrades[Consensus::UPGRADE_ZC_V2].hashActivationBlock       = uint256S("0x1");
-        consensus.vUpgrades[Consensus::UPGRADE_BIP65].hashActivationBlock       = uint256S("0x000002301ce038d4bcf0d6ef41844463b0be300888b85da7b936073d02944c99");
+        consensus.vUpgrades[Consensus::UPGRADE_BIP65].hashActivationBlock       = uint256S("0x000007d1345b010abd2bf2773ca01c8586cf74250bda476b3e32eae018a2f870");
         consensus.vUpgrades[Consensus::UPGRADE_ZC_PUBLIC].hashActivationBlock   = uint256S("0x1");
         consensus.vUpgrades[Consensus::UPGRADE_V3_4].hashActivationBlock        = uint256S("0x1");
         consensus.vUpgrades[Consensus::UPGRADE_V4_0].hashActivationBlock        = uint256S("0x1");
@@ -357,10 +353,10 @@ public:
         networkID = CBaseChainParams::REGTEST;
         strNetworkID = "regtest";
 
-        genesis = CreateGenesisBlock(1600458983, 1112032, 0x1e0ffff0, 1, 250 * COIN);
+        genesis = CreateGenesisBlock(1605647897, 205175, 0x1e0ffff0, 1, 0 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x000002301ce038d4bcf0d6ef41844463b0be300888b85da7b936073d02944c99"));
-        assert(genesis.hashMerkleRoot == uint256S("0x148723258586946f5463cf095941823596a831f897260dbcbb3670529b028c5f"));
+        assert(consensus.hashGenesisBlock == uint256S("0x000007d1345b010abd2bf2773ca01c8586cf74250bda476b3e32eae018a2f870"));
+        assert(genesis.hashMerkleRoot == uint256S("0x25aefec95191bae275e8ab0bc1bc1c91f40f03620622f034e29b4388bfb9d9e4"));
 
         consensus.fPowAllowMinDifficultyBlocks           = false;
         consensus.powLimit                               = ~UINT256_ZERO >> 20;    // TARIAN starting difficulty is 1 / 2^12
@@ -413,7 +409,7 @@ public:
         consensus.ZC_MinMintConfirmations                = 20;
         consensus.ZC_MinMintFee                          = 1 * CENT;
         consensus.ZC_MinStakeDepth                       = 200;
-        consensus.ZC_TimeStart                           = 1508214600;  // October 17, 2017 4:30:00 AM
+        consensus.ZC_TimeStart                           = 1605647897;
         consensus.ZC_WrappedSerialsSupply                = 0 * COIN;    // zerocoin supply at height_last_ZC_WrappedSerials
 
         // Network upgrades
@@ -431,7 +427,7 @@ public:
 
         consensus.vUpgrades[Consensus::UPGRADE_ZC].hashActivationBlock          = uint256S("0x1");
         consensus.vUpgrades[Consensus::UPGRADE_ZC_V2].hashActivationBlock       = uint256S("0x1");
-        consensus.vUpgrades[Consensus::UPGRADE_BIP65].hashActivationBlock       = uint256S("0x000002301ce038d4bcf0d6ef41844463b0be300888b85da7b936073d02944c99");
+        consensus.vUpgrades[Consensus::UPGRADE_BIP65].hashActivationBlock       = uint256S("0x000007d1345b010abd2bf2773ca01c8586cf74250bda476b3e32eae018a2f870");
         consensus.vUpgrades[Consensus::UPGRADE_ZC_PUBLIC].hashActivationBlock   = uint256S("0x1");
         consensus.vUpgrades[Consensus::UPGRADE_V3_4].hashActivationBlock        = uint256S("0x1");
         consensus.vUpgrades[Consensus::UPGRADE_V4_0].hashActivationBlock        = uint256S("0x1");
