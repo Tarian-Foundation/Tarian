@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -24,7 +24,7 @@
 #include <QSpacerItem>
 #include <atomic>
 
-class TARIANGUI;
+class TARNGUI;
 class WalletModel;
 class CSDelegationHolder;
 
@@ -41,7 +41,7 @@ class ColdStakingWidget : public PWidget
     Q_OBJECT
 
 public:
-    explicit ColdStakingWidget(TARIANGUI* parent);
+    explicit ColdStakingWidget(TARNGUI* parent);
     ~ColdStakingWidget();
 
     void loadWalletModel() override;

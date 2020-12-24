@@ -1,9 +1,9 @@
-// Copyright (c) 2019 The TARIAN developers
+// Copyright (c) 2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef FURSZY_TARIAN_GUITRANSACTIONSUTILS_H
-#define FURSZY_TARIAN_GUITRANSACTIONSUTILS_H
+#ifndef FURSZY_TARN_GUITRANSACTIONSUTILS_H
+#define FURSZY_TARN_GUITRANSACTIONSUTILS_H
 
 #include "walletmodel.h"
 #include "qt/tarian/pwidget.h"
@@ -34,4 +34,4 @@ namespace GuiTransactionsUtils {
 }
 
 
-#endif //FURSZY_TARIAN_GUITRANSACTIONSUTILS_H
+#endif //FURSZY_TARN_GUITRANSACTIONSUTILS_H

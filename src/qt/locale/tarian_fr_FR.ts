@@ -6,8 +6,8 @@
         <translation>Dialogue</translation>
     </message>
     <message>
-        <source>My Address</source>
-        <translation>Mon Adresse</translation>
+        <source>New Address</source>
+        <translation>Nouvelle adresse</translation>
     </message>
     <message>
         <source>Address</source>
@@ -22,8 +22,8 @@
         <translation>ANNULER</translation>
     </message>
     <message>
-        <source>OK</source>
-        <translation>OK</translation>
+        <source>SAVE</source>
+        <translation>SAUVEGARDER</translation>
     </message>
 </context>
 <context>
@@ -33,16 +33,8 @@
         <translation>Dialogue</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>Libellé</translation>
-    </message>
-    <message>
         <source>CANCEL</source>
         <translation>ANNULER</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>OK</translation>
     </message>
     <message>
         <source>Edit Contact</source>
@@ -53,7 +45,7 @@
         <translation>Définir un libellé pour l'adresse sélectionnée</translation>
     </message>
     <message>
-        <source>Enter a name for the address (e.g Exchange)</source>
+        <source>Enter a label for the address (e.g. Exchange)</source>
         <translation>Entrez un nom pour cette adresse (par ex. Bourse)</translation>
     </message>
     <message>
@@ -130,12 +122,12 @@
         <translation>Adresses de réception</translation>
     </message>
     <message>
-        <source>These are your TARIAN addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Voici vos adresses TARIAN pour envoyer des paiements.  Assurez-vous de toujours vérifier le montant et l'adresse de réception avant d'envoyer les jetons</translation>
+        <source>These are your TARN addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Voici vos adresses TARN pour envoyer des paiements.  Assurez-vous de toujours vérifier le montant et l'adresse de réception avant d'envoyer les jetons</translation>
     </message>
     <message>
-        <source>These are your TARIAN addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Voici vos adresses TARIAN pour les réceptions de vos paiments. Il est recommandé d'utiliser une nouvelle adresse de réception pour chaque transaction.</translation>
+        <source>These are your TARN addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Voici vos adresses TARN pour les réceptions de vos paiments. Il est recommandé d'utiliser une nouvelle adresse de réception pour chaque transaction.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -211,28 +203,12 @@
         <translation>Formulaire</translation>
     </message>
     <message>
-        <source>Send</source>
-        <translation>Envoyer</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>Libellé</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
-    </message>
-    <message>
         <source>Contact name</source>
         <translation>Nom du contact</translation>
     </message>
     <message>
         <source>Enter address</source>
         <translation>Entrez l'adresse</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>OK</translation>
     </message>
     <message>
         <source>Contacts</source>
@@ -247,20 +223,20 @@
         <translation>Pas encore de contacts</translation>
     </message>
     <message>
-        <source>e.g. John Doe</source>
-        <translation>Par exemple: Pierre Dupont</translation>
-    </message>
-    <message>
-        <source>Enter TARIAN address</source>
-        <translation>Entrez une adresse TARIAN</translation>
-    </message>
-    <message>
         <source>SAVE</source>
         <translation>SAUVEGARDER</translation>
     </message>
     <message>
+        <source>Add new contact</source>
+        <translation>Ajouter un contact</translation>
+    </message>
+    <message>
+        <source>Generate a new address to receive tokens.</source>
+        <translation>Créer une nouvelle adresse pour recevoir des jetons.</translation>
+    </message>
+    <message>
         <source>Invalid Contact Address</source>
-        <translation>Adresse Tarian incorrecte</translation>
+        <translation>Adresse Tarn incorrecte</translation>
     </message>
     <message>
         <source>Cannot store your own address as contact</source>
@@ -380,10 +356,6 @@ pour le staking</translation>
         <translation>Si vous chiffrez votre portefeuille et perdez votre phrase secrète, vous allez</translation>
     </message>
     <message>
-        <source>LOSE ALL OF YOUR TARN</source>
-        <translation>PERDRE TOUS VOS TARN</translation>
-    </message>
-    <message>
         <source>ENCRYPT</source>
         <translation>CHIFFRER</translation>
     </message>
@@ -392,12 +364,8 @@ pour le staking</translation>
         <translation>ANNULER</translation>
     </message>
     <message>
-        <source>WARNING: The Caps Lock key is on!</source>
-        <translation>ATTENTION : la touche de verrouillage des majuscules est activée!</translation>
-    </message>
-    <message>
-        <source>TARIAN will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TARNs from being stolen by malware infecting your computer.</source>
-        <translation>TARIAN va maintenant se fermer pour finir le processus de cryptage. Notez que le cryptage de votre portefeuille ne peut pas complètement protéger vos TARNs d'un vol par un malware ayant infecté votre ordinateur. </translation>
+        <source>TARN will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TARNs from being stolen by malware infecting your computer.</source>
+        <translation>TARN va maintenant se fermer pour finir le processus de cryptage. Notez que le cryptage de votre portefeuille ne peut pas complètement protéger vos TARNs d'un vol par un malware ayant infecté votre ordinateur. </translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -406,6 +374,18 @@ pour le staking</translation>
     <message>
         <source>Wallet encrypted</source>
         <translation>Portefeuille chiffré</translation>
+    </message>
+    <message>
+        <source>WARNING:</source>
+        <translation>ATTENTION</translation>
+    </message>
+    <message>
+        <source>The caps lock key is on!</source>
+        <translation>La touche de verrouillage des majuscules est activée!</translation>
+    </message>
+    <message>
+        <source>Passphrases do not match!</source>
+        <translation>Les phrases secrètes ne correspondent pas!</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -426,6 +406,10 @@ pour le staking</translation>
     <message>
         <source>The supplied passphrases do not match.</source>
         <translation>Les phrases secrètes fournies ne correspondent pas.</translation>
+    </message>
+    <message>
+        <source>LOSE ALL OF YOUR COINS</source>
+        <translation>PERD TOUTES VOS PIÈCES</translation>
     </message>
     <message>
         <source>Wallet unlock failed</source>
@@ -688,8 +672,16 @@ pour le staking</translation>
         <translation>oui</translation>
     </message>
     <message>
+        <source>Can vary +/- %1 u%2 per input.</source>
+        <translation>Peut varier de +/- %1 u%2 par entrée.</translation>
+    </message>
+    <message>
         <source>delegated to %1 for cold staking</source>
         <translation>délégué à %1 pour staking à froid</translation>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation>Tout sélectionner</translation>
     </message>
     <message>
         <source>no</source>
@@ -720,10 +712,6 @@ pour le staking</translation>
         <translation>Ce libellé devient rouge si l'un des destinataires reçoit un montant inférieur à %1.</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 utarn per input.</source>
-        <translation>Peut varier de +/- %1 utarn par entrée.</translation>
-    </message>
-    <message>
         <source>(no label)</source>
         <translation>(pas de libellé)</translation>
     </message>
@@ -743,28 +731,12 @@ pour le staking</translation>
         <translation>Formulaire</translation>
     </message>
     <message>
-        <source>Title</source>
-        <translation>Titre</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>Libellé</translation>
-    </message>
-    <message>
         <source>Owner address (optional, if empty a new address will be created)</source>
         <translation>Adresse propriétaire (optionnel, si vide une nouvelle adresse sera créée)</translation>
     </message>
     <message>
         <source>Total Staking:</source>
         <translation>Staking total:</translation>
-    </message>
-    <message>
-        <source>List of delegated balance by address</source>
-        <translation>Liste des soldes délégués par adresse.</translation>
-    </message>
-    <message>
-        <source>No balance delegated</source>
-        <translation>Pas de solde délégué</translation>
     </message>
     <message>
         <source>Cold Staking</source>
@@ -836,6 +808,32 @@ stake on your behalf, while you keep the keys securely offline.</source>
         <translation>Le staking à froid est désactivé sur le réseau</translation>
     </message>
     <message>
+        <source>Coin Control</source>
+        <translation>Contrôle des pièces</translation>
+    </message>
+    <message>
+        <source>Select %1 outputs to delegate.</source>
+        <translation>Sélectionnez %1 sorties à déléguer.</translation>
+    </message>
+    <message>
+        <source>Create Cold Staking Address</source>
+        <translation>Créer une adresse de staking à froid</translation>
+    </message>
+    <message>
+        <source>Creates an address to receive delegated coins
+and stake them on their owner's behalf.</source>
+        <translation>Créé uen adresse pour recevoir des monnaies en délégation
+et les stake pour le compte de leur propriétaire.</translation>
+    </message>
+    <message>
+        <source>My Cold Staking Addresses</source>
+        <translation>Mes adresses de staking à froid</translation>
+    </message>
+    <message>
+        <source>List your own cold staking addresses.</source>
+        <translation>Lister vos propres adresses de staking à froid</translation>
+    </message>
+    <message>
         <source>Invalid entry</source>
         <translation>Entrée incorrecte</translation>
     </message>
@@ -880,8 +878,8 @@ Souhaitez-vous continuer ?</translation>
         <translation>Pièces déléguées</translation>
     </message>
     <message>
-        <source>You don't have any TARN to select.</source>
-        <translation>Vous n'avez aucun TARN à sélectionner</translation>
+        <source>You don't have any %1 to select.</source>
+        <translation>Vous n'avez aucun %1 à sélectionner</translation>
     </message>
     <message>
         <source>Cannot perform operation, wallet locked</source>
@@ -913,7 +911,7 @@ Souhaitez-vous continuer ?</translation>
     </message>
     <message>
         <source>Edit Label</source>
-        <translation>Modifier le libellé</translation>
+        <translation>Modifier libellé</translation>
     </message>
     <message>
         <source>Copy owner
@@ -968,14 +966,6 @@ propriétaire</translation>
         <source>Form</source>
         <translation>Formulaire</translation>
     </message>
-    <message>
-        <source>Bob Allen</source>
-        <translation>Bob Allen</translation>
-    </message>
-    <message>
-        <source>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</source>
-        <translation>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</translation>
-    </message>
 </context>
 <context>
     <name>DashboardWidget</name>
@@ -988,36 +978,20 @@ propriétaire</translation>
         <translation>Transactions</translation>
     </message>
     <message>
-        <source>You can see here the history of your account</source>
-        <translation>Vous pouvez voir ici l'historique de votre compte</translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation>Attention</translation>
-    </message>
-    <message>
-        <source>No transactions</source>
-        <translation>Pas de transaction</translation>
-    </message>
-    <message>
         <source>Staking Rewards</source>
         <translation>Récompenses de staking</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>libellé</translation>
     </message>
     <message>
         <source>Staking statistics</source>
         <translation>Statistiques de staking</translation>
     </message>
     <message>
-        <source>TARN</source>
-        <translation>TARN</translation>
+        <source>View your account's history</source>
+        <translation>Voir l'historique de votre compte</translation>
     </message>
     <message>
-        <source>zTARN</source>
-        <translation>zTARN</translation>
+        <source>How to get TARN</source>
+        <translation>Comment obtenir des TARN</translation>
     </message>
     <message>
         <source>Sort by</source>
@@ -1040,14 +1014,6 @@ propriétaire</translation>
         <translation>Filtrer par</translation>
     </message>
     <message>
-        <source>LabelText</source>
-        <translation>Libellé</translation>
-    </message>
-    <message>
-        <source>You can view your account's history</source>
-        <translation>Vous pouvez voir l'historique de votre compte</translation>
-    </message>
-    <message>
         <source>Amount of TARN and zTARN staked.</source>
         <translation>Le montant de TARN et de zTARN en staking</translation>
     </message>
@@ -1058,10 +1024,6 @@ propriétaire</translation>
     <message>
         <source>No transactions yet</source>
         <translation>Pas encore de transaction</translation>
-    </message>
-    <message>
-        <source>How to get TARN or zTARN</source>
-        <translation>Comment obtenir des TARN ou zTARN</translation>
     </message>
     <message>
         <source>You can verify the staking activity in the status bar at the top right of the wallet.
@@ -1101,20 +1063,12 @@ Il commencera automatiquement dès que le portefeuille aura assez de confirmatio
         <translation>Formulaire</translation>
     </message>
     <message>
-        <source>Transaction Details</source>
-        <translation>Détails de la transaction</translation>
-    </message>
-    <message>
-        <source>Text Label</source>
-        <translation>Libellé</translation>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
     <message>
         <source>CANCEL</source>
         <translation>ANNULER</translation>
-    </message>
-    <message>
-        <source>SAVE</source>
-        <translation>SAUVEGARDER</translation>
     </message>
 </context>
 <context>
@@ -1156,8 +1110,8 @@ Il commencera automatiquement dès que le portefeuille aura assez de confirmatio
         <translation>Modifier l'adresse d'envoi</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid TARIAN address.</source>
-        <translation>L'adresse entrée "%1" n'est pas une adresse TARIAN valide</translation>
+        <source>The entered address "%1" is not a valid TARN address.</source>
+        <translation>L'adresse entrée "%1" n'est pas une adresse TARN valide</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -1209,16 +1163,16 @@ Il commencera automatiquement dès que le portefeuille aura assez de confirmatio
         <translation>version</translation>
     </message>
     <message>
-        <source>TARIAN Core</source>
-        <translation>TARIAN Core</translation>
+        <source>Tarian Core</source>
+        <translation>Tarian Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About TARIAN Core</source>
-        <translation>A propos de TARIAN Core</translation>
+        <source>About Tarian Core</source>
+        <translation>A propos de Tarian Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1272,16 +1226,16 @@ Il commencera automatiquement dès que le portefeuille aura assez de confirmatio
         <translation>Bienvenu</translation>
     </message>
     <message>
-        <source>Welcome to TARIAN Core.</source>
-        <translation>Bienvenue à TARIAN Core</translation>
+        <source>Welcome to Tarian Core.</source>
+        <translation>Bienvenue à Tarian Core</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where TARIAN Core will store its data.</source>
-        <translation>Comme c'est la première fois que le programme est lancé, vous pouvez choisir où TARIAN Core va stocker ses données.</translation>
+        <source>As this is the first time the program is launched, you can choose where Tarian Core will store its data.</source>
+        <translation>Comme c'est la première fois que le programme est lancé, vous pouvez choisir où Tarian Core va stocker ses données.</translation>
     </message>
     <message>
-        <source>TARIAN Core will download and store a copy of the TARIAN block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>TARIAN Core téléchargera et stockera une copie de la chaîne de blocs TARIAN. Au moins %1 Go de données sera stocké dans ce répertoire, et il va augmenter au fil du temps. Le portefeuille sera également stocké dans ce répertoire.</translation>
+        <source>Tarian Core will download and store a copy of the TARN block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Tarian Core téléchargera et stockera une copie de la chaîne de blocs TARN. Au moins %1 Go de données sera stocké dans ce répertoire, et il va augmenter au fil du temps. Le portefeuille sera également stocké dans ce répertoire.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1300,8 +1254,8 @@ Il commencera automatiquement dès que le portefeuille aura assez de confirmatio
         <translation>OK</translation>
     </message>
     <message>
-        <source>TARIAN Core</source>
-        <translation>TARIAN Core</translation>
+        <source>Tarian Core</source>
+        <translation>Tarian Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1364,6 +1318,14 @@ Il commencera automatiquement dès que le portefeuille aura assez de confirmatio
         <source>Form</source>
         <translation>Formulaire</translation>
     </message>
+    <message>
+        <source>Collateral tx not found</source>
+        <translation>Transaction du collateral non trouvé</translation>
+    </message>
+    <message>
+        <source>Status: %1</source>
+        <translation>Statut: %1</translation>
+    </message>
 </context>
 <context>
     <name>MasterNodeWizardDialog</name>
@@ -1400,8 +1362,8 @@ Il commencera automatiquement dès que le portefeuille aura assez de confirmatio
         <translation>Créer un nouveau contrôleur de Masternode</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;To create a TARIAN Masternode you must dedicate 10,000 TARN (the unit of TARIAN) to the network (however, these coins are still yours and will never leave your possession). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;You can deactivate the node and unlock the coins at any time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pour créer un Masternode TARIAN vous devez dédier 10.000 TARN (l'unité de TARIAN) au réseau (notez que ces monnaies restent les votres et ne quitteront jamais votre portefeuille)&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt; Vous pouvez désactiver votre noeud et libérer vos monnaies en tous temps. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;To create a TARN Masternode you must dedicate 1,000 TARN (the unit of TARN) to the network (however, these coins are still yours and will never leave your possession). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;You can deactivate the node and unlock the coins at any time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pour créer un Masternode TARN vous devez dédier 1.000 TARN (l'unité de TARN) au réseau (notez que ces monnaies restent les votres et ne quitteront jamais votre portefeuille)&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt; Vous pouvez désactiver votre noeud et libérer vos monnaies en tous temps. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Set Masternode Name</source>
@@ -1420,8 +1382,8 @@ Il commencera automatiquement dès que le portefeuille aura assez de confirmatio
         <translation>Assurez-vous d'avoir ce montant de pièces.</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of 10,000 TARN will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node's name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Une transaction de 10 000 TARN sera effectuée &lt;/p&gt;&lt;p&gt; vers une nouvelle adresse de votre partefeuille.&lt;/p&gt;&lt;p&gt; L'adresse est étiquettée avec le nom de masternode. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of 1,000 TARN will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node's name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Une transaction de 1 000 TARN sera effectuée &lt;/p&gt;&lt;p&gt; vers une nouvelle adresse de votre partefeuille.&lt;/p&gt;&lt;p&gt; L'adresse est étiquettée avec le nom de masternode. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Address of the node that must always be online running the actual master node.</source>
@@ -1430,18 +1392,6 @@ Il commencera automatiquement dès que le portefeuille aura assez de confirmatio
     <message>
         <source>Enter IP address</source>
         <translation>Entrer l'adresse IP</translation>
-    </message>
-    <message>
-        <source>CANCEL</source>
-        <translation>ANNULER</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>OK</translation>
-    </message>
-    <message>
-        <source>e.g user_masternode</source>
-        <translation>ex. user_masternode</translation>
     </message>
     <message>
         <source>NEXT</source>
@@ -1462,6 +1412,10 @@ Il commencera automatiquement dès que le portefeuille aura assez de confirmatio
     <message>
         <source>Invalid IP address</source>
         <translation>Adresse IP invalide</translation>
+    </message>
+    <message>
+        <source>Unknown error</source>
+        <translation>Erreur inconnue</translation>
     </message>
     <message>
         <source>Prepare master node failed.
@@ -1490,6 +1444,10 @@ Il commencera automatiquement dès que le portefeuille aura assez de confirmatio
 %1</translation>
     </message>
     <message>
+        <source>walletModel not set</source>
+        <translation>walletModel non défini</translation>
+    </message>
+    <message>
         <source>Invalid masternode.conf file</source>
         <translation>Fichier masternode.conf invalide</translation>
     </message>
@@ -1507,14 +1465,6 @@ Il commencera automatiquement dès que le portefeuille aura assez de confirmatio
     <message>
         <source>Form</source>
         <translation>Formulaire</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>Libellé</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
     </message>
     <message>
         <source>Start All</source>
@@ -1572,6 +1522,12 @@ and vote on the treasury system receiving a periodic reward.</source>
         <translation>Impossible de modifier le masternode, portefeuille verrouillé</translation>
     </message>
     <message>
+        <source>Cannot start masternode, the collateral transaction has not been confirmed by the network yet.
+Please wait few more minutes (masternode collaterals require %1 confirmations).</source>
+        <translation>Impossible de démarrer le masternode, la transaction du dépôt de garantie n'a pas encore été confirmée par le réseau.
+S'il vous plaît attendez quelques minutes de plus (le dépôt de garantie du masternode requiert %1 confirmations).</translation>
+    </message>
+    <message>
         <source>Background task is being executed, please wait</source>
         <translation>Une tâche en arrière plan est en cours d'exécution, attendez SVP</translation>
     </message>
@@ -1604,8 +1560,28 @@ and vote on the treasury system receiving a periodic reward.</source>
         <translation>Donnée masternode copiée vers le presse-papier</translation>
     </message>
     <message>
+        <source>Not enough balance to create a masternode, 1,000 %1 required.</source>
+        <translation>Fonds insuffisant pour créer un masternode, 1 000 %1 sont requis.</translation>
+    </message>
+    <message>
         <source>Remote Masternode Data</source>
         <translation>Données masternode distant</translation>
+    </message>
+    <message>
+        <source>What is a Masternode?</source>
+        <translation>Qu'est-ce qu'un masternode?</translation>
+    </message>
+    <message>
+        <source>FAQ explaining what Masternodes are</source>
+        <translation>FAQ expliquant ce que sont les Masternodes</translation>
+    </message>
+    <message>
+        <source>What is a Controller?</source>
+        <translation>Qu'est-ce qu'un contrôleur?</translation>
+    </message>
+    <message>
+        <source>FAQ explaining what is a Masternode Controller</source>
+        <translation>FAQ expliquant ce qu'est un contrôleur de Masternode</translation>
     </message>
     <message>
         <source>You are just about to export the required data to run a Masternode
@@ -1654,10 +1630,6 @@ Confirmez-vous?</translation>
         <translation>Impossible de créer le contrôleur masternode, portefeuille vérouillé</translation>
     </message>
     <message>
-        <source>Not enough balance to create a masternode, 10,000 TARN required.</source>
-        <translation>Fonds insuffisant pour créer un masternode, 10 000 TARN sont requis.</translation>
-    </message>
-    <message>
         <source>Error creating masternode</source>
         <translation>Erreur lors de la création du masternode</translation>
     </message>
@@ -1677,16 +1649,8 @@ Confirmez-vous?</translation>
         <translation>Clé publique:</translation>
     </message>
     <message>
-        <source>492526e7fa3c810b35016...40a5df85ee227ab00b1156994</source>
-        <translation>492526e7fa3c810b35016...40a5df85ee227ab00b1156994</translation>
-    </message>
-    <message>
         <source>Address: </source>
         <translation>Adresse:</translation>
-    </message>
-    <message>
-        <source>127.0.0.2:43223</source>
-        <translation>127.0.0.2:43223</translation>
     </message>
     <message>
         <source>Collaterall tx id:</source>
@@ -1705,12 +1669,16 @@ Confirmez-vous?</translation>
         <translation>Statut :</translation>
     </message>
     <message>
-        <source>MISSING</source>
-        <translation>MANQUANT</translation>
-    </message>
-    <message>
         <source>Export data to run the Masternode on a remote server</source>
         <translation>Exporter les données pour exécuter le masternode sur un serveur distant</translation>
+    </message>
+    <message>
+        <source>Masternode public key copied</source>
+        <translation>Clé publique du Masternode copiée</translation>
+    </message>
+    <message>
+        <source>Collateral tx id copied</source>
+        <translation>ID de transaction du collateral copié</translation>
     </message>
 </context>
 <context>
@@ -1719,24 +1687,54 @@ Confirmez-vous?</translation>
         <source>Form</source>
         <translation>Formulaire</translation>
     </message>
-    <message>
-        <source>Savings</source>
-        <translation>Épargne</translation>
-    </message>
-    <message>
-        <source>Jan. 19, 2019</source>
-        <translation>19 janvier 2019</translation>
-    </message>
-    <message>
-        <source>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</source>
-        <translation>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</translation>
-    </message>
 </context>
 <context>
     <name>NavMenuWidget</name>
     <message>
         <source>Form</source>
         <translation>Formulaire</translation>
+    </message>
+    <message>
+        <source>HOME
+</source>
+        <translation>ACCUEIL
+</translation>
+    </message>
+    <message>
+        <source>SEND
+</source>
+        <translation>ENVOYER
+</translation>
+    </message>
+    <message>
+        <source>RECEIVE
+</source>
+        <translation>RECEVOIR
+</translation>
+    </message>
+    <message>
+        <source>CONTACTS
+</source>
+        <translation>CONTACTS
+</translation>
+    </message>
+    <message>
+        <source>MASTER
+NODES</source>
+        <translation>MASTER
+NODES</translation>
+    </message>
+    <message>
+        <source>COLD
+STAKING</source>
+        <translation>STAKING
+À FROID</translation>
+    </message>
+    <message>
+        <source>SETTINGS
+</source>
+        <translation>PARAMÈTRES
+</translation>
     </message>
     <message>
         <source>V 1.0.0</source>
@@ -1796,10 +1794,6 @@ Confirmez-vous?</translation>
         <source>Form</source>
         <translation>Formulaire</translation>
     </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>Libellé</translation>
-    </message>
 </context>
 <context>
     <name>OptionsDialog</name>
@@ -1836,8 +1830,8 @@ Confirmez-vous?</translation>
         <translation>SI vous désactivez la dépense de la monnaire non confirmée, la monnaie rendue sur une transaction &lt;br/&gt;ne peut pas être utilisée tant que celle-ci n'a pas reçue au moins une confirmation &lt;br/&gt;Ceci implique également la manière dont votre solde est calculé.</translation>
     </message>
     <message>
-        <source>Automatically open the TARIAN client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Ouvrir automatiquement le port du client TARIAN sur le routeur. Ceci fonctionne uniquement si votre routeur prend en charge UPnP et que celui-ci est activé.</translation>
+        <source>Automatically open the TARN client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Ouvrir automatiquement le port du client TARN sur le routeur. Ceci fonctionne uniquement si votre routeur prend en charge UPnP et que celui-ci est activé.</translation>
     </message>
     <message>
         <source>Accept connections from outside</source>
@@ -1856,12 +1850,12 @@ Confirmez-vous?</translation>
         <translation>Expert</translation>
     </message>
     <message>
-        <source>Automatically start TARIAN after logging in to the system.</source>
-        <translation>Démarrez TARIAN automatiquement après vous être connecté au système.</translation>
+        <source>Automatically start TARN after logging in to the system.</source>
+        <translation>Démarrez TARN automatiquement après vous être connecté au système.</translation>
     </message>
     <message>
-        <source>&amp;Start TARIAN on system login</source>
-        <translation>Démarrer TARIAN au démarrage système</translation>
+        <source>&amp;Start TARN on system login</source>
+        <translation>Démarrer TARN au démarrage système</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1888,14 +1882,14 @@ Confirmez-vous?</translation>
         <translation>Réseau</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting TARIAN.</source>
-        <translation>La langue de l'interface utilisateur peut être définie ici. Ce paramètre prendra effet après le redémarrage de TARIAN.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting TARN.</source>
+        <translation>La langue de l'interface utilisateur peut être définie ici. Ce paramètre prendra effet après le redémarrage de TARN.</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/Tarian-Foundation/Tarian-project-translations</source>
+https://www.transifex.com/tarian-project/tarian-project-translations</source>
         <translation>Langue manquante ou traduction incomplète? Aidez-nous à traduire ce projet ici:
-https://www.transifex.com/Tarian-Foundation/Tarian-project-translations</translation>
+https://www.transifex.com/tarian-project/tarian-project-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1938,8 +1932,8 @@ https://www.transifex.com/Tarian-Foundation/Tarian-project-translations</transla
         <translation>Seuil de partage du Stake</translation>
     </message>
     <message>
-        <source>Connect to the TARIAN network through a SOCKS5 proxy.</source>
-        <translation>Se connetcer au réseau TARIAN via un proxy SOCKS5.</translation>
+        <source>Connect to the TARN network through a SOCKS5 proxy.</source>
+        <translation>Se connetcer au réseau TARN via un proxy SOCKS5.</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -2083,10 +2077,10 @@ https://www.transifex.com/Tarian-Foundation/Tarian-project-translations</transla
     </message>
 </context>
 <context>
-    <name>TARIANGUI</name>
+    <name>TARNGUI</name>
     <message>
-        <source>TARIAN Core</source>
-        <translation>TARIAN Core</translation>
+        <source>Tarian Core</source>
+        <translation>Tarian Core</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -2113,8 +2107,8 @@ https://www.transifex.com/Tarian-Foundation/Tarian-project-translations</transla
         <translation>Quitter l'application</translation>
     </message>
     <message>
-        <source>TARIAN Core client</source>
-        <translation>TARIAN Core client</translation>
+        <source>Tarian Core client</source>
+        <translation>Tarian Core client</translation>
     </message>
     <message>
         <source>Error</source>
@@ -2156,10 +2150,6 @@ Type : %3
 Adresse : %4
 </translation>
     </message>
-    <message>
-        <source>A fatal error occurred. TARIAN can no longer continue safely and will quit.</source>
-        <translation>Une erreur fatale s'est produite. TARIAN Core ne peut plus poursuivre en toute sécurité et va quitter.</translation>
-    </message>
 </context>
 <context>
     <name>PaymentServer</name>
@@ -2188,8 +2178,8 @@ Adresse : %4
         <translation>Impossible de démarrer tarian: gestionnaire click-to-pay</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid TARIAN address or malformed URI parameters.</source>
-        <translation>L'URI ne peut pas être analysée! Cela peut être dû à une adresse TARIAN invalide ou à des paramètres URI incorrectes.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid TARN address or malformed URI parameters.</source>
+        <translation>L'URI ne peut pas être analysée! Cela peut être dû à une adresse TARN invalide ou à des paramètres URI incorrectes.</translation>
     </message>
     <message>
         <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
@@ -2268,139 +2258,14 @@ Adresse : %4
     </message>
 </context>
 <context>
-    <name>PrivacyWidget</name>
-    <message>
-        <source>Form</source>
-        <translation>Formulaire</translation>
-    </message>
-    <message>
-        <source>Title</source>
-        <translation>Titre</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>Libellé</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Bouton poussoir</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
-    </message>
-    <message>
-        <source>Privacy</source>
-        <translation>Confidentialité</translation>
-    </message>
-    <message>
-        <source>Convert</source>
-        <translation>Convertir</translation>
-    </message>
-    <message>
-        <source>Mint</source>
-        <translation>Monnayage</translation>
-    </message>
-    <message>
-        <source>Minting zTARN anonymizes your TARN by removing any
-transaction history, making transactions untraceable </source>
-        <translation>Frapper des zTARN anonymise vos TARN en supprimant tout
-l'historique de transaction, rendant les transactions intraçables</translation>
-    </message>
-    <message>
-        <source>Mint new zTARN or convert back to TARN</source>
-        <translation>Frapper de nouveaux zTARN ou reconvertir en TARN</translation>
-    </message>
-    <message>
-        <source>Last zTARN Movements</source>
-        <translation>Derniers mouvements zTARN</translation>
-    </message>
-    <message>
-        <source>No transactions yet</source>
-        <translation>Pas encore de transaction</translation>
-    </message>
-    <message>
-        <source>Mint zTARN</source>
-        <translation>Frapper des zTARN</translation>
-    </message>
-    <message>
-        <source>Enter amount of TARN to mint into zTARN</source>
-        <translation>Entrer le montant de TARN à monnayer en zTARN</translation>
-    </message>
-    <message>
-        <source>Convert back to TARN</source>
-        <translation>Reconvertir en TARN</translation>
-    </message>
-    <message>
-        <source>Enter amount of zTARN to convert back into TARN</source>
-        <translation>Entrer le montant de zTARN à reconvertir en TARN</translation>
-    </message>
-    <message>
-        <source>Zerocoin</source>
-        <translation>Zerocoin</translation>
-    </message>
-    <message>
-        <source>zTARN is currently undergoing maintenance</source>
-        <translation>zTARN est actuellement en maintenance</translation>
-    </message>
-    <message>
-        <source>You need to unlock the wallet to be able to %1 zTARN</source>
-        <translation>Vous devez dévérouiller le portefeuille pour pouvoir %1 zTARN</translation>
-    </message>
-    <message>
-        <source>convert</source>
-        <translation>convertir</translation>
-    </message>
-    <message>
-        <source>mint</source>
-        <translation>Frapper</translation>
-    </message>
-    <message>
-        <source>Invalid value</source>
-        <translation>Valeur incorrecte</translation>
-    </message>
-    <message>
-        <source>zTARN minted successfully</source>
-        <translation>zTARN frappées avec succès</translation>
-    </message>
-    <message>
-        <source>zTARN converted back to TARN</source>
-        <translation>zTARN reconverti en TARN</translation>
-    </message>
-    <message>
-        <source>You don't have any TARN to select.</source>
-        <translation>Vous n'avez aucun TARN à sélectionner</translation>
-    </message>
-    <message>
-        <source>Rescan Mints</source>
-        <translation>Rescanner les frappes</translation>
-    </message>
-    <message>
-        <source>Your zerocoin mints are going to be scanned from the blockchain from scratch</source>
-        <translation>Votre monnayage Zerocoin va être retracer à partir de la blockchain</translation>
-    </message>
-    <message>
-        <source>Reset Spent zTARN</source>
-        <translation>Réinitialiser les zTARN dépensés</translation>
-    </message>
-    <message>
-        <source>Your zerocoin spends are going to be scanned from the blockchain from scratch</source>
-        <translation>Vos dépenses Zerocoin vont être recalculées à partir de la blockchain</translation>
-    </message>
-    <message>
-        <source>Total %1</source>
-        <translation>Total %1</translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <source>Amount</source>
         <translation>Montant</translation>
     </message>
     <message>
-        <source>Enter TARIAN address (e.g. %1)</source>
-        <translation>Entrez une adresse TARIAN (par ex. %1)</translation>
+        <source>Enter TARN address (e.g. %1)</source>
+        <translation>Entrez une adresse TARN (par ex. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2443,8 +2308,12 @@ l'historique de transaction, rendant les transactions intraçables</translation>
         <translation>%1 ms</translation>
     </message>
     <message>
-        <source>TARIAN Core</source>
-        <translation>TARIAN Core</translation>
+        <source>A fatal error occurred. TARN can no longer continue safely and will quit.</source>
+        <translation>Une erreur fatale s'est produite. Tarian Core ne peut plus poursuivre en toute sécurité et va quitter.</translation>
+    </message>
+    <message>
+        <source>Tarian Core</source>
+        <translation>Tarian Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" does not exist.</source>
@@ -2463,8 +2332,8 @@ l'historique de transaction, rendant les transactions intraçables</translation>
         <translation>Erreur de lecture du fichier de configuration Masternode: %1</translation>
     </message>
     <message>
-        <source>TARIAN Core didn't yet exit safely...</source>
-        <translation>TARIAN Core n'a pas encore quitté en toute sécurité ...</translation>
+        <source>Tarian Core didn't yet exit safely...</source>
+        <translation>Tarian Core n'a pas encore quitté en toute sécurité ...</translation>
     </message>
     <message>
         <source>Contact</source>
@@ -2477,6 +2346,10 @@ l'historique de transaction, rendant les transactions intraçables</translation>
     <message>
         <source>Delegator</source>
         <translation>Délégateur</translation>
+    </message>
+    <message>
+        <source>Delegable</source>
+        <translation>Déléguable</translation>
     </message>
     <message>
         <source>Cold Staking</source>
@@ -2501,10 +2374,6 @@ l'historique de transaction, rendant les transactions intraçables</translation>
     <message>
         <source>Contacts</source>
         <translation>Contacts</translation>
-    </message>
-    <message>
-        <source>Delegators</source>
-        <translation>Délégateurs</translation>
     </message>
     <message>
         <source>Staking Contacts</source>
@@ -2578,6 +2447,58 @@ l'historique de transaction, rendant les transactions intraçables</translation>
         <source>by Date</source>
         <translation>par Date</translation>
     </message>
+    <message>
+        <source>Jan</source>
+        <translation>Jan</translation>
+    </message>
+    <message>
+        <source>Feb</source>
+        <translation>Fév</translation>
+    </message>
+    <message>
+        <source>Mar</source>
+        <translation>Mars</translation>
+    </message>
+    <message>
+        <source>Apr</source>
+        <translation>Avr</translation>
+    </message>
+    <message>
+        <source>May</source>
+        <translation>Mai</translation>
+    </message>
+    <message>
+        <source>Jun</source>
+        <translation>Juin</translation>
+    </message>
+    <message>
+        <source>Jul</source>
+        <translation>Juil</translation>
+    </message>
+    <message>
+        <source>Aug</source>
+        <translation>Août</translation>
+    </message>
+    <message>
+        <source>Sep</source>
+        <translation>Sep</translation>
+    </message>
+    <message>
+        <source>Oct</source>
+        <translation>Oct</translation>
+    </message>
+    <message>
+        <source>Nov</source>
+        <translation>Nov</translation>
+    </message>
+    <message>
+        <source>Dec</source>
+        <translation>Déc</translation>
+    </message>
+    <message>
+        <source>Address with no label</source>
+        <translation>Adresse sans libellé</translation>
+    </message>
 </context>
 <context>
     <name>RPCConsole</name>
@@ -2650,7 +2571,7 @@ l'historique de transaction, rendant les transactions intraçables</translation>
         <translation>Chaîne de bloc</translation>
     </message>
     <message>
-        <source>Open the TARIAN debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <source>Open the TARN debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation>Ouvrir le fichier journal de déboguage depuis le répertoire de données courant. Cela peut prendre quelques minutes pour les fichier journaux volumineux.</translation>
     </message>
     <message>
@@ -2874,8 +2795,8 @@ l'historique de transaction, rendant les transactions intraçables</translation>
         <translation>Sortie:</translation>
     </message>
     <message>
-        <source>Welcome to the TARIAN RPC console.</source>
-        <translation>Bienvenue sur la console TARIAN RPC.</translation>
+        <source>Welcome to the TARN RPC console.</source>
+        <translation>Bienvenue sur la console TARN RPC.</translation>
     </message>
     <message>
         <source>&amp;Disconnect Node</source>
@@ -2993,20 +2914,16 @@ l'historique de transaction, rendant les transactions intraçables</translation>
         <translation>Dialogue</translation>
     </message>
     <message>
-        <source>Transaction Details</source>
-        <translation>Détails de la transaction</translation>
+        <source>My Address</source>
+        <translation>Mon Adresse</translation>
     </message>
     <message>
-        <source>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
-        <translation>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </translation>
+        <source>COPY</source>
+        <translation>COPIER</translation>
     </message>
     <message>
         <source>CANCEL</source>
         <translation>ANNULER</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -3016,12 +2933,12 @@ l'historique de transaction, rendant les transactions intraçables</translation>
         <translation>Formulaire</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>Libellé</translation>
-    </message>
-    <message>
         <source>No address</source>
         <translation>Aucune adresse</translation>
+    </message>
+    <message>
+        <source>Scan the QR code or copy the address to receive TARN</source>
+        <translation>Balayez le QR code ou copiez l'adresse pour recevoir les TARN</translation>
     </message>
     <message>
         <source>Add Label</source>
@@ -3040,12 +2957,20 @@ l'historique de transaction, rendant les transactions intraçables</translation>
         <translation>Recevoir</translation>
     </message>
     <message>
-        <source>Scan the QR code or copy the address to receive TARN.</source>
-        <translation>Balayez le QR code ou copiez l'adresse pour recevoir les TARN.</translation>
+        <source>My Addresses</source>
+        <translation>Mes adresses</translation>
     </message>
     <message>
-        <source>No address </source>
-        <translation>Aucune adresse</translation>
+        <source>List your own addresses</source>
+        <translation>Lister vos propres adresses</translation>
+    </message>
+    <message>
+        <source>Create Request</source>
+        <translation>Créer une requête</translation>
+    </message>
+    <message>
+        <source>Request payment with a fixed amount</source>
+        <translation>Demander un paiement avec un montant défini</translation>
     </message>
     <message>
         <source>No available address, try unlocking the wallet</source>
@@ -3138,14 +3063,6 @@ l'historique de transaction, rendant les transactions intraçables</translation>
         <translation>Dialogue</translation>
     </message>
     <message>
-        <source>New Request Payment</source>
-        <translation>Nouvelle demande de paiement</translation>
-    </message>
-    <message>
-        <source>Lorem ipsum dolor sit amet, consectur cling elit, sed do </source>
-        <translation>Lorem ipsum dolor sit amet, consectur cling elit, sed do</translation>
-    </message>
-    <message>
         <source>Amount</source>
         <translation>Montant</translation>
     </message>
@@ -3154,8 +3071,8 @@ l'historique de transaction, rendant les transactions intraçables</translation>
         <translation>TARN</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>Libellé</translation>
+        <source>Instead of sharing only a TARN address, you can create a payment request, bundling up more information</source>
+        <translation>Plutôt que de ne partager qu'une adresse TARN, vous pouvez créer une demande de paiement, et  y ajouter des informations complémentaires</translation>
     </message>
     <message>
         <source>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
@@ -3174,10 +3091,6 @@ l'historique de transaction, rendant les transactions intraçables</translation>
         <translation>ANNULER</translation>
     </message>
     <message>
-        <source>REQUEST</source>
-        <translation>DEMANDER</translation>
-    </message>
-    <message>
         <source>Label</source>
         <translation>Libellé</translation>
     </message>
@@ -3188,10 +3101,6 @@ l'historique de transaction, rendant les transactions intraçables</translation>
     <message>
         <source>New Payment Request</source>
         <translation>Nouvelle demande de paiement</translation>
-    </message>
-    <message>
-        <source>Instead of sharing only a TARIAN address, you can create a payment request, bundling up more information.</source>
-        <translation>Plutôt que de partager votre adresse TARIAN, vous pouvez créer une demande de paiement, contenant plus d'informations.</translation>
     </message>
     <message>
         <source>Enter a label for the address</source>
@@ -3221,6 +3130,22 @@ l'historique de transaction, rendant les transactions intraçables</translation>
         <source>Amount (optional)</source>
         <translation>Montant (optionnel)</translation>
     </message>
+    <message>
+        <source>Address label cannot be empty</source>
+        <translation>Le non de l'adresse ne peut rester vider</translation>
+    </message>
+    <message>
+        <source>Invalid amount</source>
+        <translation>Montant incorrect</translation>
+    </message>
+    <message>
+        <source>Request for </source>
+        <translation>Demande pour</translation>
+    </message>
+    <message>
+        <source>Cold Staking Address Generated</source>
+        <translation>Adresse de cold staking générée </translation>
+    </message>
 </context>
 <context>
     <name>SendChangeAddressDialog</name>
@@ -3229,28 +3154,16 @@ l'historique de transaction, rendant les transactions intraçables</translation>
         <translation>Dialogue</translation>
     </message>
     <message>
-        <source>Transaction Details</source>
-        <translation>Détails de la transaction</translation>
-    </message>
-    <message>
-        <source>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</source>
-        <translation>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</translation>
-    </message>
-    <message>
         <source>CANCEL</source>
         <translation>ANNULER</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>OK</translation>
     </message>
     <message>
         <source>Custom Change Address</source>
         <translation>Adresse de changement personnalisée</translation>
     </message>
     <message>
-        <source>The remainder of the value resultant from the inputs minus the outputs value goes to the "change" TARIAN address</source>
-        <translation>Le reste de la valeur résultante des entrées moins la valeur des sorties est envoyé à l'adresse "change" TARIAN </translation>
+        <source>The remainder of the value resultant from the inputs minus the outputs value goes to the "change" TARN address</source>
+        <translation>Le reste de la valeur résultante des entrées moins la valeur des sorties est envoyé à l'adresse "change" TARN </translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -3264,20 +3177,16 @@ l'historique de transaction, rendant les transactions intraçables</translation>
         <source>Invalid address</source>
         <translation>Adresse invalide</translation>
     </message>
+    <message>
+        <source>Cannot use cold staking addresses for change</source>
+        <translation>Impossible d'utiliser des adresses de cold staking pour le changement</translation>
+    </message>
 </context>
 <context>
     <name>SendCustomFeeDialog</name>
     <message>
         <source>Form</source>
         <translation>Formulaire</translation>
-    </message>
-    <message>
-        <source>Transaction Details</source>
-        <translation>Détails de la transaction</translation>
-    </message>
-    <message>
-        <source>Customize the transaction fee at your to your liking, depending on the fee value your transaction will be included or not in the blockchain.</source>
-        <translation>Personnalisez les frais de transaction à votre guise, en fonction de la valeur des frais, votre transaction sera incluse ou non dans la blockchain.</translation>
     </message>
     <message>
         <source>Recommended</source>
@@ -3292,6 +3201,10 @@ l'historique de transaction, rendant les transactions intraçables</translation>
         <translation>0.00 KO</translation>
     </message>
     <message>
+        <source>Customize the transaction fee, depending on the fee value your transaction might be included faster in the blockchain</source>
+        <translation>Personnaliser les frais de transactions, selon les frais choisis votre transaction pourrait être ajoutée plus rapidement à la blockchain.</translation>
+    </message>
+    <message>
         <source>Custom</source>
         <translation>Personnaliser</translation>
     </message>
@@ -3300,16 +3213,8 @@ l'historique de transaction, rendant les transactions intraçables</translation>
         <translation>ANNULER</translation>
     </message>
     <message>
-        <source>OK</source>
-        <translation>OK</translation>
-    </message>
-    <message>
         <source>Customize Fee</source>
         <translation>Personnaliser les frais</translation>
-    </message>
-    <message>
-        <source>Customize the transaction fee, depending on the fee value your transaction might be included faster in the blockchain.</source>
-        <translation>Personnaliser les frais de transactions, en fonction de la valeur des frais votre transaction sera ajoutée plus rapidement à la blockchain.</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -3327,7 +3232,15 @@ l'historique de transaction, rendant les transactions intraçables</translation>
         <source>SAVE</source>
         <translation>SAUVEGARDER</translation>
     </message>
-    </context>
+    <message>
+        <source>Fee too high. Must be below: %1</source>
+        <translation>Frais trop élevés. Doit être en dessous de: %1</translation>
+    </message>
+    <message>
+        <source>Fee too low. Must be at least: %1</source>
+        <translation>Frais trop bas. Doit être au dessus de: %1</translation>
+    </message>
+</context>
 <context>
     <name>SendMultiRow</name>
     <message>
@@ -3335,12 +3248,12 @@ l'historique de transaction, rendant les transactions intraçables</translation>
         <translation>Formulaire</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>Libellé</translation>
-    </message>
-    <message>
         <source>Enter address</source>
         <translation>Entrez l'adresse</translation>
+    </message>
+    <message>
+        <source>Address label (optional)</source>
+        <translation>Libellé d'adresse (optionel)</translation>
     </message>
     <message>
         <source>Enter label</source>
@@ -3350,56 +3263,8 @@ l'historique de transaction, rendant les transactions intraçables</translation>
 <context>
     <name>SendWidget</name>
     <message>
-        <source>Send</source>
-        <translation>Envoyer</translation>
-    </message>
-    <message>
-        <source>You can transfer public coins (TARN) or private coins (zTARN)</source>
-        <translation>Vous pouvez transférer des pièces publiques (TARN) ou des pièces privées (zTARN)</translation>
-    </message>
-    <message>
-        <source>Select coin type to spend</source>
-        <translation>Choisir le type de pièce à dépenser</translation>
-    </message>
-    <message>
-        <source>Amount</source>
-        <translation>Montant</translation>
-    </message>
-    <message>
-        <source>Customize fee</source>
-        <translation>Personnaliser les frais</translation>
-    </message>
-    <message>
-        <source>Clear all</source>
-        <translation>Tout effacer</translation>
-    </message>
-    <message>
-        <source>Add recipient</source>
-        <translation>Ajouter un destinataire</translation>
-    </message>
-    <message>
-        <source>Reset to default</source>
-        <translation>Réinitialiser les valeurs par défaut</translation>
-    </message>
-    <message>
-        <source>Total to send</source>
-        <translation>Total à envoyer</translation>
-    </message>
-    <message>
-        <source>Send TARN</source>
-        <translation>Envoyer TARN</translation>
-    </message>
-    <message>
-        <source>Send zTARN</source>
-        <translation>Envoyer zTARN</translation>
-    </message>
-    <message>
         <source>Total remaining from the selected UTXO</source>
         <translation>Total restant dans l'UTXO sélectionné</translation>
-    </message>
-    <message>
-        <source>Total remaining</source>
-        <translation>Total restant</translation>
     </message>
     <message>
         <source>Warning!</source>
@@ -3422,10 +3287,6 @@ Voulez-vous continuer ?</translation>
         <translation>Quantité maximale de données de sortie atteinte</translation>
     </message>
     <message>
-        <source>TARIAN address or contact label</source>
-        <translation>Adresse TARIAN ou nom du contact</translation>
-    </message>
-    <message>
         <source>Invalid entry, previous entries must be valid before add a new one</source>
         <translation>Entrée invalide, les entrées précédentes doivent être validées avant d'en créer de nouvelles</translation>
     </message>
@@ -3435,7 +3296,7 @@ Voulez-vous continuer ?</translation>
     </message>
     <message>
         <source>Invalid entry</source>
-        <translation>Entrée invalide</translation>
+        <translation>Entrée incorrecte</translation>
     </message>
     <message>
         <source>No set recipients</source>
@@ -3462,55 +3323,6 @@ Ces pièces ne pourront plus être utilisées pour le staking à froid.</transla
         <translation>Transaction envoyée</translation>
     </message>
     <message>
-        <source>Spend Zerocoin</source>
-        <translation>Dépenser les Zerocoin</translation>
-    </message>
-    <message>
-        <source>zTARN is currently undergoing maintenance.</source>
-        <translation>zTARN est actuellement en cours de maintenance.</translation>
-    </message>
-    <message>
-        <source>Coin control mint not found</source>
-        <translation>Pièce de monnaie monnayée introuvable</translation>
-    </message>
-    <message>
-        <source>Sending %1 to address %2
-</source>
-        <translation>Envoi %1 vers l'adresse %2
-</translation>
-    </message>
-    <message>
-        <source>Sending %1 to addresses:
-%2</source>
-        <translation>Envoi %1 vers l'adresse:
- %2</translation>
-    </message>
-    <message>
-        <source>zTARN transaction sent!</source>
-        <translation>Transaction zTARN envoyée!</translation>
-    </message>
-    <message>
-        <source>Version 1 zTARN require a security level of 100 to successfully spend.</source>
-        <translation>La version 1 de zTARN requiert un niveau de sécurité de 100 pour les dépenser.
-</translation>
-    </message>
-    <message>
-        <source>Too much inputs (</source>
-        <translation>Trop d'entrées (</translation>
-    </message>
-    <message>
-        <source>) needed.
-Maximum allowed: </source>
-        <translation>) demandées.
-Maximum autorisé:</translation>
-    </message>
-    <message>
-        <source>
-Either mint higher denominations (so fewer inputs are needed) or reduce the amount to spend.</source>
-        <translation>
-Monnayez des dénominations plus élevées (moins d'intrants sont nécessaires), ou réduisez le montant à dépenser.</translation>
-    </message>
-    <message>
         <source>Address label update failed for address: %1</source>
         <translation>La mise à jour du libellé a échoué pour l'adresse: %1</translation>
     </message>
@@ -3527,12 +3339,36 @@ Monnayez des dénominations plus élevées (moins d'intrants sont nécessaires),
         <translation>Frais personnalisé %1</translation>
     </message>
     <message>
-        <source>You don't have any TARN to select.</source>
-        <translation>Vous n'avez aucun TARN à sélectionner</translation>
+        <source>Coin Control</source>
+        <translation>Contrôle des pièces</translation>
     </message>
     <message>
-        <source>You don't have any zTARN in your balance to select.</source>
-        <translation>Vous n'avez aucun zTARN à sélectionner.</translation>
+        <source>Select the source of the coins</source>
+        <translation>Choisir la source des monnaies</translation>
+    </message>
+    <message>
+        <source>Change Address</source>
+        <translation>Changer adresse</translation>
+    </message>
+    <message>
+        <source>Customize the change address</source>
+        <translation>Personnalisez l'adresse de changement</translation>
+    </message>
+    <message>
+        <source>Open URI</source>
+        <translation>Ouvrir URI</translation>
+    </message>
+    <message>
+        <source>Parse a payment request</source>
+        <translation>Analyser une demande de paiement</translation>
+    </message>
+    <message>
+        <source>Unlocked remaining</source>
+        <translation>Débloqué restant</translation>
+    </message>
+    <message>
+        <source>You don't have any %1 to select.</source>
+        <translation>Vous n'avez aucun %1 à sélectionner</translation>
     </message>
     <message>
         <source>No contacts available, you can go to the contacts screen and add some there!</source>
@@ -3578,22 +3414,8 @@ Monnayez des dénominations plus élevées (moins d'intrants sont nécessaires),
         <translation>Formulaire</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>Libellé</translation>
-    </message>
-    <message>
-        <source>Backup Wallet </source>
-        <translation>Sauvegarder le Portefeuille </translation>
-    </message>
-    <message>
         <source>Change Wallet Passphrase</source>
         <translation>Changer la phrase secrète du portefeuille</translation>
-    </message>
-    <message>
-        <source>This will decrypt the whole wallet data and encrypt it back with the new passphrase.
-Remember to write it down and store it safely, otherwise you might lose access to your funds.</source>
-        <translation>Cela va déchiffrer toutes les données du portefeuille et les chiffrer avec la nouvelle phrase de passe.
-Souvenez vous de l'écrire et de la stocker en sécurité, autrement vous pourriez perdre accès à vos fonds.</translation>
     </message>
     <message>
         <source>Where</source>
@@ -3601,13 +3423,19 @@ Souvenez vous de l'écrire et de la stocker en sécurité, autrement vous pourri
     </message>
     <message>
         <source>Keep your wallet safe by doing regular backups and storing your backup file externally.
-This option creates a wallet.dat file that can be used to recover your whole balance (transactions and addresses) on another device.</source>
-        <translation>Garder votre portefeuille en sécurité en réalisant des sauvegardes régulières et en conservant vos fichiers de sauvegarde hors ligne.
-Cette option créé un fichier wallet.dat qui peut être utiliser pour restaurer votre balance complète (transactions et adresses) sur un autre appareil.</translation>
+This option creates a wallet.dat file that can be used to recover your whole balance (transactions and addresses) on another device</source>
+        <translation>Garder votre portefeuille en sécurité en réalisant des sauvegardes régulières et en conservant les fichiers hors ligne.
+Cette option créé un fichier wallet.dat qui peut être utiliser pour restaurer votre protefeuille complet (transactions et adresses) sur un autre appareil.</translation>
     </message>
     <message>
         <source>Select folder...</source>
         <translation>Choisir le dossier...</translation>
+    </message>
+    <message>
+        <source>This will decrypt the whole wallet data and encrypt it back with the new passphrase.
+Remember to write it down and store it safely, otherwise you might lose access to your funds</source>
+        <translation>Cela va déchiffrer toutes les données du portefeuille et les chiffrer avec la nouvelle phrase de passe.
+Souvenez vous de l'écrire et de la stocker en sécurité, autrement vous pourriez perdre accès à vos fonds.</translation>
     </message>
     <message>
         <source>Change Passphrase</source>
@@ -3641,28 +3469,18 @@ Cette option créé un fichier wallet.dat qui peut être utiliser pour restaurer
         <translation>Formulaire</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>Libellé</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Bouton poussoir</translation>
-    </message>
-    <message>
-        <source>Decrypt Address Result</source>
-        <translation>Déchiffrer le résultat de l'adresse</translation>
-    </message>
-    <message>
         <source>Import Address</source>
         <translation>Importer l'adresse</translation>
     </message>
     <message>
-        <source>Clear</source>
-        <translation>Effacer</translation>
-    </message>
-    <message>
         <source>BIP38 Tool</source>
         <translation>Outil BIP38</translation>
+    </message>
+    <message>
+        <source>Encrypt your TARN addresses (key pair actually) using BIP38 encryption.
+Using this mechanism you can share your keys without middle-man risk, only need to store your passphrase safely</source>
+        <translation>Chiffrez vos adresses TARN (paire de clés) en utilisant le chiffrement BIP38.
+En utilisant ce mécanisme, vous pouvez partager vos clés sans risque intermédiaire, il vous suffit de stocker votre phrase secrète en toute sécurité</translation>
     </message>
     <message>
         <source>Encrypt</source>
@@ -3685,10 +3503,6 @@ Cette option créé un fichier wallet.dat qui peut être utiliser pour restaurer
         <translation>Phrase de passe</translation>
     </message>
     <message>
-        <source>Enter a passphrase </source>
-        <translation>Entrez une phrase de passe</translation>
-    </message>
-    <message>
         <source>Decrypted address result</source>
         <translation>Résultat d'adresse déchiffré</translation>
     </message>
@@ -3701,8 +3515,8 @@ Cette option créé un fichier wallet.dat qui peut être utiliser pour restaurer
         <translation>CLÉ DÉCHIFFRÉE</translation>
     </message>
     <message>
-        <source>TARIAN address</source>
-        <translation>Adresse TARIAN</translation>
+        <source>TARN address</source>
+        <translation>Adresse TARN</translation>
     </message>
     <message>
         <source>Enter address</source>
@@ -3723,6 +3537,10 @@ Cette option créé un fichier wallet.dat qui peut être utiliser pour restaurer
     <message>
         <source>CLEAR ALL</source>
         <translation>TOUT EFFACER</translation>
+    </message>
+    <message>
+        <source>Enter a passphrase</source>
+        <translation>Entrer un mot de passe</translation>
     </message>
     <message>
         <source>CLEAR</source>
@@ -3804,10 +3622,6 @@ Cette option créé un fichier wallet.dat qui peut être utiliser pour restaurer
         <translation>Formulaire</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>Libellé</translation>
-    </message>
-    <message>
         <source>Console</source>
         <translation>Console</translation>
     </message>
@@ -3816,12 +3630,12 @@ Cette option créé un fichier wallet.dat qui peut être utiliser pour restaurer
         <translation>Entrée de console</translation>
     </message>
     <message>
-        <source>Command Line Options </source>
-        <translation>Options de la ligen de commande</translation>
-    </message>
-    <message>
         <source>Open Debug File</source>
         <translation>Ouvrir le fichier debug</translation>
+    </message>
+    <message>
+        <source>Command Line Options</source>
+        <translation>Options ligne de commande</translation>
     </message>
     <message>
         <source>Clear history</source>
@@ -3834,8 +3648,8 @@ Verify that you have installed a predetermined text editor.</source>
 Vérifiez que vous avez installé un logiciel éditeur de texte.</translation>
     </message>
     <message>
-        <source>Welcome to the TARIAN RPC console.</source>
-        <translation>Bienvenue sur la console TARIAN RPC.</translation>
+        <source>Welcome to the TARN RPC console.</source>
+        <translation>Bienvenue sur la console TARN RPC.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and %1 to clear screen.</source>
@@ -3855,10 +3669,6 @@ Vérifiez que vous avez installé un logiciel éditeur de texte.</translation>
     <message>
         <source>Form</source>
         <translation>Formulaire</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>Libellé</translation>
     </message>
     <message>
         <source>Hide stake charts in the dashboard</source>
@@ -3948,12 +3758,12 @@ Vérifiez que vous avez installé un logiciel éditeur de texte.</translation>
         <translation>Exporter la liste des adresses</translation>
     </message>
     <message>
-        <source>TARIAN_tx_csv_export(*.csv)</source>
-        <translation>TARIAN_tx_csv_export(*.csv)</translation>
+        <source>TARN_tx_csv_export(*.csv)</source>
+        <translation>TARN_tx_csv_export(*.csv)</translation>
     </message>
     <message>
-        <source>TARIAN_addresses_csv_export(*.csv)</source>
-        <translation>TARIAN_addresses_csv_export(*.csv)</translation>
+        <source>TARN_addresses_csv_export(*.csv)</source>
+        <translation>TARN_addresses_csv_export(*.csv)</translation>
     </message>
     <message>
         <source>Please select a folder to export the csv file first.</source>
@@ -4023,87 +3833,49 @@ Il y a eu une erreur de sauvegarde de la liste d'adresses vers %1. SVP rééssay
         <translation>Formulaire</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>Libellé</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Bouton poussoir</translation>
-    </message>
-    <message>
-        <source>1) What is TARIAN?</source>
-        <translation>1) Qu'est ce que TARIAN?</translation>
+        <source>1) What is TARN?</source>
+        <translation>1) Qu'est ce que TARN?</translation>
     </message>
     <message>
         <source>2) Why are my TARN unspendable?</source>
         <translation>2) Pourquoi mes TARN ne peuvent pas être dépensés?</translation>
     </message>
     <message>
-        <source>3) TARIAN privacy? What is Zerocoin (zTARN)?</source>
-        <translation>3) Confidentialité et TARIAN? Qu'est ce que Zerocoin (zTARN)?</translation>
-    </message>
-    <message>
-        <source>4) Why are my zTARN unspendable?</source>
-        <translation>4) Pourquoi mes zTARN ne peuvent pas être dépensés?</translation>
-    </message>
-    <message>
-        <source>5) Why did my wallet convert the balance
-    into zTARN automatically?</source>
-        <translation>5) Pourquoi mon portefeuille convertit-il automatiquement
-mon solde en zTARN?</translation>
-    </message>
-    <message>
-        <source>6) How do I receive TARN/zTARN?</source>
-        <translation>6) Comment recevoir des TARN/zTARN?</translation>
-    </message>
-    <message>
-        <source>7) How do I stake TARN/zTARN?</source>
-        <translation>7) Comment staker des TARN/zTARN?</translation>
-    </message>
-    <message>
-        <source>8) Where I should go if I need support?</source>
-        <translation>8) Où dois-je aller pour obtenir de l'aide?</translation>
-    </message>
-    <message>
-        <source>9) What is a Masternode?</source>
-        <translation>9) Qu'est-ce qu'un Masternode?</translation>
-    </message>
-    <message>
-        <source>10) What is a Masternode Controller?</source>
-        <translation>10) Qu'est ce qu'un contrôleur de Masternode?</translation>
+        <source>https://TARN.org/</source>
+        <translation>https://TARN.org/</translation>
     </message>
     <message>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <source>What is TARIAN?</source>
-        <translation>Qu'est ce que TARIAN ?</translation>
+        <source>What is TARN?</source>
+        <translation>Qu'est ce que TARN ?</translation>
     </message>
     <message>
         <source>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           TARIAN is a form of digital online money using blockchain technology
+                           TARN is a form of digital online money using blockchain technology
                            that can be easily transferred globally, instantly, and with near
-                           zero fees.  TARIAN incorporates market leading security &amp;
+                           zero fees.  TARN incorporates market leading security &amp;
                            privacy and is also the first PoS (Proof of Stake) Cryptocurrency
                            to implement ZeroCoin(zTARN) and Zerocoin staking.
                            &lt;/p&gt;&lt;p align="justify"&gt;
-                           TARIAN utilizes a Proof of Stake (PoS) consensus system algorithm,
-                           allowing all owners of TARIAN to participate in earning block rewards
+                           TARN utilizes a Proof of Stake (PoS) consensus system algorithm,
+                           allowing all owners of TARN to participate in earning block rewards
                            while securing the network with full node wallets, as well as to
                            run Masternodes to create and vote on proposals.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </source>
         <translation>
 &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-TARIAN est une forme de monnaie digitale en ligne qui utilise la technologie de la blockchain
+TARN est une forme de monnaie digitale en ligne qui utilise la technologie de la blockchain
 et qui peut être facilement transférée globalement, instantanément, avec des frais
-quasi nuls. TARIAN intègre les meilleures solutions de sécurité et de confidentialité
+quasi nuls. TARN intègre les meilleures solutions de sécurité et de confidentialité
 du marché et elle est également la première cryptomonnaie avec un consensus PoS (Proof of Stake ou Preuve d'Enjeu) à implémenter Zerocoin(zTARN) ainsi que le staking de Zerocoin.
 &lt;/p&gt;&lt;p align="justify"&gt;
-TARIAN utilise un système de consensus de type Proof of Stake (PoS),
-permettant à tous les détenteurs de TARIAN de participer au réseau et de gagner des récompenses
+TARN utilise un système de consensus de type Proof of Stake (PoS),
+permettant à tous les détenteurs de TARN de participer au réseau et de gagner des récompenses
 lorsqu'ils sécurisent le réseau au moyen de leur portefeuille full node, ainsi qu'en
 éxécutant des masternodes pour créer et voter des propositions.
 &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -4119,19 +3891,19 @@ lorsqu'ils sécurisent le réseau au moyen de leur portefeuille full node, ainsi
     <message>
         <source>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           Newly received TARIAN requires 6 confirmations on the network
+                           Newly received TARN requires 6 confirmations on the network
                            to become eligible for spending which can take ~6 minutes.
                            &lt;/p&gt;&lt;p align="justify"&gt;
-                           Your TARIAN wallet also needs to be completely synchronized
+                           Your TARN wallet also needs to be completely synchronized
                            to see and spend balances on the network.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </source>
         <translation>
 &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-Les nouveaux TARIAN reçus nécessitent 6 confirmations sur le réseau
+Les nouveaux TARN reçus nécessitent 6 confirmations sur le réseau
 pour être disponible à la dépense ce qui peut prendre ~6 minutes.
 &lt;/p&gt;&lt;p align="justify"&gt;
-Votre portefeuille TARIAN a besoin également d'être totalement synchronisé
+Votre portefeuille TARN a besoin également d'être totalement synchronisé
 pour voir votre solde de monnaie dépensable sur le réseau.
 &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
 </translation>
@@ -4141,188 +3913,50 @@ pour voir votre solde de monnaie dépensable sur le réseau.
         <translation>3</translation>
     </message>
     <message>
-        <source>TARIAN privacy? What is Zerocoin (zTARN)?</source>
-        <translation>Confidentialité et TARIAN? Qu'est ce que Zerocoin (zTARN)?</translation>
+        <source>How do I stake TARN?</source>
+        <translation>Comment staker des TARN?</translation>
     </message>
     <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           zTARN is an optional privacy-centric method of coin mixing on the
-                           TARIAN blockchain. Basically all your transactions cannot be tracked
-                           on to any block explorer. You can read more about the technicals in the
-                           &lt;a style='color: #b088ff' href='https://TARIAN.org/ztarn/'&gt;
-                           "TARIAN Zerocoin (zTARN) Technical Paper"&lt;/a&gt;.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-zTARN est une méthode optionnelle de fongibilité des pièces sur la blockchain TARIAN, axée sur la confidentialité. Basiquement, cela permet rendre vos transactions intraçables par les explorateurs de blocs. Vous pouvez en savoir plus sur les aspects techniques en consultant le document
-&lt;a style='color: #b088ff' href='https://TARIAN.org/ztarn/'&gt;
- "TARIAN Zerocoin (zTARN) Technical Paper".&lt;/a&gt;
-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;"&gt;&lt;li align="justify" style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Make sure your wallet is completely synchronized and you are using the latest release. &lt;/li&gt;&lt;li align="justify" style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;You must have a balance of TARN with a minimum of 600 confirmations. &lt;/li&gt;&lt;li align="justify" style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Your wallet must stay online and be unlocked for staking purposes. &lt;/li&gt;&lt;li align="justify" style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Once all those steps are followed staking should be enabled. &lt;/li&gt;&lt;li align="justify" style=" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state &amp;quot;Staking Enabled&amp;quot; to indicate it is staking. Using the command line interface (tarian-cli); the command &lt;span style=" font-style:italic;"&gt;getstakingstatus&lt;/span&gt; will confirm that staking is active. &lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;"&gt;&lt;li align="justify" style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Assurez-vous que votre portefeuille est totalement synchronisé et que vous utilisez la dernière version logicielle. &lt;/li&gt;&lt;li align="justify" style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Vous devez avoir une balance TARN avec un minimum de 600 confirmations. &lt;/li&gt;&lt;li align="justify" style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Votre portefeuille doit rester en ligne et être débloqué aux fins de staking. &lt;/li&gt;&lt;li align="justify" style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Une fois toutes ces étapes validées le staking devrait s'activer. &lt;/li&gt;&lt;li align="justify" style=" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Vous pouvez voir l'état du staking dans votre portefeuille en passant votre souris sur l'icône cadeau située ne haut à droite de l'interface. La boîte cadeau devrait être active et indiquer &amp;quot;Staking Activé&amp;quot;. En utilisant l'interface en ligne de commande (tarian-cli), la commande &lt;span style=" font-style:italic;"&gt;getstakingstatus&lt;/span&gt; vous confirmera si le staking est actif.&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>4</source>
         <translation>4</translation>
     </message>
     <message>
-        <source>Why are my zTARN unspendable?</source>
-        <translation>Pourquoi mes zTARN ne peuvent pas être dépensés?</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           After minting, zTARN will require 20 confirmations as well as 1
-                           additional mint of the same denomination on the network to
-                           become eligible for spending.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-Après le monnayage, zTARN va nécessiter 20 confirmations ainsi que 1
-monnayage supplémentaire sur le réseau de la même dénomination
-afin d'être dépensable.
-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-</translation>
-    </message>
-    <message>
         <source>5</source>
         <translation>5</translation>
-    </message>
-    <message>
-        <source>Why did my wallet convert the balance into zTARN automatically?</source>
-        <translation>Pourquoi mon portefeuille convertit-il automatiquement
-mon solde en zTARN?</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           By default the TARIAN wallet will convert 10% of your entire TARN
-                           balance to zTARN to assist the network. If you do not wish to
-                           stake zTARN or take advantage of the privacy benefit it brings,
-                           you can disable the automatic minting in your TARIAN wallet by
-                           going to Settings-&gt;Options and deselecting “Enable zTARN Automint”.
-                           If you are not making use of the TARIAN-QT or GUI you can simply open
-                           your tarian.conf file and add &lt;i&gt;enablezeromint=0&lt;/i&gt; Without the quotation
-                           marks and restart your wallet to disable automint.&lt;/p&gt;
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           You can read more about zTARN in the
-                           &lt;a style='color: #b088ff' href='https://TARIAN.org/ztarn/'&gt; "TARIAN Zerocoin (zTARN) Technical Paper"&lt;/a&gt;.
-                           If you would like to keep and stake your zTARN, please read the "How do I stake"
-                           section of the FAQ below.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-Par défaut le portefeuille TARIAN convertit % de voter total de TARN
-en zTARN afin de soutenir le réseau. Si vous ne souhaitez pas
-conserver des zTARN ou profiter de ses propriétés en matière de confidentialité,
-vous pouvez désactiver cette fonctionnalité dans votre portefeuille TARIAN en
-allant dans Paramètres-&gt;Options et décocher “Activer l'atuto-monnayage zTARN”.
-Si vous n'utilisez pas TARIAN-QT ou le GUI vous pouvez simplement ouvrir
-votre fichier tarian.conf et ajouter &lt;i&gt; enablezeromint=0&lt;/i&gt; sans guillements
-et redémarrer votre portefeuille.&lt;/p&gt;
-&lt;/p&gt;&lt;p align="justify"&gt;
-Vous pouvez en savoir plus sur zTARN dans
-&lt;a style='color: #b088ff' href='https://TARIAN.org/ztarn/'&gt; le document "TARIAN Zerocoin (zTARN) Technical Paper"&lt;/a&gt;.
-Si vous voulez conserver et mettre en jeu vos zTARN, veuillez lire la section "Comment staker"
-de la FAQ ci-dessous.
-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-</translation>
     </message>
     <message>
         <source>6</source>
         <translation>6</translation>
     </message>
     <message>
-        <source>How do I receive TARN/zTARN?</source>
-        <translation>Comment recevoir des TARN/zTARN?</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           zTARN can be spent and sent to any TARIAN address. The receiver will
-                           receive standard TARIAN but the origin of the TARIAN is anonymized by the zTARN Protocol.
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           If you want more zTARN you will need to mint your balance in the “Privacy” tab.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-zTARN peut être dépensé et envoyé à n'importe quelle adresse TARIAN. Le destinataire va recevoir des TARIAN standards mais l'origine de ceux-ci sera anonymisé par le protocol zTARN.
-&lt;/p&gt;&lt;p align="justify"&gt;
-Si vous désirez obtenir plus de zTARN vous devez créer cette monnaie à partir de l'onglet "Confidentialité".
-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-</translation>
-    </message>
-    <message>
-        <source>7</source>
-        <translation>7</translation>
-    </message>
-    <message>
-        <source>How do I stake TARN/zTARN?</source>
-        <translation>Comment staker des TARN/zTARN?</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           To Stake TARIAN:
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           &lt;ol&gt;&lt;li&gt;
-                           Make sure your wallet is completely synchronized and you are using the latest release.
-                           &lt;li&gt;
-                           You must have a balance of TARIAN with a minimum of 600 confirmations.
-                           &lt;li&gt;
-                           Your wallet must stay online and be unlocked for staking purposes.
-                           &lt;li&gt;
-                           Once all those steps are followed staking should be enabled.
-                           &lt;li&gt;
-                           You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state "Staking Enabled" to indicate it is staking.  Using the command line interface (tarian-cli); the command &lt;i&gt;getstakingstatus&lt;/i&gt; will confirm that staking is active.
-                           &lt;/li&gt;&lt;/ol&gt;
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           To Stake zTARN:
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           &lt;ol&gt;&lt;li&gt;
-                           Make sure your wallet is completely synchronized and you are using the latest release.
-                           &lt;li&gt;
-                           Your newly minted or existing zTARN balance must have a minimum of 200 confirmations.
-                           &lt;li&gt;
-                           Your wallet must stay online and be unlocked for anonymization and staking purposes.
-                           Staking should now be enabled.
-                           &lt;/li&gt;&lt;/ol&gt;
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-Pour faire du Stake avec vos TARN:
-&lt;/p&gt;&lt;p align="justify"&gt;
-&lt;ol&gt;&lt;li&gt;
-Assurez-vous que votre portefeuillle est complètement synchronisé et que vous utilisez la dernière version du portefeuille.
-&lt;li&gt;
-Votre solde de TARIAN doit avoir reçu un minimum de 600 confirmations.
-&lt;li&gt;
-Votre portefeuille doit rester en ligne et dévérouillé pour le staking.
-&lt;li&gt;
-Une fois ces étapes accomplies le staking devrait être activé.
-&lt;li&gt;
- Vous pouvez voir le statut du staking dans le portefeuille en survolant l'icône du package dans la rangée en haut à gauche de l'interface du portefeuille. Le package sera allumé et indiquera "Staking Enabled" pour confirmer qu'il est effectivement activé. Dans le cas de l'utilisation de l'interface en ligne de commande (tarian-cli); La commande &lt;i&gt;getstakingstatus&lt;/i&gt; confirmera que le staking est actif.
-&lt;/li&gt;&lt;/ol&gt;
-&lt;/p&gt;&lt;p align="justify"&gt;
-Pour faire du Stake avec vos zTARN:
-&lt;/p&gt;&lt;p align="justify"&gt;
-&lt;ol&gt;&lt;li&gt;
-Assurez-vous que votre portefeuillle est complètement synchronisé et que vous utilisez la dernière version du portefeuille.
-&lt;li&gt;
-Votre solde de zTARN doit avoir reçu un minimum de 200 confirmations.
-&lt;li&gt;
-Votre portefeuille doit rester en ligne et dévérouillé pour l'anonymisation et le staking.
-Le staking devrait maintenant être actif.
-&lt;/li&gt;&lt;/ol&gt;
-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-</translation>
-    </message>
-    <message>
         <source>Where should I go if I need support?</source>
         <translation>Où dois-je aller pour obtenir de l'aide?</translation>
+    </message>
+    <message>
+        <source>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
+                           We have support channels in most of our official chat groups, for example
+                           &lt;a style='color: #b088ff' href='https://discord.TARN.org'&gt;
+                           #support in our Discord&lt;/a&gt;.
+                           If you prefer to submit a ticket, You can do so at
+                           &lt;a style='color: #b088ff' href='https://TARN.freshdesk.com'&gt;
+                           our Freshdesk support site&lt;/a&gt;.
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </source>
+        <translation>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
+                           We have support channels in most of our official chat groups, for example
+                           &lt;a style='color: #b088ff' href='https://discord.TARN.org'&gt;
+                           #support in our Discord&lt;/a&gt;.
+                           If you prefer to submit a ticket, You can do so at
+                           &lt;a style='color: #b088ff' href='https://TARN.freshdesk.com'&gt;
+                           our Freshdesk support site&lt;/a&gt;.
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </translation>
     </message>
     <message>
         <source>What is a Masternode?</source>
@@ -4333,44 +3967,14 @@ Le staking devrait maintenant être actif.
         <translation>10) Qu'est ce qu'un contrôleur de Masternode?</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;A Masternode Controller wallet is where the 10,000 TARN collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet(s) and allows you to keep your collateral coins offline while the remote masternode remains online. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt; Un contrôleur de masternode est un portefeuille dans lequel le dépôt de garantie de 10 000 TARN réside pendant la configuration d'un masternode contrôleur-distant. C'est un portefeuille qui peut activer le portefeuille masternode distant et vous permet de conserver le dépôt de garantie hors ligne tandis que le masternode restera en ligne.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>8</source>
-        <translation>8</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;A Masternode Controller wallet is where the 1,000 TARN collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet(s) and allows you to keep your collateral coins offline while the remote masternode remains online. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt; Un contrôleur de masternode est un portefeuille dans lequel le dépôt de garantie de 1 000 TARN réside pendant la configuration d'un masternode contrôleur-distant. C'est un portefeuille qui peut activer le portefeuille masternode distant et vous permet de conserver le dépôt de garantie hors ligne tandis que le masternode restera en ligne.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           We have support channels in most of our official chat groups, for example
-                           &lt;a style='color: #b088ff' href='https://discord.TARIAN.org'&gt;
-                           #support in our Discord&lt;/a&gt;.
-                           If you prefer to submit a ticket, One can be
-                           &lt;a style='color: #b088ff' href='https://TARIAN.freshdesk.com'&gt;
-                           our Freshdesk support site&lt;/a&gt;.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-&lt;html&gt;&lt;head/&gt;&lt;body&gt;
-Nous avons des services de support dans la plupart de nos groupes de discussion officiels, tel que
-&lt;a style='color: #b088ff' href='https://discord.TARIAN.org'&gt;
- #support dans notre groupe Discord&lt;/a&gt;.
-Si vous préférez soumettre un ticket, utilisez
-&lt;a style='color: #b088ff' href='https://TARIAN.freshdesk.com'&gt;
-notre site support Freshdesk&lt;/a&gt;.
-&lt;p align="justify"&gt;&lt;/body&gt;&lt;/html&gt;
-</translation>
-    </message>
-    <message>
-        <source>9</source>
-        <translation>9</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           A masternode is a computer running a full node TARIAN core wallet with a
-                           requirement of 10,000 TARN secured collateral to provide extra services
+                           A masternode is a computer running a full node TARN core wallet with a
+                           requirement of 1,000 TARN secured collateral to provide extra services
                            to the network and in return, receive a portion of the block reward
                            regularly.  These services include:
                            &lt;/p&gt;&lt;p align="justify"&gt;
@@ -4392,17 +3996,17 @@ notre site support Freshdesk&lt;/a&gt;.
                            Masternode Perks:
                            &lt;/p&gt;&lt;p align="justify"&gt;
                            &lt;ul&gt;
-                           &lt;li&gt;Participate in TARIAN Governance&lt;/li&gt;
+                           &lt;li&gt;Participate in TARN Governance&lt;/li&gt;
                            &lt;li&gt;Earn Masternode Rewards&lt;/li&gt;
                            &lt;li&gt;Commodity option for future sale&lt;/li&gt;
-                           &lt;li&gt;Help secure the TARIAN network&lt;/li&gt;
+                           &lt;li&gt;Help secure the TARN network&lt;/li&gt;
                            &lt;/ul&gt;
                            &lt;/p&gt;&lt;p align="justify"&gt;
 
                            Requirements:
                            &lt;/p&gt;&lt;p align="justify"&gt;
                            &lt;ul&gt;
-                           &lt;li&gt;10,000 TARN per single Masternode instance&lt;/li&gt;
+                           &lt;li&gt;1,000 TARN per single Masternode instance&lt;/li&gt;
                            &lt;li&gt;Must be stored in a core wallet&lt;/li&gt;
                            &lt;li&gt;Need dedicated IP address&lt;/li&gt;
                            &lt;li&gt;Masternode wallet to remain online&lt;/li&gt;
@@ -4411,8 +4015,8 @@ notre site support Freshdesk&lt;/a&gt;.
                          </source>
         <translation>
 &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-Un masternode est un ordinateur qui exécute un noeud complet du portefeuille TARIAN core avec une
-exigence de 10 000 TARN déposé en garantie pour fournir au réseau des services aditionnels et recevoir, en retour et régulièrement, une partie des récompense de blocs.
+Un masternode est un ordinateur qui exécute un noeud complet du portefeuille TARN core avec une
+exigence de 1 000 TARN déposé en garantie pour fournir au réseau des services aditionnels et recevoir, en retour et régulièrement, une partie des récompense de blocs.
 Ces services comprennent:
 &lt;/p&gt;&lt;p align="justify"&gt;
 &lt;ul&gt;
@@ -4428,17 +4032,17 @@ Pour fournir ces services, les masternodes sont payés avec une certaine portion
 Avantages du Masternode:
 &lt;/p&gt;&lt;p align="justify"&gt;
 &lt;ul&gt;
-&lt;li&gt;Participer à la gouvernance de TARIAN&lt;/li&gt;
+&lt;li&gt;Participer à la gouvernance de TARN&lt;/li&gt;
 &lt;li&gt;Gagner les récompences prévues pour les masternodes&lt;/li&gt;
 &lt;li&gt;Option de marchandise pour vente future&lt;/li&gt;
-&lt;li&gt;Aider à sécuriser le réseau TARIAN&lt;/li&gt;
+&lt;li&gt;Aider à sécuriser le réseau TARN&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/p&gt;&lt;p align="justify"&gt;
 
 Exigences:
 &lt;/p&gt;&lt;p align="justify"&gt;
 &lt;ul&gt;
-&lt;li&gt;10 000 TARN pour chaque instance de masternode&lt;/li&gt;
+&lt;li&gt;1 000 TARN pour chaque instance de masternode&lt;/li&gt;
 &lt;li&gt;Montant conservé dans un portefeuille core&lt;/li&gt;
 &lt;li&gt;Nécessite une IP fixe dédiée&lt;/li&gt;
 &lt;li&gt;Le portefeuille masternode doit rester en ligne&lt;/li&gt;
@@ -4447,12 +4051,24 @@ Exigences:
 </translation>
     </message>
     <message>
-        <source>10</source>
-        <translation>10</translation>
-    </message>
-    <message>
         <source>Frequently Asked Questions</source>
         <translation>Foire Aux Questions</translation>
+    </message>
+    <message>
+        <source>3) How do I stake TARN?</source>
+        <translation>3) Comment staker des TARN?</translation>
+    </message>
+    <message>
+        <source>4) Where I should go if I need support?</source>
+        <translation>4) Où dois-je aller pour obtenir de l'aide?</translation>
+    </message>
+    <message>
+        <source>5) What is a Masternode?</source>
+        <translation>5) Qu'est-ce qu'un Masternode?</translation>
+    </message>
+    <message>
+        <source>6) What is a Masternode Controller?</source>
+        <translation>6) Qu'est ce qu'un contrôleur de Masternode?</translation>
     </message>
     <message>
         <source>You can read more here</source>
@@ -4581,20 +4197,12 @@ Exigences:
         <translation>Formulaire</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>Libellé</translation>
-    </message>
-    <message>
         <source>Window</source>
         <translation>Fenêtre</translation>
     </message>
     <message>
         <source>Customize the application window options</source>
         <translation>Personnaliser les options de la fenêtre de l'application</translation>
-    </message>
-    <message>
-        <source>CheckBox</source>
-        <translation>CheckBox</translation>
     </message>
     <message>
         <source>Reset to default</source>
@@ -4613,6 +4221,10 @@ Exigences:
         <translation>Principal</translation>
     </message>
     <message>
+        <source>Customize the main application options</source>
+        <translation>Personnaliser les options de l'application principale</translation>
+    </message>
+    <message>
         <source>Size of database cache</source>
         <translation>Taille du cache de base de données</translation>
     </message>
@@ -4621,8 +4233,8 @@ Exigences:
         <translation>Nombre de threads de vérification de script</translation>
     </message>
     <message>
-        <source>Start TARIAN on system login</source>
-        <translation>Lancer TARIAN à l'ouverture de la session</translation>
+        <source>Start TARN on system login</source>
+        <translation>Lancer TARN à l'ouverture de la session</translation>
     </message>
     <message>
         <source>Minimize to the tray instead of the taskbar</source>
@@ -4709,8 +4321,8 @@ Confirmez-vous?
         <translation>CheckBox</translation>
     </message>
     <message>
-        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other TARIAN addresses after it matures.</source>
-        <translation>MultiSend vous pernet d'envoyer automatiquement jusqu'à 100% des récompenses de stake et masternode matures vers une liste d'adresses TARIAN de votre choix.</translation>
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other TARN addresses after it matures.</source>
+        <translation>MultiSend vous pernet d'envoyer automatiquement jusqu'à 100% des récompenses de stake et masternode matures vers une liste d'adresses TARN de votre choix.</translation>
     </message>
     <message>
         <source>Active</source>
@@ -4812,14 +4424,6 @@ Cochez l'une ou l'autre des cases à cocher pour envoyer les récompenses stake 
         <translation>Formulaire</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>Libellé</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation>Effacer</translation>
-    </message>
-    <message>
         <source>Sign/Verify Message</source>
         <translation>Signer/Vérifier un message</translation>
     </message>
@@ -4832,6 +4436,10 @@ Cochez l'une ou l'autre des cases à cocher pour envoyer les récompenses stake 
         <translation>Vérifier</translation>
     </message>
     <message>
+        <source>Write message here...</source>
+        <translation>Écrire un message ici...</translation>
+    </message>
+    <message>
         <source>Select mode</source>
         <translation>Sélectionnez le mode</translation>
     </message>
@@ -4840,16 +4448,12 @@ Cochez l'une ou l'autre des cases à cocher pour envoyer les récompenses stake 
         <translation>Message</translation>
     </message>
     <message>
-        <source>TARIAN address or contact label</source>
-        <translation>Adresse TARIAN ou nom du contact</translation>
+        <source>TARN address or contact label</source>
+        <translation>Adresse TARN ou nom du contact</translation>
     </message>
     <message>
         <source>Enter address</source>
         <translation>Entrez l'adresse</translation>
-    </message>
-    <message>
-        <source>Write message</source>
-        <translation>Écrire un message</translation>
     </message>
     <message>
         <source>Signature</source>
@@ -4935,18 +4539,6 @@ Cochez l'une ou l'autre des cases à cocher pour envoyer les récompenses stake 
         <translation>Formulaire</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>Libellé</translation>
-    </message>
-    <message>
-        <source>CheckBox</source>
-        <translation>CheckBox</translation>
-    </message>
-    <message>
-        <source>RadioButton</source>
-        <translation>RadioBouton</translation>
-    </message>
-    <message>
         <source>Reset to default</source>
         <translation>Réinitialiser les valeurs par défaut</translation>
     </message>
@@ -4963,7 +4555,7 @@ Cochez l'une ou l'autre des cases à cocher pour envoyer les récompenses stake 
         <translation>Personnaliser les options du portefeuille interne</translation>
     </message>
     <message>
-        <source>Stake split threshold:</source>
+        <source>Stake split threshold</source>
         <translation>Seuil de partage du Stake</translation>
     </message>
     <message>
@@ -4979,16 +4571,24 @@ Cochez l'une ou l'autre des cases à cocher pour envoyer les récompenses stake 
         <translation>Personnaliser les options réseau du nœud</translation>
     </message>
     <message>
-        <source>Proxy IP:</source>
-        <translation>Proxy IP:</translation>
+        <source>Connect through SOCKS5 proxy (default proxy)</source>
+        <translation>Connexion via proxy SOCKS5 (proxy par défaut)</translation>
+    </message>
+    <message>
+        <source>Proxy IP</source>
+        <translation>Proxy IP</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Port</translation>
+    </message>
+    <message>
+        <source>Enter port</source>
+        <translation>Entrer le port</translation>
     </message>
     <message>
         <source>Enter proxy IP</source>
         <translation>Entrez l'IP du proxy</translation>
-    </message>
-    <message>
-        <source>Port:</source>
-        <translation>Port:</translation>
     </message>
     <message>
         <source>Map port using UPnP</source>
@@ -4997,10 +4597,6 @@ Cochez l'une ou l'autre des cases à cocher pour envoyer les récompenses stake 
     <message>
         <source>Allow incoming connections</source>
         <translation>Autoriser les connections entrantes</translation>
-    </message>
-    <message>
-        <source>Connect through SOCKS5 proxy (default proxy):</source>
-        <translation>Connexion via proxy SOCKS5 (proxy par défaut):</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -5018,60 +4614,48 @@ Cochez l'une ou l'autre des cases à cocher pour envoyer les récompenses stake 
         <translation>Formulaire</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>Libellé</translation>
-    </message>
-    <message>
         <source>Wallet Repair</source>
         <translation>Réparation du portefeuille</translation>
-    </message>
-    <message>
-        <source>The buttons below will restart the wallet with command-line options to repair this wallet, fix issues with corrupt blockchain files or missing/obsolete transactions.</source>
-        <translation>Les boutons ci-dessous relancent le portefeuille avec des options de ligne de commande pour réparer ce dernier, résoudre les problèmes de fichiers blockchain corrompus ou de transactions manquantes / obsolètes.</translation>
-    </message>
-    <message>
-        <source>Attempt to recover private keys from a corrupt wallet.dat.</source>
-        <translation>Tentative de récupération des clés privées à partir d'un wallet.dat corrompu.</translation>
-    </message>
-    <message>
-        <source>Rescan the blockchain for missing wallet transactions.</source>
-        <translation>Réanalyser la blockchain pour détecter les transactions de portefeuille manquantes.</translation>
-    </message>
-    <message>
-        <source>Recover transactions from blockchain (keep-meta-data, e.g. account owner).</source>
-        <translation>Récupère les transactions depuis la blockchain (conserve les méta-données, par exemple le propriétaire du compte).</translation>
-    </message>
-    <message>
-        <source>Recover transactions from blockchain (drop meta-data).</source>
-        <translation>Récupère les transactions depuis la blockchain (sans les méta-données)</translation>
     </message>
     <message>
         <source>Upgrade wallet to latest format on startup. (Note: this is NOT an update of the wallet itself)</source>
         <translation>Mettre à jour le portefeuille au format le plus récent lors du démarrage. (Note: ce n'est pas une mise à jour du portefeuille lui-même!)</translation>
     </message>
     <message>
-        <source>Rebuild blockchain index from current blk000???.dat files.</source>
-        <translation>Reconstruire l'index de la chaîne de blocs à partir des fichiers courants blk000 ??.</translation>
-    </message>
-    <message>
-        <source>Deletes all local blockchain folders so the wallet synchronizes from scratch.</source>
-        <translation>Supprime tous les dossiers blockchain locaux afin que le portefeuille se synchronise à partir de zéro.</translation>
+        <source>The buttons below will restart the wallet with command-line options to repair this wallet, fix issues with corrupt blockchain files or missing/obsolete transactions</source>
+        <translation>Les boutons ci-dessous relancent le portefeuille avec des options en ligne de commande pour réparer ce dernier, résoud les problèmes de blockchain corrompue ou de transactions manquantes / obsolètes.</translation>
     </message>
     <message>
         <source>Salvage wallet</source>
         <translation>Portefeuille de récupération</translation>
     </message>
     <message>
+        <source>Attempt to recover private keys from a corrupt wallet.dat</source>
+        <translation>Essaye de restaurer les clés privées depuis un fichier wallet.dat corrompu</translation>
+    </message>
+    <message>
         <source>Rescan blockchain file</source>
         <translation>Réanalysez les fichiers blockchain</translation>
+    </message>
+    <message>
+        <source>Rescan the blockchain for missing wallet transactions</source>
+        <translation>Réanalyser la blockchain pour détecter les transactions manquantes</translation>
     </message>
     <message>
         <source>Recover transactions 1</source>
         <translation>Récupère les transactions 1</translation>
     </message>
     <message>
+        <source>Recover transactions from blockchain (keep-meta-data, e.g. account owner)</source>
+        <translation>Récupère les transactions depuis la blockchain (conserve les méta-données, par exemple le propriétaire du compte).</translation>
+    </message>
+    <message>
         <source>Recover transactions 2</source>
         <translation>Récupérer les transactions 2</translation>
+    </message>
+    <message>
+        <source>Recover transactions from blockchain (drop meta-data)</source>
+        <translation>Récupère les transactions depuis la blockchain (sans les méta-données)</translation>
     </message>
     <message>
         <source>Upgrade wallet format</source>
@@ -5082,8 +4666,16 @@ Cochez l'une ou l'autre des cases à cocher pour envoyer les récompenses stake 
         <translation>Reconstruire l'index</translation>
     </message>
     <message>
-        <source>Delete local blockchain </source>
+        <source>Rebuild blockchain index from current blk000???.dat files</source>
+        <translation>Reconstruire l'index de la blockchain à partir du fichier courant blk000???.dat</translation>
+    </message>
+    <message>
+        <source>Delete local blockchain</source>
         <translation>Supprime le dossier local Blockchain</translation>
+    </message>
+    <message>
+        <source>Deletes all local blockchain folders so the wallet synchronizes from scratch</source>
+        <translation>Supprime tous les dossiers blockchain locaux afin de tout synchroniser depuis le début</translation>
     </message>
     <message>
         <source>This will delete your local blockchain folders and the wallet will synchronize the complete Blockchain from scratch.&lt;br /&gt;&lt;br /&gt;</source>
@@ -5177,8 +4769,8 @@ Cochez l'une ou l'autre des cases à cocher pour envoyer les récompenses stake 
         <translation>FAQ</translation>
     </message>
     <message>
-        <source>About TARIAN</source>
-        <translation>A propos de TARIAN</translation>
+        <source>About TARN</source>
+        <translation>A propos de TARN</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -5195,6 +4787,10 @@ Cochez l'une ou l'autre des cases à cocher pour envoyer les récompenses stake 
     <message>
         <source>Client will be shutdown, do you want to proceed?</source>
         <translation>Le client va être éteint, voulez-vous procéder ?</translation>
+    </message>
+    <message>
+        <source>Stake Split too low, it shall be either &gt;= %1 or equal to 0 (to disable stake splitting)</source>
+        <translation>La division du stake est trop faible, elle doit être &gt;= %1 ou égal à 0 (pour désactiver la division du stake)</translation>
     </message>
     <message>
         <source>Restart required</source>
@@ -5244,8 +4840,8 @@ Confirmez-vous ?
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>TARIAN Core is shutting down...</source>
-        <translation>TARIAN Core est en cours de fermeture...</translation>
+        <source>Tarian Core is shutting down...</source>
+        <translation>Tarian Core est en cours de fermeture...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -5274,32 +4870,12 @@ Confirmez-vous ?
         <translation>Chargement...</translation>
     </message>
     <message>
-        <source>TARIAN Core</source>
-        <translation>TARIAN Core</translation>
+        <source>Tarian Core</source>
+        <translation>Tarian Core</translation>
     </message>
 </context>
 <context>
     <name>SplashScreen</name>
-    <message>
-        <source>TARIAN Core</source>
-        <translation>TARIAN Core</translation>
-    </message>
-    <message>
-        <source>Version %1</source>
-        <translation>Version %1</translation>
-    </message>
-    <message>
-        <source>The Bitcoin Core developers</source>
-        <translation>Les développeurs Bitcoin Core</translation>
-    </message>
-    <message>
-        <source>The Dash Core developers</source>
-        <translation>Les développeurs Dash Core</translation>
-    </message>
-    <message>
-        <source>The TARIAN Core developers</source>
-        <translation>Les développeurs TARIAN Core</translation>
-    </message>
     <message>
         <source>[testnet]</source>
         <translation>[testnet]</translation>
@@ -5392,7 +4968,7 @@ Confirmez-vous ?
     </message>
     <message numerus="yes">
         <source>%n year(s)</source>
-        <translation><numerusform>%n année</numerusform><numerusform>%n années</numerusform></translation>
+        <translation><numerusform>%n année</numerusform><numerusform>%n ans</numerusform></translation>
     </message>
     <message>
         <source>Wallet Upgrade</source>
@@ -5429,6 +5005,54 @@ sauvegarde sera créée.
     <message>
         <source>Tor Disabled</source>
         <translation>Tor désactivé</translation>
+    </message>
+    <message>
+        <source>FAQ</source>
+        <translation>FAQ</translation>
+    </message>
+    <message>
+        <source>Upgrade to HD Wallet</source>
+        <translation>Migrer vers le portefeuille HD</translation>
+    </message>
+    <message>
+        <source>No Connection</source>
+        <translation>Aucune connection</translation>
+    </message>
+    <message>
+        <source>Staking Disabled</source>
+        <translation>Staking désactivé</translation>
+    </message>
+    <message>
+        <source>Cold Staking Disabled</source>
+        <translation>Staking à froid désactivé</translation>
+    </message>
+    <message>
+        <source> %54 Synchronizing..</source>
+        <translation>%54 Synchronisation..</translation>
+    </message>
+    <message>
+        <source>Light Theme</source>
+        <translation>Thème clair</translation>
+    </message>
+    <message>
+        <source>Dark Theme</source>
+        <translation>Thème sombre</translation>
+    </message>
+    <message>
+        <source>Wallet Locked </source>
+        <translation>Portefeuille vérouillé</translation>
+    </message>
+    <message>
+        <source>Wallet Locked</source>
+        <translation>Portefeuille vérouillé</translation>
+    </message>
+    <message>
+        <source>Wallet Unlocked</source>
+        <translation>Portefeuille déverrouillé</translation>
+    </message>
+    <message>
+        <source>Wallet Unencrypted</source>
+        <translation>Portefeuille déchiffré</translation>
     </message>
     <message>
         <source>Available (Locked included)</source>
@@ -5732,40 +5356,24 @@ sauvegarde sera créée.
         <translation>Reçu depuis</translation>
     </message>
     <message>
-        <source>TARN Stake</source>
-        <translation>TARN Stake</translation>
+        <source>%1 Stake</source>
+        <translation>%1 Stake</translation>
     </message>
     <message>
-        <source>zTARN Stake</source>
-        <translation>zTARN Stake</translation>
+        <source>z%1 Stake</source>
+        <translation>z%1 Stake</translation>
     </message>
     <message>
-        <source>TARN Cold Stake</source>
-        <translation>Stake à froid TARIAN</translation>
+        <source>%1 Cold Stake</source>
+        <translation>%1 Stake à froid</translation>
+    </message>
+    <message>
+        <source>%1 Stake on behalf of</source>
+        <translation>%1 Stake pour le compte de</translation>
     </message>
     <message>
         <source>Stake delegation</source>
         <translation>Délégation staking</translation>
-    </message>
-    <message>
-        <source>Converted TARN to zTARN</source>
-        <translation>TARN converti en zTARN</translation>
-    </message>
-    <message>
-        <source>Spent zTARN</source>
-        <translation>zTARN dépensés</translation>
-    </message>
-    <message>
-        <source>Received TARN from zTARN</source>
-        <translation>TARN reçu depuis zTARN</translation>
-    </message>
-    <message>
-        <source>Minted Change as zTARN from zTARN Spend</source>
-        <translation>Monnaie rendue à partir d'une dépense zTARN frappée comme zTARN </translation>
-    </message>
-    <message>
-        <source>Converted zTARN to TARN</source>
-        <translation>zTARN converti en TARN</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -5780,16 +5388,32 @@ sauvegarde sera créée.
         <translation>Paiement à vous-même</translation>
     </message>
     <message>
-        <source>TARN Stake on behalf of</source>
-        <translation>Stake de TARN pour le compte de </translation>
-    </message>
-    <message>
         <source>Stake delegation spent by</source>
         <translation>Délégation stake passée par</translation>
     </message>
     <message>
         <source>Mined</source>
         <translation>Miné</translation>
+    </message>
+    <message>
+        <source>Converted %1 to z%1</source>
+        <translation>Converti %1 vers z%1</translation>
+    </message>
+    <message>
+        <source>Spent z%1</source>
+        <translation>Dépensé z%1</translation>
+    </message>
+    <message>
+        <source>Received %1 from z%1</source>
+        <translation>Reçu %1 de z%1</translation>
+    </message>
+    <message>
+        <source>Minted Change as z%1 from z%1 Spend</source>
+        <translation>Monnaie rendue à partir d'une dépense z%1 frappée comme z%1</translation>
+    </message>
+    <message>
+        <source>Converted z%1 to %1</source>
+        <translation>Converti z%1 vers %1</translation>
     </message>
     <message>
         <source>watch-only</source>
@@ -5927,6 +5551,10 @@ sauvegarde sera créée.
         <translation>ID copié</translation>
     </message>
     <message>
+        <source>Delegating to</source>
+        <translation>Délégation à</translation>
+    </message>
+    <message>
         <source>Unknown</source>
         <translation>Inconnu</translation>
     </message>
@@ -5937,18 +5565,6 @@ sauvegarde sera créée.
         <source>Form</source>
         <translation>Formulaire</translation>
     </message>
-    <message>
-        <source>Received from Bob</source>
-        <translation>Reçu de Bob</translation>
-    </message>
-    <message>
-        <source>18/05/18</source>
-        <translation>18/05/2018</translation>
-    </message>
-    <message>
-        <source>+0.000585 TARN</source>
-        <translation>+0.000585 TARN</translation>
-    </message>
 </context>
 <context>
     <name>WalletModel</name>
@@ -5957,8 +5573,19 @@ sauvegarde sera créée.
         <translation>Envoyer des pièces</translation>
     </message>
     <message>
-        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 TARN.</source>
-        <translation>SwiftX ne supporte pas l'envoi de montants aussi élevés. Les transactions sont actuellement lmitées à %1 TARN.</translation>
+        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 %2.</source>
+        <translation>SwiftX ne supporte pas l'envoi de montants aussi élevés. Les transactions sont actuellement limitées à %1 %2.</translation>
+    </message>
+    <message>
+        <source>Transaction creation failed!
+%1</source>
+        <translation>Création de la transaction échouée!
+%1</translation>
+    </message>
+    <message>
+        <source>The size of the transaction is too big.
+Select fewer inputs with coin control.</source>
+        <translation>La taille de la transaction est trop grande. Sélectionnez de plus petites entrées avec le coin control. </translation>
     </message>
 </context>
 <context>
@@ -6001,25 +5628,25 @@ sauvegarde sera créée.
     </message>
     <message>
         <source>Welcome to
-TARIAN Core Wallet</source>
+Tarian Core Wallet</source>
         <translation>Bienvenu au
-Portefeuille TARIAN Core</translation>
+Portefeuille Tarian Core</translation>
     </message>
     <message>
-        <source>TARIAN is the world’s most innovative Proof of Stake blockchain based technology. Developed by a team of highly experienced developers and cryptographers.</source>
-        <translation>TARIAN est la technologie la plus innovante au monde de preuve d'enjeu basée sur une blockchain. Développé par une équipe de développeurs et cryptographes très expérimentés.</translation>
+        <source>TARN is the world’s most innovative Proof of Stake blockchain based technology. Developed by a team of highly experienced developers and cryptographers.</source>
+        <translation>TARN est la technologie la plus innovante au monde de preuve d'enjeu basée sur une blockchain. Développé par une équipe de développeurs et cryptographes très expérimentés.</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;As our manifesto says: Privacy is a non-negotiable basic human right; it grants users the freedom to share their data whenever and with whomever they want - TARIAN believes in self sovereignty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Comme notre manifeste l'indique: la vie privée est un droit de base non-négociable de l'être humain; il permet aux utilisateurs la liberté de partager leurs donnée quand et avec qui ils le souhaitent - TARIAN croit en l'auto gestion. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt; </translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;As our manifesto says: Privacy is a non-negotiable basic human right; it grants users the freedom to share their data whenever and with whomever they want - TARN believes in self sovereignty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Comme notre manifeste l'indique: la vie privée est un droit de base non-négociable de l'être humain; il permet aux utilisateurs la liberté de partager leurs donnée quand et avec qui ils le souhaitent - TARN croit en l'auto gestion. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt; </translation>
     </message>
     <message>
-        <source>The masternode network is TARIAN's second layer network on top of the blockchain that enables our DAO to provide decentralized governance and a treasury.</source>
-        <translation>Le réseau masternode est une seconde couche réseau de TARIAN au dessus de la blockchain qui permet à notre organisation une gouvernance décentralisée et une trésorerie.</translation>
+        <source>The masternode network is TARN's second layer network on top of the blockchain that enables our DAO to provide decentralized governance and a treasury.</source>
+        <translation>Le réseau masternode est une seconde couche réseau de TARN au dessus de la blockchain qui permet à notre organisation une gouvernance décentralisée et une trésorerie.</translation>
     </message>
     <message>
-        <source>How TARIAN respects your privacy?</source>
-        <translation>Comment TARIAN respecte votre vie privée?</translation>
+        <source>How TARN respects your privacy?</source>
+        <translation>Comment TARN respecte votre vie privée?</translation>
     </message>
     <message>
         <source>What is a Masternode?</source>
@@ -6028,49 +5655,6 @@ Portefeuille TARIAN Core</translation>
     <message>
         <source>default</source>
         <translation>défaut</translation>
-    </message>
-</context>
-<context>
-    <name>ZTarnControlDialog</name>
-    <message>
-        <source>Select zTARN to Spend</source>
-        <translation>Choisir les zTARN à dépenser</translation>
-    </message>
-    <message>
-        <source>Coin Control</source>
-        <translation>Contrôle des pièces</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Bouton poussoir</translation>
-    </message>
-    <message>
-        <source>zTarn</source>
-        <translation>zTARN</translation>
-    </message>
-    <message>
-        <source>0.00 </source>
-        <translation>0.00</translation>
-    </message>
-    <message>
-        <source>Quantity:</source>
-        <translation>Quantité :</translation>
-    </message>
-    <message>
-        <source>Is Spendable</source>
-        <translation>est dépensable</translation>
-    </message>
-    <message>
-        <source>0</source>
-        <translation>0</translation>
-    </message>
-    <message>
-        <source>Select/Deselect All</source>
-        <translation>Tout Sélectionner/Désélectionner</translation>
-    </message>
-    <message>
-        <source>Select zTARN Denominations to Spend</source>
-        <translation>Sélectionnez les dénominations zTARN à dépenser</translation>
     </message>
 </context>
 <context>
@@ -6096,8 +5680,8 @@ Portefeuille TARIAN Core</translation>
         <translation>Relier à une adresse spécifique pour écouter les connections JSON-RPC. Utilisez la notation [host]:port pour IPv6. Cette option peut être spécifiée plusieurs fois (par défaut: liaison à toutes les interfaces)</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. TARIAN Core is probably already running.</source>
-        <translation>Impossible de vérouiller le répertoire de données %s. TARIAN Core est probablement déjà en cours d'exécution.</translation>
+        <source>Cannot obtain a lock on data directory %s. Tarian Core is probably already running.</source>
+        <translation>Impossible de vérouiller le répertoire de données %s. Tarian Core est probablement déjà en cours d'exécution.</translation>
     </message>
     <message>
         <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
@@ -6126,14 +5710,6 @@ Portefeuille TARIAN Core</translation>
     <message>
         <source>Enable cold staking functionality (0-1, default: %u). Disabled if staking=0</source>
         <translation>Active la fonctionnalité de cold staking (0-1, par défaut: %u). Désactivé si staking=0</translation>
-    </message>
-    <message>
-        <source>Enable or disable staking functionality for TARN inputs (0-1, default: %u)</source>
-        <translation>Active ou désactive la fonctionnalité de staking pour les entrées TARN (0-1, par défaut: %u)</translation>
-    </message>
-    <message>
-        <source>Enable or disable staking functionality for zTARN inputs (0-1, default: %u)</source>
-        <translation>Active ou désactive la fonctionnalité de staking pour les entrées zTARN (0-1, par défaut: %u)</translation>
     </message>
     <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
@@ -6172,14 +5748,6 @@ Portefeuille TARIAN Core</translation>
         <translation>Exécuter la commande lorsque le meilleur bloc change  (%s dans cmd est remplacé par le hash du bloc)</translation>
     </message>
     <message>
-        <source>Fees (in TARN/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>Les frais (en TARN / Kb) inférieurs à ceux-ci sont considérés comme des frais nuls pour le relais (par défaut: %s)</translation>
-    </message>
-    <message>
-        <source>Fees (in TARN/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Les frais (en TARN / Kb) inférieurs à cette valeur sont considérés comme des frais nuls pour la création de transaction (par défaut: %s)</translation>
-    </message>
-    <message>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
         <translation>Vider l'activité de la base de données du pool de mémoire vers le journal du disque tous les &lt;n&gt;mégaoctets (par défaut: %u)</translation>
     </message>
@@ -6198,10 +5766,6 @@ Portefeuille TARIAN Core</translation>
     <message>
         <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s' (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
         <translation>Montant incorrect pour -maxtxfee=&lt;amount&gt;: '%s' (doit être au minimum de %s afin d'éviter que la transaction reste bloquée)</translation>
-    </message>
-    <message>
-        <source>Keep the specified amount available for spending at all times (default: 0)</source>
-        <translation>Garder le montant spécifié disponible pour la dépense en tous temps (défaut: 0)</translation>
     </message>
     <message>
         <source>Log transaction priority and fee per kB when mining blocks (default: %u)</source>
@@ -6234,10 +5798,6 @@ Portefeuille TARIAN Core</translation>
     <message>
         <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
         <translation>Informations de débogage en sortie (par défaut: %u, fournir &lt;category&gt; est facultatif)</translation>
-    </message>
-    <message>
-        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
-        <translation>Requêter les adresses des pairs via la recherche DNS, si faible sur les adresses (par défaut: 1 sauf si -connect)</translation>
     </message>
     <message>
         <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
@@ -6284,8 +5844,8 @@ Portefeuille TARIAN Core</translation>
         <translation>La longueur totale de la chaîne dans la version réseau (%i) dépasse la longueur maximale (%i). Réduisez le nombre ou la taille des commentaires de l'Agent Utilisateur</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. TARIAN Core is probably already running.</source>
-        <translation>Impossible de se lier à %s depuis cet ordinateur. TARIAN Core est probablement déjà en cours d'exécution.</translation>
+        <source>Unable to bind to %s on this computer. Tarian Core is probably already running.</source>
+        <translation>Impossible de se lier à %s depuis cet ordinateur. Tarian Core est probablement déjà en cours d'exécution.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
@@ -6300,8 +5860,8 @@ Portefeuille TARIAN Core</translation>
         <translation>Attention: -paytxfee est réglé très haut! Ce sont les frais de transaction que vous paierez si vous envoyez une transaction.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong TARIAN Core will not work properly.</source>
-        <translation>Avertissement: Veuillez vérifier que la date et l'heure de votre ordinateur sont correctes! Si votre horloge est incorrecte, TARIAN Core ne fonctionnera pas correctement.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Tarian Core will not work properly.</source>
+        <translation>Avertissement: Veuillez vérifier que la date et l'heure de votre ordinateur sont correctes! Si votre horloge est incorrecte, Tarian Core ne fonctionnera pas correctement.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -6309,7 +5869,7 @@ Portefeuille TARIAN Core</translation>
     </message>
     <message>
         <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
-        <translation>Attention: Il semble que nous soyons en désaccord avec nos pairs sur le réseau! Cela signifie que vous pourriez avoir besoin de mettre à jour votre TARIAN Core, ou que les autres noeuds aient besoin de se mettre à jour de leur côté.</translation>
+        <translation>Attention: Il semble que nous soyons en désaccord avec nos pairs sur le réseau! Cela signifie que vous pourriez avoir besoin de mettre à jour votre Tarian Core, ou que les autres noeuds aient besoin de se mettre à jour de leur côté.</translation>
     </message>
     <message>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
@@ -6332,10 +5892,6 @@ Portefeuille TARIAN Core</translation>
         <translation>Vous devez spécifier une masternodeprivkey dans la configuration. Veuillez consulter la documentation pour obtenir de l'aide.</translation>
     </message>
     <message>
-        <source>(54444 could be used only on mainnet)</source>
-        <translation>(54444 ne peut être utilisé que pour le mainnet)</translation>
-    </message>
-    <message>
         <source>(default: %s)</source>
         <translation>(défaut: %s)</translation>
     </message>
@@ -6344,16 +5900,8 @@ Portefeuille TARIAN Core</translation>
         <translation>(default: 1)</translation>
     </message>
     <message>
-        <source>(must be 54444 for mainnet)</source>
-        <translation>(doit être 54444 pour le mainnet)</translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>Accepter les lignes de commandes et les commandes JSON-RPC</translation>
-    </message>
-    <message>
-        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
-        <translation>Accepter les connections depuis l'extérieur (défaut: 1 si pas de -proxy ou -connect)</translation>
     </message>
     <message>
         <source>Accept public REST requests (default: %u)</source>
@@ -6392,10 +5940,6 @@ Portefeuille TARIAN Core</translation>
         <translation>Ne peut pas rétrograder le portefeuille</translation>
     </message>
     <message>
-        <source>Connect only to the specified node(s)</source>
-        <translation>Se connecter uniquement au(x) noeud(s) spécifié(s)</translation>
-    </message>
-    <message>
         <source>Connect through SOCKS5 proxy</source>
         <translation>Connecter à travers un proxy SOCKS5</translation>
     </message>
@@ -6416,8 +5960,8 @@ Portefeuille TARIAN Core</translation>
         <translation>Copyright (C) 2014-%i Les développeurs de DASH Core</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The TARIAN Core Developers</source>
-        <translation>Copyright (C) 2015-%i Les développeurs de TARIAN Core</translation>
+        <source>Copyright (C) 2015-%i The Tarian Core Developers</source>
+        <translation>Copyright (C) 2015-%i Les développeurs de Tarian Core</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -6492,8 +6036,8 @@ Portefeuille TARIAN Core</translation>
         <translation>Erreur de chargement du fichier wallet.dat: Portefeuille corrompu</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of TARIAN Core</source>
-        <translation>Erreur de chargement du fichier wallet.dat: Le portefeuille nécessite une version plus récente du TARIAN core</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Tarian Core</source>
+        <translation>Erreur de chargement du fichier wallet.dat: Le portefeuille nécessite une version plus récente du TARN core</translation>
     </message>
     <message>
         <source>Error opening block database</source>
@@ -6540,14 +6084,6 @@ Portefeuille TARIAN Core</translation>
         <translation>Impossible d'interprêter la chaine host:port</translation>
     </message>
     <message>
-        <source>Failed to read block</source>
-        <translation>Impossible de lire le bloc</translation>
-    </message>
-    <message>
-        <source>Fee (in TARN/kB) to add to transactions you send (default: %s)</source>
-        <translation>Frais (en TARN/kB) à ajouter aux transactions envoyées (défaut: %s)</translation>
-    </message>
-    <message>
         <source>Force safe mode (default: %u)</source>
         <translation>Forcer le mode sans échec (défaut: %u)</translation>
     </message>
@@ -6584,8 +6120,8 @@ Portefeuille TARIAN Core</translation>
         <translation>Information</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. TARIAN Core is shutting down.</source>
-        <translation>Échec de la vérification de l'initialisation. TARIAN Core va fermer.</translation>
+        <source>Initialization sanity check failed. Tarian Core is shutting down.</source>
+        <translation>Échec de la vérification de l'initialisation. Tarian Core va fermer.</translation>
     </message>
     <message>
         <source>Insufficient funds</source>
@@ -6616,16 +6152,8 @@ Portefeuille TARIAN Core</translation>
         <translation>Masque réseau incorrect spécifié dans -whitelist: '%s'</translation>
     </message>
     <message>
-        <source>Invalid port detected in masternode.conf</source>
-        <translation>Port invalide détecté dans masternode.conf</translation>
-    </message>
-    <message>
         <source>Recalculating TARN supply...</source>
         <translation>Recalcule de TARN émis...</translation>
-    </message>
-    <message>
-        <source>Reindex the TARN and zTARN money supply statistics</source>
-        <translation>Recalculer les statistiques sur l'approvisionnement en TARN et zTARN</translation>
     </message>
     <message>
         <source>Reindexing zerocoin database...</source>
@@ -6665,16 +6193,12 @@ Portefeuille TARIAN Core</translation>
 </translation>
     </message>
     <message>
-        <source>Disable all TARIAN specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)</source>
-        <translation>Désactiver toutes les fonctionnalités spécifiques à TARIAN (Masternodes, Zerocoin, SwiftX, Budgétisation) (0-1, défaut: %u)</translation>
+        <source>Disable all TARN specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)</source>
+        <translation>Désactiver toutes les fonctionnalités spécifiques à TARN (Masternodes, Zerocoin, SwiftX, Budgétisation) (0-1, défaut: %u)</translation>
     </message>
     <message>
         <source>Enable SwiftX, show confirmations for locked transactions (bool, default: %s)</source>
         <translation>Activer SwiftX, montrer les confirmations pour les transactions vérouillées (booléen, défaut : %s)</translation>
-    </message>
-    <message>
-        <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Erreur: La transaction a été rejetée. Cela peut survenir si certaines pièces de votre portefeuille ont déjà été dépensées. Par exemple si vous avez utilisez une copie de wallet.dat et que les monnaies dépensées dans cette copie n'ont pas été marquées comme telles dans ce portefeuille.</translation>
     </message>
     <message>
         <source>Error: Unsupported argument -checklevel found. Checklevel must be level 4.</source>
@@ -6775,10 +6299,6 @@ Portefeuille TARIAN Core</translation>
     <message>
         <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
         <translation>Conserver au maximum &lt;n&gt; transactions non connectables en mémoire (par défaut: %u)</translation>
-    </message>
-    <message>
-        <source>Limit size of signature cache to &lt;n&gt; entries (default: %u)</source>
-        <translation>Limiter la taille du cache de signature à &lt;n&gt; entrées (par défaut: %u)</translation>
     </message>
     <message>
         <source>Line: %d</source>
@@ -6925,12 +6445,76 @@ Portefeuille TARIAN Core</translation>
         <translation>Préparation à la resynchronistaion...</translation>
     </message>
     <message>
-        <source>Please check that your computer's date and time are correct! If your clock is wrong TARIAN Core will not work properly.</source>
-        <translation>SVP vérifiez que la date et l'heure de votre ordinateur sont correctes! Si votre horloge est incorrecte, TARIAN Core ne fonctionnera pas correctement.</translation>
+        <source>Accept connections from outside (default: 1 if no -proxy or -connect/-noconnect)</source>
+        <translation>Accepter les connections depuis l'extérieur (défaut: 1 si pas de -proxy ou -connect)</translation>
+    </message>
+    <message>
+        <source>Connect only to the specified node(s); -noconnect or -connect=0 alone to disable automatic connections</source>
+        <translation>Connectez-vous uniquement aux nœud(s) spécifiés; -noconnect ou -connect = 0 seul pour désactiver les connexions automatiques</translation>
+    </message>
+    <message>
+        <source>Do not accept transactions if any ancestor would have &lt;n&gt; or more in-mempool descendants (default: %u)</source>
+        <translation>N'acceptez pas les transactions si un ancêtre aurait &lt;n&gt;ou plus de descendants in-mempool (par défaut: %u)</translation>
+    </message>
+    <message>
+        <source>Do not accept transactions if any ancestor would have more than &lt;n&gt; kilobytes of in-mempool descendants (default: %u).</source>
+        <translation>N'acceptez pas les transactions si un ancêtre aurait &lt;n&gt;kilobytes ou plus de descendants  in-mempool (par défaut: %u)</translation>
+    </message>
+    <message>
+        <source>Do not accept transactions if number of in-mempool ancestors is &lt;n&gt; or more (default: %u)</source>
+        <translation>N'acceptez pas les transactions si le nombre d'ancêtres in-mempool est &lt;n&gt;ou plus (par défaut: %u)</translation>
+    </message>
+    <message>
+        <source>Do not accept transactions whose size with all in-mempool ancestors exceeds &lt;n&gt; kilobytes (default: %u)</source>
+        <translation>N'acceptez pas les transactions dont la taille avec tous les ancêtres in-mempool dépasse &lt;n&gt;kilo-octet (par défaut: %u)</translation>
+    </message>
+    <message>
+        <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
+        <translation>Ne conservez pas les transactions dans la mempool plus longtemps que &lt;n&gt; heures (par défaut: %u)</translation>
+    </message>
+    <message>
+        <source>Fees (in %s/Kb) smaller than this are considered zero fee for relaying, mining and transaction creation (default: %s)</source>
+        <translation>Des frais (en %s/Kb) inférieurs à ceux-ci sont considérés comme des frais zéro pour le relais, le mining et la création de transactions (par défaut: %s)</translation>
+    </message>
+    <message>
+        <source>Fees (in %s/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Les frais (en %s/Kb) inférieurs à cette valeur sont considérés comme des frais nuls pour la création de transaction (par défaut: %s)</translation>
+    </message>
+    <message>
+        <source>Minimum positive amount (in TARN) allowed by GUI and RPC for the stake split threshold (default: %s)</source>
+        <translation>Montant minimum positif (en TARN) autorisé par l'interface graphique et le RPC pour la division des mises du stake (par défaut: %s)</translation>
+    </message>
+    <message>
+        <source>Please check that your computer's date and time are correct! If your clock is wrong Tarian Core will not work properly.</source>
+        <translation>SVP vérifiez que la date et l'heure de votre ordinateur sont correctes! Si votre horloge est incorrecte, Tarian Core ne fonctionnera pas correctement.</translation>
+    </message>
+    <message>
+        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect/-noconnect)</source>
+        <translation>Recherche d'adresses homologues via la recherche DNS, si le nombre d'adresses est faible (par défaut: 1 sauf si -connect/-noconnect)</translation>
     </message>
     <message>
         <source>Specify location of debug log file: this can be an absolute path or a path relative to the data directory (default: %s)</source>
         <translation>Spécifier l'emplacement du fichier log de déboguage: peut-être un chemin absolu ou relatif vers le répertoire de données (défaut: %s)</translation>
+    </message>
+    <message>
+        <source>WARNING: The transaction has been signed and recorded, so the wallet will try to re-send it. Use 'abandontransaction' to cancel it. (txid: %s)</source>
+        <translation>AVERTISSEMENT: la transaction a été signée et enregistrée, le portefeuille tentera donc de la renvoyer. Utilisez «abandontransaction» pour l'annuler. (txid: %s)</translation>
+    </message>
+    <message>
+        <source>(must be %d for %s-net)</source>
+        <translation>(doit être %d pour %s-net)</translation>
+    </message>
+    <message>
+        <source>Active Masternode not initialized.</source>
+        <translation>Masternode actif non initialisé.</translation>
+    </message>
+    <message>
+        <source>Allows deprecated RPC method(s) to be used</source>
+        <translation>Permet d'utiliser des méthode(s) RPC obsolètes</translation>
+    </message>
+    <message>
+        <source>Can't generate a change-address key. Please call keypoolrefill first.</source>
+        <translation>Impossible de générer une clé d'adresse de changement. Veuillez d'abord taper keypoolrefill.</translation>
     </message>
     <message>
         <source>Cannot resolve -%s address: '%s'</source>
@@ -6941,8 +6525,70 @@ Portefeuille TARIAN Core</translation>
         <translation>Impossible de mettre à niveau vers le portefeuille HD (exécutant déjà le support HD). Version: %d</translation>
     </message>
     <message>
+        <source>Change index out of range</source>
+        <translation>Changer l'index hors de portée</translation>
+    </message>
+    <message>
+        <source>Error: -listen must be true if -masternode is set.</source>
+        <translation>Erreur: -listen doit être égal à vrai si -masternode est paramétré.</translation>
+    </message>
+    <message>
+        <source>Error: -maxmempool must be at least %d MB</source>
+        <translation>Erreur: -maxmempool doit être au min à %d MB</translation>
+    </message>
+    <message>
+        <source>Error: Invalid port %d for running a masternode.</source>
+        <translation>Erreur: Port  %d incorrect pour activer un masternode.</translation>
+    </message>
+    <message>
+        <source>Failed to accept tx in the memory pool (reason: %s)
+</source>
+        <translation>Échec de la tx dans le memory pool (raison: %s)
+</translation>
+    </message>
+    <message>
+        <source>Fee (in %s/kB) to add to transactions you send (default: %s)</source>
+        <translation>Frais (en %s/kB) à ajouter aux transactions envoyées (défaut: %s)</translation>
+    </message>
+    <message>
+        <source>Invalid -masternodeaddr address: %s</source>
+        <translation>Adresse -masternodeaddr incorrecte: %s</translation>
+    </message>
+    <message>
+        <source>Invalid -masternodeaddr port %d, only %d is supported on %s-net.</source>
+        <translation>-masternodeaddr port %d incorrect, seul %d est supporté sur %s-net.</translation>
+    </message>
+    <message>
+        <source>Invalid port %d detected in masternode.conf</source>
+        <translation>Port incorrect %d détecté dans masternode.conf</translation>
+    </message>
+    <message>
+        <source>Invalid status error.</source>
+        <translation>Statut d'erreur incorrect.</translation>
+    </message>
+    <message>
+        <source>Keep the transaction memory pool below &lt;n&gt; megabytes (default: %u)</source>
+        <translation>Gardez le pool de mémoire de transaction en dessous de &lt;n&gt;mégabytes (par défaut: %u)</translation>
+    </message>
+    <message>
+        <source>Keypool ran out, please call keypoolrefill first, or unlock the wallet.</source>
+        <translation>Keypool est épuisé, veuillez d'abord taper keypoolrefill ou déverrouillez le portefeuille.</translation>
+    </message>
+    <message>
+        <source>Limit size of signature cache to &lt;n&gt; MiB (default: %u)</source>
+        <translation>Limiter la taille du cache de signatures à &lt;n&gt; MiB (par défaut: %u)</translation>
+    </message>
+    <message>
+        <source>Masternodes are required to run on port %d for %s-net</source>
+        <translation>Les Masternodes doivent fonctionner le sur le port %d pour le %s-net</translation>
+    </message>
+    <message>
         <source>Need destination or change address because change is not exact</source>
         <translation>Nécessite une adresse de destination ou pour la monnaie car la monnaie n'est pas exacte.</translation>
+    </message>
+    <message>
+        <source>No error</source>
+        <translation>Pas d'erreur</translation>
     </message>
     <message>
         <source>Prepend debug output with timestamp (default: %u)</source>
@@ -6971,6 +6617,10 @@ Portefeuille TARIAN Core</translation>
     <message>
         <source>Rebuild block chain index from current blk000??.dat files</source>
         <translation>Reconstruire l'index de la chaîne de blocs à partir des fichiers blk000 ??.dat courants</translation>
+    </message>
+    <message>
+        <source>Reindex the %s and z%s money supply statistics</source>
+        <translation>Réindexer les statistiques de volume monétaire %s et z%s</translation>
     </message>
     <message>
         <source>Relay and mine data carrier transactions (default: %u)</source>
@@ -7129,6 +6779,10 @@ Portefeuille TARIAN Core</translation>
         <translation>Synchronisation du portefeuille zTARN ...</translation>
     </message>
     <message>
+        <source>The threshold value cannot be less than %s</source>
+        <translation>La valeur limite ne doit pas êre inférieur à %s</translation>
+    </message>
+    <message>
         <source>This help message</source>
         <translation>Ceci est un message d'aide</translation>
     </message>
@@ -7139,6 +6793,14 @@ Portefeuille TARIAN Core</translation>
     <message>
         <source>This is intended for regression testing tools and app development.</source>
         <translation>Ceci est destiné aux outils de test de régression et au développement d'applications.</translation>
+    </message>
+    <message>
+        <source>This is not a masternode. 'local' option disabled.</source>
+        <translation>Ce n'est pas un masternode. Option 'local' désactivée.</translation>
+    </message>
+    <message>
+        <source>This is not a masternode.</source>
+        <translation>Ceci n'est pas un masternode.</translation>
     </message>
     <message>
         <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
@@ -7171,6 +6833,10 @@ Portefeuille TARIAN Core</translation>
     <message>
         <source>Transaction amounts must be positive</source>
         <translation>Le montant de la transaction doit être positif</translation>
+    </message>
+    <message>
+        <source>Transaction canceled.</source>
+        <translation>Transaction annulée.</translation>
     </message>
     <message>
         <source>Transaction too large for fee policy</source>
@@ -7257,8 +6923,8 @@ Portefeuille TARIAN Core</translation>
         <translation>Le portefeuille %s se trouve à l'extérieur du répertoire de données %s</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart TARIAN Core to complete</source>
-        <translation>Le portefeuille doit être réécrit: redémarrez TARIAN Core pour terminer</translation>
+        <source>Wallet needed to be rewritten: restart Tarian Core to complete</source>
+        <translation>Le portefeuille doit être réécrit: redémarrez Tarian Core pour terminer</translation>
     </message>
     <message>
         <source>Wallet options:</source>
@@ -7328,16 +6994,40 @@ Portefeuille TARIAN Core</translation>
         <translation>Envoyer</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>Libellé</translation>
+        <source>Send public coins (TARN)</source>
+        <translation>Envoyer des monnaies publiques (TARN)</translation>
+    </message>
+    <message>
+        <source>TARN address or contact label</source>
+        <translation>Adresse TARN ou nom du contact</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Montant</translation>
+    </message>
+    <message>
+        <source>Customize fee</source>
+        <translation>Personnaliser les frais</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>Tout effacer</translation>
+    </message>
+    <message>
+        <source>Add recipient</source>
+        <translation>Ajouter un destinataire</translation>
+    </message>
+    <message>
+        <source>Total to send</source>
+        <translation>Total à envoyer</translation>
+    </message>
+    <message>
+        <source>Reset to default</source>
+        <translation>Réinitialiser les valeurs par défaut</translation>
     </message>
     <message>
         <source>Include delegated</source>
         <translation>Inclus les délégations</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Bouton poussoir</translation>
     </message>
 </context>
 </TS>

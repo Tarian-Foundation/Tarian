@@ -90,7 +90,7 @@
         <file alias="ic-clear-purple">tarian/res/img/ic-clear-purple.svg</file>
         <file alias="ic-close-white">tarian/res/img/ic-close-white.svg</file>
         <file alias="ic-close">tarian/res/img/ic-close.svg</file>
-        <file alias="ic-coin-tarn">tarian/res/img/ic-coin-tarn.svg</file>
+        <file alias="ic-coin-tarian">tarian/res/img/ic-coin-tarian.svg</file>
         <file alias="ic-coin-ztarn">tarian/res/img/ic-coin-ztarn.svg</file>
         <file alias="ic-combo-box">tarian/res/img/ic-combo-box.svg</file>
         <file alias="ic-connect">tarian/res/img/ic-connect.svg</file>

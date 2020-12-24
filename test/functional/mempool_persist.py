@@ -38,10 +38,10 @@ Test is as follows:
 import os
 import time
 
-from test_framework.test_framework import TarianTestFramework
+from test_framework.test_framework import TarnTestFramework
 from test_framework.util import *
 
-class MempoolPersistTest(TarianTestFramework):
+class MempoolPersistTest(TarnTestFramework):
     def set_test_params(self):
         self.num_nodes = 3
         self.extra_args = [[], ["-persistmempool=0"], []]

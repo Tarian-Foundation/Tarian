@@ -73,7 +73,7 @@ TEST_EXIT_SKIPPED = 77
 TMPDIR_PREFIX = "tarian_func_test_"
 
 
-class TarianTestFramework():
+class TarnTestFramework():
     """Base class for a tarian test script.
 
     Individual tarian test scripts should subclass this class and override the set_test_params() and run_test() methods.
@@ -679,7 +679,7 @@ class TarianTestFramework():
             initialize_datadir(self.options.tmpdir, i)
 
 
-    ### TARIAN Specific TestFramework ###
+    ### TARN Specific TestFramework ###
     ###################################
     def init_dummy_key(self):
         self.DUMMY_KEY = CECKey()
@@ -1097,7 +1097,7 @@ class TarianTestFramework():
 
 ### ------------------------------------------------------
 
-class ComparisonTestFramework(TarianTestFramework):
+class ComparisonTestFramework(TarnTestFramework):
     """Test framework for doing p2p comparison testing
 
     Sets up some tariand binaries:

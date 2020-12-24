@@ -1,9 +1,9 @@
-// Copyright (c) 2018-2020 The TARIAN developers
+// Copyright (c) 2018-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TARIAN_ZTARNTRACKER_H
-#define TARIAN_ZTARNTRACKER_H
+#ifndef TARN_ZTARNTRACKER_H
+#define TARN_ZTARNTRACKER_H
 
 #include "zerocoin.h"
 #include "sync.h"
@@ -52,4 +52,4 @@ public:
     void Clear();
 };
 
-#endif //TARIAN_ZTARNTRACKER_H
+#endif //TARN_ZTARNTRACKER_H

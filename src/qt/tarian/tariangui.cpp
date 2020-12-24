@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -21,13 +21,12 @@
 #include "init.h"
 #include "util.h"
 
-#include <QDesktopWidget>
-#include <QHBoxLayout>
-#include <QVBoxLayout>
 #include <QApplication>
 #include <QColor>
-#include <QShortcut>
+#include <QHBoxLayout>
 #include <QKeySequence>
+#include <QScreen>
+#include <QShortcut>
 #include <QWindowStateChangeEvent>
 
 
@@ -37,9 +36,9 @@
 #define BASE_WINDOW_MIN_WIDTH 1100
 
 
-const QString TARIANGUI::DEFAULT_WALLET = "~Default";
+const QString TARNGUI::DEFAULT_WALLET = "~Default";
 
-TARIANGUI::TARIANGUI(const NetworkStyle* networkStyle, QWidget* parent) :
+TARNGUI::TARNGUI(const NetworkStyle* networkStyle, QWidget* parent) :
         QMainWindow(parent),
         clientModel(0){
 
@@ -49,7 +48,7 @@ TARIANGUI::TARIANGUI(const NetworkStyle* networkStyle, QWidget* parent) :
 
 
     // Adapt screen size
-    QRect rec = QApplication::desktop()->screenGeometry();
+    QRect rec = QGuiApplication::primaryScreen()->geometry();
     int adaptedHeight = (rec.height() < BASE_WINDOW_HEIGHT) ?  BASE_WINDOW_MIN_HEIGHT : BASE_WINDOW_HEIGHT;
     int adaptedWidth = (rec.width() < BASE_WINDOW_WIDTH) ?  BASE_WINDOW_MIN_WIDTH : BASE_WINDOW_WIDTH;
     GUIUtil::restoreWindowGeometry(
@@ -67,7 +66,7 @@ TARIANGUI::TARIANGUI(const NetworkStyle* networkStyle, QWidget* parent) :
 
     QString windowTitle = QString::fromStdString(GetArg("-windowtitle", ""));
     if (windowTitle.isEmpty()) {
-        windowTitle = tr("TARIAN Core") + " - ";
+        windowTitle = tr("Tarian Core") + " - ";
         windowTitle += ((enableWallet) ? tr("Wallet") : tr("Node"));
     }
     windowTitle += " " + networkStyle->getTitleAddText();
@@ -166,7 +165,7 @@ TARIANGUI::TARIANGUI(const NetworkStyle* networkStyle, QWidget* parent) :
 
 }
 
-void TARIANGUI::createActions(const NetworkStyle* networkStyle)
+void TARNGUI::createActions(const NetworkStyle* networkStyle)
 {
     toggleHideAction = new QAction(networkStyle->getAppIcon(), tr("&Show / Hide"), this);
     toggleHideAction->setStatusTip(tr("Show or hide the main Window"));
@@ -176,14 +175,14 @@ void TARIANGUI::createActions(const NetworkStyle* networkStyle)
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     quitAction->setMenuRole(QAction::QuitRole);
 
-    connect(toggleHideAction, &QAction::triggered, this, &TARIANGUI::toggleHidden);
+    connect(toggleHideAction, &QAction::triggered, this, &TARNGUI::toggleHidden);
     connect(quitAction, &QAction::triggered, qApp, &QApplication::quit);
 }
 
 /**
  * Here add every event connection
  */
-void TARIANGUI::connectActions()
+void TARNGUI::connectActions()
 {
     QShortcut *consoleShort = new QShortcut(this);
     consoleShort->setKey(QKeySequence(SHORT_KEY + Qt::Key_C));
@@ -192,26 +191,26 @@ void TARIANGUI::connectActions()
         settingsWidget->showDebugConsole();
         goToSettings();
     });
-    connect(topBar, &TopBar::showHide, this, &TARIANGUI::showHide);
-    connect(topBar, &TopBar::themeChanged, this, &TARIANGUI::changeTheme);
+    connect(topBar, &TopBar::showHide, this, &TARNGUI::showHide);
+    connect(topBar, &TopBar::themeChanged, this, &TARNGUI::changeTheme);
     connect(topBar, &TopBar::onShowHideColdStakingChanged, navMenu, &NavMenuWidget::onShowHideColdStakingChanged);
-    connect(settingsWidget, &SettingsWidget::showHide, this, &TARIANGUI::showHide);
-    connect(sendWidget, &SendWidget::showHide, this, &TARIANGUI::showHide);
-    connect(receiveWidget, &ReceiveWidget::showHide, this, &TARIANGUI::showHide);
-    connect(addressesWidget, &AddressesWidget::showHide, this, &TARIANGUI::showHide);
-    connect(masterNodesWidget, &MasterNodesWidget::showHide, this, &TARIANGUI::showHide);
-    connect(masterNodesWidget, &MasterNodesWidget::execDialog, this, &TARIANGUI::execDialog);
-    connect(coldStakingWidget, &ColdStakingWidget::showHide, this, &TARIANGUI::showHide);
-    connect(coldStakingWidget, &ColdStakingWidget::execDialog, this, &TARIANGUI::execDialog);
-    connect(settingsWidget, &SettingsWidget::execDialog, this, &TARIANGUI::execDialog);
+    connect(settingsWidget, &SettingsWidget::showHide, this, &TARNGUI::showHide);
+    connect(sendWidget, &SendWidget::showHide, this, &TARNGUI::showHide);
+    connect(receiveWidget, &ReceiveWidget::showHide, this, &TARNGUI::showHide);
+    connect(addressesWidget, &AddressesWidget::showHide, this, &TARNGUI::showHide);
+    connect(masterNodesWidget, &MasterNodesWidget::showHide, this, &TARNGUI::showHide);
+    connect(masterNodesWidget, &MasterNodesWidget::execDialog, this, &TARNGUI::execDialog);
+    connect(coldStakingWidget, &ColdStakingWidget::showHide, this, &TARNGUI::showHide);
+    connect(coldStakingWidget, &ColdStakingWidget::execDialog, this, &TARNGUI::execDialog);
+    connect(settingsWidget, &SettingsWidget::execDialog, this, &TARNGUI::execDialog);
 }
 
 
-void TARIANGUI::createTrayIcon(const NetworkStyle* networkStyle)
+void TARNGUI::createTrayIcon(const NetworkStyle* networkStyle)
 {
 #ifndef Q_OS_MAC
     trayIcon = new QSystemTrayIcon(this);
-    QString toolTip = tr("TARIAN Core client") + " " + networkStyle->getTitleAddText();
+    QString toolTip = tr("Tarian Core client") + " " + networkStyle->getTitleAddText();
     trayIcon->setToolTip(toolTip);
     trayIcon->setIcon(networkStyle->getAppIcon());
     trayIcon->hide();
@@ -219,7 +218,7 @@ void TARIANGUI::createTrayIcon(const NetworkStyle* networkStyle)
     notificator = new Notificator(QApplication::applicationName(), trayIcon, this);
 }
 
-TARIANGUI::~TARIANGUI()
+TARNGUI::~TARNGUI()
 {
     // Unsubscribe from notifications from core
     unsubscribeFromCoreSignals();
@@ -234,14 +233,14 @@ TARIANGUI::~TARIANGUI()
 
 
 /** Get restart command-line parameters and request restart */
-void TARIANGUI::handleRestart(QStringList args)
+void TARNGUI::handleRestart(QStringList args)
 {
     if (!ShutdownRequested())
         Q_EMIT requestedRestart(args);
 }
 
 
-void TARIANGUI::setClientModel(ClientModel* clientModel)
+void TARNGUI::setClientModel(ClientModel* clientModel)
 {
     this->clientModel = clientModel;
     if (this->clientModel) {
@@ -255,7 +254,7 @@ void TARIANGUI::setClientModel(ClientModel* clientModel)
         settingsWidget->setClientModel(clientModel);
 
         // Receive and report messages from client model
-        connect(clientModel, &ClientModel::message, this, &TARIANGUI::message);
+        connect(clientModel, &ClientModel::message, this, &TARNGUI::message);
         connect(topBar, &TopBar::walletSynced, dashboard, &DashboardWidget::walletSynced);
         connect(topBar, &TopBar::walletSynced, coldStakingWidget, &ColdStakingWidget::walletSynced);
 
@@ -279,7 +278,7 @@ void TARIANGUI::setClientModel(ClientModel* clientModel)
     }
 }
 
-void TARIANGUI::createTrayIconMenu()
+void TARNGUI::createTrayIconMenu()
 {
 #ifndef Q_OS_MAC
     // return if trayIcon is unset (only on non-macOSes)
@@ -289,11 +288,11 @@ void TARIANGUI::createTrayIconMenu()
     trayIconMenu = new QMenu(this);
     trayIcon->setContextMenu(trayIconMenu);
 
-    connect(trayIcon, &QSystemTrayIcon::activated, this, &TARIANGUI::trayIconActivated);
+    connect(trayIcon, &QSystemTrayIcon::activated, this, &TARNGUI::trayIconActivated);
 #else
     // Note: On macOS, the Dock icon is used to provide the tray's functionality.
     MacDockIconHandler* dockIconHandler = MacDockIconHandler::instance();
-    connect(dockIconHandler, &MacDockIconHandler::dockIconClicked, this, &TARIANGUI::macosDockIconActivated);
+    connect(dockIconHandler, &MacDockIconHandler::dockIconClicked, this, &TARNGUI::macosDockIconActivated);
 
     trayIconMenu = new QMenu(this);
     trayIconMenu->setAsDockMenu();
@@ -310,7 +309,7 @@ void TARIANGUI::createTrayIconMenu()
 }
 
 #ifndef Q_OS_MAC
-void TARIANGUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
+void TARNGUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
 {
     if (reason == QSystemTrayIcon::Trigger) {
         // Click on system tray icon triggers show/hide of the main window
@@ -318,14 +317,14 @@ void TARIANGUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
     }
 }
 #else
-void TARIANGUI::macosDockIconActivated()
+void TARNGUI::macosDockIconActivated()
  {
      show();
      activateWindow();
  }
 #endif
 
-void TARIANGUI::changeEvent(QEvent* e)
+void TARNGUI::changeEvent(QEvent* e)
 {
     QMainWindow::changeEvent(e);
 #ifndef Q_OS_MAC // Ignored on Mac
@@ -333,7 +332,7 @@ void TARIANGUI::changeEvent(QEvent* e)
         if (clientModel && clientModel->getOptionsModel() && clientModel->getOptionsModel()->getMinimizeToTray()) {
             QWindowStateChangeEvent* wsevt = static_cast<QWindowStateChangeEvent*>(e);
             if (!(wsevt->oldState() & Qt::WindowMinimized) && isMinimized()) {
-                QTimer::singleShot(0, this, &TARIANGUI::hide);
+                QTimer::singleShot(0, this, &TARNGUI::hide);
                 e->ignore();
             }
         }
@@ -341,7 +340,7 @@ void TARIANGUI::changeEvent(QEvent* e)
 #endif
 }
 
-void TARIANGUI::closeEvent(QCloseEvent* event)
+void TARNGUI::closeEvent(QCloseEvent* event)
 {
 #ifndef Q_OS_MAC // Ignored on Mac
     if (clientModel && clientModel->getOptionsModel()) {
@@ -354,7 +353,7 @@ void TARIANGUI::closeEvent(QCloseEvent* event)
 }
 
 
-void TARIANGUI::messageInfo(const QString& text)
+void TARNGUI::messageInfo(const QString& text)
 {
     if (!this->snackBar) this->snackBar = new SnackBar(this, this);
     this->snackBar->setText(text);
@@ -363,9 +362,9 @@ void TARIANGUI::messageInfo(const QString& text)
 }
 
 
-void TARIANGUI::message(const QString& title, const QString& message, unsigned int style, bool* ret)
+void TARNGUI::message(const QString& title, const QString& message, unsigned int style, bool* ret)
 {
-    QString strTitle =  tr("TARIAN Core"); // default title
+    QString strTitle =  tr("Tarian Core"); // default title
     // Default to information icon
     int nNotifyIcon = Notificator::Information;
 
@@ -415,14 +414,14 @@ void TARIANGUI::message(const QString& title, const QString& message, unsigned i
     } else if (style & CClientUIInterface::MSG_INFORMATION_SNACK) {
         messageInfo(message);
     } else {
-        // Append title to "TARIAN - "
+        // Append title to "TARN - "
         if (!msgType.isEmpty())
             strTitle += " - " + msgType;
         notificator->notify((Notificator::Class) nNotifyIcon, strTitle, message);
     }
 }
 
-bool TARIANGUI::openStandardDialog(QString title, QString body, QString okBtn, QString cancelBtn)
+bool TARNGUI::openStandardDialog(QString title, QString body, QString okBtn, QString cancelBtn)
 {
     DefaultDialog *dialog;
     if (isVisible()) {
@@ -434,7 +433,7 @@ bool TARIANGUI::openStandardDialog(QString title, QString body, QString okBtn, Q
     } else {
         dialog = new DefaultDialog();
         dialog->setText(title, body, okBtn);
-        dialog->setWindowTitle(tr("TARIAN Core"));
+        dialog->setWindowTitle(tr("Tarian Core"));
         dialog->adjustSize();
         dialog->raise();
         dialog->exec();
@@ -445,7 +444,7 @@ bool TARIANGUI::openStandardDialog(QString title, QString body, QString okBtn, Q
 }
 
 
-void TARIANGUI::showNormalIfMinimized(bool fToggleHidden)
+void TARNGUI::showNormalIfMinimized(bool fToggleHidden)
 {
     if (!clientModel)
         return;
@@ -456,12 +455,12 @@ void TARIANGUI::showNormalIfMinimized(bool fToggleHidden)
     }
 }
 
-void TARIANGUI::toggleHidden()
+void TARNGUI::toggleHidden()
 {
     showNormalIfMinimized(true);
 }
 
-void TARIANGUI::detectShutdown()
+void TARNGUI::detectShutdown()
 {
     if (ShutdownRequested()) {
         if (rpcConsole)
@@ -470,7 +469,7 @@ void TARIANGUI::detectShutdown()
     }
 }
 
-void TARIANGUI::goToDashboard()
+void TARNGUI::goToDashboard()
 {
     if (stackedContainer->currentWidget() != dashboard) {
         stackedContainer->setCurrentWidget(dashboard);
@@ -478,48 +477,48 @@ void TARIANGUI::goToDashboard()
     }
 }
 
-void TARIANGUI::goToSend()
+void TARNGUI::goToSend()
 {
     showTop(sendWidget);
 }
 
-void TARIANGUI::goToAddresses()
+void TARNGUI::goToAddresses()
 {
     showTop(addressesWidget);
 }
 
-void TARIANGUI::goToMasterNodes()
+void TARNGUI::goToMasterNodes()
 {
     showTop(masterNodesWidget);
 }
 
-void TARIANGUI::goToColdStaking()
+void TARNGUI::goToColdStaking()
 {
     showTop(coldStakingWidget);
 }
 
-void TARIANGUI::goToSettings(){
+void TARNGUI::goToSettings(){
     showTop(settingsWidget);
 }
 
-void TARIANGUI::goToSettingsInfo()
+void TARNGUI::goToSettingsInfo()
 {
     navMenu->selectSettings();
     settingsWidget->showInformation();
     goToSettings();
 }
 
-void TARIANGUI::goToReceive()
+void TARNGUI::goToReceive()
 {
     showTop(receiveWidget);
 }
 
-void TARIANGUI::openNetworkMonitor()
+void TARNGUI::openNetworkMonitor()
 {
     settingsWidget->openNetworkMonitor();
 }
 
-void TARIANGUI::showTop(QWidget* view)
+void TARNGUI::showTop(QWidget* view)
 {
     if (stackedContainer->currentWidget() != view) {
         stackedContainer->setCurrentWidget(view);
@@ -527,7 +526,7 @@ void TARIANGUI::showTop(QWidget* view)
     }
 }
 
-void TARIANGUI::changeTheme(bool isLightTheme)
+void TARNGUI::changeTheme(bool isLightTheme)
 {
 
     QString css = GUIUtil::loadStyleSheet();
@@ -540,7 +539,7 @@ void TARIANGUI::changeTheme(bool isLightTheme)
     updateStyle(this);
 }
 
-void TARIANGUI::resizeEvent(QResizeEvent* event)
+void TARNGUI::resizeEvent(QResizeEvent* event)
 {
     // Parent..
     QMainWindow::resizeEvent(event);
@@ -550,12 +549,12 @@ void TARIANGUI::resizeEvent(QResizeEvent* event)
     Q_EMIT windowResizeEvent(event);
 }
 
-bool TARIANGUI::execDialog(QDialog *dialog, int xDiv, int yDiv)
+bool TARNGUI::execDialog(QDialog *dialog, int xDiv, int yDiv)
 {
     return openDialogWithOpaqueBackgroundY(dialog, this);
 }
 
-void TARIANGUI::showHide(bool show)
+void TARNGUI::showHide(bool show)
 {
     if (!op) op = new QLabel(this);
     if (!show) {
@@ -583,12 +582,12 @@ void TARIANGUI::showHide(bool show)
     }
 }
 
-int TARIANGUI::getNavWidth()
+int TARNGUI::getNavWidth()
 {
     return this->navMenu->width();
 }
 
-void TARIANGUI::openFAQ(int section)
+void TARNGUI::openFAQ(int section)
 {
     showHide(true);
     SettingsFaqWidget* dialog = new SettingsFaqWidget(this);
@@ -599,7 +598,7 @@ void TARIANGUI::openFAQ(int section)
 
 
 #ifdef ENABLE_WALLET
-bool TARIANGUI::addWallet(const QString& name, WalletModel* walletModel)
+bool TARNGUI::addWallet(const QString& name, WalletModel* walletModel)
 {
     // Single wallet supported for now..
     if (!stackedContainer || !clientModel || !walletModel)
@@ -617,33 +616,33 @@ bool TARIANGUI::addWallet(const QString& name, WalletModel* walletModel)
     settingsWidget->setWalletModel(walletModel);
 
     // Connect actions..
-    connect(walletModel, &WalletModel::message, this, &TARIANGUI::message);
-    connect(masterNodesWidget, &MasterNodesWidget::message, this, &TARIANGUI::message);
-    connect(coldStakingWidget, &ColdStakingWidget::message, this, &TARIANGUI::message);
-    connect(topBar, &TopBar::message, this, &TARIANGUI::message);
-    connect(sendWidget, &SendWidget::message,this, &TARIANGUI::message);
-    connect(receiveWidget, &ReceiveWidget::message,this, &TARIANGUI::message);
-    connect(addressesWidget, &AddressesWidget::message,this, &TARIANGUI::message);
-    connect(settingsWidget, &SettingsWidget::message, this, &TARIANGUI::message);
+    connect(walletModel, &WalletModel::message, this, &TARNGUI::message);
+    connect(masterNodesWidget, &MasterNodesWidget::message, this, &TARNGUI::message);
+    connect(coldStakingWidget, &ColdStakingWidget::message, this, &TARNGUI::message);
+    connect(topBar, &TopBar::message, this, &TARNGUI::message);
+    connect(sendWidget, &SendWidget::message,this, &TARNGUI::message);
+    connect(receiveWidget, &ReceiveWidget::message,this, &TARNGUI::message);
+    connect(addressesWidget, &AddressesWidget::message,this, &TARNGUI::message);
+    connect(settingsWidget, &SettingsWidget::message, this, &TARNGUI::message);
 
     // Pass through transaction notifications
-    connect(dashboard, &DashboardWidget::incomingTransaction, this, &TARIANGUI::incomingTransaction);
+    connect(dashboard, &DashboardWidget::incomingTransaction, this, &TARNGUI::incomingTransaction);
 
     return true;
 }
 
-bool TARIANGUI::setCurrentWallet(const QString& name)
+bool TARNGUI::setCurrentWallet(const QString& name)
 {
     // Single wallet supported.
     return true;
 }
 
-void TARIANGUI::removeAllWallets()
+void TARNGUI::removeAllWallets()
 {
     // Single wallet supported.
 }
 
-void TARIANGUI::incomingTransaction(const QString& date, int unit, const CAmount& amount, const QString& type, const QString& address)
+void TARNGUI::incomingTransaction(const QString& date, int unit, const CAmount& amount, const QString& type, const QString& address)
 {
     // Only send notifications when not disabled
     if (!bdisableSystemnotifications) {
@@ -666,7 +665,7 @@ void TARIANGUI::incomingTransaction(const QString& date, int unit, const CAmount
 #endif // ENABLE_WALLET
 
 
-static bool ThreadSafeMessageBox(TARIANGUI* gui, const std::string& message, const std::string& caption, unsigned int style)
+static bool ThreadSafeMessageBox(TARNGUI* gui, const std::string& message, const std::string& caption, unsigned int style)
 {
     bool modal = (style & CClientUIInterface::MODAL);
     // The SECURE flag has no effect in the Qt GUI.
@@ -685,13 +684,13 @@ static bool ThreadSafeMessageBox(TARIANGUI* gui, const std::string& message, con
 }
 
 
-void TARIANGUI::subscribeToCoreSignals()
+void TARNGUI::subscribeToCoreSignals()
 {
     // Connect signals to client
     uiInterface.ThreadSafeMessageBox.connect(boost::bind(ThreadSafeMessageBox, this, _1, _2, _3));
 }
 
-void TARIANGUI::unsubscribeFromCoreSignals()
+void TARNGUI::unsubscribeFromCoreSignals()
 {
     // Disconnect signals from client
     uiInterface.ThreadSafeMessageBox.disconnect(boost::bind(ThreadSafeMessageBox, this, _1, _2, _3));

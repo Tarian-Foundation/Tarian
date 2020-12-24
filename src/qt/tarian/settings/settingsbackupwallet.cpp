@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,7 +10,7 @@
 #include "qt/tarian/qtutils.h"
 #include "guiinterface.h"
 #include "qt/tarian/qtutils.h"
-SettingsBackupWallet::SettingsBackupWallet(TARIANGUI* _window, QWidget *parent) :
+SettingsBackupWallet::SettingsBackupWallet(TARNGUI* _window, QWidget *parent) :
     PWidget(_window, parent),
     ui(new Ui::SettingsBackupWallet)
 {

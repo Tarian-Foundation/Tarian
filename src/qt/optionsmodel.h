@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2013 The Bitcoin developers
-// Copyright (c) 2017-2020 The TARIAN developers
+// Copyright (c) 2017-2020 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -15,7 +15,7 @@ QT_BEGIN_NAMESPACE
 class QNetworkProxy;
 QT_END_NAMESPACE
 
-/** Interface from Qt to configuration data structure for TARIAN client.
+/** Interface from Qt to configuration data structure for TARN client.
    To Qt, the options are presented as a list with the different options
    laid out vertically.
    This can be changed to a tree once the settings become sufficiently
@@ -52,7 +52,7 @@ public:
         HideCharts,          // bool
         HideZeroBalances,    // bool
         HideOrphans,    // bool
-        AnonymizeTarianAmount, //int
+        AnonymizeTarnAmount, //int
         ShowMasternodesTab,  // bool
         Listen,              // bool
         StakeSplitThreshold,    // CAmount (LongLong)
@@ -88,6 +88,7 @@ public:
     bool getProxySettings(QNetworkProxy& proxy) const;
     bool getCoinControlFeatures() { return fCoinControlFeatures; }
     const QString& getOverriddenByCommandLine() { return strOverriddenByCommandLine; }
+    const QString& getLang() { return language; }
 
     /* Restart flag helper */
     void setRestartRequired(bool fRequired);
@@ -133,11 +134,6 @@ private:
 
 Q_SIGNALS:
     void displayUnitChanged(int unit);
-    void zeromintEnableChanged(bool);
-    void zeromintAddressesChanged(bool);
-    void zeromintPercentageChanged(int);
-    void preferredDenomChanged(int);
-    void anonymizeTarianAmountChanged(int);
     void coinControlFeaturesChanged(bool);
     void showHideColdStakingScreen(bool);
     void hideChartsChanged(bool);

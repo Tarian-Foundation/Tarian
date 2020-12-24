@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -18,7 +18,7 @@
 
 static const int MAX_SEND_POPUP_ENTRIES = 8;
 
-class TARIANGUI;
+class TARNGUI;
 class ClientModel;
 class WalletModel;
 class WalletModelTransaction;
@@ -33,7 +33,7 @@ class SendWidget : public PWidget
     Q_OBJECT
 
 public:
-    explicit SendWidget(TARIANGUI* parent);
+    explicit SendWidget(TARNGUI* parent);
     ~SendWidget();
 
     void addEntry();
@@ -79,6 +79,7 @@ private:
     SendCustomFeeDialog* customFeeDialog = nullptr;
     bool isCustomFeeSelected = false;
     bool fDelegationsChecked = false;
+    bool fPoWAlternative = false;
     CAmount cachedDelegatedBalance{0};
 
     int nDisplayUnit;

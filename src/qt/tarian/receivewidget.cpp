@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -21,7 +21,7 @@
 #define DECORATION_SIZE 70
 #define NUM_ITEMS 3
 
-ReceiveWidget::ReceiveWidget(TARIANGUI* parent) :
+ReceiveWidget::ReceiveWidget(TARNGUI* parent) :
     PWidget(parent),
     ui(new Ui::ReceiveWidget)
 {

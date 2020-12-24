@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -14,7 +14,7 @@
 #include <QWidget>
 #include <QPixmap>
 
-class TARIANGUI;
+class TARNGUI;
 class SendCoinsRecipient;
 
 namespace Ui {
@@ -30,7 +30,7 @@ class ReceiveWidget : public PWidget
     Q_OBJECT
 
 public:
-    explicit ReceiveWidget(TARIANGUI* parent);
+    explicit ReceiveWidget(TARNGUI* parent);
     ~ReceiveWidget();
 
     void loadWalletModel() override;

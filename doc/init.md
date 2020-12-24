@@ -84,9 +84,9 @@ OpenRC).
 ### macOS
 
 Binary:              `/usr/local/bin/tariand`
-Configuration file:  `~/Library/Application Support/TARIAN/tarian.conf`
-Data directory:      `~/Library/Application Support/TARIAN`
-Lock file:           `~/Library/Application Support/TARIAN/.lock`
+Configuration file:  `~/Library/Application Support/TARN/tarian.conf`
+Data directory:      `~/Library/Application Support/TARN`
+Lock file:           `~/Library/Application Support/TARN/.lock`
 
 Installing Service Configuration
 -----------------------------------
@@ -124,7 +124,7 @@ use old versions of Upstart and do not supply the start-stop-daemon utility.
 Copy tariand.init to /etc/init.d/tariand. Test by running `service tariand start`.
 
 Using this script, you can adjust the path and flags to the tariand program by
-setting the TARIAND and FLAGS environment variables in the file
+setting the TARND and FLAGS environment variables in the file
 /etc/sysconfig/tariand. You can also use the DAEMONOPTS environment variable here.
 
 ### macOS

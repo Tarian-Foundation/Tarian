@@ -1,9 +1,9 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 //
-#ifndef TARIAN_ZTARNMODULE_H
-#define TARIAN_ZTARNMODULE_H
+#ifndef TARN_ZTARNMODULE_H
+#define TARN_ZTARNMODULE_H
 
 #include "libzerocoin/bignum.h"
 #include "libzerocoin/Denominations.h"
@@ -100,4 +100,4 @@ namespace ZTARNModule {
 };
 
 
-#endif //TARIAN_ZTARNMODULE_H
+#endif //TARN_ZTARNMODULE_H

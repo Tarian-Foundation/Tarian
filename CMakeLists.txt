@@ -10,7 +10,7 @@ if(CCACHE_PROGRAM)
     set(CXX_LAUNCHER "${CCACHE_PROGRAM}")
 endif()
 
-project(PIVX)
+project(TARN)
 
 set(BDB_VER "4.8.30")
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/contrib/cmake")
@@ -42,7 +42,7 @@ elseif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
         message(STATUS "Compiling on WSL")
         set(ENV{DISPLAY} ":0")
         set(ENV{LIBGL_ALWAYS_INDIRECT} 1)
-        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY /home/$ENV{USER}/pivx-run)
+        set(CMAKE_RUNTIME_OUTPUT_DIRECTORY /home/$ENV{USER}/tarian-run)
         message(WARNING "WSL Runtime support requires VcXsrv to be installed and running")
     else()
         message(STATUS "Compiling on Linux")
@@ -96,8 +96,8 @@ else()
     )
 endif()
 
-# run configure if pivx_config.h doesn't exist
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/src/config/pivx-config.h")
+# run configure if tarian_config.h doesn't exist
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/src/config/tarian-config.h")
 else()
     execute_process(
         COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/configure ${CONFIGSITE} ${BDB_CONFIGURE_FLAGS} ${BIGNUM_CONFIGURE_FLAGS} ${SSL_CONFIGURE_FLAGS}
@@ -296,6 +296,7 @@ set(SERVER_SOURCES
         ./src/httpserver.cpp
         ./src/init.cpp
         ./src/dbwrapper.cpp
+        ./src/legacy/validation_zerocoin_legacy.cpp
         ./src/main.cpp
         ./src/merkleblock.cpp
         ./src/miner.cpp
@@ -320,7 +321,7 @@ set(SERVER_SOURCES
         ./src/txdb.cpp
         ./src/txmempool.cpp
         ./src/validationinterface.cpp
-        ./src/zpivchain.cpp
+        ./src/ztarnchain.cpp
         )
 add_library(SERVER_A STATIC ${BitcoinHeaders} ${SERVER_SOURCES})
 if(MINIUPNP_FOUND)
@@ -359,11 +360,11 @@ set(WALLET_SOURCES
         ./src/masternodeconfig.cpp
         ./src/masternodeman.cpp
         ./src/messagesigner.cpp
-        ./src/zpiv/mintpool.cpp
+        ./src/ztarn/mintpool.cpp
         ./src/wallet/hdchain.cpp
         ./src/wallet/rpcdump.cpp
-        ./src/zpiv/deterministicmint.cpp
-        ./src/zpiv/zerocoin.cpp
+        ./src/ztarn/deterministicmint.cpp
+        ./src/ztarn/zerocoin.cpp
         ./src/wallet/scriptpubkeyman.cpp
         ./src/wallet/rpcwallet.cpp
         ./src/kernel.cpp
@@ -372,10 +373,10 @@ set(WALLET_SOURCES
         ./src/wallet/wallet_zerocoin.cpp
         ./src/wallet/wallet_ismine.cpp
         ./src/wallet/walletdb.cpp
-        ./src/zpiv/zpivwallet.cpp
-        ./src/zpiv/zpivtracker.cpp
-        ./src/zpiv/zpivmodule.cpp
-        ./src/zpiv/zpos.cpp
+        ./src/ztarn/ztarnwallet.cpp
+        ./src/ztarn/ztarntracker.cpp
+        ./src/ztarn/ztarnmodule.cpp
+        ./src/ztarn/zpos.cpp
         ./src/stakeinput.cpp
         )
 add_library(WALLET_A STATIC ${BitcoinHeaders} ${WALLET_SOURCES})
@@ -472,9 +473,9 @@ set(COMMON_SOURCES
         ./src/consensus/tx_verify.cpp
         ./src/consensus/zerocoin_verify.cpp
         ./src/primitives/block.cpp
-        ./src/zpiv/deterministicmint.cpp
+        ./src/ztarn/deterministicmint.cpp
         ./src/primitives/transaction.cpp
-        ./src/zpiv/zerocoin.cpp
+        ./src/ztarn/zerocoin.cpp
         ./src/core_read.cpp
         ./src/core_write.cpp
         ./src/hash.cpp
@@ -542,13 +543,13 @@ link_directories(
         ${CMAKE_SOURCE_DIR}/src/secp256k1/.libs
         )
 
-set(pivx-cli_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/pivx-cli.cpp)
+set(tarian-cli_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/tarian-cli.cpp)
 if($ENV{target} MATCHES "Windows")
-    list(APPEND pivx-cli_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/pivx-cli-res.rc)
+    list(APPEND tarian-cli_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/tarian-cli-res.rc)
 endif()
-add_executable(pivx-cli ${pivx-cli_SOURCES})
-add_dependencies(pivx-cli libunivalue)
-target_link_libraries(pivx-cli
+add_executable(tarian-cli ${tarian-cli_SOURCES})
+add_dependencies(tarian-cli libunivalue)
+target_link_libraries(tarian-cli
         CLI_A
         univalue
         UTIL_A
@@ -556,16 +557,16 @@ target_link_libraries(pivx-cli
         ${Boost_LIBRARIES} ${OPENSSL_LIBRARIES} ${LIBEVENT_LIB}
         )
 if($ENV{target} MATCHES "Windows")
-    target_link_libraries(pivx-cli ${WINDOWS_LDADD})
+    target_link_libraries(tarian-cli ${WINDOWS_LDADD})
 endif()
 
-set(pivx-tx_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/pivx-tx.cpp)
+set(tarian-tx_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/tarian-tx.cpp)
 if($ENV{target} MATCHES "Windows")
-    list(APPEND pivx-tx_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/pivx-tx-res.rc)
+    list(APPEND tarian-tx_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/tarian-tx-res.rc)
 endif()
-add_executable(pivx-tx ${pivx-tx_SOURCES})
-add_dependencies(pivx-tx libunivalue libsecp256k1)
-target_link_libraries(pivx-tx
+add_executable(tarian-tx ${tarian-tx_SOURCES})
+add_dependencies(tarian-tx libunivalue libsecp256k1)
+target_link_libraries(tarian-tx
         univalue
         COMMON_A
         ZEROCOIN_A
@@ -575,26 +576,26 @@ target_link_libraries(pivx-tx
         ${Boost_LIBRARIES} ${OPENSSL_LIBRARIES} ${LIBEVENT_LIB}
         )
 if($ENV{target} MATCHES "Windows")
-    target_link_libraries(pivx-tx ${WINDOWS_LDADD})
+    target_link_libraries(tarian-tx ${WINDOWS_LDADD})
 endif()
 if(GMP_FOUND)
-    target_link_libraries(pivx-tx ${GMP_LIBRARY})
+    target_link_libraries(tarian-tx ${GMP_LIBRARY})
 endif()
 
 link_directories(${CMAKE_BINARY_DIR})
 
-set(pivxd_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/pivxd.cpp)
+set(tariand_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/tariand.cpp)
 if($ENV{target} MATCHES "Windows")
-    list(APPEND pivxd_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/pivxd-res.rc)
+    list(APPEND tariand_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/tariand-res.rc)
 endif()
-add_executable(pivxd ${pivxd_SOURCES} ${BitcoinHeaders})
-add_dependencies(pivxd libunivalue libsecp256k1 leveldb leveldb_sse42 memenv)
-target_include_directories(pivxd PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src
+add_executable(tariand ${tariand_SOURCES} ${BitcoinHeaders})
+add_dependencies(tariand libunivalue libsecp256k1 leveldb leveldb_sse42 memenv)
+target_include_directories(tariand PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src
         ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb
         ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb/include
         ${CMAKE_CURRENT_SOURCE_DIR}/src/leveldb/helpers/memenv
         ${LIBEVENT_INCLUDE_DIR})
-target_link_libraries(pivxd
+target_link_libraries(tariand
         pthread
         SERVER_A
         WALLET_A
@@ -611,22 +612,22 @@ target_link_libraries(pivxd
         )
 if($ENV{target} MATCHES "Windows")
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wstack-protector -fstack-protector-all -fPIE -pipe -O2 -pthread -Wl,--dynamicbase -Wl,--nxcompat -Wl,--high-entropy-va -pie --static")
-    target_link_libraries(pivxd ${WINDOWS_LDADD})
+    target_link_libraries(tariand ${WINDOWS_LDADD})
 endif()
 if(GMP_FOUND)
-    target_link_libraries(pivxd ${GMP_LIBRARY})
-    target_include_directories(pivxd PUBLIC ${GMP_INCLUDE_DIR})
+    target_link_libraries(tariand ${GMP_LIBRARY})
+    target_include_directories(tariand PUBLIC ${GMP_INCLUDE_DIR})
 endif()
 if(ZMQ_FOUND)
-    target_link_libraries(pivxd ZMQ_A ${ZMQ_LIB})
-    target_include_directories(pivxd PUBLIC ${ZMQ_INCLUDE_DIR})
+    target_link_libraries(tariand ZMQ_A ${ZMQ_LIB})
+    target_include_directories(tariand PUBLIC ${ZMQ_INCLUDE_DIR})
 endif()
 if(MINIUPNP_FOUND)
-    target_compile_definitions(pivxd PUBLIC "-DSTATICLIB -DMINIUPNP_STATICLIB")
-    target_link_libraries(pivxd ${MINIUPNP_LIBRARY})
-    target_include_directories(pivxd PUBLIC ${MINIUPNP_INCLUDE_DIR})
+    target_compile_definitions(tariand PUBLIC "-DSTATICLIB -DMINIUPNP_STATICLIB")
+    target_link_libraries(tariand ${MINIUPNP_LIBRARY})
+    target_include_directories(tariand PUBLIC ${MINIUPNP_INCLUDE_DIR})
 endif()
 
-target_link_libraries(pivxd -lpthread)
+target_link_libraries(tariand -lpthread)
 
 add_subdirectory(src/qt)

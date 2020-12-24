@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -209,9 +209,10 @@ void RPCExecutor::requestCommand(const QString& command)
         std::string strPrint;
         // Convert argument list to JSON objects in method-dependent way,
         // and pass it along with the method name to the dispatcher.
-        UniValue result = tableRPC.execute(
-                args[0],
-                RPCConvertValues(args[0], std::vector<std::string>(args.begin() + 1, args.end())));
+        JSONRPCRequest req;
+        req.params = RPCConvertValues(args[0], std::vector<std::string>(args.begin() + 1, args.end()));
+        req.strMethod = args[0];
+        UniValue result = tableRPC.execute(req);
 
         // Format result reply
         if (result.isNull())
@@ -237,7 +238,7 @@ void RPCExecutor::requestCommand(const QString& command)
     }
 }
 
-SettingsConsoleWidget::SettingsConsoleWidget(TARIANGUI* _window, QWidget *parent) :
+SettingsConsoleWidget::SettingsConsoleWidget(TARNGUI* _window, QWidget *parent) :
     PWidget(_window,parent),
     ui(new Ui::SettingsConsoleWidget)
 {
@@ -248,6 +249,8 @@ SettingsConsoleWidget::SettingsConsoleWidget(TARIANGUI* _window, QWidget *parent
     // Containers
     setCssProperty({ui->left, ui->messagesWidget}, "container");
     ui->left->setContentsMargins(10,10,10,10);
+    ui->messagesWidget->setReadOnly(true);
+    ui->messagesWidget->setTextInteractionFlags(Qt::TextInteractionFlag::TextSelectableByMouse);
 
     // Title
     setCssTitleScreen(ui->labelTitle);
@@ -344,6 +347,8 @@ bool SettingsConsoleWidget::eventFilter(QObject* obj, QEvent* event)
                     QApplication::postEvent(ui->lineEdit, new QKeyEvent(*keyevt));
                     return true;
                 }
+                if (mod == Qt::ControlModifier && key == Qt::Key_L)
+                    clear(false);
         }
     }
     return QWidget::eventFilter(obj, event);
@@ -416,7 +421,7 @@ void SettingsConsoleWidget::clear(bool clearHistory)
     QString clsKey = "Ctrl-L";
 #endif
 
-    message(CMD_REPLY, (tr("Welcome to the TARIAN RPC console.") + "<br>" +
+    message(CMD_REPLY, (tr("Welcome to the TARN RPC console.") + "<br>" +
                         tr("Use up and down arrows to navigate history, and %1 to clear screen.").arg("<b>"+clsKey+"</b>") + "<br>" +
                         tr("Type <b>help</b> for an overview of available commands.") +
                         "<br><span class=\"secwarning\"><br>" +

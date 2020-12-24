@@ -1,11 +1,11 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2016 The Dash developers
-// Copyright (c) 2017-2020 The TARIAN developers
+// Copyright (c) 2017-2020 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TARIAN_QT_WALLETMODEL_H
-#define TARIAN_QT_WALLETMODEL_H
+#ifndef TARN_QT_WALLETMODEL_H
+#define TARN_QT_WALLETMODEL_H
 
 #include "askpassphrasedialog.h"
 #include "paymentrequestplus.h"
@@ -104,7 +104,7 @@ public:
     }
 };
 
-/** Interface to TARIAN wallet from Qt view code. */
+/** Interface to TARN wallet from Qt view code. */
 class WalletModel : public QObject
 {
     Q_OBJECT
@@ -203,7 +203,7 @@ public:
     const CWalletTx* getTx(uint256 id);
 
     // prepare transaction for getting txfee before sending coins
-    SendCoinsReturn prepareTransaction(WalletModelTransaction& transaction, const CCoinControl* coinControl = NULL, bool fIncludeDelegations = true);
+    SendCoinsReturn prepareTransaction(WalletModelTransaction& transaction, const CCoinControl* coinControl = NULL, bool fIncludeDelegations = true, bool fPoWAlternative = false);
 
     // Send coins to a list of recipients
     SendCoinsReturn sendCoins(WalletModelTransaction& transaction);
@@ -263,12 +263,12 @@ public:
     bool whitelistAddressFromColdStaking(const QString &addressStr);
     bool blacklistAddressFromColdStaking(const QString &address);
     bool updateAddressBookPurpose(const QString &addressStr, const std::string& purpose);
-    std::string getLabelForAddress(const CBitcoinAddress& address);
-    bool getKeyId(const CBitcoinAddress& address, CKeyID& keyID);
+    std::string getLabelForAddress(const CTxDestination& address);
+    bool getKeyId(const CTxDestination& address, CKeyID& keyID);
 
     bool isMine(const CTxDestination& address);
     bool isMine(const QString& addressStr);
-    bool isUsed(CBitcoinAddress address);
+    bool isUsed(CTxDestination address);
     void getOutputs(const std::vector<COutPoint>& vOutpoints, std::vector<COutput>& vOutputs);
     bool getMNCollateralCandidate(COutPoint& outPoint);
     bool isSpent(const COutPoint& outpoint) const;
@@ -364,4 +364,4 @@ public Q_SLOTS:
     bool updateAddressBookLabels(const CTxDestination& address, const std::string& strName, const std::string& strPurpose);
 };
 
-#endif // TARIAN_QT_WALLETMODEL_H
+#endif // TARN_QT_WALLETMODEL_H

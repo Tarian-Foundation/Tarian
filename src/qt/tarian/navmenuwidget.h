@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,7 +8,7 @@
 #include <QWidget>
 #include "qt/tarian/pwidget.h"
 
-class TARIANGUI;
+class TARNGUI;
 
 namespace Ui {
 class NavMenuWidget;
@@ -19,7 +19,7 @@ class NavMenuWidget : public PWidget
     Q_OBJECT
 
 public:
-    explicit NavMenuWidget(TARIANGUI* mainWindow, QWidget *parent = nullptr);
+    explicit NavMenuWidget(TARNGUI* mainWindow, QWidget *parent = nullptr);
     ~NavMenuWidget();
 
     void loadWalletModel() override;

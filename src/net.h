@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin developers
-// Copyright (c) 2015-2020 The TARIAN developers
+// Copyright (c) 2015-2020 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -20,6 +20,7 @@
 #include "uint256.h"
 #include "utilstrencodings.h"
 
+#include <atomic>
 #include <deque>
 #include <stdint.h>
 
@@ -321,6 +322,8 @@ public:
     std::deque<CSerializeData> vSendMsg;
     RecursiveMutex cs_vSend;
 
+    RecursiveMutex cs_sendProcessing;
+
     std::deque<CInv> vRecvGetData;
     std::deque<CNetMessage> vRecvMsg;
     RecursiveMutex cs_vRecvMsg;
@@ -347,7 +350,7 @@ public:
     bool fInbound;
     bool fNetworkNode;
     bool fSuccessfullyConnected;
-    bool fDisconnect;
+    std::atomic_bool fDisconnect;
     // We use fRelayTxes for two purposes -
     // a) it allows us to not relay tx invs before receiving the peer's version message
     // b) the peer may tell us in their version message that we should not relay tx invs

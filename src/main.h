@@ -4,7 +4,7 @@
 // Copyright (c) 2011-2013 The PPCoin developers
 // Copyright (c) 2013-2014 The NovaCoin Developers
 // Copyright (c) 2014-2018 The BlackCoin Developers
-// Copyright (c) 2015-2020 The TARIAN developers
+// Copyright (c) 2015-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -228,7 +228,7 @@ bool GetOutput(const uint256& hash, unsigned int index, CValidationState& state,
 
 // ***TODO***
 double ConvertBitsToDouble(unsigned int nBits);
-int64_t GetMasternodePayment(int nHeight);
+int64_t GetMasternodePayment(int nHeigth);
 int64_t GetCollateral();
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader* pblock, bool fProofOfStake);
 
@@ -240,7 +240,7 @@ CBlockIndex* InsertBlockIndex(uint256 hash);
 /** Get statistics from node state */
 bool GetNodeStateStats(NodeId nodeid, CNodeStateStats& stats);
 /** Increase a node's misbehavior score. */
-void Misbehaving(NodeId nodeid, int howmuch);
+void Misbehaving(NodeId nodeid, int howmuch) EXCLUSIVE_LOCKS_REQUIRED(cs_main);
 /** Flush all state, indexes and buffers to disk. */
 void FlushStateToDisk();
 
@@ -285,7 +285,7 @@ CAmount GetMinRelayFee(const CTransaction& tx, const CTxMemPool& pool, unsigned 
 bool CheckInputs(const CTransaction& tx, CValidationState& state, const CCoinsViewCache& view, bool fScriptChecks, unsigned int flags, bool cacheStore, std::vector<CScriptCheck>* pvChecks = NULL);
 
 /** Apply the effects of this transaction on the UTXO set represented by view */
-void UpdateCoins(const CTransaction& tx, CCoinsViewCache& inputs, CTxUndo& txundo, int nHeight);
+void UpdateCoins(const CTransaction& tx, CCoinsViewCache& inputs, int nHeight);
 
 bool IsTransactionInChain(const uint256& txId, int& nHeightTx, CTransaction& tx);
 bool IsTransactionInChain(const uint256& txId, int& nHeightTx);
@@ -392,7 +392,7 @@ bool InvalidateBlock(CValidationState& state, CBlockIndex* pindex);
 /** Remove invalidity status from a block and its descendants. */
 bool ReconsiderBlock(CValidationState& state, CBlockIndex* pindex);
 
-/** The currently-connected chain of blocks. */
+/** The currently-connected chain of blocks (protected by cs_main). */
 extern CChain chainActive;
 
 /** Global variable that points to the active CCoinsView (protected by cs_main) */

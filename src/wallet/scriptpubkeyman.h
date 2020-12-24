@@ -1,10 +1,10 @@
 // Copyright (c) 2019 The Bitcoin Core developers
-// Copyright (c) 2020 The TARIAN developers
+// Copyright (c) 2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TARIAN_SCRIPTPUBKEYMAN_H
-#define TARIAN_SCRIPTPUBKEYMAN_H
+#ifndef TARN_SCRIPTPUBKEYMAN_H
+#define TARN_SCRIPTPUBKEYMAN_H
 
 #include "wallet/hdchain.h"
 #include "wallet/wallet.h"
@@ -160,4 +160,4 @@ private:
 };
 
 
-#endif //TARIAN_SCRIPTPUBKEYMAN_H
+#endif //TARN_SCRIPTPUBKEYMAN_H

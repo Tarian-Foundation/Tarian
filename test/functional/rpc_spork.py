@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-# Copyright (c) 2019-2020 The TARIAN developers
+# Copyright (c) 2019-2020 The TARN developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 # -*- coding: utf-8 -*-
 
 from time import sleep
 
-from test_framework.test_framework import TarianTestFramework
+from test_framework.test_framework import TarnTestFramework
 from test_framework.util import set_node_times, assert_equal
 
 
-class TARIAN_RPCSporkTest(TarianTestFramework):
+class TARN_RPCSporkTest(TarnTestFramework):
 
     def set_test_params(self):
         self.setup_clean_chain = True
@@ -70,5 +70,5 @@ class TARIAN_RPCSporkTest(TarianTestFramework):
 
 
 if __name__ == '__main__':
-    TARIAN_RPCSporkTest().main()
+    TARN_RPCSporkTest().main()
 

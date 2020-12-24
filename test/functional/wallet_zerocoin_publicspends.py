@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2019-2020 The TARIAN developers
+# Copyright (c) 2019-2020 The TARN developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,7 +10,7 @@ Tests v2, v3 and v4 Zerocoin Spends
 from time import sleep
 
 from test_framework.authproxy import JSONRPCException
-from test_framework.test_framework import TarianTestFramework
+from test_framework.test_framework import TarnTestFramework
 from test_framework.util import (
     sync_blocks,
     sync_mempools,
@@ -21,7 +21,7 @@ from test_framework.util import (
 )
 
 
-class ZerocoinSpendTest(TarianTestFramework):
+class ZerocoinSpendTest(TarnTestFramework):
 
     def set_test_params(self):
         self.num_nodes = 3
@@ -63,13 +63,13 @@ class ZerocoinSpendTest(TarianTestFramework):
         def get_zerocoin_data(coin):
             return coin["s"], coin["r"], coin["k"], coin["id"], coin["d"], coin["t"]
 
-        def check_balances(denom, ztarn_bal, tarn_bal):
+        def check_balances(denom, ztarn_bal, tarian_bal):
             ztarn_bal -= denom
             assert_equal(self.nodes[2].getzerocoinbalance()['Total'], ztarn_bal)
-            tarn_bal += denom
+            tarian_bal += denom
             wi = self.nodes[2].getwalletinfo()
-            assert_equal(wi['balance'] + wi['immature_balance'], tarn_bal)
-            return ztarn_bal, tarn_bal
+            assert_equal(wi['balance'] + wi['immature_balance'], tarian_bal)
+            return ztarn_bal, tarian_bal
 
         def stake_4_blocks(block_time):
             sync_mempools(self.nodes)

@@ -4,7 +4,7 @@
 // Copyright (c) 2011-2013 The PPCoin developers
 // Copyright (c) 2013-2014 The NovaCoin Developers
 // Copyright (c) 2014-2018 The BlackCoin Developers
-// Copyright (c) 2015-2020 The TARIAN developers
+// Copyright (c) 2015-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -19,6 +19,7 @@
 #include "amount.h"
 #include "checkpoints.h"
 #include "compat/sanity.h"
+#include "consensus/upgrades.h"
 #include "consensus/zerocoin_verify.h"
 #include "fs.h"
 #include "httpserver.h"
@@ -66,6 +67,9 @@
 #ifndef WIN32
 #include <signal.h>
 #endif
+
+#include <boost/algorithm/string.hpp>
+#include <boost/algorithm/string/split.hpp>
 
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/algorithm/string/replace.hpp>
@@ -420,7 +424,7 @@ std::string HelpMessage(HelpMessageMode mode)
     strUsage += HelpMessageOpt("-onlynet=<net>", _("Only connect to nodes in network <net> (ipv4, ipv6 or onion)"));
     strUsage += HelpMessageOpt("-permitbaremultisig", strprintf(_("Relay non-P2SH multisig (default: %u)"), 1));
     strUsage += HelpMessageOpt("-peerbloomfilters", strprintf(_("Support filtering of blocks and transaction with bloom filters (default: %u)"), DEFAULT_PEERBLOOMFILTERS));
-    strUsage += HelpMessageOpt("-port=<port>", strprintf(_("Listen for connections on <port> (default: %u or testnet: %u)"), 54444, 54446));
+    strUsage += HelpMessageOpt("-port=<port>", strprintf(_("Listen for connections on <port> (default: %u or testnet: %u)"), 31813, 31815));
     strUsage += HelpMessageOpt("-proxy=<ip:port>", _("Connect through SOCKS5 proxy"));
     strUsage += HelpMessageOpt("-proxyrandomize", strprintf(_("Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)"), 1));
     strUsage += HelpMessageOpt("-seednode=<ip>", _("Connect to a node to retrieve peer addresses, and disconnect"));
@@ -487,6 +491,7 @@ std::string HelpMessage(HelpMessageMode mode)
         strUsage += HelpMessageOpt("-dblogsize=<n>", strprintf(_("Flush database activity from memory pool to disk log every <n> megabytes (default: %u)"), 100));
         strUsage += HelpMessageOpt("-disablesafemode", strprintf(_("Disable safemode, override a real safe mode event (default: %u)"), 0));
         strUsage += HelpMessageOpt("-testsafemode", strprintf(_("Force safe mode (default: %u)"), 0));
+        strUsage += HelpMessageOpt("-deprecatedrpc=<method>", _("Allows deprecated RPC method(s) to be used"));
         strUsage += HelpMessageOpt("-dropmessagestest=<n>", _("Randomly drop 1 of every <n> network messages"));
         strUsage += HelpMessageOpt("-fuzzmessagestest=<n>", _("Randomly fuzz 1 of every <n> network messages"));
         strUsage += HelpMessageOpt("-flushwallet", strprintf(_("Run a thread to flush wallet periodically (default: %u)"), 1));
@@ -497,6 +502,7 @@ std::string HelpMessage(HelpMessageMode mode)
         strUsage += HelpMessageOpt("-limitdescendantcount=<n>", strprintf(_("Do not accept transactions if any ancestor would have <n> or more in-mempool descendants (default: %u)"), DEFAULT_DESCENDANT_LIMIT));
         strUsage += HelpMessageOpt("-limitdescendantsize=<n>", strprintf(_("Do not accept transactions if any ancestor would have more than <n> kilobytes of in-mempool descendants (default: %u)."), DEFAULT_DESCENDANT_SIZE_LIMIT));
         strUsage += HelpMessageOpt("-sporkkey=<privkey>", _("Enable spork administration functionality with the appropriate private key."));
+        strUsage += HelpMessageOpt("-nuparams=upgradeName:activationHeight", "Use given activation height for specified network upgrade (regtest-only)");
     }
     strUsage += HelpMessageOpt("-debug=<category>", strprintf(_("Output debugging information (default: %u, supplying <category> is optional)"), 0) + ". " +
         _("If <category> is not supplied, output all debugging information.") + _("<category> can be:") + " " + ListLogCategories() + ".");
@@ -528,7 +534,7 @@ std::string HelpMessage(HelpMessageMode mode)
     }
     strUsage += HelpMessageOpt("-shrinkdebugfile", _("Shrink debug.log file on client startup (default: 1 when no -debug)"));
     strUsage += HelpMessageOpt("-testnet", _("Use the test network"));
-    strUsage += HelpMessageOpt("-litemode=<n>", strprintf(_("Disable all TARIAN specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)"), 0));
+    strUsage += HelpMessageOpt("-litemode=<n>", strprintf(_("Disable all TARN specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)"), 0));
 
 #ifdef ENABLE_WALLET
     strUsage += HelpMessageGroup(_("Staking options:"));
@@ -547,7 +553,7 @@ std::string HelpMessage(HelpMessageMode mode)
     strUsage += HelpMessageOpt("-mnconf=<file>", strprintf(_("Specify masternode configuration file (default: %s)"), "masternode.conf"));
     strUsage += HelpMessageOpt("-mnconflock=<n>", strprintf(_("Lock masternodes from masternode configuration file (default: %u)"), 1));
     strUsage += HelpMessageOpt("-masternodeprivkey=<n>", _("Set the masternode private key"));
-    strUsage += HelpMessageOpt("-masternodeaddr=<n>", strprintf(_("Set external address:port to get to this masternode (example: %s)"), "128.127.106.235:54444"));
+    strUsage += HelpMessageOpt("-masternodeaddr=<n>", strprintf(_("Set external address:port to get to this masternode (example: %s)"), "128.127.106.235:31813"));
     strUsage += HelpMessageOpt("-budgetvotemode=<mode>", _("Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)"));
 
     strUsage += HelpMessageGroup(_("Zerocoin options:"));
@@ -576,7 +582,7 @@ std::string HelpMessage(HelpMessageMode mode)
     strUsage += HelpMessageOpt("-rpccookiefile=<loc>", _("Location of the auth cookie (default: data dir)"));
     strUsage += HelpMessageOpt("-rpcuser=<user>", _("Username for JSON-RPC connections"));
     strUsage += HelpMessageOpt("-rpcpassword=<pw>", _("Password for JSON-RPC connections"));
-    strUsage += HelpMessageOpt("-rpcport=<port>", strprintf(_("Listen for JSON-RPC connections on <port> (default: %u or testnet: %u)"), 54445, 54447));
+    strUsage += HelpMessageOpt("-rpcport=<port>", strprintf(_("Listen for JSON-RPC connections on <port> (default: %u or testnet: %u)"), 31814, 31816));
     strUsage += HelpMessageOpt("-rpcallowip=<ip>", _("Allow JSON-RPC connections from specified source. Valid for <ip> are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times"));
     strUsage += HelpMessageOpt("-rpcthreads=<n>", strprintf(_("Set the number of threads to service RPC calls (default: %d)"), DEFAULT_HTTP_THREADS));
     if (GetBoolArg("-help-debug", false)) {
@@ -597,7 +603,9 @@ std::string LicenseInfo()
            "\n" +
            FormatParagraph(strprintf(_("Copyright (C) 2014-%i The Dash Core Developers"), COPYRIGHT_YEAR)) + "\n" +
            "\n" +
-           FormatParagraph(strprintf(_("Copyright (C) 2015-%i The TARIAN Core Developers"), COPYRIGHT_YEAR)) + "\n" +
+           FormatParagraph(strprintf(_("Copyright (C) 2015-%i The PIVX Core Developers"), COPYRIGHT_YEAR)) + "\n" +
+           "\n" +
+	   FormatParagraph(strprintf(_("Copyright (C) 2020-%i The Tarian Core Developers"), COPYRIGHT_YEAR)) + "\n" +
            "\n" +
            FormatParagraph(_("This is experimental software.")) + "\n" +
            "\n" +
@@ -725,7 +733,7 @@ void ThreadImport(std::vector<fs::path> vImportFiles)
 }
 
 /** Sanity checks
- *  Ensure that TARIAN is running in a usable environment with all
+ *  Ensure that TARN is running in a usable environment with all
  *  necessary library support.
  */
 bool InitSanityCheck(void)
@@ -897,6 +905,42 @@ void InitParameterInteraction()
     }
 }
 
+bool InitNUParams()
+{
+    if (!mapMultiArgs["-nuparams"].empty()) {
+        // Allow overriding network upgrade parameters for testing
+        if (Params().NetworkIDString() != "regtest") {
+            return UIError("Network upgrade parameters may only be overridden on regtest.");
+        }
+        const std::vector<std::string>& deployments = mapMultiArgs["-nuparams"];
+        for (auto i : deployments) {
+            std::vector<std::string> vDeploymentParams;
+            boost::split(vDeploymentParams, i, boost::is_any_of(":"));
+            if (vDeploymentParams.size() != 2) {
+                return UIError("Network upgrade parameters malformed, expecting hexBranchId:activationHeight");
+            }
+            int nActivationHeight;
+            if (!ParseInt32(vDeploymentParams[1], &nActivationHeight)) {
+                return UIError(strprintf("Invalid nActivationHeight (%s)", vDeploymentParams[1]));
+            }
+            bool found = false;
+            // Exclude base network from upgrades
+            for (auto j = Consensus::BASE_NETWORK + 1; j < Consensus::MAX_NETWORK_UPGRADES; ++j) {
+                if (vDeploymentParams[0] == NetworkUpgradeInfo[j].strName) {
+                    UpdateNetworkUpgradeParameters(Consensus::UpgradeIndex(j), nActivationHeight);
+                    found = true;
+                    LogPrintf("Setting network upgrade activation parameters for %s to height=%d\n", vDeploymentParams[0], nActivationHeight);
+                    break;
+                }
+            }
+            if (!found) {
+                return UIError(strprintf("Invalid network upgrade (%s)", vDeploymentParams[0]));
+            }
+        }
+    }
+    return true;
+}
+
 static std::string ResolveErrMsg(const char * const optname, const std::string& strBind)
 {
     return strprintf(_("Cannot resolve -%s address: '%s'"), optname, strBind);
@@ -925,7 +969,7 @@ void InitLogging()
 #else
     version_string += " (release build)";
 #endif
-    LogPrintf("TARIAN version %s (%s)\n", version_string, CLIENT_DATE);
+    LogPrintf("TARN version %s (%s)\n", version_string, CLIENT_DATE);
 }
 
 /** Initialize tarian.
@@ -1066,6 +1110,9 @@ bool AppInit2()
 
     nMaxTipAge = GetArg("-maxtipage", DEFAULT_MAX_TIP_AGE);
 
+    if (!InitNUParams())
+        return false;
+
     // ********************************************************* Step 4: application initialization: dir lock, daemonize, pidfile, debug log
 
     // Initialize elliptic curve code
@@ -1075,15 +1122,16 @@ bool AppInit2()
 
     // Sanity check
     if (!InitSanityCheck())
-        return UIError(_("Initialization sanity check failed. TARIAN Core is shutting down."));
+        return UIError(_("Initialization sanity check failed. Tarian Core is shutting down."));
 
     std::string strDataDir = GetDataDir().string();
 #ifdef ENABLE_WALLET
     // Wallet file must be a plain filename without a directory
-    if (strWalletFile != fs::basename(strWalletFile) + fs::extension(strWalletFile))
+    fs::path wallet_file_path(strWalletFile);
+    if (strWalletFile != wallet_file_path.filename().string())
         return UIError(strprintf(_("Wallet %s resides outside data directory %s"), strWalletFile, strDataDir));
 #endif
-    // Make sure only a single TARIAN process is using the data directory.
+    // Make sure only a single TARN process is using the data directory.
     fs::path pathLockFile = GetDataDir() / ".lock";
     FILE* file = fsbridge::fopen(pathLockFile, "a"); // empty lock file; created if it doesn't exist.
     if (file) fclose(file);
@@ -1091,7 +1139,7 @@ bool AppInit2()
 
     // Wait maximum 10 seconds if an old wallet is still running. Avoids lockup during restart
     if (!lock.timed_lock(boost::get_system_time() + boost::posix_time::seconds(10)))
-        return UIError(strprintf(_("Cannot obtain a lock on data directory %s. TARIAN Core is probably already running."), strDataDir));
+        return UIError(strprintf(_("Cannot obtain a lock on data directory %s. Tarian Core is probably already running."), strDataDir));
 
 #ifndef WIN32
     CreatePidFile(GetPidFile(), getpid());
@@ -1476,7 +1524,7 @@ bool AppInit2()
                 delete zerocoinDB;
                 delete pSporkDB;
 
-                //TARIAN specific: zerocoin and spork DB's
+                //TARN specific: zerocoin and spork DB's
                 zerocoinDB = new CZerocoinDB(0, false, fReindex);
                 pSporkDB = new CSporkDB(0, false, false);
 
@@ -1491,7 +1539,7 @@ bool AppInit2()
                 // End loop if shutdown was requested
                 if (ShutdownRequested()) break;
 
-                // TARIAN: load previous sessions sporks if we have them.
+                // TARN: load previous sessions sporks if we have them.
                 uiInterface.InitMessage(_("Loading sporks..."));
                 sporkManager.LoadSporksFromDB();
 
@@ -1698,9 +1746,9 @@ bool AppInit2()
                              " or address book entries might be missing or incorrect."));
                 UIWarning(msg);
             } else if (nLoadWalletRet == DB_TOO_NEW)
-                strErrors << _("Error loading wallet.dat: Wallet requires newer version of TARIAN Core") << "\n";
+                strErrors << _("Error loading wallet.dat: Wallet requires newer version of Tarian Core") << "\n";
             else if (nLoadWalletRet == DB_NEED_REWRITE) {
-                strErrors << _("Wallet needed to be rewritten: restart TARIAN Core to complete") << "\n";
+                strErrors << _("Wallet needed to be rewritten: restart Tarian Core to complete") << "\n";
                 LogPrintf("%s", strErrors.str());
                 return UIError(strErrors.str());
             } else
@@ -1719,7 +1767,7 @@ bool AppInit2()
         // Forced upgrade
         const bool fLegacyWallet = GetBoolArg("-legacywallet", false);
         if (GetBoolArg("-upgradewallet", fFirstRun && !fLegacyWallet)) {
-            if (prev_version <= FEATURE_PRE_TARIAN && pwalletMain->IsLocked()) {
+            if (prev_version <= FEATURE_PRE_TARN && pwalletMain->IsLocked()) {
                 // Cannot upgrade a locked wallet
                 std::string strProblem = "Cannot upgrade a locked wallet.\n";
                 strErrors << _("Error: ") << strProblem;
@@ -1764,7 +1812,7 @@ bool AppInit2()
                 }
                 // Create legacy wallet
                 LogPrintf("Creating Pre-HD Wallet\n");
-                pwalletMain->SetMaxVersion(FEATURE_PRE_TARIAN);
+                pwalletMain->SetMaxVersion(FEATURE_PRE_TARN);
             }
 
             // Top up the keypool
@@ -1822,7 +1870,7 @@ bool AppInit2()
                         copyTo->fFromMe = copyFrom->fFromMe;
                         copyTo->strFromAccount = copyFrom->strFromAccount;
                         copyTo->nOrderPos = copyFrom->nOrderPos;
-                        copyTo->WriteToDisk(&walletdb);
+                        walletdb.WriteTx(*copyTo);
                     }
                 }
             }

@@ -900,9 +900,9 @@
             </item>
             <item>
              <widget class="QStackedWidget" name="stackedWidget">
-               <property name="currentIndex">
-                <number>5</number>
-               </property>
+              <property name="currentIndex">
+               <number>5</number>
+              </property>
               <widget class="QWidget" name="page_0">
                <layout class="QVBoxLayout" name="verticalLayout_4">
                 <property name="leftMargin">
@@ -1067,7 +1067,7 @@
                      </property>
                      <property name="text">
                       <string>Welcome to
-TARIAN Core Wallet</string>
+Tarian Core Wallet</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -1093,7 +1093,7 @@ TARIAN Core Wallet</string>
                    <item alignment="Qt::AlignHCenter">
                     <widget class="QLabel" name="labelMessage2">
                      <property name="text">
-                      <string>TARIAN is the world’s most innovative Proof of Stake blockchain based technology. Developed by a team of highly experienced developers and cryptographers.</string>
+                      <string>TARN is the world’s most innovative Proof of Stake blockchain based technology. Developed by a team of highly experienced developers and cryptographers.</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -1166,7 +1166,7 @@ TARIAN Core Wallet</string>
                    </size>
                   </property>
                   <property name="text">
-                   <string>How TARIAN respects your privacy?</string>
+                   <string>How TARN respects your privacy?</string>
                   </property>
                  </widget>
                 </item>
@@ -1186,7 +1186,7 @@ TARIAN Core Wallet</string>
                 <item>
                  <widget class="QLabel" name="labelMessage3">
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;As our manifesto says: Privacy is a non-negotiable basic human right; it grants users the freedom to share their data whenever and with whomever they want - TARIAN believes in self sovereignty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;As our manifesto says: Privacy is a non-negotiable basic human right; it grants users the freedom to share their data whenever and with whomever they want - TARN believes in self sovereignty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -1269,7 +1269,7 @@ TARIAN Core Wallet</string>
                 <item>
                  <widget class="QLabel" name="labelMessage4">
                   <property name="text">
-                   <string>The masternode network is TARIAN's second layer network on top of the blockchain that enables our DAO to provide decentralized governance and a treasury.</string>
+                   <string>The masternode network is TARN's second layer network on top of the blockchain that enables our DAO to provide decentralized governance and a treasury.</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -1346,16 +1346,18 @@ TARIAN Core Wallet</string>
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;h1 style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; font-weight:600;&quot;&gt;End-User License Agreement (EULA) of TARIAN Wallet&lt;/span&gt;&lt;/h1&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This End-User License Agreement (&amp;quot;EULA&amp;quot;) is a legal agreement between you and Tarian-Foundation (“Tarian-Foundation”).&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This EULA agreement governs your  use of our TARIAN Wallet software (&amp;quot;Software&amp;quot;).&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Please read this EULA agreement carefully before completing the installation process and using the TARIAN Wallet software. It provides a license to use the TARIAN Wallet software and contains important information.&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;By installing and/or using the TARIAN Wallet software, you are confirming your acceptance of the Software and agreeing to become bound by the terms of this EULA agreement.&lt;/p&gt;
+&lt;h1 style=&quot; margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:xx-large; font-weight:600;&quot;&gt;End-User License Agreement (EULA) of TARN Wallet&lt;/span&gt;&lt;/h1&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This End-User License Agreement (&amp;quot;EULA&amp;quot;) is a legal agreement between you and Carbon Reduction Initiative Limited (“CRI”).&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This EULA agreement governs your  use of our TARN Wallet software (&amp;quot;Software&amp;quot;).&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Please read this EULA agreement carefully before completing the installation process and using the TARN Wallet software. It provides a license to use the TARN Wallet software and contains important information.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;By installing and/or using the TARN Wallet software, you are confirming your acceptance of the Software and agreeing to become bound by the terms of this EULA agreement.&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;If you are entering into this EULA agreement on behalf of a company or other legal entity, you represent that you have the authority to bind such entity and its affiliates to these terms and conditions. If you do not have such authority or if you do not agree with the terms and conditions of this EULA agreement, do not install or use the Software, and you must not accept this EULA agreement.&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This EULA agreement shall apply only to the Software supplied by Tarian-Foundation herewith regardless of whether other software is referred to or described herein. The terms also apply to any Tarian-Foundation updates, supplements, Internet-based services, and support services for the Software, unless other terms accompany those items on delivery. If so, those terms apply. This EULA was created by EULA Template for TARIAN Wallet.&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;You are permitted to load the TARIAN Wallet software (for example a PC, laptop, mobile or tablet) under your control. You are responsible for ensuring your device meets the minimum requirements of the TARIAN Wallet software.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This EULA agreement shall apply only to the Software supplied by CRI herewith regardless of whether other software is referred to or described herein. The terms also apply to any CRI updates, supplements, Internet-based services, and support services for the Software, unless other terms accompany those items on delivery. If so, those terms apply. This EULA was created by EULA Template for TARN Wallet.&lt;/p&gt;
+&lt;h2 style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:x-large; font-weight:600;&quot;&gt;Carbon Ownership&lt;/span&gt;&lt;/h2&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;By accepting this EULA agreement, you hereby relinquish carbon ownership in respect of transactions processed on the TARN network. You acknowledge that carbon credits generated by TARN Masternode collaterals held in this TARN wallet are the property of CRI. When carbon credits generated by your CRI wallet Masternode are sold, a fixed percentage of 50% of the value of the sale will be remitted to you as recompense for running the TARN network.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;You are permitted to load the TARN Wallet software (for example a PC, laptop, mobile or tablet) under your control. You are responsible for ensuring your device meets the minimum requirements of the TARN Wallet software.&lt;/p&gt;
 &lt;h2 style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:x-large; font-weight:600;&quot;&gt;Intellectual Property and Ownership&lt;/span&gt;&lt;/h2&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The Software (and the copyright, and other intellectual property rights of whatever nature in the Software, including any modifications made thereto) are and shall remain the property of Tarian-Foundation.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The Software (and the copyright, and other intellectual property rights of whatever nature in the Software, including any modifications made thereto) are and shall remain the property of CRI.&lt;/p&gt;
 &lt;h2 style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:x-large; font-weight:600;&quot;&gt;Termination&lt;/span&gt;&lt;/h2&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This EULA agreement is effective from the date you first use the Software and shall continue until terminated by discontinuing usage of the software.&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;It will also terminate immediately if you fail to comply with any term of this EULA agreement. Upon such termination, the licenses granted by this EULA agreement will immediately terminate and you agree to stop all access and use of the Software. The provisions that by their nature continue and survive will survive any termination of this EULA agreement.&lt;/p&gt;

@@ -5,7 +5,7 @@
 """Test node disconnect and ban behavior"""
 import time
 
-from test_framework.test_framework import TarianTestFramework
+from test_framework.test_framework import TarnTestFramework
 from test_framework.util import (
     assert_equal,
     connect_nodes,
@@ -13,7 +13,7 @@ from test_framework.util import (
     wait_until,
 )
 
-class DisconnectBanTest(TarianTestFramework):
+class DisconnectBanTest(TarnTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
 

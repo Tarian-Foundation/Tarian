@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -68,11 +68,11 @@ MasterNodeWizardDialog::MasterNodeWizardDialog(WalletModel *model, QWidget *pare
     ui->stackedWidget->setCurrentIndex(pos);
     ui->lineEditPort->setEnabled(false);    // use default port number
     if (walletModel->isRegTestNetwork()) {
-        ui->lineEditPort->setText("54448");
+        ui->lineEditPort->setText("31817");
     } else if (walletModel->isTestNetwork()) {
-        ui->lineEditPort->setText("54446");
+        ui->lineEditPort->setText("31815");
     } else {
-        ui->lineEditPort->setText("54444");
+        ui->lineEditPort->setText("31813");
     }
 
     // Confirm icons
@@ -278,7 +278,8 @@ bool MasterNodeWizardDialog::createMN()
     // Update the conf file
     std::string strConfFile = "masternode.conf";
     std::string strDataDir = GetDataDir().string();
-    if (strConfFile != fs::basename(strConfFile) + fs::extension(strConfFile)) {
+    fs::path conf_file_path(strConfFile);
+    if (strConfFile != conf_file_path.filename().string()) {
         throw std::runtime_error(strprintf(_("masternode.conf %s resides outside data directory %s"), strConfFile, strDataDir));
     }
 
@@ -325,7 +326,7 @@ bool MasterNodeWizardDialog::createMN()
     if (lineCopy.size() == 0) {
         lineCopy = "# Masternode config file\n"
                    "# Format: alias IP:port masternodeprivkey collateral_output_txid collateral_output_index\n"
-                   "# Example: mn1 127.0.0.2:54444 93HaYBVUCYjEMeeH1Y4sBGLALQZE1Yc1K64xiqgX37tGBDQL8Xg 2bcd3c84c84f87eaa86e4e56834c92927a07f9e18718810b92e0d0324456a67c 0"
+                   "# Example: mn1 127.0.0.2:31813 93HaYBVUCYjEMeeH1Y4sBGLALQZE1Yc1K64xiqgX37tGBDQL8Xg 2bcd3c84c84f87eaa86e4e56834c92927a07f9e18718810b92e0d0324456a67c 0"
                    "#";
     }
     lineCopy += "\n";
@@ -342,22 +343,19 @@ bool MasterNodeWizardDialog::createMN()
         ipAddress = "["+ipAddress+"]";
     }
 
-    fs::path pathConfigFile("masternode_temp.conf");
-    if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir() / pathConfigFile;
+    fs::path pathConfigFile = AbsPathForConfigVal(fs::path("masternode_temp.conf"));
     FILE* configFile = fopen(pathConfigFile.string().c_str(), "w");
     lineCopy += alias+" "+ipAddress+":"+port+" "+mnKeyString+" "+txID+" "+indexOutStr+"\n";
     fwrite(lineCopy.c_str(), std::strlen(lineCopy.c_str()), 1, configFile);
     fclose(configFile);
 
-    fs::path pathOldConfFile("old_masternode.conf");
-    if (!pathOldConfFile.is_complete()) pathOldConfFile = GetDataDir() / pathOldConfFile;
+    fs::path pathOldConfFile = AbsPathForConfigVal(fs::path("old_masternode.conf"));
     if (fs::exists(pathOldConfFile)) {
         fs::remove(pathOldConfFile);
     }
     rename(pathMasternodeConfigFile, pathOldConfFile);
 
-    fs::path pathNewConfFile("masternode.conf");
-    if (!pathNewConfFile.is_complete()) pathNewConfFile = GetDataDir() / pathNewConfFile;
+    fs::path pathNewConfFile = AbsPathForConfigVal(fs::path("masternode.conf"));
     rename(pathConfigFile, pathNewConfFile);
 
     mnEntry = masternodeConfig.add(alias, ipAddress+":"+port, mnKeyString, txID, indexOutStr);

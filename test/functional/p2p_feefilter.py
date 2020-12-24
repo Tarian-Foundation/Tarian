@@ -5,7 +5,7 @@
 """Test processing of feefilter messages."""
 
 from test_framework.mininode import *
-from test_framework.test_framework import TarianTestFramework
+from test_framework.test_framework import TarnTestFramework
 from test_framework.util import *
 import time
 
@@ -36,7 +36,7 @@ class TestNode(P2PInterface):
         with mininode_lock:
             self.txinvs = []
 
-class FeeFilterTest(TarianTestFramework):
+class FeeFilterTest(TarnTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
 

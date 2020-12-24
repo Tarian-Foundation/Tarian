@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -37,7 +37,7 @@ using namespace QtCharts;
 
 #endif
 
-class TARIANGUI;
+class TARNGUI;
 class WalletModel;
 
 namespace Ui {
@@ -61,10 +61,10 @@ Q_SIGNALS:
 };
 
 enum SortTx {
-    DATE_ASC = 0,
-    DATE_DESC = 1,
-    AMOUNT_ASC = 2,
-    AMOUNT_DESC = 3
+    DATE_DESC = 0,
+    DATE_ASC = 1,
+    AMOUNT_DESC = 2,
+    AMOUNT_ASC = 3
 };
 
 enum ChartShowType {
@@ -96,7 +96,7 @@ class DashboardWidget : public PWidget
     Q_OBJECT
 
 public:
-    explicit DashboardWidget(TARIANGUI* _window);
+    explicit DashboardWidget(TARNGUI* _window);
     ~DashboardWidget();
 
     void loadWalletModel() override;
@@ -140,6 +140,7 @@ private:
     TransactionTableModel* txModel;
     int nDisplayUnit = -1;
     bool isSync = false;
+    void changeSort(int nSortIndex);
 
 #ifdef USE_QTCHARTS
 

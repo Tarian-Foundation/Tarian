@@ -1,4 +1,4 @@
-// Copyright (c) 2018-2020 The TARIAN developers
+// Copyright (c) 2018-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -443,7 +443,7 @@ bool UpdateZTARNSupplyConnect(const CBlock& block, CBlockIndex* pindex, bool fJu
                             CWalletTx wtx(pwalletMain, tx);
                             wtx.nTimeReceived = block.GetBlockTime();
                             wtx.SetMerkleBranch(block);
-                            pwalletMain->AddToWallet(wtx, false, nullptr);
+                            pwalletMain->AddToWallet(wtx, nullptr);
                             setAddedToWallet.insert(txid);
                         }
                     }

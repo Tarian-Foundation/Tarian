@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,7 +13,7 @@
 #include <QScrollBar>
 #include <QDataWidgetMapper>
 
-SettingsWidget::SettingsWidget(TARIANGUI* parent) :
+SettingsWidget::SettingsWidget(TARNGUI* parent) :
     PWidget(parent),
     ui(new Ui::SettingsWidget)
 {
@@ -136,7 +136,7 @@ SettingsWidget::SettingsWidget(TARIANGUI* parent) :
 
     // Help
     connect(ui->pushButtonHelp, &QPushButton::clicked, this, &SettingsWidget::onHelpClicked);
-    connect(ui->pushButtonHelp1, &QPushButton::clicked, window, &TARIANGUI::openFAQ);
+    connect(ui->pushButtonHelp1, &QPushButton::clicked, window, &TARNGUI::openFAQ);
     connect(ui->pushButtonHelp2, &QPushButton::clicked, this, &SettingsWidget::onAboutClicked);
 
     // Get restart command-line parameters and handle restart
@@ -192,15 +192,13 @@ void SettingsWidget::loadClientModel()
 
         OptionsModel *optionsModel = this->clientModel->getOptionsModel();
         if (optionsModel) {
+            settingsDisplayOptionsWidget->setClientModel(clientModel);
+            settingsMainOptionsWidget->setClientModel(clientModel);
+            settingsWalletOptionsWidget->setClientModel(clientModel);
+
             mapper->setModel(optionsModel);
             setMapper();
             mapper->toFirst();
-            settingsMainOptionsWidget->setClientModel(clientModel);
-            settingsDisplayOptionsWidget->setClientModel(clientModel);
-            settingsWalletOptionsWidget->setClientModel(clientModel);
-            /* keep consistency for action triggered elsewhere */
-
-            // TODO: Connect show restart needed and apply changes.
         }
     }
 }

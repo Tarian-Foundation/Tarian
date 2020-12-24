@@ -14,14 +14,14 @@
   transactions are still available, but that the unconfirmed transaction has
   been zapped.
 """
-from test_framework.test_framework import TarianTestFramework
+from test_framework.test_framework import TarnTestFramework
 from test_framework.util import (
     assert_equal,
     assert_raises_rpc_error,
     sync_mempools,
 )
 
-class ZapWalletTXesTest (TarianTestFramework):
+class ZapWalletTXesTest (TarnTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 2

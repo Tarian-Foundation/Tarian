@@ -1,9 +1,9 @@
-// Copyright (c) 2017-2020 The TARIAN developers
+// Copyright (c) 2017-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TARIAN_STAKEINPUT_H
-#define TARIAN_STAKEINPUT_H
+#ifndef TARN_STAKEINPUT_H
+#define TARN_STAKEINPUT_H
 
 #include "chain.h"
 #include "streams.h"
@@ -57,4 +57,4 @@ public:
 };
 
 
-#endif //TARIAN_STAKEINPUT_H
+#endif //TARN_STAKEINPUT_H

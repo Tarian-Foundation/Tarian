@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -65,7 +65,7 @@ public:
     MNRow* cachedRow = nullptr;
 };
 
-MasterNodesWidget::MasterNodesWidget(TARIANGUI *parent) :
+MasterNodesWidget::MasterNodesWidget(TARNGUI *parent) :
     PWidget(parent),
     ui(new Ui::MasterNodesWidget),
     isLoading(false)
@@ -378,7 +378,8 @@ void MasterNodesWidget::onDeleteMNClicked()
 
     std::string strConfFile = "masternode.conf";
     std::string strDataDir = GetDataDir().string();
-    if (strConfFile != fs::basename(strConfFile) + fs::extension(strConfFile)) {
+    fs::path conf_file_path(strConfFile);
+    if (strConfFile != conf_file_path.filename().string()) {
         throw std::runtime_error(strprintf(_("masternode.conf %s resides outside data directory %s"), strConfFile, strDataDir));
     }
 
@@ -427,27 +428,24 @@ void MasterNodesWidget::onDeleteMNClicked()
         if (lineCopy.size() == 0) {
             lineCopy = "# Masternode config file\n"
                                     "# Format: alias IP:port masternodeprivkey collateral_output_txid collateral_output_index\n"
-                                    "# Example: mn1 127.0.0.2:54444 93HaYBVUCYjEMeeH1Y4sBGLALQZE1Yc1K64xiqgX37tGBDQL8Xg 2bcd3c84c84f87eaa86e4e56834c92927a07f9e18718810b92e0d0324456a67c 0\n";
+                                    "# Example: mn1 127.0.0.2:31813 93HaYBVUCYjEMeeH1Y4sBGLALQZE1Yc1K64xiqgX37tGBDQL8Xg 2bcd3c84c84f87eaa86e4e56834c92927a07f9e18718810b92e0d0324456a67c 0\n";
         }
 
         streamConfig.close();
 
         if (lineNumToRemove != -1) {
-            fs::path pathConfigFile("masternode_temp.conf");
-            if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir() / pathConfigFile;
+            fs::path pathConfigFile = AbsPathForConfigVal(fs::path("masternode_temp.conf"));
             FILE* configFile = fsbridge::fopen(pathConfigFile, "w");
             fwrite(lineCopy.c_str(), std::strlen(lineCopy.c_str()), 1, configFile);
             fclose(configFile);
 
-            fs::path pathOldConfFile("old_masternode.conf");
-            if (!pathOldConfFile.is_complete()) pathOldConfFile = GetDataDir() / pathOldConfFile;
+            fs::path pathOldConfFile = AbsPathForConfigVal(fs::path("old_masternode.conf"));
             if (fs::exists(pathOldConfFile)) {
                 fs::remove(pathOldConfFile);
             }
             rename(pathMasternodeConfigFile, pathOldConfFile);
 
-            fs::path pathNewConfFile("masternode.conf");
-            if (!pathNewConfFile.is_complete()) pathNewConfFile = GetDataDir() / pathNewConfFile;
+            fs::path pathNewConfFile = AbsPathForConfigVal(fs::path("masternode.conf"));
             rename(pathConfigFile, pathNewConfFile);
 
             // Unlock collateral
@@ -479,7 +477,7 @@ void MasterNodesWidget::onCreateMNClicked()
     }
 
     if (walletModel->getBalance() <= (COIN * GetCollateral())) {
-        inform(tr("Not enough balance to create a masternode, 25,000 %1 required.").arg(CURRENCY_UNIT.c_str()));
+        inform(tr("Not enough balance to create a masternode, 1,000 %1 required.").arg(CURRENCY_UNIT.c_str()));
         return;
     }
     showHideOp(true);

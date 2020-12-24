@@ -16,8 +16,8 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "TARIAN"
-            VALUE "FileDescription",    "tariand (OSS daemon/client for TARIAN)"
+            VALUE "CompanyName",        "TARN"
+            VALUE "FileDescription",    "tariand (OSS daemon/client for TARN)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "tariand"
             VALUE "LegalCopyright",     COPYRIGHT_STR

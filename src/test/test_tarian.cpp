@@ -1,9 +1,9 @@
 // Copyright (c) 2011-2013 The Bitcoin Core developers
-// Copyright (c) 2017-2020 The TARIAN developers
+// Copyright (c) 2017-2020 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#define BOOST_TEST_MODULE Tarian Test Suite
+#define BOOST_TEST_MODULE Tarn Test Suite
 
 #include "test_tarian.h"
 
@@ -71,13 +71,13 @@ TestingSetup::~TestingSetup()
 }
 
 CTxMemPoolEntry TestMemPoolEntryHelper::FromTx(CMutableTransaction &tx, CTxMemPool *pool) {
-  CTransaction txn(tx);
+    CTransaction txn(tx);
     bool hasNoDependencies = pool ? pool->HasNoInputsOf(tx) : hadNoDependencies;
     // Hack to assume either its completely dependent on other mempool txs or not at all
     CAmount inChainValue = hasNoDependencies ? txn.GetValueOut() : 0;
 
     return CTxMemPoolEntry(txn, nFee, nTime, dPriority, nHeight,
-                           hasNoDependencies, inChainValue);
+                           hasNoDependencies, inChainValue, spendsCoinbaseOrCoinstake);
 }
 
 [[noreturn]] void Shutdown(void* parg)

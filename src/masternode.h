@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2020 The TARIAN developers
+// Copyright (c) 2015-2020 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -251,14 +251,20 @@ public:
 
     int GetMasternodeInputAge()
     {
-        if (chainActive.Tip() == NULL) return 0;
+        int tipHeight;
+        {
+            LOCK(cs_main);
+            CBlockIndex *pindex = chainActive.Tip();
+            if (!pindex) return 0;
+            tipHeight = pindex->nHeight;
+        }
 
         if (cacheInputAge == 0) {
             cacheInputAge = GetInputAge(vin);
-            cacheInputAgeBlock = chainActive.Tip()->nHeight;
+            cacheInputAgeBlock = tipHeight;
         }
 
-        return cacheInputAge + (chainActive.Tip()->nHeight - cacheInputAgeBlock);
+        return cacheInputAge + (tipHeight - cacheInputAgeBlock);
     }
 
     std::string Status()

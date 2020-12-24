@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -15,7 +15,7 @@
 
 class AddressViewDelegate;
 class TooltipMenu;
-class TARIANGUI;
+class TARNGUI;
 class WalletModel;
 
 namespace Ui {
@@ -31,7 +31,7 @@ class AddressesWidget : public PWidget
     Q_OBJECT
 
 public:
-    explicit AddressesWidget(TARIANGUI* parent);
+    explicit AddressesWidget(TARNGUI* parent);
     ~AddressesWidget();
 
     void loadWalletModel() override;

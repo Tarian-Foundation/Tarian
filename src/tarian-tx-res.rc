@@ -16,8 +16,8 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "TARIAN"
-            VALUE "FileDescription",    "tarian-tx (CLI TARIAN transaction editor utility)"
+            VALUE "CompanyName",        "TARN"
+            VALUE "FileDescription",    "tarian-tx (CLI TARN transaction editor utility)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "tarian-tx"
             VALUE "LegalCopyright",     COPYRIGHT_STR

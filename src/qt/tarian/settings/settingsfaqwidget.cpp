@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The TARIAN developers
+// Copyright (c) 2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,7 +8,7 @@
 #include <QMetaObject>
 #include "qt/tarian/qtutils.h"
 
-SettingsFaqWidget::SettingsFaqWidget(TARIANGUI *parent) :
+SettingsFaqWidget::SettingsFaqWidget(TARNGUI *parent) :
     QDialog(parent),
     ui(new Ui::SettingsFaqWidget)
 {
@@ -82,7 +82,7 @@ SettingsFaqWidget::SettingsFaqWidget(TARIANGUI *parent) :
     connect(ui->pushButton_MNController, &QPushButton::clicked, [this](){onFaqClicked(ui->widget_MNController);});
 
     if (parent)
-        connect(parent, &TARIANGUI::windowResizeEvent, this, &SettingsFaqWidget::windowResizeEvent);
+        connect(parent, &TARNGUI::windowResizeEvent, this, &SettingsFaqWidget::windowResizeEvent);
 }
 
 void SettingsFaqWidget::showEvent(QShowEvent *event)
@@ -129,3 +129,5 @@ SettingsFaqWidget::~SettingsFaqWidget()
 {
     delete ui;
 }
+
+

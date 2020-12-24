@@ -4,13 +4,13 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the RPC HTTP basics."""
 
-from test_framework.test_framework import TarianTestFramework
+from test_framework.test_framework import TarnTestFramework
 from test_framework.util import *
 
 import http.client
 import urllib.parse
 
-class HTTPBasicsTest (TarianTestFramework):
+class HTTPBasicsTest (TarnTestFramework):
     def set_test_params(self):
         self.num_nodes = 3
 

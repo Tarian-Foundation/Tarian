@@ -1,16 +1,17 @@
-// Copyright (c) 2019 The TARIAN developers
+// Copyright (c) 2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "qt/tarian/welcomecontentwidget.h"
 #include "qt/tarian/forms/ui_welcomecontentwidget.h"
+
+#include "guiutil.h"
+
+#include <QDir>
 #include <QFile>
 #include <QListView>
-#include <QDir>
-#include "guiutil.h"
+#include <QScreen>
 #include <QSettings>
-#include <iostream>
-#include <QDesktopWidget>
 
 WelcomeContentWidget::WelcomeContentWidget(QWidget *parent) :
     QDialog(parent, Qt::FramelessWindowHint | Qt::WindowSystemMenuHint),
@@ -60,9 +61,9 @@ WelcomeContentWidget::WelcomeContentWidget(QWidget *parent) :
 
     // position
     backButton->move(backX, backY);
-    backButton->setStyleSheet("background: url(://ic-arrow-white-left); background-repeat:no-repeat;background-position:center;border:  0;background-color:#5c4b7d;color: #5c4b7d; border-radius:2px;");
+    backButton->setStyleSheet("background: url(://ic-arrow-white-left); background-repeat:no-repeat;background-position:center;border:  0;background-color:#4f7d4b;color: #4f7d4b; border-radius:2px;");
     nextButton->move(nextX, nextY);
-    nextButton->setStyleSheet("background: url(://ic-arrow-white-right);background-repeat:no-repeat;background-position:center;border:  0;background-color:#5c4b7d;color: #5c4b7d; border-radius:2px;");
+    nextButton->setStyleSheet("background: url(://ic-arrow-white-right);background-repeat:no-repeat;background-position:center;border:  0;background-color:#4f7d4b;color: #4f7d4b; border-radius:2px;");
 
     if (pos == 0) {
         backButton->setVisible(false);
@@ -188,7 +189,7 @@ WelcomeContentWidget::WelcomeContentWidget(QWidget *parent) :
     QRect r(QPoint(), size());
     resize(r.size());
     setFixedSize(r.size());
-    move(QApplication::desktop()->screenGeometry().center() - r.center());
+    move(QGuiApplication::primaryScreen()->geometry().center() - r.center());
 }
 
 void WelcomeContentWidget::initLanguages()
@@ -259,6 +260,7 @@ void WelcomeContentWidget::onNextClicked()
             ui->pushName3->setChecked(true);
             ui->pushName2->setChecked(true);
             ui->pushName1->setChecked(true);
+
             icConfirm2->setVisible(true);
             break;
         }
@@ -277,7 +279,7 @@ void WelcomeContentWidget::onNextClicked()
             break;
         }
         case 4:{
-          ui->stackedWidget->setCurrentIndex(5);
+            ui->stackedWidget->setCurrentIndex(5);
 
             ui->pushNumber5->setChecked(true);
 
@@ -312,7 +314,7 @@ void WelcomeContentWidget::onBackClicked()
         case 1:{
             ui->stackedWidget->setCurrentIndex(1);
 
-            ui->pushNumber5->setChecked(true);
+            ui->pushNumber5->setChecked(false);
             ui->pushNumber4->setChecked(false);
             ui->pushNumber3->setChecked(false);
             ui->pushNumber2->setChecked(false);
@@ -332,7 +334,7 @@ void WelcomeContentWidget::onBackClicked()
         case 2:{
             ui->stackedWidget->setCurrentIndex(2);
 
-            ui->pushNumber5->setChecked(true);
+            ui->pushNumber5->setChecked(false);
             ui->pushNumber4->setChecked(false);
             ui->pushNumber3->setChecked(false);
             ui->pushNumber2->setChecked(true);
@@ -342,13 +344,14 @@ void WelcomeContentWidget::onBackClicked()
             ui->pushName3->setChecked(false);
             ui->pushName2->setChecked(true);
             ui->pushName1->setChecked(true);
+
             icConfirm2->setVisible(false);
             break;
         }
         case 3:{
             ui->stackedWidget->setCurrentIndex(3);
 
-            ui->pushNumber5->setChecked(true);
+            ui->pushNumber5->setChecked(false);
             ui->pushNumber4->setChecked(false);
             ui->pushNumber3->setChecked(true);
 
@@ -357,6 +360,7 @@ void WelcomeContentWidget::onBackClicked()
             ui->pushName3->setChecked(true);
             ui->pushName2->setChecked(true);
             ui->pushName1->setChecked(true);
+
             icConfirm3->setVisible(false);
             break;
         }

@@ -6,10 +6,10 @@
 
 import os
 
-from test_framework.test_framework import TarianTestFramework
+from test_framework.test_framework import TarnTestFramework
 from test_framework.util import get_datadir_path
 
-class ConfArgsTest(TarianTestFramework):
+class ConfArgsTest(TarnTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1

@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2013 The Bitcoin developers
-// Copyright (c) 2016-2019 The TARIAN developers
+// Copyright (c) 2016-2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -16,7 +16,7 @@
  *
  *  Contains the prevout's CTxOut being spent, and if this was the
  *  last output of the affected transaction, its metadata as well
- *  (coinbase or not, height, transaction version)
+ *  (coinbase/coinstake or not, height, transaction version)
  */
 class CTxInUndo
 {
@@ -82,9 +82,6 @@ public:
     {
         READWRITE(vtxundo);
     }
-
-    bool WriteToDisk(CDiskBlockPos& pos, const uint256& hashBlock);
-    bool ReadFromDisk(const CDiskBlockPos& pos, const uint256& hashBlock);
 };
 
 #endif // BITCOIN_UNDO_H

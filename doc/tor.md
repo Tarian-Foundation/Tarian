@@ -1,15 +1,15 @@
-# TOR SUPPORT IN TARIAN
+# TOR SUPPORT IN TARN
 
-It is possible to run TARIAN Core as a Tor hidden service, and connect to such services.
+It is possible to run Tarian Core as a Tor hidden service, and connect to such services.
 
 The following directions assume you have a Tor proxy running on port 9050. Many distributions default to having a SOCKS proxy listening on port 9050, but others may not. In particular, the Tor Browser Bundle defaults to listening on port 9150. See [Tor Project FAQ:TBBSocksPort](https://www.torproject.org/docs/faq.html.en#TBBSocksPort) for how to properly
 configure Tor.
 
 
-## 1. Run TARIAN Core behind a Tor proxy
+## 1. Run Tarian Core behind a Tor proxy
 ----------------------------------
 
-The first step is running TARIAN behind a Tor proxy. This will already anonymize all
+The first step is running TARN behind a Tor proxy. This will already anonymize all
 outgoing connections, but more is possible.
 
 	-proxy=ip:port  Set the proxy server. If SOCKS5 is selected (default), this proxy
@@ -38,7 +38,7 @@ In a typical situation, this suffices to run behind a Tor proxy:
 	./tariand -proxy=127.0.0.1:9050
 
 
-## 2. Run a TARIAN Core hidden server
+## 2. Run a Tarian Core hidden server
 
 If you configure your Tor system accordingly, it is possible to make your node also
 reachable from the Tor network. Add these lines to your /etc/tor/torrc (or equivalent
@@ -47,15 +47,15 @@ versions of Tor see [Section 3](#3-automatically-listen-on-tor).*
 
 	HiddenServiceDir /var/lib/tor/tarian-service/
 	HiddenServiceVersion 2
-	HiddenServicePort 54444 127.0.0.1:54444
+	HiddenServicePort 31813 127.0.0.1:31813
 	HiddenServicePort 61472 127.0.0.1:61472
 
 The directory can be different of course, but (both) port numbers should be equal to
-your tariand's P2P listen port (54444 by default).
+your tariand's P2P listen port (31813 by default).
 
 	-externalip=X   You can tell tarian about its publicly reachable address using
 	                this option, and this can be a v2 .onion address (v3 .onion
-	                addresses are not supported by the TARIAN network). Given the above
+	                addresses are not supported by the TARN network). Given the above
 	                configuration, you can find your .onion address in
 	                /var/lib/tor/tarian-service/hostname. For connections
 	                coming from unroutable addresses (such as 127.0.0.1, where the
@@ -87,7 +87,7 @@ as well, use `discover` instead:
 
 	./tariand ... -discover
 
-and open port 54444 on your firewall (or use -upnp).
+and open port 31813 on your firewall (or use -upnp).
 
 If you only want to use Tor to reach .onion addresses, but not use it as a proxy
 for normal IPv4/IPv6 communication, use:
@@ -98,13 +98,13 @@ for normal IPv4/IPv6 communication, use:
 
 Starting with Tor version 0.2.7.1 it is possible, through Tor's control socket
 API, to create and destroy 'ephemeral' hidden services programmatically.
-TARIAN Core has been updated to make use of this.
+Tarian Core has been updated to make use of this.
 
 This means that if Tor is running (and proper authentication has been configured),
-TARIAN Core automatically creates a hidden service to listen on. This will positively
+Tarian Core automatically creates a hidden service to listen on. This will positively
 affect the number of available .onion nodes.
 
-This new feature is enabled by default if TARIAN Core is listening (`-listen`), and
+This new feature is enabled by default if Tarian Core is listening (`-listen`), and
 requires a Tor connection to work. It can be explicitly disabled with `-listenonion=0`
 and, if not disabled, configured using the `-torcontrol` and `-torpassword` settings.
 To show verbose debugging information, pass `-debug=tor`.
@@ -127,7 +127,7 @@ in the tor configuration file. The hashed password can be obtained with the comm
 
 ## 4. Privacy recommendations
 
-- Do not add anything but TARIAN Core ports to the hidden service created in section 2.
+- Do not add anything but Tarian Core ports to the hidden service created in section 2.
   If you run a web service too, create a new hidden service for that.
   Otherwise it is trivial to link them, which may reduce privacy. Hidden
   services created automatically (as in section 3) always have only one port

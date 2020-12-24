@@ -1,9 +1,9 @@
-// Copyright (c) 2018 The TARIAN developers
+// Copyright (c) 2018 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TARIAN_SPENDTYPE_H
-#define TARIAN_SPENDTYPE_H
+#ifndef TARN_SPENDTYPE_H
+#define TARN_SPENDTYPE_H
 
 #include <cstdint>
 
@@ -16,4 +16,4 @@ namespace libzerocoin {
     };
 }
 
-#endif //TARIAN_SPENDTYPE_H
+#endif //TARN_SPENDTYPE_H

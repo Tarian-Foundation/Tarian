@@ -1,59 +1,41 @@
-TARIAN Core integration/staging repository
+Tarian Core integration/staging repository
 =====================================
 
-[![Build Status](https://travis-ci.org/Tarian-Foundation/Tarian.svg?branch=master)](https://travis-ci.org/Tarian-Foundation/Tarian) [![GitHub version](https://badge.fury.io/gh/TARIAN-Project%2FTARIAN.svg)](https://badge.fury.io/gh/TARIAN-Project%2FTARIAN)
+[![Build Status](https://travis-ci.org/TARN-Project/TARN.svg?branch=master)](https://travis-ci.org/TARN-Project/TARN) [![GitHub version](https://badge.fury.io/gh/TARN-Project%2FTARN.svg)](https://badge.fury.io/gh/TARN-Project%2FTARN)
 
-TARIAN is an open source cryptocurrency focused on fast, private transactions using the Zerocoin protocol, with low transaction fees & environmental footprint.  It utilizes the first ever anonymous proof of stake protocol, called zPoS, combined with regular PoS and masternodes for securing its network. zPoS incentivizes using the privacy features available in TARIAN by granting a higher block reward for zPoS over regular PoS and masternodes. In practice, TARIAN has between 4 to 10 times higher use of its privacy features in comparison to other coins that combine public and private transactions. This is thanks to innovations like zPoS and integrating the Zerocoin protocol into light/mobile wallets, allowing for a complete and lightweight privacy protocol that can be used on the go. This also includes security improvements like [deterministic generation of zTARN for easy backups.](https://www.reddit.com/r/tarian/comments/8gbjf7/how_to_use_deterministic_zerocoin_generation/)
-The goal of TARIAN is to achieve a decentralized, sustainable cryptocurrency with near instant full-time private transactions, fair governance and community intelligence.
-- Anonymized transactions & consensus using the [_Zerocoin Protocol_](http://www.tarian.org/ztarn) and [zPoS](https://tarian.org/zpos/).
-- light/mobile wallet privacy using the [Zerocoin Light Node Protocol](https://tarian.org/wp-content/uploads/2018/11/Zerocoin_Light_Node_Protocol.pdf)
-- Fast transactions featuring guaranteed zero confirmation transactions, we call it _SwiftX_.
-- Decentralized blockchain voting utilizing Masternode technology to form a DAO. The blockchain will distribute monthly treasury funds based on successful proposals submitted by the community and voted on by the DAO.
+TARN is the world's first carbon credit generating blockchain, being implemented by Carbon Reduction Initiative (CRI) Ltd as a low-energy, decentralised masternode blockchain that will generate carbon credits certified by a third-party issuing body. It is an open source cryptocurrency focused on fast, private transactions using the Zerocoin protocol, with low transaction fees & low environmental footprint.
 
-More information at [tarian.org](http://www.tarian.org) Visit our ANN thread at [BitcoinTalk](http://www.bitcointalk.org/index.php?topic=1262920). Join the community at [TARIAN Discord](https://discordapp.com/invite/jzqVsJd).
+More information, including the Business Plan, can be found at [cri.eco](http://www.cri.eco). Join the community at [CRI Twitter](https://twitter.com/CRILtdUK).
 
 ### Coin Specs
 <table>
 <tr><td>Algo</td><td>Quark</td></tr>
 <tr><td>Block Time</td><td>60 Seconds</td></tr>
 <tr><td>Difficulty Retargeting</td><td>Every Block</td></tr>
-<tr><td>Max Coin Supply (PoW Phase)</td><td>43,199,500 TARN</td></tr>
-<tr><td>Max Coin Supply (PoS Phase)</td><td>Infinite</td></tr>
-<tr><td>Premine</td><td>60,000 TARN*</td></tr>
+<tr><td>Max Coin Supply (PoS)</td><td>10,191,520</td></tr>
+<tr><td>Premine</td><td>100,000 TARN</td></tr>
 </table>
-
-*60,000 TARN Premine was burned in block [279917](http://www.presstab.pw/phpexplorer/TARIAN/block.php?blockhash=206d9cfe859798a0b0898ab00d7300be94de0f5469bb446cecb41c3e173a57e0)
 
 ### Reward Distribution
 
-<table>
-<th colspan=4>Genesis Block</th>
-<tr><th>Block Height</th><th>Reward Amount</th><th>Notes</th></tr>
-<tr><td>1</td><td>60,000 TARN</td><td>Initial Pre-mine, burnt in block <a href="http://www.presstab.pw/phpexplorer/TARIAN/block.php?blockhash=206d9cfe859798a0b0898ab00d7300be94de0f5469bb446cecb41c3e173a57e0">279917</a></td></tr>
-</table>
-
-### PoW Rewards Breakdown
+### PreMine Generation
 
 <table>
-<th>Block Height</th><th>Masternodes</th><th>Miner</th><th>Budget</th>
-<tr><td>2-43200</td><td>20% (50 TARN)</td><td>80% (200 TARN)</td><td>N/A</td></tr>
-<tr><td>43201-151200</td><td>20% (50 TARN)</td><td>70% (200 TARN)</td><td>10% (25 TARN)</td></tr>
-<tr><td>151201-259200</td><td>45% (22.5 TARN)</td><td>45% (22.5 TARN)</td><td>10% (5 TARN)</td></tr>
+<th>Block Height</th><th>Block Reward</th>
+<tr><td>1-5000</td><td>20 TARN</td></tr>
 </table>
 
 ### PoS Rewards Breakdown
 
 <table>
-<th>Phase</th><th>Block Height</th><th>Reward</th><th>Masternodes & Stakers</th><th>Budget</th>
-<tr><td>Phase 0</td><td>259201-302399</td><td>50 TARN</td><td>90% (45 TARN)</td><td>10% (5 TARN)</td></tr>
-<tr><td>Phase 1</td><td>302400-345599</td><td>45 TARN</td><td>90% (40.5 TARN)</td><td>10% (4.5 TARN)</td></tr>
-<tr><td>Phase 2</td><td>345600-388799</td><td>40 TARN</td><td>90% (36 TARN)</td><td>10% (4 TARN)</td></tr>
-<tr><td>Phase 3</td><td>388800-431999</td><td>35 TARN</td><td>90% (31.5 TARN)</td><td>10% (3.5 TARN)</td></tr>
-<tr><td>Phase 4</td><td>432000-475199</td><td>30 TARN</td><td>90% (27 TARN)</td><td>10% (3 TARN)</td></tr>
-<tr><td>Phase 5</td><td>475200-518399</td><td>25 TARN</td><td>90% (22.5 TARN)</td><td>10% (2.5 TARN)</td></tr>
-<tr><td>Phase 6</td><td>518400-561599</td><td>20 TARN</td><td>90% (18 TARN)</td><td>10% (2 TARN)</td></tr>
-<tr><td>Phase 7</td><td>561600-604799</td><td>15 TARN</td><td>90% (13.5 TARN)</td><td>10% (1.5 TARN)</td></tr>
-<tr><td>Phase 8</td><td>604800-647999</td><td>10 TARN</td><td>90% (9 TARN)</td><td>10% (1 TARN)</td></tr>
-<tr><td>Phase 9</td><td>648000-1154203</td><td>5 TARN</td><td>90% (4.5 TARN)</td><td>10% (0.5 TARN)</td></tr>
-<tr><td>Phase X</td><td>1154203-∞</td><td>6 TARN</td><td>84% (5 TARN/zTARN)</td><td>16% (1 TARN)</td></tr>
+<th>Year</th><th>Block Height</th><th>Reward</th><th>Masternodes</th><th>Staking</th>
+<tr><td>Year 1</td><td>5001-530600</td><td>0.2 TARN</td><td>80% (0.16 TARN)</td><td>20% (0.04 TARN)</td></tr>
+<tr><td>Year 2</td><td>530601-1056200</td><td>1.0 TARN</td><td>80% (0.8 TARN)</td><td>20% (0.2 TARN)</td></tr>
+<tr><td>Year 3</td><td>1056201-1581800</td><td>2.0 TARN</td><td>80% (1.6 TARN)</td><td>20% (0.4 TARN)</td></tr>
+<tr><td>Year 4</td><td>1581801-2107400</td><td>3.0 TARN</td><td>80% (2.4 TARN)</td><td>20% (0.6 TARN)</td></tr>
+<tr><td>Year 5</td><td>2107401-2633000</td><td>4.0 TARN</td><td>80% (3.2 TARN)</td><td>20% (0.8 TARN)</td></tr>
+<tr><td>Year 6</td><td>2633001-3158600</td><td>4.5 TARN</td><td>80% (3.6 TARN)</td><td>20% (0.9 TARN)</td></tr>
+<tr><td>Year 7</td><td>3158601-3684200</td><td>2.0 TARN</td><td>80% (1.6 TARN)</td><td>20% (0.4 TARN)</td></tr>
+<tr><td>Year 8</td><td>3684201-4209800</td><td>1.5 TARN</td><td>80% (1.2 TARN)</td><td>20% (0.3 TARN)</td></tr>
+<tr><td>Year 9</td><td>4209801-4735400</td><td>1.0 TARN</td><td>80% (0.8 TARN)</td><td>20% (0.2 TARN)</td></tr>
 </table>

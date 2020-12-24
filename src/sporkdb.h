@@ -1,9 +1,9 @@
-// Copyright (c) 2017-2019 The TARIAN developers
+// Copyright (c) 2017-2019 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TARIAN_CSPORKDB_H
-#define TARIAN_CSPORKDB_H
+#ifndef TARN_CSPORKDB_H
+#define TARN_CSPORKDB_H
 
 #include "fs.h"
 #include "dbwrapper.h"
@@ -25,4 +25,4 @@ public:
 };
 
 
-#endif //TARIAN_CSPORKDB_H
+#endif //TARN_CSPORKDB_H

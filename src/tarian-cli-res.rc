@@ -16,14 +16,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "Tarian"
-            VALUE "FileDescription",    "Tarian-cli (OSS RPC client for Tarian)"
+            VALUE "CompanyName",        "Tarn"
+            VALUE "FileDescription",    "Tarn-cli (OSS RPC client for Tarn)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "tarian-cli"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
             VALUE "OriginalFilename",   "tarian-cli.exe"
-            VALUE "ProductName",        "Tarian-cli"
+            VALUE "ProductName",        "Tarn-cli"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

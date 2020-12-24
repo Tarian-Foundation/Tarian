@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -58,7 +58,7 @@ public:
 };
 
 
-AddressesWidget::AddressesWidget(TARIANGUI* parent) :
+AddressesWidget::AddressesWidget(TARNGUI* parent) :
     PWidget(parent),
     ui(new Ui::AddressesWidget)
 {
@@ -188,8 +188,8 @@ void AddressesWidget::onStoreContactClicked()
         }
 
         bool isStakingAddress = false;
-        CTxDestination tarnAdd = DecodeDestination(address.toUtf8().constData(), isStakingAddress);
-        if (walletModel->isMine(tarnAdd)) {
+        CTxDestination tarianAdd = DecodeDestination(address.toUtf8().constData(), isStakingAddress);
+        if (walletModel->isMine(tarianAdd)) {
             setCssEditLine(ui->lineEditAddress, false, true);
             inform(tr("Cannot store your own address as contact"));
             return;
@@ -202,7 +202,7 @@ void AddressesWidget::onStoreContactClicked()
             return;
         }
 
-        if (walletModel->updateAddressBookLabels(tarnAdd, label.toUtf8().constData(),
+        if (walletModel->updateAddressBookLabels(tarianAdd, label.toUtf8().constData(),
                 isStakingAddress ? AddressBook::AddressBookPurpose::COLD_STAKING_SEND : AddressBook::AddressBookPurpose::SEND)
                 ) {
             ui->lineEditAddress->setText("");

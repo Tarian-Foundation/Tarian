@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The TARIAN developers
+// Copyright (c) 2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -19,6 +19,7 @@
 
 #include <QCloseEvent>
 #include <QDesktopWidget>
+#include <QScreen>
 
 #include <iostream>
 
@@ -26,7 +27,7 @@ Splash::Splash(Qt::WindowFlags f, const NetworkStyle* networkStyle) :
     QWidget(0, f), ui(new Ui::Splash)
 {
     ui->setupUi(this);
-    QString titleText = tr("TARIAN Core");
+    QString titleText = tr("Tarian Core");
     QString titleAddText = networkStyle->getTitleAddText();
     setWindowTitle(titleText + " " + titleAddText);
 
@@ -47,7 +48,7 @@ Splash::Splash(Qt::WindowFlags f, const NetworkStyle* networkStyle) :
     QRect r(QPoint(), size());
     resize(r.size());
     setFixedSize(r.size());
-    move(QApplication::desktop()->screenGeometry().center() - r.center());
+    move(QGuiApplication::primaryScreen()->geometry().center() - r.center());
 
     subscribeToCoreSignals();
 }

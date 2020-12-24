@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -18,7 +18,7 @@
 #include "script/standard.h"
 #include "openuridialog.h"
 
-SendWidget::SendWidget(TARIANGUI* parent) :
+SendWidget::SendWidget(TARNGUI* parent) :
     PWidget(parent),
     ui(new Ui::send),
     coinIcon(new QPushButton()),
@@ -73,10 +73,10 @@ SendWidget::SendWidget(TARIANGUI* parent) :
     connect(ui->btnUri, &OptionButton::clicked, this, &SendWidget::onOpenUriClicked);
     connect(ui->pushButtonReset, &QPushButton::clicked, [this](){ onResetCustomOptions(true); });
     connect(ui->checkBoxDelegations, &QCheckBox::stateChanged, this, &SendWidget::onCheckBoxChanged);
+    connect(ui->checkBoxPoWAlternative, &QCheckBox::stateChanged, this, &SendWidget::onCheckBoxChanged);
 
     setCssProperty(ui->coinWidget, "container-coin-type");
     setCssProperty(ui->labelLine, "container-divider");
-
 
     // Total Send
     setCssProperty(ui->labelTitleTotalSend, "text-title");
@@ -91,7 +91,7 @@ SendWidget::SendWidget(TARIANGUI* parent) :
     coinIcon->show();
     coinIcon->raise();
 
-    setCssProperty(coinIcon, "coin-icon-tarn");
+    setCssProperty(coinIcon, "coin-icon-tarian");
 
     QSize BUTTON_SIZE = QSize(24, 24);
     coinIcon->setMinimumSize(BUTTON_SIZE);
@@ -111,6 +111,8 @@ SendWidget::SendWidget(TARIANGUI* parent) :
     connect(ui->pushButtonSave, &QPushButton::clicked, this, &SendWidget::onSendClicked);
     connect(ui->pushButtonAddRecipient, &QPushButton::clicked, this, &SendWidget::onAddEntryClicked);
     connect(ui->pushButtonClear, &QPushButton::clicked, [this](){clearAll(true);});
+
+    coinControlDialog = new CoinControlDialog();
 }
 
 void SendWidget::refreshAmounts()
@@ -129,9 +131,9 @@ void SendWidget::refreshAmounts()
     ui->labelAmountSend->setText(GUIUtil::formatBalance(total, nDisplayUnit, false));
 
     CAmount totalAmount = 0;
-    if (CoinControlDialog::coinControl->HasSelected()) {
+    if (coinControlDialog->coinControl->HasSelected()) {
         // Set remaining balance to the sum of the coinControl selected inputs
-        totalAmount = walletModel->getBalance(CoinControlDialog::coinControl) - total;
+        totalAmount = walletModel->getBalance(coinControlDialog->coinControl) - total;
         ui->labelTitleTotalRemaining->setText(tr("Total remaining from the selected UTXO"));
     } else {
         // Wallet's unlocked balance
@@ -145,6 +147,7 @@ void SendWidget::refreshAmounts()
                     false
                     )
     );
+    ui->checkBoxPoWAlternative->setToolTip(tr("I hereby certify that this transaction replaces one performed on<br>the Bitcoin proof-of-work network not a transaction in the traditional<br>banking or any alternative transfer system"));
     // show or hide delegations checkbox if need be
     showHideCheckBoxDelegations();
 }
@@ -161,6 +164,7 @@ void SendWidget::loadClientModel()
 void SendWidget::loadWalletModel()
 {
     if (walletModel) {
+        coinControlDialog->setModel(walletModel);
         if (walletModel->getOptionsModel()) {
             // display unit
             nDisplayUnit = walletModel->getOptionsModel()->getDisplayUnit();
@@ -207,10 +211,11 @@ void SendWidget::onResetSettings()
 
 void SendWidget::onResetCustomOptions(bool fRefreshAmounts)
 {
-    CoinControlDialog::coinControl->SetNull();
+    coinControlDialog->coinControl->SetNull();
     ui->btnChangeAddress->setActive(false);
     ui->btnCoinControl->setActive(false);
     if (ui->checkBoxDelegations->isChecked()) ui->checkBoxDelegations->setChecked(false);
+    if (ui->checkBoxPoWAlternative->isChecked()) ui->checkBoxPoWAlternative->setChecked(false);
     if (fRefreshAmounts) {
         refreshAmounts();
     }
@@ -300,7 +305,7 @@ void SendWidget::showHideCheckBoxDelegations()
 {
     // Show checkbox only when there is any available owned delegation and
     // coincontrol is not selected.
-    const bool isCControl = CoinControlDialog::coinControl->HasSelected();
+    const bool isCControl = coinControlDialog->coinControl->HasSelected();
     const bool hasDel = cachedDelegatedBalance > 0;
 
     const bool showCheckBox = !isCControl && hasDel;
@@ -354,7 +359,7 @@ bool SendWidget::send(QList<SendCoinsRecipient> recipients)
     WalletModelTransaction currentTransaction(recipients);
     WalletModel::SendCoinsReturn prepareStatus;
 
-    prepareStatus = walletModel->prepareTransaction(currentTransaction, CoinControlDialog::coinControl, fDelegationsChecked);
+    prepareStatus = walletModel->prepareTransaction(currentTransaction, coinControlDialog->coinControl, fDelegationsChecked, fPoWAlternative);
 
     // process prepareStatus and on error generate message shown to user
     GuiTransactionsUtils::ProcessSendCoinsReturnAndInform(
@@ -439,27 +444,32 @@ void SendWidget::updateEntryLabels(QList<SendCoinsRecipient> recipients)
     }
 }
 
-
 void SendWidget::onChangeAddressClicked()
 {
     showHideOp(true);
     SendChangeAddressDialog* dialog = new SendChangeAddressDialog(window, walletModel);
-    if (!boost::get<CNoDestination>(&CoinControlDialog::coinControl->destChange)) {
-        dialog->setAddress(QString::fromStdString(EncodeDestination(CoinControlDialog::coinControl->destChange)));
+    if (IsValidDestination(coinControlDialog->coinControl->destChange)) {
+        dialog->setAddress(QString::fromStdString(EncodeDestination(coinControlDialog->coinControl->destChange)));
     }
-    if (openDialogWithOpaqueBackgroundY(dialog, window, 3, 5)) {
-        CTxDestination dest = DecodeDestination(dialog->getAddress().toStdString());
-        // Ask if it's what the user really wants
-        if (!walletModel->isMine(dest) &&
-            !ask(tr("Warning!"), tr("The change address doesn't belong to this wallet.\n\nDo you want to continue?"))) {
+
+    CTxDestination destChange = (openDialogWithOpaqueBackgroundY(dialog, window, 3, 5) ?
+                                 dialog->getDestination() : CNoDestination());
+
+    if (!IsValidDestination(destChange)) {
+        // no change address set
+        ui->btnChangeAddress->setActive(false);
+    } else {
+        // Ask confirmation if external address
+        if (!walletModel->isMine(destChange) && !ask(tr("Warning!"),
+                tr("The change address doesn't belong to this wallet.\n\nDo you want to continue?"))) {
+            dialog->deleteLater();
             return;
         }
-        CoinControlDialog::coinControl->destChange = dest;
         ui->btnChangeAddress->setActive(true);
     }
-    // check if changeAddress has been reset to NoDestination (or wasn't set at all)
-    if (boost::get<CNoDestination>(&CoinControlDialog::coinControl->destChange))
-        ui->btnChangeAddress->setActive(false);
+
+    // save change address in coin control
+    coinControlDialog->coinControl->destChange = destChange;
     dialog->deleteLater();
 }
 
@@ -514,15 +524,10 @@ void SendWidget::onChangeCustomFeeClicked()
 void SendWidget::onCoinControlClicked()
 {
     if (walletModel->getBalance() > 0) {
-        if (!coinControlDialog) {
-            coinControlDialog = new CoinControlDialog();
-            coinControlDialog->setModel(walletModel);
-        } else {
-            coinControlDialog->refreshDialog();
-        }
+        coinControlDialog->refreshDialog();
         setCoinControlPayAmounts();
         coinControlDialog->exec();
-        ui->btnCoinControl->setActive(CoinControlDialog::coinControl->HasSelected());
+        ui->btnCoinControl->setActive(coinControlDialog->coinControl->HasSelected());
         refreshAmounts();
     } else {
         inform(tr("You don't have any %1 to select.").arg(CURRENCY_UNIT.c_str()));
@@ -551,6 +556,8 @@ void SendWidget::onCheckBoxChanged()
         fDelegationsChecked = checked;
         refreshAmounts();
     }
+
+    fPoWAlternative = ui->checkBoxPoWAlternative->isChecked();
 }
 
 void SendWidget::onContactsClicked(SendMultiRow* entry)
@@ -645,8 +652,8 @@ void SendWidget::onContactMultiClicked()
             inform(tr("Invalid address"));
             return;
         }
-        CTxDestination tarnAdd = DecodeDestination(address.toStdString());
-        if (walletModel->isMine(tarnAdd)) {
+        CTxDestination tarianAdd = DecodeDestination(address.toStdString());
+        if (walletModel->isMine(tarianAdd)) {
             inform(tr("Cannot store your own address as contact"));
             return;
         }
@@ -666,7 +673,7 @@ void SendWidget::onContactMultiClicked()
             if (label == dialog->getLabel()) {
                 return;
             }
-            if (walletModel->updateAddressBookLabels(tarnAdd, dialog->getLabel().toStdString(),
+            if (walletModel->updateAddressBookLabels(tarianAdd, dialog->getLabel().toStdString(),
                     AddressBook::AddressBookPurpose::SEND)) {
                 inform(tr("New Contact Stored"));
             } else {
@@ -735,10 +742,11 @@ void SendWidget::setCustomFeeSelected(bool isSelected, const CAmount& customFee)
 
 void SendWidget::changeTheme(bool isLightTheme, QString& theme)
 {
-    if (coinControlDialog) coinControlDialog->setStyleSheet(theme);
+    coinControlDialog->setStyleSheet(theme);
 }
 
 SendWidget::~SendWidget()
 {
     delete ui;
+    delete coinControlDialog;
 }

@@ -1,4 +1,4 @@
-# Valgrind suppressions file for TARIAN.
+# Valgrind suppressions file for TARN.
 #
 # Includes known Valgrind warnings in our dependencies that cannot be fixed
 # in-tree.

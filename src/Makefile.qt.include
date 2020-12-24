@@ -94,7 +94,6 @@ QT_MOC_CPP = \
   qt/moc_qvaluecombobox.cpp \
   qt/moc_recentrequeststablemodel.cpp \
   qt/moc_rpcconsole.cpp \
-  qt/moc_splashscreen.cpp \
   qt/moc_trafficgraphwidget.cpp \
   qt/moc_transactiondesc.cpp \
   qt/moc_transactionfilterproxy.cpp \
@@ -207,7 +206,6 @@ BITCOIN_QT_H = \
   qt/qvaluecombobox.h \
   qt/recentrequeststablemodel.h \
   qt/rpcconsole.h \
-  qt/splashscreen.h \
   qt/trafficgraphwidget.h \
   qt/transactiondesc.h \
   qt/transactionfilterproxy.h \
@@ -390,7 +388,7 @@ RES_ICONS = \
   qt/tarian/res/img/ic-radio-liliac-on.svg \
   qt/tarian/res/img/img-empty-staking-off.svg \
   qt/tarian/res/img/ic-arrow-drop-down.svg \
-  qt/tarian/res/img/ic-coin-tarn.svg \
+  qt/tarian/res/img/ic-coin-tarian.svg \
   qt/tarian/res/img/ic-receive-off.svg \
   qt/tarian/res/img/img-empty-staking-on.svg \
   qt/tarian/res/img/ic-arrow-drop-up-white.svg \
@@ -519,7 +517,6 @@ BITCOIN_QT_BASE_CPP = \
   qt/qvalidatedlineedit.cpp \
   qt/qvaluecombobox.cpp \
   qt/rpcconsole.cpp \
-  qt/splashscreen.cpp \
   qt/trafficgraphwidget.cpp \
   qt/utilitydialog.cpp
 

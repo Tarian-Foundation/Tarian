@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The TARIAN developers
+// Copyright (c) 2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -6,7 +6,7 @@
 #include "qt/tarian/settings/forms/ui_settingswalletrepairwidget.h"
 #include "qt/tarian/qtutils.h"
 
-SettingsWalletRepairWidget::SettingsWalletRepairWidget(TARIANGUI* _window, QWidget *parent) :
+SettingsWalletRepairWidget::SettingsWalletRepairWidget(TARNGUI* _window, QWidget *parent) :
     PWidget(_window, parent),
     ui(new Ui::SettingsWalletRepairWidget)
 {
@@ -118,7 +118,7 @@ void SettingsWalletRepairWidget::buildParameterlist(QString arg)
     // Append repair parameter to command line.
     args.append(arg);
 
-    // Send command-line arguments to TARIANGUI::handleRestart()
+    // Send command-line arguments to TARNGUI::handleRestart()
     Q_EMIT handleRestart(args);
 }
 

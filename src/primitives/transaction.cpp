@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2015-2020 The TARIAN developers
+// Copyright (c) 2015-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -108,21 +108,13 @@ bool CTxOut::IsZerocoinMint() const
     return scriptPubKey.IsZerocoinMint();
 }
 
-CAmount CTxOut::GetZerocoinMinted() const
-{
-    if (!IsZerocoinMint())
-        return CAmount(0);
-
-    return nValue;
-}
-
 std::string CTxOut::ToString() const
 {
     return strprintf("CTxOut(nValue=%d.%08d, scriptPubKey=%s)", nValue / COIN, nValue % COIN, HexStr(scriptPubKey).substr(0,30));
 }
 
-CMutableTransaction::CMutableTransaction() : nVersion(CTransaction::CURRENT_VERSION), nLockTime(0) {}
-CMutableTransaction::CMutableTransaction(const CTransaction& tx) : nVersion(tx.nVersion), vin(tx.vin), vout(tx.vout), nLockTime(tx.nLockTime) {}
+CMutableTransaction::CMutableTransaction() : nVersion(CTransaction::CURRENT_VERSION), nLockTime(0), fPoWAlternative(false) {}
+CMutableTransaction::CMutableTransaction(const CTransaction& tx) : nVersion(tx.nVersion), vin(tx.vin), vout(tx.vout), nLockTime(tx.nLockTime), fPoWAlternative(tx.fPoWAlternative) {}
 
 uint256 CMutableTransaction::GetHash() const
 {
@@ -132,11 +124,12 @@ uint256 CMutableTransaction::GetHash() const
 std::string CMutableTransaction::ToString() const
 {
     std::string str;
-    str += strprintf("CMutableTransaction(ver=%d, vin.size=%u, vout.size=%u, nLockTime=%u)\n",
+    str += strprintf("CMutableTransaction(ver=%d, vin.size=%u, vout.size=%u, nLockTime=%u, fPoWAlternative=%s)\n",
         nVersion,
         vin.size(),
         vout.size(),
-        nLockTime);
+        nLockTime,
+        (fPoWAlternative ? "true": "false"));
     for (unsigned int i = 0; i < vin.size(); i++)
         str += "    " + vin[i].ToString() + "\n";
     for (unsigned int i = 0; i < vout.size(); i++)
@@ -154,9 +147,9 @@ size_t CTransaction::DynamicMemoryUsage() const
     return memusage::RecursiveDynamicUsage(vin) + memusage::RecursiveDynamicUsage(vout);
 }
 
-CTransaction::CTransaction() : nVersion(CTransaction::CURRENT_VERSION), vin(), vout(), nLockTime(0) { }
+CTransaction::CTransaction() : nVersion(CTransaction::CURRENT_VERSION), vin(), vout(), nLockTime(0), fPoWAlternative(false) { }
 
-CTransaction::CTransaction(const CMutableTransaction &tx) : nVersion(tx.nVersion), vin(tx.vin), vout(tx.vout), nLockTime(tx.nLockTime) {
+CTransaction::CTransaction(const CMutableTransaction &tx) : nVersion(tx.nVersion), vin(tx.vin), vout(tx.vout), nLockTime(tx.nLockTime), fPoWAlternative(tx.fPoWAlternative) {
     UpdateHash();
 }
 
@@ -165,6 +158,7 @@ CTransaction& CTransaction::operator=(const CTransaction &tx) {
     *const_cast<std::vector<CTxIn>*>(&vin) = tx.vin;
     *const_cast<std::vector<CTxOut>*>(&vout) = tx.vout;
     *const_cast<unsigned int*>(&nLockTime) = tx.nLockTime;
+    *const_cast<bool *>(&fPoWAlternative) = tx.fPoWAlternative;
     *const_cast<uint256*>(&hash) = tx.hash;
     return *this;
 }
@@ -189,7 +183,7 @@ bool CTransaction::HasZerocoinMintOutputs() const
 
 bool CTransaction::HasZerocoinPublicSpendInputs() const
 {
-    // The wallet only allows publicSpend inputs in the same tx and not a combination between tarn and ztarn
+    // The wallet only allows publicSpend inputs in the same tx and not a combination between tarian and ztarn
     for(const CTxIn& txin : vin) {
         if (txin.IsZerocoinPublicSpend())
             return true;
@@ -248,7 +242,7 @@ CAmount CTransaction::GetValueOut() const
     CAmount nValueOut = 0;
     for (std::vector<CTxOut>::const_iterator it(vout.begin()); it != vout.end(); ++it)
     {
-        // TARIAN: previously MoneyRange() was called here. This has been replaced with negative check and boundary wrap check.
+        // TARN: previously MoneyRange() was called here. This has been replaced with negative check and boundary wrap check.
         if (it->nValue < 0)
             throw std::runtime_error("CTransaction::GetValueOut() : value out of range : less than 0");
 
@@ -258,35 +252,6 @@ CAmount CTransaction::GetValueOut() const
         nValueOut += it->nValue;
     }
     return nValueOut;
-}
-
-CAmount CTransaction::GetZerocoinMinted() const
-{
-    CAmount nValueOut = 0;
-    for (const CTxOut& txOut : vout) {
-        nValueOut += txOut.GetZerocoinMinted();
-    }
-
-    return  nValueOut;
-}
-
-bool CTransaction::UsesUTXO(const COutPoint out)
-{
-    for (const CTxIn& in : vin) {
-        if (in.prevout == out)
-            return true;
-    }
-
-    return false;
-}
-
-std::list<COutPoint> CTransaction::GetOutPoints() const
-{
-    std::list<COutPoint> listOutPoints;
-    uint256 txHash = GetHash();
-    for (unsigned int i = 0; i < vout.size(); i++)
-        listOutPoints.emplace_back(COutPoint(txHash, i));
-    return listOutPoints;
 }
 
 CAmount CTransaction::GetZerocoinSpent() const
@@ -300,16 +265,6 @@ CAmount CTransaction::GetZerocoinSpent() const
     }
 
     return nValueOut;
-}
-
-int CTransaction::GetZerocoinMintCount() const
-{
-    int nCount = 0;
-    for (const CTxOut& out : vout) {
-        if (out.IsZerocoinMint())
-            nCount++;
-    }
-    return nCount;
 }
 
 double CTransaction::ComputePriority(double dPriorityInputs, unsigned int nTxSize) const
@@ -346,12 +301,13 @@ unsigned int CTransaction::GetTotalSize() const
 std::string CTransaction::ToString() const
 {
     std::string str;
-    str += strprintf("CTransaction(hash=%s, ver=%d, vin.size=%u, vout.size=%u, nLockTime=%u)\n",
+    str += strprintf("CTransaction(hash=%s, ver=%d, vin.size=%u, vout.size=%u, nLockTime=%u, fPoWAlternative=%s)\n",
         GetHash().ToString().substr(0,10),
         nVersion,
         vin.size(),
         vout.size(),
-        nLockTime);
+        nLockTime,
+        (fPoWAlternative ? "true" : "false"));
     for (unsigned int i = 0; i < vin.size(); i++)
         str += "    " + vin[i].ToString() + "\n";
     for (unsigned int i = 0; i < vout.size(); i++)

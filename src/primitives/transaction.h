@@ -1,6 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2015-2020 The TARIAN developers
+// Copyright (c) 2015-2020 The PIVX developers
+// Copyright (c) 2020-2020 The TARN developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -190,7 +191,6 @@ public:
     }
 
     bool IsZerocoinMint() const;
-    CAmount GetZerocoinMinted() const;
 
     friend bool operator==(const CTxOut& a, const CTxOut& b)
     {
@@ -233,6 +233,7 @@ public:
     std::vector<CTxIn> vin;
     std::vector<CTxOut> vout;
     const uint32_t nLockTime;
+    const bool fPoWAlternative;
     //const unsigned int nTime;
 
     /** Construct a CTransaction that qualifies as IsNull() */
@@ -251,6 +252,7 @@ public:
         READWRITE(*const_cast<std::vector<CTxIn>*>(&vin));
         READWRITE(*const_cast<std::vector<CTxOut>*>(&vout));
         READWRITE(*const_cast<uint32_t*>(&nLockTime));
+        READWRITE(*const_cast<bool*>(&fPoWAlternative));
         if (ser_action.ForRead())
             UpdateHash();
     }
@@ -284,12 +286,7 @@ public:
         return HasZerocoinSpendInputs() || HasZerocoinMintOutputs();
     }
 
-    CAmount GetZerocoinMinted() const;
     CAmount GetZerocoinSpent() const;
-    int GetZerocoinMintCount() const;
-
-    bool UsesUTXO(const COutPoint out);
-    std::list<COutPoint> GetOutPoints() const;
 
     bool IsCoinBase() const
     {
@@ -324,6 +321,7 @@ struct CMutableTransaction
     std::vector<CTxIn> vin;
     std::vector<CTxOut> vout;
     uint32_t nLockTime;
+    bool fPoWAlternative;
 
     CMutableTransaction();
     CMutableTransaction(const CTransaction& tx);
@@ -336,6 +334,7 @@ struct CMutableTransaction
         READWRITE(vin);
         READWRITE(vout);
         READWRITE(nLockTime);
+        READWRITE(fPoWAlternative);
     }
 
     /** Compute the hash of this CMutableTransaction. This is computed on the

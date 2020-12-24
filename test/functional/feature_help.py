@@ -5,10 +5,10 @@
 """Verify that starting tarian with -h works as expected."""
 import subprocess
 
-from test_framework.test_framework import TarianTestFramework
+from test_framework.test_framework import TarnTestFramework
 from test_framework.util import assert_equal
 
-class HelpTest(TarianTestFramework):
+class HelpTest(TarnTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1

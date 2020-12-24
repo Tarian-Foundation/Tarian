@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The TARIAN developers
+// Copyright (c) 2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -18,7 +18,7 @@ class SettingsSignMessageWidgets : public PWidget
     Q_OBJECT
 
 public:
-    explicit SettingsSignMessageWidgets(TARIANGUI* _window, QWidget *parent = nullptr);
+    explicit SettingsSignMessageWidgets(TARNGUI* _window, QWidget *parent = nullptr);
     ~SettingsSignMessageWidgets();
 
     void setAddress_SM(const QString& address);

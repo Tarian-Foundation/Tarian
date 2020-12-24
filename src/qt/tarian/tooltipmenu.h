@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The TARIAN developers
+// Copyright (c) 2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,7 +9,7 @@
 #include <QWidget>
 #include <QModelIndex>
 
-class TARIANGUI;
+class TARNGUI;
 class WalletModel;
 
 namespace Ui {
@@ -25,7 +25,7 @@ class TooltipMenu : public PWidget
     Q_OBJECT
 
 public:
-    explicit TooltipMenu(TARIANGUI* _window, QWidget *parent = nullptr);
+    explicit TooltipMenu(TARNGUI* _window, QWidget *parent = nullptr);
     ~TooltipMenu() override;
 
     void setIndex(const QModelIndex &index);

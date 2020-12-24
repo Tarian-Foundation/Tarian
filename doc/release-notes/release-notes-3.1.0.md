@@ -1,27 +1,27 @@
-TARIAN Core version *3.1.0* is now available from:  <https://github.com/Tarian-Foundation/Tarian/releases>
+Tarian Core version *3.1.0* is now available from:  <https://github.com/Carbon-Reduction-Initiative/TARN/releases>
 
 This is a new major version release, including various bug fixes and performance improvements, as well as updated translations.
 
-Please report bugs using the issue tracker at github: <https://github.com/Tarian-Foundation/Tarian/issues>
+Please report bugs using the issue tracker at github: <https://github.com/Carbon-Reduction-Initiative/TARN/issues>
 
 
 Mandatory Update
 ==============
 
-TARIAN Core v3.1.0 is a mandatory update for all users. This release contains new consensus rules and improvements that are not backwards compatible with older versions. Users will have a grace period of one week to update their clients before enforcement of this update is enabled.
+Tarian Core v3.1.0 is a mandatory update for all users. This release contains new consensus rules and improvements that are not backwards compatible with older versions. Users will have a grace period of one week to update their clients before enforcement of this update is enabled.
 
 Users updating from a previous version after Tuesday, May 8, 2018 12:00:00 AM GMT will require a full resync of their local blockchain from either the P2P network or by way of the bootstrap.
 
 How to Upgrade
 ==============
 
-If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/TARIAN-Qt (on Mac) or tariand/tarian-qt (on Linux).
+If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/Tarian-Qt (on Mac) or tariand/tarian-qt (on Linux).
 
 
 Compatibility
 ==============
 
-TARIAN Core is extensively tested on multiple operating systems using
+Tarian Core is extensively tested on multiple operating systems using
 the Linux kernel, macOS 10.8+, and Windows Vista and later.
 
 Microsoft ended support for Windows XP on [April 8th, 2014](https://www.microsoft.com/en-us/WindowsForBusiness/end-of-xp-support),
@@ -29,7 +29,7 @@ No attempt is made to prevent installing or running the software on Windows XP, 
 can still do so at your own risk but be aware that there are known instabilities and issues.
 Please do not report issues about Windows XP to the issue tracker.
 
-TARIAN Core should also work on most other Unix-like systems but is not
+Tarian Core should also work on most other Unix-like systems but is not
 frequently tested on them.
 
 ### :exclamation::exclamation::exclamation: MacOS 10.13 High Sierra :exclamation::exclamation::exclamation:
@@ -45,7 +45,7 @@ zTARN Updates
 
 ### zTARN Staking
 
-zTARN Staking is here! zTARN staking will be activated on the morning of the 8th of May 2018. With the release of zTARN staking, there are effectively 2 versions of zTARN, zTARN minted on the 3.0.6 TARIAN wallet or lower, and zTARN minted on TARIAN wallet version or higher. New features in this release will require the use of zTARN v2, zTARN minted on this wallet release 3.1.0 or later. If you currently hold zTARN v1 and wish to take advantage of zTARN staking and deterministic zTARN, you will need to spend the zTARN v1 to yourself and remint zTARN v2.
+zTARN Staking is here! zTARN staking will be activated on the morning of the 8th of May 2018. With the release of zTARN staking, there are effectively 2 versions of zTARN, zTARN minted on the 3.0.6 TARN wallet or lower, and zTARN minted on TARN wallet version or higher. New features in this release will require the use of zTARN v2, zTARN minted on this wallet release 3.1.0 or later. If you currently hold zTARN v1 and wish to take advantage of zTARN staking and deterministic zTARN, you will need to spend the zTARN v1 to yourself and remint zTARN v2.
 Note: To find your zTARN version, click the privacy tab, then the zTARN Control button then expand the arrows next to the desired denomination.
 
 
@@ -70,7 +70,7 @@ TARN/zTARN Staking and Masternode Rewards
 
 ### TARN, zTARN and Masternode Payment Schedule
 
-To encourage the use of zTARN and increase the TARIAN zerocoin anonymity set, the TARIAN payment schedule has been changed to the following:
+To encourage the use of zTARN and increase the TARN zerocoin anonymity set, the TARN payment schedule has been changed to the following:
 
 If a user staking zTARN wins the reward for their block, the following zTARN reward will be: 
 - 3 zTARN (3 x 1 denominations) rewarded to the staker, 2 TARN rewarded to the masternode owner and 1 TARN available for the budget. This is a total block reward of 6 TARN, up from 5.
@@ -89,7 +89,7 @@ User Experience
 
 ### Graphical User Interface
 
-The visual layout of the TARIAN Qt wallet has undergone a near-complete overhaul.
+The visual layout of the TARN Qt wallet has undergone a near-complete overhaul.
 A new 'vertical tab' layout is now being used instead of the prior 'horizontal tab' layout, as well as a completely new icon set.
 The overview tab has been simplified greatly to display only balances that are active or relevant, zero-balance line items are hidden by default to avoid clutter.
 
@@ -113,7 +113,7 @@ Backup to external devices / locations
 
 ### Summary
 
- The TARIAN wallet can now have user selected directories for automatic backups of the wallet data file (wallet.dat). This can be set by adding the following lines to the tarian.conf file, found in the TARIAN data directory.
+ The TARN wallet can now have user selected directories for automatic backups of the wallet data file (wallet.dat). This can be set by adding the following lines to the tarian.conf file, found in the TARN data directory.
 - backuppath = <directory / full path>
 - ztarnbackuppath = <directory / full path>
 - custombackupthreshold = <backup limit>
@@ -164,12 +164,12 @@ Backing up 4 times will result as shown below
             
 
 
-TARIAN Daemon & Client (RPC Changes)
+TARN Daemon & Client (RPC Changes)
 --------------
 
 ### RPC Ban Management
 
-The TARIAN client peer bans now have additional RPC commands to manage peers. Peers can be banned and unbanned at will without the need to restart the wallet client. No changes have been made to the conditions resulting in automatic peer bans. New RPC commands: `setban`, `listbanned`, `clearbanned`, and `disconnectnode`
+The TARN client peer bans now have additional RPC commands to manage peers. Peers can be banned and unbanned at will without the need to restart the wallet client. No changes have been made to the conditions resulting in automatic peer bans. New RPC commands: `setban`, `listbanned`, `clearbanned`, and `disconnectnode`
 
 
 ### Random-cookie RPC authentication
@@ -188,7 +188,7 @@ This allows for a user (such as a third party integration) to query the blockcha
 ### New RPC command 
 `findserial`
 
-Search the zerocoin database for a zerocoinspend transaction that contains the given serial. This will be a helpful tool for the TARIAN support group, which often times sees users say "I didn't spend that zTARN". This RPC call allows for support to grab the serial, and then find the spend tx on the chain.
+Search the zerocoin database for a zerocoinspend transaction that contains the given serial. This will be a helpful tool for the TARN support group, which often times sees users say "I didn't spend that zTARN". This RPC call allows for support to grab the serial, and then find the spend tx on the chain.
 
 
 ### New RPC commands 
@@ -206,11 +206,11 @@ Network Layer 2 Changes (Proposals / Budgets / SwiftX)
 
 ### Monthly Budget Increase
 
-As voted on by the TARIAN masternodes, the monthly budget available to be utilised has been increased to 42,000 TARN / month. This TARN only has the opportunity to be raised once per month (paid to winning proposals) with any unused TARN not created by the blockchain.
+As voted on by the TARN masternodes, the monthly budget available to be utilised has been increased to 42,000 TARN / month. This TARN only has the opportunity to be raised once per month (paid to winning proposals) with any unused TARN not created by the blockchain.
 
 ### Budget Finalization Fee
 
-The TARIAN finalization fee for successful proposals has now been reduced, this fee is now 5 TARN down from 50 TARN. The total fee outlay for a successful proposal is now a total of 55 TARN.
+The TARN finalization fee for successful proposals has now been reduced, this fee is now 5 TARN down from 50 TARN. The total fee outlay for a successful proposal is now a total of 55 TARN.
 
 
 ### SwiftX Raw Transactions
@@ -251,8 +251,8 @@ Minor Enhancements
 -	Enforced v1 zTARN spends to require a security level of 100
 -	Updates to zTARN spends to avoid segfaults
 -	Updates to configuration will now reflect on the privacy tab
--	Fixed a  bug that would not start masternodes from the TARIAN-Qt masternodes tab
--	Updated TARIAN-Qt tooltips
+-	Fixed a  bug that would not start masternodes from the Tarian-Qt masternodes tab
+-	Updated Tarian-Qt tooltips
 -	Icon added to the wallet GUI to reflect the status of autominting (active / inactive)
 -	Updated errors causing the blockchain to corrupt when experiencing unexpected wallet shutdowns
 -	Updated RPC help outputs & removed the deprecated obfuscation. 
@@ -263,7 +263,7 @@ Minor Enhancements
 Further Reading: Version 2 Zerocoins
 ==============
 
-Several critical security flaws in the zerocoin protocol and TARIAN's zerocoin implementation have been patched. Enough has changed that new zerocoins are distinct from old zerocoins, and have been labelled as *version 2*. When using the zTARN Control dialog in the QT wallet, a user is able to see zTARN marked as version 1 or 2.
+Several critical security flaws in the zerocoin protocol and TARN's zerocoin implementation have been patched. Enough has changed that new zerocoins are distinct from old zerocoins, and have been labelled as *version 2*. When using the zTARN Control dialog in the QT wallet, a user is able to see zTARN marked as version 1 or 2.
 
 zPoS (zTARN staking)
 --------------
@@ -273,7 +273,7 @@ Once a zTARN has over 200 confirmations it becomes available to stake. Staking z
 Secure Spending
 --------------
 
-Version 1 zerocoins, as implemented by [Miers et. al](http://zerocoin.org/media/pdf/ZerocoinOakland.pdf), allow for something we describe as *serial trolling*. Spending zerocoins requires that the spender reveal their serial number associated with the zerocoin, and in turn that serial number is used to check for double spending. There is a fringe situation (which is very unlikely to happen within TARIAN's zerocoin implementation due to delayed coin accumulation) where the spender sends the spending transaction, but the transaction does not immediately make it into the blockchain and remains in the mempool for a long enough duration that a *troll* has enough time to see the spender's serial number, mint a new zerocoin with the same serial number, and spend the new zerocoin before the original spender's transaction becomes confirmed. If the timing of this fringe situation worked, then the original spender's coin would be seen as invalid because the troll was able to have the serial recorded into the blockchain first, thus making the original spender's serial appear as a double spend.
+Version 1 zerocoins, as implemented by [Miers et. al](http://zerocoin.org/media/pdf/ZerocoinOakland.pdf), allow for something we describe as *serial trolling*. Spending zerocoins requires that the spender reveal their serial number associated with the zerocoin, and in turn that serial number is used to check for double spending. There is a fringe situation (which is very unlikely to happen within TARN's zerocoin implementation due to delayed coin accumulation) where the spender sends the spending transaction, but the transaction does not immediately make it into the blockchain and remains in the mempool for a long enough duration that a *troll* has enough time to see the spender's serial number, mint a new zerocoin with the same serial number, and spend the new zerocoin before the original spender's transaction becomes confirmed. If the timing of this fringe situation worked, then the original spender's coin would be seen as invalid because the troll was able to have the serial recorded into the blockchain first, thus making the original spender's serial appear as a double spend.
 
 The serial troll situation is mitigated in version 2 by requiring that the serial number be a hash of a public key. The spend requires an additional signature signed by the private key associated with the public key hash matching the serial number. This work around was conceived by Tim Ruffing, a cryptographer that has studied the zerocoin protocol and done consulting work for the ZCoin project.
 
@@ -285,7 +285,7 @@ Zerocoins, or zTARN, are now deterministically generated using a unique 256 bit 
 Zerocoin Modulus
 --------------
 
-TARIAN's zerocoin implementation used the same code from the ZCoin project to import the modulus use for the zerocoin protocol. The chosen modulus is the 2048 bit RSA number created for the RSA factoring challenge. The ZCoin project's implementation (which TARIAN used) improperly imported the modulus into the code. This flaw was discovered by user GOAT from the [Civitas Project](https://github.com/eastcoastcrypto/Civitas/), and reported to TARIAN using the bug bounty program. The modulus is now correctly imported and TARIAN's accumulators have been changed to use the new proper modulus.
+TARN's zerocoin implementation used the same code from the ZCoin project to import the modulus use for the zerocoin protocol. The chosen modulus is the 2048 bit RSA number created for the RSA factoring challenge. The ZCoin project's implementation (which TARN used) improperly imported the modulus into the code. This flaw was discovered by user GOAT from the [Civitas Project](https://github.com/eastcoastcrypto/Civitas/), and reported to TARN using the bug bounty program. The modulus is now correctly imported and TARN's accumulators have been changed to use the new proper modulus.
 
 
 *3.1.0* Change log

@@ -1,9 +1,9 @@
-// Copyright (c) 2017-2020 The TARIAN developers
+// Copyright (c) 2017-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TARIAN_ZEROCOIN_H
-#define TARIAN_ZEROCOIN_H
+#ifndef TARN_ZEROCOIN_H
+#define TARN_ZEROCOIN_H
 
 #include <amount.h>
 #include <limits.h>
@@ -263,4 +263,4 @@ int GetWrapppedSerialInflation(libzerocoin::CoinDenomination denom);
 
 int64_t GetWrapppedSerialInflationAmount();
 
-#endif //TARIAN_ZEROCOIN_H
+#endif //TARN_ZEROCOIN_H

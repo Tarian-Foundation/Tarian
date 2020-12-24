@@ -4,11 +4,11 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test the prioritisetransaction mining RPC."""
 
-from test_framework.test_framework import TarianTestFramework
+from test_framework.test_framework import TarnTestFramework
 from test_framework.util import *
 from test_framework.mininode import COIN, MAX_BLOCK_BASE_SIZE
 
-class PrioritiseTransactionTest(TarianTestFramework):
+class PrioritiseTransactionTest(TarnTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 2

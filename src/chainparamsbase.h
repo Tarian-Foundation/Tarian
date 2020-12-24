@@ -1,5 +1,5 @@
 // Copyright (c) 2014 The Bitcoin developers
-// Copyright (c) 2017-2020 The TARIAN developers
+// Copyright (c) 2017-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -11,7 +11,7 @@
 
 /**
  * CBaseChainParams defines the base parameters (shared between tarian-cli and tariand)
- * of a given instance of the Tarian system.
+ * of a given instance of the Tarn system.
  */
 class CBaseChainParams
 {

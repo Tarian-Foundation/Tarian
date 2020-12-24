@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The TARIAN developers
+// Copyright (c) 2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -32,7 +32,7 @@ SettingsMultisendDialog::SettingsMultisendDialog(QWidget *parent) :
     initCssEditLine(ui->lineEditLabel, true);
 
     // Address
-    ui->labelSubtitleAddress->setText("TARIAN address or contact label");
+    ui->labelSubtitleAddress->setText("TARN address or contact label");
     setCssProperty(ui->labelSubtitleAddress, "text-title2-dialog");
     ui->lineEditAddress->setPlaceholderText("Enter address");
     initCssEditLine(ui->lineEditAddress, true);

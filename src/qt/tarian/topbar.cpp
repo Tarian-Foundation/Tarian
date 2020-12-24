@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -27,7 +27,7 @@
 
 #define REQUEST_UPGRADE_WALLET 1
 
-TopBar::TopBar(TARIANGUI* _mainWindow, QWidget *parent) :
+TopBar::TopBar(TARNGUI* _mainWindow, QWidget *parent) :
     PWidget(_mainWindow, parent),
     ui(new Ui::TopBar)
 {
@@ -517,7 +517,7 @@ void TopBar::showUpgradeDialog()
     QString title = tr("Wallet Upgrade");
     if (ask(title,
             tr("Upgrading to HD wallet will improve\nthe wallet's reliability and security.\n\n\n"
-                    "NOTE: after the upgrade, a new \nbackup will be created.\n"))) {
+                    "NOTE: after the upgrade, a new\nbackup will be created.\n"))) {
 
         std::unique_ptr<WalletModel::UnlockContext> pctx = MakeUnique<WalletModel::UnlockContext>(walletModel->requestUnlock());
         if (!pctx->isValid()) {
@@ -550,7 +550,7 @@ void TopBar::loadWalletModel()
     connect(walletModel, &WalletModel::encryptionStatusChanged, this, &TopBar::refreshStatus);
     // Ask for passphrase if needed
     connect(walletModel, &WalletModel::requireUnlock, this, &TopBar::unlockWallet);
-    // update the display unit, to not use the default ("TARIAN")
+    // update the display unit, to not use the default ("TARN")
     updateDisplayUnit();
 
     refreshStatus();

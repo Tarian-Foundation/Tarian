@@ -1,5 +1,6 @@
 // Copyright (c) 2014-2016 The Dash developers
-// Copyright (c) 2016-2020 The TARIAN developers
+// Copyright (c) 2016-2020 The PIVX developers
+// Copyright (c) 2020-2020 The TARN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -24,6 +25,8 @@ enum SporkId : int32_t {
     SPORK_31_NEW_PROTOCOL_ENFORCEMENT_1         = 10031,
     SPORK_32_NEW_PROTOCOL_ENFORCEMENT_2         = 10032,
     SPORK_33_NEW_PROTOCOL_ENFORCEMENT_3         = 10033,
+    SPORK_34_NEW_PROTOCOL_ENFORCEMENT_4         = 10034,
+    SPORK_35_NEW_PROTOCOL_ENFORCEMENT_5         = 10035,
 
     SPORK_INVALID                               = -1
 };

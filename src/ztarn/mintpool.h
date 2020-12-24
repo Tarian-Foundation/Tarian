@@ -1,9 +1,9 @@
-// Copyright (c) 2017-2018 The TARIAN developers
+// Copyright (c) 2017-2018 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TARIAN_MINTPOOL_H
-#define TARIAN_MINTPOOL_H
+#ifndef TARN_MINTPOOL_H
+#define TARN_MINTPOOL_H
 
 #include <map>
 #include <list>
@@ -50,4 +50,4 @@ public:
 };
 
 
-#endif //TARIAN_MINTPOOL_H
+#endif //TARN_MINTPOOL_H

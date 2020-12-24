@@ -16,6 +16,9 @@ QT_TRANSLATE_NOOP("tarian-core", ""
 "(1 = keep tx meta data e.g. account owner and payment request information, 2 "
 "= drop tx meta data)"),
 QT_TRANSLATE_NOOP("tarian-core", ""
+"Accept connections from outside (default: 1 if no -proxy or -connect/-"
+"noconnect)"),
+QT_TRANSLATE_NOOP("tarian-core", ""
 "Allow JSON-RPC connections from specified source. Valid for <ip> are a "
 "single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or "
 "a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times"),
@@ -30,11 +33,14 @@ QT_TRANSLATE_NOOP("tarian-core", ""
 "notation for IPv6. This option can be specified multiple times (default: "
 "bind to all interfaces)"),
 QT_TRANSLATE_NOOP("tarian-core", ""
-"Cannot obtain a lock on data directory %s. TARIAN Core is probably already "
+"Cannot obtain a lock on data directory %s. Tarian Core is probably already "
 "running."),
 QT_TRANSLATE_NOOP("tarian-core", ""
 "Change automatic finalized budget voting behavior. mode=auto: Vote for only "
 "exact finalized budget match to my generated budget. (string, default: auto)"),
+QT_TRANSLATE_NOOP("tarian-core", ""
+"Connect only to the specified node(s); -noconnect or -connect=0 alone to "
+"disable automatic connections"),
 QT_TRANSLATE_NOOP("tarian-core", ""
 "Continuously rate-limit free transactions to <n>*1000 bytes per minute "
 "(default:%u)"),
@@ -48,19 +54,29 @@ QT_TRANSLATE_NOOP("tarian-core", ""
 "Delete all zerocoin spends and mints that have been recorded to the "
 "blockchain database and reindex them (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("tarian-core", ""
-"Disable all TARIAN specific functionality (Masternodes, Zerocoin, SwiftX, "
+"Disable all TARN specific functionality (Masternodes, Zerocoin, SwiftX, "
 "Budgeting) (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("tarian-core", ""
 "Distributed under the MIT software license, see the accompanying file "
 "COPYING or <http://www.opensource.org/licenses/mit-license.php>."),
 QT_TRANSLATE_NOOP("tarian-core", ""
+"Do not accept transactions if any ancestor would have <n> or more in-mempool "
+"descendants (default: %u)"),
+QT_TRANSLATE_NOOP("tarian-core", ""
+"Do not accept transactions if any ancestor would have more than <n> "
+"kilobytes of in-mempool descendants (default: %u)."),
+QT_TRANSLATE_NOOP("tarian-core", ""
+"Do not accept transactions if number of in-mempool ancestors is <n> or more "
+"(default: %u)"),
+QT_TRANSLATE_NOOP("tarian-core", ""
+"Do not accept transactions whose size with all in-mempool ancestors exceeds "
+"<n> kilobytes (default: %u)"),
+QT_TRANSLATE_NOOP("tarian-core", ""
+"Do not keep transactions in the mempool longer than <n> hours (default: %u)"),
+QT_TRANSLATE_NOOP("tarian-core", ""
 "Enable SwiftX, show confirmations for locked transactions (bool, default: %s)"),
 QT_TRANSLATE_NOOP("tarian-core", ""
 "Enable cold staking functionality (0-1, default: %u). Disabled if staking=0"),
-QT_TRANSLATE_NOOP("tarian-core", ""
-"Enable or disable staking functionality for TARN inputs (0-1, default: %u)"),
-QT_TRANSLATE_NOOP("tarian-core", ""
-"Enable or disable staking functionality for zTARN inputs (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("tarian-core", ""
 "Enable spork administration functionality with the appropriate private key."),
 QT_TRANSLATE_NOOP("tarian-core", ""
@@ -70,10 +86,6 @@ QT_TRANSLATE_NOOP("tarian-core", ""
 "Error: Listening for incoming connections failed (listen returned error %s)"),
 QT_TRANSLATE_NOOP("tarian-core", ""
 "Error: The transaction is larger than the maximum allowed transaction size!"),
-QT_TRANSLATE_NOOP("tarian-core", ""
-"Error: The transaction was rejected! This might happen if some of the coins "
-"in your wallet were already spent, such as if you used a copy of wallet.dat "
-"and coins were spent in the copy but not marked as spent here."),
 QT_TRANSLATE_NOOP("tarian-core", ""
 "Error: Unsupported argument -checklevel found. Checklevel must be level 4."),
 QT_TRANSLATE_NOOP("tarian-core", ""
@@ -98,10 +110,10 @@ QT_TRANSLATE_NOOP("tarian-core", ""
 QT_TRANSLATE_NOOP("tarian-core", ""
 "Failed to find coin set amongst held coins with less than maxNumber of Spends"),
 QT_TRANSLATE_NOOP("tarian-core", ""
-"Fees (in TARN/Kb) smaller than this are considered zero fee for relaying "
-"(default: %s)"),
+"Fees (in %s/Kb) smaller than this are considered zero fee for relaying, "
+"mining and transaction creation (default: %s)"),
 QT_TRANSLATE_NOOP("tarian-core", ""
-"Fees (in TARN/Kb) smaller than this are considered zero fee for transaction "
+"Fees (in %s/Kb) smaller than this are considered zero fee for transaction "
 "creation (default: %s)"),
 QT_TRANSLATE_NOOP("tarian-core", ""
 "Flush database activity from memory pool to disk log every <n> megabytes "
@@ -122,8 +134,6 @@ QT_TRANSLATE_NOOP("tarian-core", ""
 "Invalid amount for -maxtxfee=<amount>: '%s' (must be at least the minrelay "
 "fee of %s to prevent stuck transactions)"),
 QT_TRANSLATE_NOOP("tarian-core", ""
-"Keep the specified amount available for spending at all times (default: 0)"),
-QT_TRANSLATE_NOOP("tarian-core", ""
 "Log transaction priority and fee per kB when mining blocks (default: %u)"),
 QT_TRANSLATE_NOOP("tarian-core", ""
 "Maintain a full transaction index, used by the getrawtransaction rpc call "
@@ -140,15 +150,18 @@ QT_TRANSLATE_NOOP("tarian-core", ""
 "Maximum total fees to use in a single wallet transaction, setting too low "
 "may abort large transactions (default: %s)"),
 QT_TRANSLATE_NOOP("tarian-core", ""
+"Minimum positive amount (in TARN) allowed by GUI and RPC for the stake split "
+"threshold (default: %s)"),
+QT_TRANSLATE_NOOP("tarian-core", ""
 "Number of seconds to keep misbehaving peers from reconnecting (default: %u)"),
 QT_TRANSLATE_NOOP("tarian-core", ""
 "Output debugging information (default: %u, supplying <category> is optional)"),
 QT_TRANSLATE_NOOP("tarian-core", ""
 "Please check that your computer's date and time are correct! If your clock "
-"is wrong TARIAN Core will not work properly."),
+"is wrong Tarian Core will not work properly."),
 QT_TRANSLATE_NOOP("tarian-core", ""
 "Query for peer addresses via DNS lookup, if low on addresses (default: 1 "
-"unless -connect)"),
+"unless -connect/-noconnect)"),
 QT_TRANSLATE_NOOP("tarian-core", ""
 "Randomize credentials for every proxy connection. This enables Tor stream "
 "isolation (default: %u)"),
@@ -195,10 +208,13 @@ QT_TRANSLATE_NOOP("tarian-core", ""
 "Total length of network version string (%i) exceeds maximum length (%i). "
 "Reduce the number or size of uacomments."),
 QT_TRANSLATE_NOOP("tarian-core", ""
-"Unable to bind to %s on this computer. TARIAN Core is probably already running."),
+"Unable to bind to %s on this computer. Tarian Core is probably already running."),
 QT_TRANSLATE_NOOP("tarian-core", ""
 "Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: "
 "%s)"),
+QT_TRANSLATE_NOOP("tarian-core", ""
+"WARNING: The transaction has been signed and recorded, so the wallet will "
+"try to re-send it. Use 'abandontransaction' to cancel it. (txid: %s)"),
 QT_TRANSLATE_NOOP("tarian-core", ""
 "Warning: -maxtxfee is set very high! Fees this large could be paid on a "
 "single transaction."),
@@ -207,7 +223,7 @@ QT_TRANSLATE_NOOP("tarian-core", ""
 "pay if you send a transaction."),
 QT_TRANSLATE_NOOP("tarian-core", ""
 "Warning: Please check that your computer's date and time are correct! If "
-"your clock is wrong TARIAN Core will not work properly."),
+"your clock is wrong Tarian Core will not work properly."),
 QT_TRANSLATE_NOOP("tarian-core", ""
 "Warning: The network does not appear to fully agree! Some miners appear to "
 "be experiencing issues."),
@@ -230,33 +246,34 @@ QT_TRANSLATE_NOOP("tarian-core", ""
 QT_TRANSLATE_NOOP("tarian-core", ""
 "You must specify a masternodeprivkey in the configuration. Please see "
 "documentation for help."),
-QT_TRANSLATE_NOOP("tarian-core", "(54444 could be used only on mainnet)"),
 QT_TRANSLATE_NOOP("tarian-core", "(default: %s)"),
 QT_TRANSLATE_NOOP("tarian-core", "(default: 1)"),
-QT_TRANSLATE_NOOP("tarian-core", "(must be 54444 for mainnet)"),
+QT_TRANSLATE_NOOP("tarian-core", "(must be %d for %s-net)"),
 QT_TRANSLATE_NOOP("tarian-core", "<category> can be:"),
 QT_TRANSLATE_NOOP("tarian-core", "Accept command line and JSON-RPC commands"),
-QT_TRANSLATE_NOOP("tarian-core", "Accept connections from outside (default: 1 if no -proxy or -connect)"),
 QT_TRANSLATE_NOOP("tarian-core", "Accept public REST requests (default: %u)"),
+QT_TRANSLATE_NOOP("tarian-core", "Active Masternode not initialized."),
 QT_TRANSLATE_NOOP("tarian-core", "Add a node to connect to and attempt to keep the connection open"),
 QT_TRANSLATE_NOOP("tarian-core", "Allow DNS lookups for -addnode, -seednode and -connect"),
+QT_TRANSLATE_NOOP("tarian-core", "Allows deprecated RPC method(s) to be used"),
 QT_TRANSLATE_NOOP("tarian-core", "Always query for peer addresses via DNS lookup (default: %u)"),
 QT_TRANSLATE_NOOP("tarian-core", "Append comment to the user agent string"),
 QT_TRANSLATE_NOOP("tarian-core", "Attempt to force blockchain corruption recovery"),
 QT_TRANSLATE_NOOP("tarian-core", "Attempt to recover private keys from a corrupt wallet.dat"),
 QT_TRANSLATE_NOOP("tarian-core", "Automatically create Tor hidden service (default: %d)"),
 QT_TRANSLATE_NOOP("tarian-core", "Block creation options:"),
+QT_TRANSLATE_NOOP("tarian-core", "Can't generate a change-address key. Please call keypoolrefill first."),
 QT_TRANSLATE_NOOP("tarian-core", "Cannot create public spend input"),
 QT_TRANSLATE_NOOP("tarian-core", "Cannot downgrade wallet"),
 QT_TRANSLATE_NOOP("tarian-core", "Cannot resolve -%s address: '%s'"),
 QT_TRANSLATE_NOOP("tarian-core", "Cannot upgrade to HD wallet (already running HD support). Version: %d"),
-QT_TRANSLATE_NOOP("tarian-core", "Connect only to the specified node(s)"),
+QT_TRANSLATE_NOOP("tarian-core", "Change index out of range"),
 QT_TRANSLATE_NOOP("tarian-core", "Connect through SOCKS5 proxy"),
 QT_TRANSLATE_NOOP("tarian-core", "Connect to a node to retrieve peer addresses, and disconnect"),
 QT_TRANSLATE_NOOP("tarian-core", "Connection options:"),
 QT_TRANSLATE_NOOP("tarian-core", "Copyright (C) 2009-%i The Bitcoin Core Developers"),
 QT_TRANSLATE_NOOP("tarian-core", "Copyright (C) 2014-%i The Dash Core Developers"),
-QT_TRANSLATE_NOOP("tarian-core", "Copyright (C) 2015-%i The TARIAN Core Developers"),
+QT_TRANSLATE_NOOP("tarian-core", "Copyright (C) 2015-%i The Tarian Core Developers"),
 QT_TRANSLATE_NOOP("tarian-core", "Corrupted block database detected"),
 QT_TRANSLATE_NOOP("tarian-core", "Could not parse masternode.conf"),
 QT_TRANSLATE_NOOP("tarian-core", "Debugging/Testing options:"),
@@ -282,27 +299,30 @@ QT_TRANSLATE_NOOP("tarian-core", "Error initializing wallet database environment
 QT_TRANSLATE_NOOP("tarian-core", "Error loading block database"),
 QT_TRANSLATE_NOOP("tarian-core", "Error loading wallet.dat"),
 QT_TRANSLATE_NOOP("tarian-core", "Error loading wallet.dat: Wallet corrupted"),
-QT_TRANSLATE_NOOP("tarian-core", "Error loading wallet.dat: Wallet requires newer version of TARIAN Core"),
+QT_TRANSLATE_NOOP("tarian-core", "Error loading wallet.dat: Wallet requires newer version of Tarian Core"),
 QT_TRANSLATE_NOOP("tarian-core", "Error opening block database"),
 QT_TRANSLATE_NOOP("tarian-core", "Error reading from database, shutting down."),
 QT_TRANSLATE_NOOP("tarian-core", "Error writing zerocoinDB to disk"),
 QT_TRANSLATE_NOOP("tarian-core", "Error"),
 QT_TRANSLATE_NOOP("tarian-core", "Error: "),
+QT_TRANSLATE_NOOP("tarian-core", "Error: -listen must be true if -masternode is set."),
+QT_TRANSLATE_NOOP("tarian-core", "Error: -maxmempool must be at least %d MB"),
 QT_TRANSLATE_NOOP("tarian-core", "Error: A fatal internal error occured, see debug.log for details"),
 QT_TRANSLATE_NOOP("tarian-core", "Error: A fatal internal error occurred, see debug.log for details"),
 QT_TRANSLATE_NOOP("tarian-core", "Error: Disk space is low!"),
+QT_TRANSLATE_NOOP("tarian-core", "Error: Invalid port %d for running a masternode."),
 QT_TRANSLATE_NOOP("tarian-core", "Error: No valid utxo!"),
 QT_TRANSLATE_NOOP("tarian-core", "Error: Unsupported argument -tor found, use -onion."),
 QT_TRANSLATE_NOOP("tarian-core", "Error: Wallet locked, unable to create transaction!"),
+QT_TRANSLATE_NOOP("tarian-core", "Failed to accept tx in the memory pool (reason: %s)\n"),
 QT_TRANSLATE_NOOP("tarian-core", "Failed to find Zerocoins in wallet.dat"),
 QT_TRANSLATE_NOOP("tarian-core", "Failed to listen on any port. Use -listen=0 if you want this."),
 QT_TRANSLATE_NOOP("tarian-core", "Failed to parse host:port string"),
 QT_TRANSLATE_NOOP("tarian-core", "Failed to parse public spend"),
-QT_TRANSLATE_NOOP("tarian-core", "Failed to read block"),
 QT_TRANSLATE_NOOP("tarian-core", "Failed to select a zerocoin"),
 QT_TRANSLATE_NOOP("tarian-core", "Failed to wipe zerocoinDB"),
 QT_TRANSLATE_NOOP("tarian-core", "Failed to write coin serial number into wallet"),
-QT_TRANSLATE_NOOP("tarian-core", "Fee (in TARN/kB) to add to transactions you send (default: %s)"),
+QT_TRANSLATE_NOOP("tarian-core", "Fee (in %s/kB) to add to transactions you send (default: %s)"),
 QT_TRANSLATE_NOOP("tarian-core", "Force safe mode (default: %u)"),
 QT_TRANSLATE_NOOP("tarian-core", "Generate coins (default: %u)"),
 QT_TRANSLATE_NOOP("tarian-core", "How many blocks to check at startup (default: %u, 0 = all)"),
@@ -312,18 +332,23 @@ QT_TRANSLATE_NOOP("tarian-core", "Imports blocks from external blk000??.dat file
 QT_TRANSLATE_NOOP("tarian-core", "Include IP addresses in debug output (default: %u)"),
 QT_TRANSLATE_NOOP("tarian-core", "Incorrect or no genesis block found. Wrong datadir for network?"),
 QT_TRANSLATE_NOOP("tarian-core", "Information"),
-QT_TRANSLATE_NOOP("tarian-core", "Initialization sanity check failed. TARIAN Core is shutting down."),
+QT_TRANSLATE_NOOP("tarian-core", "Initialization sanity check failed. Tarian Core is shutting down."),
 QT_TRANSLATE_NOOP("tarian-core", "Insufficient funds"),
 QT_TRANSLATE_NOOP("tarian-core", "Insufficient funds."),
+QT_TRANSLATE_NOOP("tarian-core", "Invalid -masternodeaddr address: %s"),
+QT_TRANSLATE_NOOP("tarian-core", "Invalid -masternodeaddr port %d, only %d is supported on %s-net."),
 QT_TRANSLATE_NOOP("tarian-core", "Invalid -onion address or hostname: '%s'"),
 QT_TRANSLATE_NOOP("tarian-core", "Invalid amount for -%s=<amount>: '%s'"),
 QT_TRANSLATE_NOOP("tarian-core", "Invalid amount for -paytxfee=<amount>: '%s' (must be at least %s)"),
 QT_TRANSLATE_NOOP("tarian-core", "Invalid amount"),
 QT_TRANSLATE_NOOP("tarian-core", "Invalid masternodeprivkey. Please see documenation."),
 QT_TRANSLATE_NOOP("tarian-core", "Invalid netmask specified in -whitelist: '%s'"),
-QT_TRANSLATE_NOOP("tarian-core", "Invalid port detected in masternode.conf"),
+QT_TRANSLATE_NOOP("tarian-core", "Invalid port %d detected in masternode.conf"),
+QT_TRANSLATE_NOOP("tarian-core", "Invalid status error."),
 QT_TRANSLATE_NOOP("tarian-core", "Keep at most <n> unconnectable transactions in memory (default: %u)"),
-QT_TRANSLATE_NOOP("tarian-core", "Limit size of signature cache to <n> entries (default: %u)"),
+QT_TRANSLATE_NOOP("tarian-core", "Keep the transaction memory pool below <n> megabytes (default: %u)"),
+QT_TRANSLATE_NOOP("tarian-core", "Keypool ran out, please call keypoolrefill first, or unlock the wallet."),
+QT_TRANSLATE_NOOP("tarian-core", "Limit size of signature cache to <n> MiB (default: %u)"),
 QT_TRANSLATE_NOOP("tarian-core", "Line: %d"),
 QT_TRANSLATE_NOOP("tarian-core", "Listen for JSON-RPC connections on <port> (default: %u or testnet: %u)"),
 QT_TRANSLATE_NOOP("tarian-core", "Listen for connections on <port> (default: %u or testnet: %u)"),
@@ -341,11 +366,13 @@ QT_TRANSLATE_NOOP("tarian-core", "Lookup(): Invalid -proxy address or hostname: 
 QT_TRANSLATE_NOOP("tarian-core", "MNs synchronization pending..."),
 QT_TRANSLATE_NOOP("tarian-core", "Maintain at most <n> connections to peers (default: %u)"),
 QT_TRANSLATE_NOOP("tarian-core", "Masternode options:"),
+QT_TRANSLATE_NOOP("tarian-core", "Masternodes are required to run on port %d for %s-net"),
 QT_TRANSLATE_NOOP("tarian-core", "Maximum per-connection receive buffer, <n>*1000 bytes (default: %u)"),
 QT_TRANSLATE_NOOP("tarian-core", "Maximum per-connection send buffer, <n>*1000 bytes (default: %u)"),
 QT_TRANSLATE_NOOP("tarian-core", "Mint did not make it into blockchain"),
 QT_TRANSLATE_NOOP("tarian-core", "Need destination or change address because change is not exact"),
 QT_TRANSLATE_NOOP("tarian-core", "Need to specify a port with -whitebind: '%s'"),
+QT_TRANSLATE_NOOP("tarian-core", "No error"),
 QT_TRANSLATE_NOOP("tarian-core", "Node relay options:"),
 QT_TRANSLATE_NOOP("tarian-core", "Not enough file descriptors available."),
 QT_TRANSLATE_NOOP("tarian-core", "Number of automatic wallet backups (default: 10)"),
@@ -365,7 +392,7 @@ QT_TRANSLATE_NOOP("tarian-core", "Randomly drop 1 of every <n> network messages"
 QT_TRANSLATE_NOOP("tarian-core", "Randomly fuzz 1 of every <n> network messages"),
 QT_TRANSLATE_NOOP("tarian-core", "Rebuild block chain index from current blk000??.dat files"),
 QT_TRANSLATE_NOOP("tarian-core", "Recalculating TARN supply..."),
-QT_TRANSLATE_NOOP("tarian-core", "Reindex the TARN and zTARN money supply statistics"),
+QT_TRANSLATE_NOOP("tarian-core", "Reindex the %s and z%s money supply statistics"),
 QT_TRANSLATE_NOOP("tarian-core", "Reindexing zerocoin database..."),
 QT_TRANSLATE_NOOP("tarian-core", "Reindexing zerocoin failed"),
 QT_TRANSLATE_NOOP("tarian-core", "Relay and mine data carrier transactions (default: %u)"),
@@ -409,9 +436,12 @@ QT_TRANSLATE_NOOP("tarian-core", "Synchronizing masternode winners..."),
 QT_TRANSLATE_NOOP("tarian-core", "Synchronizing masternodes..."),
 QT_TRANSLATE_NOOP("tarian-core", "Synchronizing sporks..."),
 QT_TRANSLATE_NOOP("tarian-core", "Syncing zTARN wallet..."),
+QT_TRANSLATE_NOOP("tarian-core", "The threshold value cannot be less than %s"),
 QT_TRANSLATE_NOOP("tarian-core", "This help message"),
 QT_TRANSLATE_NOOP("tarian-core", "This is experimental software."),
 QT_TRANSLATE_NOOP("tarian-core", "This is intended for regression testing tools and app development."),
+QT_TRANSLATE_NOOP("tarian-core", "This is not a masternode. 'local' option disabled."),
+QT_TRANSLATE_NOOP("tarian-core", "This is not a masternode."),
 QT_TRANSLATE_NOOP("tarian-core", "Threshold for disconnecting misbehaving peers (default: %u)"),
 QT_TRANSLATE_NOOP("tarian-core", "Too many spends needed"),
 QT_TRANSLATE_NOOP("tarian-core", "Tor control port password (default: empty)"),
@@ -420,6 +450,7 @@ QT_TRANSLATE_NOOP("tarian-core", "Transaction Created"),
 QT_TRANSLATE_NOOP("tarian-core", "Transaction Mint Started"),
 QT_TRANSLATE_NOOP("tarian-core", "Transaction amount too small"),
 QT_TRANSLATE_NOOP("tarian-core", "Transaction amounts must be positive"),
+QT_TRANSLATE_NOOP("tarian-core", "Transaction canceled."),
 QT_TRANSLATE_NOOP("tarian-core", "Transaction too large for fee policy"),
 QT_TRANSLATE_NOOP("tarian-core", "Transaction too large"),
 QT_TRANSLATE_NOOP("tarian-core", "Trying to spend an already spent serial #, try again."),
@@ -444,7 +475,7 @@ QT_TRANSLATE_NOOP("tarian-core", "Value is below the smallest available denomina
 QT_TRANSLATE_NOOP("tarian-core", "Verifying blocks..."),
 QT_TRANSLATE_NOOP("tarian-core", "Verifying wallet..."),
 QT_TRANSLATE_NOOP("tarian-core", "Wallet %s resides outside data directory %s"),
-QT_TRANSLATE_NOOP("tarian-core", "Wallet needed to be rewritten: restart TARIAN Core to complete"),
+QT_TRANSLATE_NOOP("tarian-core", "Wallet needed to be rewritten: restart Tarian Core to complete"),
 QT_TRANSLATE_NOOP("tarian-core", "Wallet options:"),
 QT_TRANSLATE_NOOP("tarian-core", "Wallet window title"),
 QT_TRANSLATE_NOOP("tarian-core", "Warning"),

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# Copyright (c) 2019-2020 The TARIAN developers
+# Copyright (c) 2019-2020 The TARN developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 from test_framework.authproxy import JSONRPCException
-from test_framework.test_framework import TarianTestFramework
+from test_framework.test_framework import TarnTestFramework
 from test_framework.util import (
     sync_blocks,
     assert_equal,
@@ -16,7 +16,7 @@ from test_framework.util import (
     DecimalAmt,
 )
 
-class ReorgStakeTest(TarianTestFramework):
+class ReorgStakeTest(TarnTestFramework):
 
     def set_test_params(self):
         self.num_nodes = 3
@@ -51,11 +51,11 @@ class ReorgStakeTest(TarianTestFramework):
         wi = self.nodes[nodeid].getwalletinfo()
         return wi['balance'] + wi['immature_balance']
 
-    def check_money_supply(self, expected_tarn, expected_ztarn):
+    def check_money_supply(self, expected_tarian, expected_ztarn):
         g_info = [self.nodes[i].getinfo() for i in range(self.num_nodes)]
         # verify that nodes have the expected TARN and zTARN supply
         for node in g_info:
-            assert_equal(node['moneysupply'], DecimalAmt(expected_tarn))
+            assert_equal(node['moneysupply'], DecimalAmt(expected_tarian))
             for denom in node['zTARNsupply']:
                 assert_equal(node['zTARNsupply'][denom], DecimalAmt(expected_ztarn[denom]))
 

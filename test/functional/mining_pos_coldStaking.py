@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2019-2020 The TARIAN developers
+# Copyright (c) 2019-2020 The TARN developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 # -*- coding: utf-8 -*-
@@ -9,9 +9,9 @@ from time import sleep
 
 from test_framework.messages import CTransaction, CTxIn, CTxOut, COIN, COutPoint
 from test_framework.mininode import network_thread_start
-from test_framework.tarian_node import TarianTestNode
+from test_framework.tarian_node import TarnTestNode
 from test_framework.script import CScript, OP_CHECKSIG
-from test_framework.test_framework import TarianTestFramework
+from test_framework.test_framework import TarnTestFramework
 from test_framework.util import (
     assert_equal,
     assert_greater_than,
@@ -28,7 +28,7 @@ def getDelegatedUtxos(utxos):
     return [x for x in utxos if x["scriptPubKey"][:10] == '76a97b63d1']
 
 
-class TARIAN_ColdStakingTest(TarianTestFramework):
+class TARN_ColdStakingTest(TarnTestFramework):
 
     def set_test_params(self):
         self.num_nodes = 3
@@ -48,7 +48,7 @@ class TARIAN_ColdStakingTest(TarianTestFramework):
         # Setup the p2p connections and start up the network thread.
         self.test_nodes = []
         for i in range(self.num_nodes):
-            self.test_nodes.append(TarianTestNode())
+            self.test_nodes.append(TarnTestNode())
             self.test_nodes[i].peer_connect('127.0.0.1', p2p_port(i))
 
         network_thread_start()  # Start up network handling in another thread
@@ -456,4 +456,4 @@ class TARIAN_ColdStakingTest(TarianTestFramework):
 
 
 if __name__ == '__main__':
-    TARIAN_ColdStakingTest().main()
+    TARN_ColdStakingTest().main()

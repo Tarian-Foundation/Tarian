@@ -25,7 +25,7 @@ git diff -U0 HEAD~1.. | ./contrib/devtools/clang-format-diff.py -p1 -i -v
 copyright\_header.py
 ====================
 
-Provides utilities for managing copyright headers of `The TARIAN
+Provides utilities for managing copyright headers of `The TARN
 developers` in repository source files. It has three subcommands:
 
 ```
@@ -44,31 +44,31 @@ Specifying `verbose` will list the full filenames of files of each category.
 
 copyright\_header.py update \<base\_directory\> [verbose]
 ---------------------------------------------------------
-Updates all the copyright headers of `The TARIAN developers` which were
+Updates all the copyright headers of `The TARN developers` which were
 changed in a year more recent than is listed. For example:
 ```
-// Copyright (c) <firstYear>-<lastYear> The TARIAN developers
+// Copyright (c) <firstYear>-<lastYear> The TARN developers
 ```
 will be updated to:
 ```
-// Copyright (c) <firstYear>-<lastModifiedYear> The TARIAN developers
+// Copyright (c) <firstYear>-<lastModifiedYear> The TARN developers
 ```
 where `<lastModifiedYear>` is obtained from the `git log` history.
 
 This subcommand also handles copyright headers that have only a single year. In
 those cases:
 ```
-// Copyright (c) <year> The TARIAN developers
+// Copyright (c) <year> The TARN developers
 ```
 will be updated to:
 ```
-// Copyright (c) <year>-<lastModifiedYear> The TARIAN developers
+// Copyright (c) <year>-<lastModifiedYear> The TARN developers
 ```
 where the update is appropriate.
 
 copyright\_header.py insert \<file\>
 ------------------------------------
-Inserts a copyright header for `The TARIAN developers` at the top of the
+Inserts a copyright header for `The TARN developers` at the top of the
 file in either Python or C++ style as determined by the file extension. If the
 file is a Python file and it has  `#!` starting the first line, the header is
 inserted in the line below it.
@@ -78,7 +78,7 @@ The copyright dates will be set to be `<year_introduced>-<current_year>` where
 `<year_introduced>` is equal to `<current_year>`, it will be set as a single
 year rather than two hyphenated years.
 
-If the file already has a copyright for `The TARIAN developers`, the
+If the file already has a copyright for `The TARN developers`, the
 script will exit.
 
 gen-manpages.sh
@@ -105,7 +105,7 @@ For example:
   ./github-merge.py 3077
 
 (in any git repository) will help you merge pull request #3077 for the
-Tarian-Foundation/Tarian repository.
+TARN-Project/TARN repository.
 
 What it does:
 * Fetch master and the pull request.
@@ -123,9 +123,9 @@ couldn't mess with the sources.
 
 Setup
 ---------
-Configuring the github-merge tool for the TARIAN repository is done in the following way:
+Configuring the github-merge tool for the TARN repository is done in the following way:
 
-    git config githubmerge.repository Tarian-Foundation/Tarian
+    git config githubmerge.repository TARN-Project/TARN
     git config githubmerge.testcmd "make -j4 check" (adapt to whatever you want to use for testing)
     git config --global user.signingkey mykeyid
 
@@ -158,7 +158,7 @@ for further details.
 optimize-pngs.py
 ================
 
-A script to optimize png files in the TARIAN
+A script to optimize png files in the TARN
 repository (requires pngcrush).
 
 security-check.py and test-security-check.py

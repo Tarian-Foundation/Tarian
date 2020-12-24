@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2020 The TARIAN developers
+// Copyright (c) 2015-2020 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -739,7 +739,7 @@ void CNode::copyStats(CNodeStats& stats)
         nPingUsecWait = GetTimeMicros() - nPingUsecStart;
     }
 
-    // Raw ping time is in microseconds, but show it to user as whole seconds (TARIAN users should be well used to small numbers with many decimal places by now :)
+    // Raw ping time is in microseconds, but show it to user as whole seconds (TARN users should be well used to small numbers with many decimal places by now :)
     stats.dPingTime = (((double)nPingUsecTime) / 1e6);
     stats.dPingWait = (((double)nPingUsecWait) / 1e6);
 
@@ -897,7 +897,7 @@ void CheckOffsetDisconnectedPeers(const CNetAddr& ip)
         setOffsetDisconnectedPeers.clear();
         // Trigger the warning
         std::string strWarn1 = _("Peers are being disconnected due time differences.");
-        std::string strWarn2 = _("Please check that your computer's date and time are correct! If your clock is wrong TARIAN Core will not work properly.");
+        std::string strWarn2 = _("Please check that your computer's date and time are correct! If your clock is wrong Tarian Core will not work properly.");
 
         LogPrintf("*** Warning: %s %s\n", strWarn1, strWarn2);
 
@@ -1225,8 +1225,8 @@ void ThreadSocketHandler()
                 // * We wait for data to be received (and disconnect after timeout).
                 // * We process a message in the buffer (message handler thread).
                 {
-                    TRY_LOCK(pnode->cs_vSend, lockSend);
-                    if (lockSend && !pnode->vSendMsg.empty()) {
+                    LOCK(pnode->cs_vSend);
+                    if (!pnode->vSendMsg.empty()) {
                         FD_SET(pnode->hSocket, &fdsetSend);
                         continue;
                     }
@@ -1320,9 +1320,8 @@ void ThreadSocketHandler()
             if (pnode->hSocket == INVALID_SOCKET)
                 continue;
             if (FD_ISSET(pnode->hSocket, &fdsetSend)) {
-                TRY_LOCK(pnode->cs_vSend, lockSend);
-                if (lockSend)
-                    SocketSendData(pnode);
+                LOCK(pnode->cs_vSend);
+                SocketSendData(pnode);
             }
 
             //
@@ -1399,7 +1398,7 @@ void ThreadMapPort()
             }
         }
 
-        std::string strDesc = "TARIAN " + FormatFullVersion();
+        std::string strDesc = "TARN " + FormatFullVersion();
 
         try {
             while (true) {
@@ -1622,7 +1621,6 @@ void ThreadOpenConnections()
                 }
             }
         }
-        assert(nOutbound <= (MAX_OUTBOUND_CONNECTIONS + MAX_FEELER_CONNECTIONS));
 
         // Feeler Connections
         //
@@ -1843,9 +1841,8 @@ void ThreadMessageHandler()
 
             // Send messages
             {
-                TRY_LOCK(pnode->cs_vSend, lockSend);
-                if (lockSend)
-                    GetNodeSignals().SendMessages(pnode);
+                LOCK(pnode->cs_sendProcessing);
+                GetNodeSignals().SendMessages(pnode);
             }
             boost::this_thread::interruption_point();
         }
@@ -1925,7 +1922,7 @@ bool BindListenPort(const CService& addrBind, std::string& strError, bool fWhite
     if (::bind(hListenSocket, (struct sockaddr*)&sockaddr, len) == SOCKET_ERROR) {
         int nErr = WSAGetLastError();
         if (nErr == WSAEADDRINUSE)
-            strError = strprintf(_("Unable to bind to %s on this computer. TARIAN Core is probably already running."), addrBind.ToString());
+            strError = strprintf(_("Unable to bind to %s on this computer. Tarian Core is probably already running."), addrBind.ToString());
         else
             strError = strprintf(_("Unable to bind to %s on this computer (bind returned error %s)"), addrBind.ToString(), NetworkErrorString(nErr));
         LogPrintf("%s\n", strError);

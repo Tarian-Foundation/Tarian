@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The TARIAN developers
+// Copyright (c) 2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -19,7 +19,7 @@ class SettingsBitToolWidget : public PWidget
     Q_OBJECT
 
 public:
-    explicit SettingsBitToolWidget(TARIANGUI* _window, QWidget *parent = nullptr);
+    explicit SettingsBitToolWidget(TARNGUI* _window, QWidget *parent = nullptr);
     ~SettingsBitToolWidget();
 protected:
     void resizeEvent(QResizeEvent *event) override;

@@ -8,10 +8,10 @@
 - Test that it is not possible to mine to an invalid address.
 """
 
-from test_framework.test_framework import TarianTestFramework
+from test_framework.test_framework import TarnTestFramework
 from test_framework.util import *
 
-class DisableWalletTest (TarianTestFramework):
+class DisableWalletTest (TarnTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1

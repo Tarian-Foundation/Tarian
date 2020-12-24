@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2020 The TARIAN developers
+// Copyright (c) 2015-2020 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -31,7 +31,6 @@
 #include <QKeyEvent>
 #include <QMenu>
 #include <QScrollBar>
-#include <QSignalMapper>
 #include <QThread>
 #include <QTime>
 #include <QTimer>
@@ -223,9 +222,10 @@ void RPCExecutor::request(const QString& command)
         std::string strPrint;
         // Convert argument list to JSON objects in method-dependent way,
         // and pass it along with the method name to the dispatcher.
-        UniValue result = tableRPC.execute(
-            args[0],
-            RPCConvertValues(args[0], std::vector<std::string>(args.begin() + 1, args.end())));
+        JSONRPCRequest req;
+        req.params = RPCConvertValues(args[0], std::vector<std::string>(args.begin() + 1, args.end()));
+        req.strMethod = args[0];
+        UniValue result = tableRPC.execute(req);
 
         // Format result reply
         if (result.isNull())
@@ -422,19 +422,10 @@ void RPCConsole::setClientModel(ClientModel* model)
         peersTableContextMenu->addAction(banAction7d);
         peersTableContextMenu->addAction(banAction365d);
 
-        // Add a signal mapping to allow dynamic context menu arguments.
-        // We need to use int (instead of int64_t), because signal mapper only supports
-        // int or objects, which is okay because max bantime (1 year) is < int_max.
-        QSignalMapper* signalMapper = new QSignalMapper(this);
-        signalMapper->setMapping(banAction1h, 60*60);
-        signalMapper->setMapping(banAction24h, 60*60*24);
-        signalMapper->setMapping(banAction7d, 60*60*24*7);
-        signalMapper->setMapping(banAction365d, 60*60*24*365);
-        connect(banAction1h, &QAction::triggered, signalMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
-        connect(banAction24h, &QAction::triggered, signalMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
-        connect(banAction7d, &QAction::triggered, signalMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
-        connect(banAction365d, &QAction::triggered, signalMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
-        connect(signalMapper, static_cast<void (QSignalMapper::*)(int)>(&QSignalMapper::mapped), this, &RPCConsole::banSelectedNode);
+        connect(banAction1h, &QAction::triggered, [this] { banSelectedNode(60 * 60); });
+        connect(banAction24h, &QAction::triggered, [this] { banSelectedNode(60 * 60 * 24); });
+        connect(banAction7d, &QAction::triggered, [this] { banSelectedNode(60 * 60 * 24 * 7); });
+        connect(banAction365d, &QAction::triggered, [this] { banSelectedNode(60 * 60 * 24 * 365); });
 
         // peer table context menu signals
         connect(ui->peerWidget, &QTableView::customContextMenuRequested, this, &RPCConsole::showPeersTableContextMenu);
@@ -626,7 +617,7 @@ void RPCConsole::clear()
     QString clsKey = "Ctrl-L";
 #endif
 
-    message(CMD_REPLY, (tr("Welcome to the TARIAN RPC console.") + "<br>" +
+    message(CMD_REPLY, (tr("Welcome to the TARN RPC console.") + "<br>" +
                         tr("Use up and down arrows to navigate history, and %1 to clear screen.").arg("<b>"+clsKey+"</b>") + "<br>" +
                         tr("Type <b>help</b> for an overview of available commands.") +
                         "<br><span class=\"secwarning\"><br>" +

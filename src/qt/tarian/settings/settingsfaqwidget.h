@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The TARIAN developers
+// Copyright (c) 2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,7 +7,7 @@
 
 #include <QDialog>
 
-class TARIANGUI;
+class TARNGUI;
 
 namespace Ui {
 class SettingsFaqWidget;
@@ -18,7 +18,7 @@ class SettingsFaqWidget : public QDialog
     Q_OBJECT
 
 public:
-    explicit SettingsFaqWidget(TARIANGUI *parent = nullptr);
+    explicit SettingsFaqWidget(TARNGUI *parent = nullptr);
     ~SettingsFaqWidget();
 
     void showEvent(QShowEvent *event) override;

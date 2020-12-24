@@ -1,9 +1,9 @@
-// Copyright (c) 2015-2019 The TARIAN developers
+// Copyright (c) 2015-2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TARIAN_TEST_TEST_TARIAN_H
-#define TARIAN_TEST_TEST_TARIAN_H
+#ifndef TARN_TEST_TEST_TARN_H
+#define TARN_TEST_TEST_TARN_H
 
 #include "fs.h"
 #include "txdb.h"
@@ -63,10 +63,11 @@ struct TestMemPoolEntryHelper
     double dPriority;
     unsigned int nHeight;
     bool hadNoDependencies;
+    bool spendsCoinbaseOrCoinstake;
 
     TestMemPoolEntryHelper() :
         nFee(0), nTime(0), dPriority(0.0), nHeight(1),
-        hadNoDependencies(false) { }
+        hadNoDependencies(false), spendsCoinbaseOrCoinstake(false) { }
 
     CTxMemPoolEntry FromTx(CMutableTransaction &tx, CTxMemPool *pool = NULL);
 
@@ -76,6 +77,7 @@ struct TestMemPoolEntryHelper
     TestMemPoolEntryHelper &Priority(double _priority) { dPriority = _priority; return *this; }
     TestMemPoolEntryHelper &Height(unsigned int _height) { nHeight = _height; return *this; }
     TestMemPoolEntryHelper &HadNoDependencies(bool _hnd) { hadNoDependencies = _hnd; return *this; }
+    TestMemPoolEntryHelper &SpendsCoinbaseOrCoinstake(bool _flag) { spendsCoinbaseOrCoinstake = _flag; return *this; }
 };
 
 #endif

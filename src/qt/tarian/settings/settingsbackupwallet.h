@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -17,7 +17,7 @@ class SettingsBackupWallet : public PWidget
     Q_OBJECT
 
 public:
-    explicit SettingsBackupWallet(TARIANGUI* _window, QWidget *parent = nullptr);
+    explicit SettingsBackupWallet(TARNGUI* _window, QWidget *parent = nullptr);
     ~SettingsBackupWallet();
 
 private Q_SLOTS:

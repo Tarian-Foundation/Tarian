@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2020 The TARIAN developers
+// Copyright (c) 2015-2020 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -23,23 +23,31 @@ std::map<int64_t, uint256> mapCacheBlockHashes;
 //Get the last hash that matches the modulus given. Processed in reverse order
 bool GetBlockHash(uint256& hash, int nBlockHeight)
 {
-    if (chainActive.Tip() == NULL) return false;
+    int tipHeight;
+    const CBlockIndex* tipIndex;
+    {
+        LOCK(cs_main);
+        CBlockIndex *pindex = chainActive.Tip();
+        if (!pindex) return false;
+        tipHeight = pindex->nHeight;
+        tipIndex = mapBlockIndex[pindex->GetBlockHash()];
+    }
 
     if (nBlockHeight == 0)
-        nBlockHeight = chainActive.Tip()->nHeight;
+        nBlockHeight = tipHeight;
 
     if (mapCacheBlockHashes.count(nBlockHeight)) {
         hash = mapCacheBlockHashes[nBlockHeight];
         return true;
     }
 
-    const CBlockIndex* BlockLastSolved = chainActive.Tip();
-    const CBlockIndex* BlockReading = chainActive.Tip();
+    const CBlockIndex* BlockLastSolved = tipIndex;
+    const CBlockIndex* BlockReading = tipIndex;
 
-    if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || chainActive.Tip()->nHeight + 1 < nBlockHeight) return false;
+    if (BlockLastSolved == nullptr || BlockLastSolved->nHeight == 0 || tipHeight + 1 < nBlockHeight) return false;
 
     int nBlocksAgo = 0;
-    if (nBlockHeight > 0) nBlocksAgo = (chainActive.Tip()->nHeight + 1) - nBlockHeight;
+    if (nBlockHeight > 0) nBlocksAgo = (tipHeight + 1) - nBlockHeight;
     assert(nBlocksAgo >= 0);
 
     int n = 0;
@@ -157,7 +165,10 @@ bool CMasternode::UpdateFromNewBroadcast(CMasternodeBroadcast& mnb)
 //
 uint256 CMasternode::CalculateScore(int mod, int64_t nBlockHeight)
 {
-    if (chainActive.Tip() == NULL) return UINT256_ZERO;
+    {
+        LOCK(cs_main);
+        if (chainActive.Tip() == NULL) return UINT256_ZERO;
+    }
 
     uint256 hash;
     uint256 aux = vin.prevout.hash + vin.prevout.n;
@@ -359,9 +370,10 @@ bool CMasternodeBroadcast::Create(std::string strService, std::string strKeyMast
         return false;
     }
 
-    if (!pwalletMain->GetMasternodeVinAndKeys(txin, pubKeyCollateralAddressNew, keyCollateralAddressNew, strTxHash, strOutputIndex)) {
-        strErrorRet = strprintf("Could not allocate txin %s:%s for masternode %s", strTxHash, strOutputIndex, strService);
-        LogPrint(BCLog::MASTERNODE,"CMasternodeBroadcast::Create -- %s\n", strErrorRet);
+    std::string strError;
+    if (!pwalletMain->GetMasternodeVinAndKeys(txin, pubKeyCollateralAddressNew, keyCollateralAddressNew, strTxHash, strOutputIndex, strError)) {
+        strErrorRet = strError; // GetMasternodeVinAndKeys logs this error. Only returned for GUI error notification.
+        LogPrint(BCLog::MASTERNODE,"CMasternodeBroadcast::Create -- %s\n", strprintf("Could not allocate txin %s:%s for masternode %s", strTxHash, strOutputIndex, strService));
         return false;
     }
 
@@ -525,8 +537,8 @@ bool CMasternodeBroadcast::CheckAndUpdate(int& nDos)
     }
 
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
-        if (addr.GetPort() != 54444) return false;
-    } else if (addr.GetPort() == 54444)
+        if (addr.GetPort() != 31813) return false;
+    } else if (addr.GetPort() == 31813)
         return false;
 
     //search existing Masternode list, this is where we update existing Masternodes with new mnb broadcasts
@@ -565,7 +577,8 @@ bool CMasternodeBroadcast::CheckInputsAndAdd(int& nDoS)
 {
     // we are a masternode with the same vin (i.e. already activated) and this mnb is ours (matches our Masternode privkey)
     // so nothing to do here for us
-    if (fMasterNode && vin.prevout == activeMasternode.vin.prevout && pubKeyMasternode == activeMasternode.pubKeyMasternode)
+    if (fMasterNode && activeMasternode.vin != nullopt &&
+            vin.prevout == activeMasternode.vin->prevout && pubKeyMasternode == activeMasternode.pubKeyMasternode)
         return true;
 
     // incorrect ping or its sigTime
@@ -623,7 +636,7 @@ bool CMasternodeBroadcast::CheckInputsAndAdd(int& nDoS)
     GetTransaction(vin.prevout.hash, tx2, hashBlock, true);
     BlockMap::iterator mi = mapBlockIndex.find(hashBlock);
     if (mi != mapBlockIndex.end() && (*mi).second) {
-        CBlockIndex* pMNIndex = (*mi).second;                                                        // block for 1000 TARIAN tx -> 1 confirmation
+        CBlockIndex* pMNIndex = (*mi).second;                                                        // block for 1000 TARN tx -> 1 confirmation
         CBlockIndex* pConfIndex = chainActive[pMNIndex->nHeight + MASTERNODE_MIN_CONFIRMATIONS - 1]; // block where tx got MASTERNODE_MIN_CONFIRMATIONS
         if (pConfIndex->GetBlockTime() > sigTime) {
             LogPrint(BCLog::MASTERNODE,"mnb - Bad sigTime %d for Masternode %s (%i conf block is at %d)\n",

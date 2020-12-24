@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2020 The TARIAN developers
+// Copyright (c) 2015-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -76,7 +76,7 @@ namespace // Anon namespace
 //
 static QString ipcServerName()
 {
-    QString name("TARIANQt");
+    QString name("TARNQt");
 
     // Append a simple hash of the datadir
     // Note that GetDataDir(true) returns a different path
@@ -193,11 +193,9 @@ void PaymentServer::ipcParseCommandLine(int argc, char* argv[])
 
             SendCoinsRecipient r;
             if (GUIUtil::parseBitcoinURI(arg, &r) && !r.address.isEmpty()) {
-                CBitcoinAddress address(r.address.toStdString());
-
-                if (address.IsValid(Params(CBaseChainParams::MAIN))) {
+                if (IsValidDestinationString(r.address.toStdString(), false, Params(CBaseChainParams::MAIN))) {
                     SelectParams(CBaseChainParams::MAIN);
-                } else if (address.IsValid(Params(CBaseChainParams::TESTNET))) {
+                } else if (IsValidDestinationString(r.address.toStdString(), false, Params(CBaseChainParams::TESTNET))) {
                     SelectParams(CBaseChainParams::TESTNET);
                 }
             }
@@ -385,15 +383,14 @@ void PaymentServer::handleURIOrFile(const QString& s)
         {
             SendCoinsRecipient recipient;
             if (GUIUtil::parseBitcoinURI(s, &recipient)) {
-                CBitcoinAddress address(recipient.address.toStdString());
-                if (!address.IsValid()) {
+                if (!IsValidDestinationString(recipient.address.toStdString(), false, Params())) {
                     Q_EMIT message(tr("URI handling"), tr("Invalid payment address %1").arg(recipient.address),
                         CClientUIInterface::MSG_ERROR);
                 } else
                     Q_EMIT receivedPaymentRequest(recipient);
             } else
                 Q_EMIT message(tr("URI handling"),
-                    tr("URI cannot be parsed! This can be caused by an invalid TARIAN address or malformed URI parameters."),
+                    tr("URI cannot be parsed! This can be caused by an invalid TARN address or malformed URI parameters."),
                     CClientUIInterface::ICON_WARNING);
 
             return;
@@ -505,7 +502,7 @@ bool PaymentServer::processPaymentRequest(PaymentRequestPlus& request, SendCoins
         CTxDestination dest;
         if (ExtractDestination(sendingTo.first, dest)) {
             // Append destination address
-            addresses.append(QString::fromStdString(CBitcoinAddress(dest).ToString()));
+            addresses.append(QString::fromStdString(EncodeDestination(dest)));
         } else if (!recipient.authenticatedMerchant.isEmpty()) {
             // Insecure payments to custom tarian addresses are not supported
             // (there is no good way to tell the user where they are paying in a way
@@ -567,27 +564,18 @@ void PaymentServer::fetchPaymentACK(CWallet* wallet, SendCoinsRecipient recipien
     payment.add_transactions(transaction.data(), transaction.size());
 
     // Create a new refund address, or re-use:
-    QString account = tr("Refund from %1").arg(recipient.authenticatedMerchant);
-    std::string strAccount = account.toStdString();
-    std::set<CTxDestination> refundAddresses = wallet->GetAccountAddresses(strAccount);
-    if (!refundAddresses.empty()) {
-        CScript s = GetScriptForDestination(*refundAddresses.begin());
+    CPubKey newKey;
+    if (wallet->GetKeyFromPool(newKey)) {
+        CKeyID keyID = newKey.GetID();
+        std::string label = tr("Refund from %1").arg(recipient.authenticatedMerchant).toStdString();
+        wallet->SetAddressBook(keyID, label, "refund");
+        CScript s = GetScriptForDestination(keyID);
         payments::Output* refund_to = payment.add_refund_to();
         refund_to->set_script(&s[0], s.size());
     } else {
-        CPubKey newKey;
-        if (wallet->GetKeyFromPool(newKey)) {
-            CKeyID keyID = newKey.GetID();
-            wallet->SetAddressBook(keyID, strAccount, "refund");
-
-            CScript s = GetScriptForDestination(keyID);
-            payments::Output* refund_to = payment.add_refund_to();
-            refund_to->set_script(&s[0], s.size());
-        } else {
-            // This should never happen, because sending coins should have
-            // just unlocked the wallet and refilled the keypool.
-            qWarning() << "PaymentServer::fetchPaymentACK : Error getting refund key, refund_to not set";
-        }
+        // This should never happen, because sending coins should have
+        // just unlocked the wallet and refilled the keypool.
+        qWarning() << "PaymentServer::fetchPaymentACK : Error getting refund key, refund_to not set";
     }
 
     int length = payment.ByteSize();

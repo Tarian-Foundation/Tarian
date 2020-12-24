@@ -1,9 +1,9 @@
-// Copyright (c) 2019 The TARIAN developers
+// Copyright (c) 2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TARIAN_ADDRESSBOOK_H
-#define TARIAN_ADDRESSBOOK_H
+#ifndef TARN_ADDRESSBOOK_H
+#define TARN_ADDRESSBOOK_H
 
 #include <map>
 #include <string>
@@ -43,4 +43,4 @@ namespace AddressBook {
 
 }
 
-#endif //TARIAN_ADDRESSBOOK_H
+#endif //TARN_ADDRESSBOOK_H

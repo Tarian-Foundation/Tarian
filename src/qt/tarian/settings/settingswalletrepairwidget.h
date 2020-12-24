@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The TARIAN developers
+// Copyright (c) 2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -17,7 +17,7 @@ class SettingsWalletRepairWidget : public PWidget
     Q_OBJECT
 
 public:
-    explicit SettingsWalletRepairWidget(TARIANGUI* _window, QWidget *parent = nullptr);
+    explicit SettingsWalletRepairWidget(TARNGUI* _window, QWidget *parent = nullptr);
     ~SettingsWalletRepairWidget();
 
     /** Build parameter list for restart */

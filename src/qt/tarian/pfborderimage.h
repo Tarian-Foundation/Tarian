@@ -1,9 +1,9 @@
-// Copyright (c) 2019 The TARIAN developers
+// Copyright (c) 2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TARIAN_PFBorderImage_H
-#define TARIAN_PFBorderImage_H
+#ifndef TARN_PFBorderImage_H
+#define TARN_PFBorderImage_H
 
 #include <QPainter>
 #include <QPixmap>
@@ -52,4 +52,4 @@ protected:
 
 };
 
-#endif //TARIAN_PFBorderImage_H
+#endif //TARN_PFBorderImage_H

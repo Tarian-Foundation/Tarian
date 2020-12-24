@@ -3,7 +3,7 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-from test_framework.test_framework import TarianTestFramework
+from test_framework.test_framework import TarnTestFramework
 from test_framework.util import (
     assert_fee_amount,
     assert_equal,
@@ -36,7 +36,7 @@ def check_outputs(outputs, dec_tx):
     return True
 
 
-class RawTransactionsTest(TarianTestFramework):
+class RawTransactionsTest(TarnTestFramework):
 
     def set_test_params(self):
         self.num_nodes = 4
@@ -195,7 +195,7 @@ class RawTransactionsTest(TarianTestFramework):
         self.log.info("test with an invalid change address")
         outputs = {self.nodes[0].getnewaddress(): 1.0}
         rawtx = self.nodes[2].createrawtransaction([], outputs)
-        assert_raises_rpc_error(-8, "changeAddress must be a valid TARIAN address",
+        assert_raises_rpc_error(-8, "changeAddress must be a valid TARN address",
                                 self.nodes[2].fundrawtransaction, rawtx, {'changeAddress': 'foobar'})
 
     def test_valid_change_address(self):
@@ -375,7 +375,7 @@ class RawTransactionsTest(TarianTestFramework):
         self.nodes[1].getrawchangeaddress()
         utx = get_unspent(self.nodes[1].listunspent(), DecimalAmt(250.0))
         inputs = [{'txid': utx['txid'], 'vout': utx['vout']}]
-        outputs = {self.nodes[0].getnewaddress(): 250.0 - float(self.test_no_change_fee) - float(self.fee_tolerance)}
+        outputs = {self.nodes[0].getnewaddress(): round(250.0 - float(self.test_no_change_fee) - float(self.fee_tolerance), 8)}
         rawtx = self.nodes[1].createrawtransaction(inputs, outputs)
         # fund a transaction that does not require a new key for the change output
         self.nodes[1].fundrawtransaction(rawtx)
@@ -413,7 +413,7 @@ class RawTransactionsTest(TarianTestFramework):
         self.log.info("test with many inputs (%s)" % info)
 
         # Empty node1, send some small coins from node0 to node1.
-        self.nodes[1].sendtoaddress(self.nodes[0].getnewaddress(), float(self.nodes[1].getbalance()) - 0.001)
+        self.nodes[1].sendtoaddress(self.nodes[0].getnewaddress(), round((float(self.nodes[1].getbalance()) - 0.001), 8))
         self.nodes[1].generate(1)
         self.sync_all()
 

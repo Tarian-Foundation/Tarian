@@ -1,4 +1,4 @@
-// Copyright (c) 2018-2020 The TARIAN developers
+// Copyright (c) 2018-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -133,7 +133,7 @@ CAmount CzTARNTracker::GetBalance(bool fConfirmedOnly, bool fUnconfirmedOnly) co
     }
 
     {
-        //LOCK(cs_tarntracker);
+        //LOCK(cs_tariantracker);
         // Get Unused coins
         for (auto& it : mapSerialHashes) {
             CMintMeta meta = it.second;

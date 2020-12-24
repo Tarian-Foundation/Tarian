@@ -1,9 +1,9 @@
-// Copyright (c) 2020 The TARIAN developers
+// Copyright (c) 2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TARIAN_CONSENSUS_ZEROCOIN_VERIFY_H
-#define TARIAN_CONSENSUS_ZEROCOIN_VERIFY_H
+#ifndef TARN_CONSENSUS_ZEROCOIN_VERIFY_H
+#define TARN_CONSENSUS_ZEROCOIN_VERIFY_H
 
 #include "consensus/consensus.h"
 #include "main.h"
@@ -23,4 +23,4 @@ bool ContextualCheckZerocoinSpendNoSerialCheck(const CTransaction& tx, const lib
 bool RecalculateTARNSupply(int nHeightStart, bool fSkipZtarn = true);
 CAmount GetInvalidUTXOValue();
 
-#endif //TARIAN_CONSENSUS_ZEROCOIN_VERIFY_H
+#endif //TARN_CONSENSUS_ZEROCOIN_VERIFY_H

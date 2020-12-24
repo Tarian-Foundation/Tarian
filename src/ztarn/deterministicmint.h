@@ -1,9 +1,9 @@
-// Copyright (c) 2018 The TARIAN developers
+// Copyright (c) 2018 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TARIAN_DETERMINISTICMINT_H
-#define TARIAN_DETERMINISTICMINT_H
+#ifndef TARN_DETERMINISTICMINT_H
+#define TARN_DETERMINISTICMINT_H
 
 #include <libzerocoin/Denominations.h>
 #include <uint256.h>
@@ -64,4 +64,4 @@ public:
     };
 };
 
-#endif //TARIAN_DETERMINISTICMINT_H
+#endif //TARN_DETERMINISTICMINT_H

@@ -1,9 +1,9 @@
-// Copyright (c) 2019 The TARIAN developers
+// Copyright (c) 2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TARIAN_ADDRESSHOLDER_H
-#define TARIAN_ADDRESSHOLDER_H
+#ifndef TARN_ADDRESSHOLDER_H
+#define TARN_ADDRESSHOLDER_H
 
 #include <QWidget>
 #include <QColor>
@@ -38,4 +38,4 @@ public:
 };
 
 
-#endif //TARIAN_ADDRESSHOLDER_H
+#endif //TARN_ADDRESSHOLDER_H

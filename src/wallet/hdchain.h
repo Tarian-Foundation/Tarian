@@ -1,9 +1,9 @@
-// Copyright (c) 2020 The TARIAN developers
+// Copyright (c) 2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TARIAN_HDCHAIN_H
-#define TARIAN_HDCHAIN_H
+#ifndef TARN_HDCHAIN_H
+#define TARN_HDCHAIN_H
 
 #include "key.h"
 
@@ -63,4 +63,4 @@ public:
     }
 };
 
-#endif // TARIAN_HDCHAIN_H
+#endif // TARN_HDCHAIN_H

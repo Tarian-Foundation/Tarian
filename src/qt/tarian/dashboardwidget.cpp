@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -23,7 +23,7 @@
 #define REQUEST_LOAD_TASK 1
 #define CHART_LOAD_MIN_TIME_INTERVAL 15
 
-DashboardWidget::DashboardWidget(TARIANGUI* parent) :
+DashboardWidget::DashboardWidget(TARNGUI* parent) :
     PWidget(parent),
     ui(new Ui::DashboardWidget)
 {
@@ -52,9 +52,9 @@ DashboardWidget::DashboardWidget(TARIANGUI* parent) :
 
     // Staking Information
     setCssSubtitleScreen(ui->labelMessage);
-    setCssProperty(ui->labelSquareTarn, "square-chart-tarn");
+    setCssProperty(ui->labelSquareTarn, "square-chart-tarian");
     setCssProperty(ui->labelSquarezTarn, "square-chart-ztarn");
-    setCssProperty(ui->labelTarn, "text-chart-tarn");
+    setCssProperty(ui->labelTarn, "text-chart-tarian");
     setCssProperty(ui->labelZtarn, "text-chart-ztarn");
 
     // Staking Amount
@@ -62,7 +62,7 @@ DashboardWidget::DashboardWidget(TARIANGUI* parent) :
     fontBold.setWeight(QFont::Bold);
 
     setCssProperty(ui->labelChart, "legend-chart");
-    setCssProperty(ui->labelAmountTarn, "text-stake-tarn-disable");
+    setCssProperty(ui->labelAmountTarn, "text-stake-tarian-disable");
     setCssProperty(ui->labelAmountZtarn, "text-stake-ztarn-disable");
 
     setCssProperty({ui->pushButtonAll,  ui->pushButtonMonth, ui->pushButtonYear}, "btn-check-time");
@@ -144,7 +144,7 @@ bool hasCharts = false;
     connect(ui->pushButtonMonth, &QPushButton::clicked, [this](){setChartShow(MONTH);});
     connect(ui->pushButtonAll, &QPushButton::clicked, [this](){setChartShow(ALL);});
     if (window)
-        connect(window, &TARIANGUI::windowResizeEvent, this, &DashboardWidget::windowResizeEvent);
+        connect(window, &TARNGUI::windowResizeEvent, this, &DashboardWidget::windowResizeEvent);
 #endif
 
     if (hasCharts) {
@@ -182,7 +182,18 @@ void DashboardWidget::loadWalletModel()
         filter->setFilterCaseSensitivity(Qt::CaseInsensitive);
         filter->setSortRole(Qt::EditRole);
         filter->setSourceModel(txModel);
-        filter->sort(TransactionTableModel::Date, Qt::DescendingOrder);
+
+        // Read filter settings
+        QSettings settings;
+        int filterByType = settings.value("transactionType", TransactionFilterProxy::ALL_TYPES).toInt();
+
+        filter->setTypeFilter(filterByType); // Set filter
+        int filterIndex = ui->comboBoxSortType->findData(filterByType); // Find index
+        ui->comboBoxSortType->setCurrentIndex(filterIndex); // Set item in ComboBox
+
+        // Read sort settings
+        changeSort(settings.value("transactionSort", SortTx::DATE_DESC).toInt());
+
         txHolder->setFilter(filter);
         ui->listTransactions->setModel(filter);
         ui->listTransactions->setModelColumn(TransactionTableModel::ToAddress);
@@ -194,8 +205,8 @@ void DashboardWidget::loadWalletModel()
             ui->comboBoxSort->setVisible(false);
         }
 
-        connect(ui->pushImgEmpty, &QPushButton::clicked, window, &TARIANGUI::openFAQ);
-        connect(ui->btnHowTo, &QPushButton::clicked, window, &TARIANGUI::openFAQ);
+        connect(ui->pushImgEmpty, &QPushButton::clicked, window, &TARNGUI::openFAQ);
+        connect(ui->btnHowTo, &QPushButton::clicked, window, &TARNGUI::openFAQ);
         connect(txModel, &TransactionTableModel::txArrived, this, &DashboardWidget::onTxArrived);
 
         // Notification pop-up for new transaction
@@ -256,39 +267,59 @@ void DashboardWidget::updateDisplayUnit()
 void DashboardWidget::onSortChanged(const QString& value)
 {
     if (!filter) return;
-    int columnIndex = 0;
-    Qt::SortOrder order = Qt::DescendingOrder;
-    if (!value.isNull()) {
-        switch (ui->comboBoxSort->itemData(ui->comboBoxSort->currentIndex()).toInt()) {
-            case SortTx::DATE_ASC:{
-                columnIndex = TransactionTableModel::Date;
-                order = Qt::AscendingOrder;
-                break;
-            }
-            case SortTx::DATE_DESC:{
-                columnIndex = TransactionTableModel::Date;
-                break;
-            }
-            case SortTx::AMOUNT_ASC:{
-                columnIndex = TransactionTableModel::Amount;
-                order = Qt::AscendingOrder;
-                break;
-            }
-            case SortTx::AMOUNT_DESC:{
-                columnIndex = TransactionTableModel::Amount;
-                break;
-            }
 
+    if (!value.isNull()) {
+        changeSort(ui->comboBoxSort->currentIndex());
+    } else {
+        changeSort(SortTx::DATE_DESC);
+    }
+}
+
+void DashboardWidget::changeSort(int nSortIndex)
+{
+    int nColumnIndex = TransactionTableModel::Date;
+    Qt::SortOrder order = Qt::DescendingOrder;
+
+    switch (nSortIndex) {
+        case SortTx::DATE_DESC:
+        {
+            nColumnIndex = TransactionTableModel::Date;
+            break;
+        }
+        case SortTx::DATE_ASC:
+        {
+            nColumnIndex = TransactionTableModel::Date;
+            order = Qt::AscendingOrder;
+            break;
+        }
+        case SortTx::AMOUNT_DESC:
+        {
+            nColumnIndex = TransactionTableModel::Amount;
+            break;
+        }
+        case SortTx::AMOUNT_ASC:
+        {
+            nColumnIndex = TransactionTableModel::Amount;
+            order = Qt::AscendingOrder;
+            break;
         }
     }
-    filter->sort(columnIndex, order);
+
+    ui->comboBoxSort->setCurrentIndex(nSortIndex);
+    filter->sort(nColumnIndex, order);
     ui->listTransactions->update();
+
+    // Store settings
+    QSettings settings;
+    settings.setValue("transactionSort", nSortIndex);
 }
 
 void DashboardWidget::onSortTypeChanged(const QString& value)
 {
     if (!filter) return;
-    int filterByType = ui->comboBoxSortType->itemData(ui->comboBoxSortType->currentIndex()).toInt();
+    int filterIndex = ui->comboBoxSortType->currentIndex();
+    int filterByType = ui->comboBoxSortType->itemData(filterIndex).toInt();
+
     filter->setTypeFilter(filterByType);
     ui->listTransactions->update();
 
@@ -559,11 +590,11 @@ bool DashboardWidget::loadChartData(bool withMonthNames)
 
     for (int j = range.first; j < range.second; j++) {
         int num = (isOrderedByMonth && j > daysInMonth) ? (j % daysInMonth) : j;
-        qreal tarn = 0;
+        qreal tarian = 0;
         qreal ztarn = 0;
         if (chartData->amountsByCache.contains(num)) {
             std::pair <qint64, qint64> pair = chartData->amountsByCache[num];
-            tarn = (pair.first != 0) ? pair.first / 100000000 : 0;
+            tarian = (pair.first != 0) ? pair.first / 100000000 : 0;
             ztarn = (pair.second != 0) ? pair.second / 100000000 : 0;
             chartData->totalTarn += pair.first;
             chartData->totalZtarn += pair.second;
@@ -571,10 +602,10 @@ bool DashboardWidget::loadChartData(bool withMonthNames)
 
         chartData->xLabels << ((withMonthNames) ? monthsNames[num - 1] : QString::number(num));
 
-        chartData->valuesTarn.append(tarn);
+        chartData->valuesTarn.append(tarian);
         chartData->valueszTarn.append(ztarn);
 
-        int max = std::max(tarn, ztarn);
+        int max = std::max(tarian, ztarn);
         if (max > chartData->maxValue) {
             chartData->maxValue = max;
         }
@@ -649,10 +680,10 @@ void DashboardWidget::onChartRefreshed()
     // Total
     nDisplayUnit = walletModel->getOptionsModel()->getDisplayUnit();
     if (chartData->totalTarn > 0 || chartData->totalZtarn > 0) {
-        setCssProperty(ui->labelAmountTarn, "text-stake-tarn");
+        setCssProperty(ui->labelAmountTarn, "text-stake-tarian");
         setCssProperty(ui->labelAmountZtarn, "text-stake-ztarn");
     } else {
-        setCssProperty(ui->labelAmountTarn, "text-stake-tarn-disable");
+        setCssProperty(ui->labelAmountTarn, "text-stake-tarian-disable");
         setCssProperty(ui->labelAmountZtarn, "text-stake-ztarn-disable");
     }
     forceUpdateStyle({ui->labelAmountTarn, ui->labelAmountZtarn});
@@ -732,7 +763,7 @@ std::pair<int, int> DashboardWidget::getChartRange(QMap<int, std::pair<qint64, q
                 inform(tr("Error loading chart, invalid data"));
                 return std::make_pair(0, 0);
             }
-            qSort(keys);
+            std::sort(keys.begin(), keys.end());
             return std::make_pair(keys.first(), keys.last() + 1);
         }
         case MONTH:
@@ -758,9 +789,22 @@ void DashboardWidget::updateAxisX(const QStringList* args)
 
 void DashboardWidget::onChartArrowClicked(bool goLeft)
 {
+    bool updateMonth = false;
+    bool updateYear = false;
+    int dataenddate = getChartRange(chartData->amountsByCache).second;
+    QDate currentDate = QDate::currentDate();
     if (goLeft) {
         dayStart--;
         if (dayStart == 0) {
+            updateMonth = true;
+            if (monthFilter == 1) {
+                // Prev year
+                monthFilter = 12;
+                yearFilter--;
+                updateYear = true;
+            } else {
+                monthFilter--; // Prev month
+            }
             dayStart = QDate(yearFilter, monthFilter, 1).daysInMonth();
         }
     } else {
@@ -768,9 +812,32 @@ void DashboardWidget::onChartArrowClicked(bool goLeft)
         dayStart++;
         if (dayStart > dayInMonth) {
             dayStart = 1;
+            updateMonth = true;
+            if (monthFilter == 12) {
+                // Next year
+                monthFilter = 1;
+                yearFilter++;
+                updateYear = true;
+            } else {
+                monthFilter++; // Next month
+            }
         }
     }
+
     refreshChart();
+    //Check if data end day is current date and monthfilter is current month
+    bool fEndDayisCurrent = dataenddate  == currentDate.day() && monthFilter == currentDate.month();
+
+    if (updateMonth)
+        ui->comboBoxMonths->setCurrentIndex(monthFilter - 1);
+
+    if (updateYear)
+        ui->comboBoxYears->setCurrentText(QString::number(yearFilter));
+
+    // enable/disable the pushButtonChartRight.
+    ui->pushButtonChartRight->setEnabled(!fEndDayisCurrent);
+
+
 }
 
 void DashboardWidget::windowResizeEvent(QResizeEvent* event)

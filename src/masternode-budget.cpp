@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2020 The TARIAN developers
+// Copyright (c) 2015-2020 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -1080,13 +1080,14 @@ void CBudgetManager::ProcessMessage(CNode* pfrom, std::string& strCommand, CData
         if (Params().NetworkID() == CBaseChainParams::MAIN) {
             if (nProp.IsNull()) {
                 if (pfrom->HasFulfilledRequest("budgetvotesync")) {
-                  if (sporkManager.IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT))
-                  {
-                      LogPrint(BCLog::MNBUDGET,"mnvs - peer already asked me for the list\n");
-                      Misbehaving(pfrom->GetId(), 20);
-                      return;
-                  }
-                  pfrom->ClearFulfilledRequest("budgetvotesync");
+                    if (sporkManager.IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT))
+                    {
+                        LogPrint(BCLog::MNBUDGET,"mnvs - peer already asked me for the list\n");
+                        LOCK(cs_main);
+		        Misbehaving(pfrom->GetId(), 20);
+                        return;
+                    }
+                    pfrom->ClearFulfilledRequest("budgetvotesync");
                 }
                 pfrom->FulfilledRequest("budgetvotesync");
             }
@@ -1154,6 +1155,7 @@ void CBudgetManager::ProcessMessage(CNode* pfrom, std::string& strCommand, CData
         if (!vote.CheckSignature()) {
             if (masternodeSync.IsSynced()) {
                 LogPrintf("CBudgetManager::ProcessMessage() : mvote - signature invalid\n");
+                LOCK(cs_main);
                 Misbehaving(pfrom->GetId(), 20);
             }
             // it could just be a non-synced masternode
@@ -1228,6 +1230,7 @@ void CBudgetManager::ProcessMessage(CNode* pfrom, std::string& strCommand, CData
         if (!vote.CheckSignature()) {
             if (masternodeSync.IsSynced()) {
                 LogPrintf("CBudgetManager::ProcessMessage() : fbvote - signature from masternode %s invalid\n", HexStr(pmn->pubKeyMasternode));
+                LOCK(cs_main);
                 Misbehaving(pfrom->GetId(), 20);
             }
             // it could just be a non-synced masternode
@@ -1894,6 +1897,11 @@ void CFinalizedBudget::CheckAndVote()
         return;
     }
 
+    if (activeMasternode.vin == nullopt) {
+        LogPrint(BCLog::MNBUDGET,"%s: Active Masternode not initialized.\n", __func__);
+        return;
+    }
+
     // Do this 1 in 4 blocks -- spread out the voting activity
     // -- this function is only called every fourteenth block, so this is really 1 in 56 blocks
     if (rand() % 4 != 0) {
@@ -2204,6 +2212,9 @@ TrxValidationStatus CFinalizedBudget::IsTransactionValid(const CTransaction& txN
 
 void CFinalizedBudget::SubmitVote()
 {
+    // function called only from initialized masternodes
+    assert(fMasterNode && activeMasternode.vin != nullopt);
+
     std::string strError = "";
     CPubKey pubKeyMasternode;
     CKey keyMasternode;
@@ -2213,7 +2224,7 @@ void CFinalizedBudget::SubmitVote()
         return;
     }
 
-    CFinalizedBudgetVote vote(activeMasternode.vin, GetHash());
+    CFinalizedBudgetVote vote(*(activeMasternode.vin), GetHash());
     if (!vote.Sign(keyMasternode, pubKeyMasternode)) {
         LogPrint(BCLog::MNBUDGET,"CFinalizedBudget::SubmitVote - Failure to sign.");
         return;

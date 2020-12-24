@@ -3,6 +3,7 @@ QT_TS = \
   qt/locale/tarian_en.ts \
   qt/locale/tarian_en_US.ts \
   qt/locale/tarian_es.ts \
+  qt/locale/tarian_es_ES.ts \
   qt/locale/tarian_fr_FR.ts \
   qt/locale/tarian_hr_HR.ts \
   qt/locale/tarian_it.ts \

@@ -1,9 +1,9 @@
-// Copyright (c) 2018-2020 The TARIAN developers
+// Copyright (c) 2018-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TARIAN_ZTARNCHAIN_H
-#define TARIAN_ZTARNCHAIN_H
+#ifndef TARN_ZTARNCHAIN_H
+#define TARN_ZTARNCHAIN_H
 
 #include "chain.h"
 #include "libzerocoin/Coin.h"
@@ -44,4 +44,4 @@ int64_t GetZerocoinSupply();
 bool UpdateZTARNSupplyConnect(const CBlock& block, CBlockIndex* pindex, bool fJustCheck);
 bool UpdateZTARNSupplyDisconnect(const CBlock& block, CBlockIndex* pindex);
 
-#endif //TARIAN_ZTARNCHAIN_H
+#endif //TARN_ZTARNCHAIN_H

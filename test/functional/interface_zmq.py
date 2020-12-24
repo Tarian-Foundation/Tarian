@@ -8,7 +8,7 @@ import os
 import struct
 import time
 
-from test_framework.test_framework import TarianTestFramework, SkipTest
+from test_framework.test_framework import TarnTestFramework, SkipTest
 from test_framework.mininode import CTransaction
 from test_framework.util import (assert_equal,
                                  bytes_to_hex_str,
@@ -35,7 +35,7 @@ class ZMQSubscriber:
         return body
 
 
-class ZMQTest (TarianTestFramework):
+class ZMQTest (TarnTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
 

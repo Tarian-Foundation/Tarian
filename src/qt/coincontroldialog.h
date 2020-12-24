@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2013 The Bitcoin developers
-// Copyright (c) 2017-2020 The TARIAN developers
+// Copyright (c) 2017-2020 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -57,7 +57,7 @@ public:
 
     static QString getPriorityLabel(double dPriority, double mempoolEstimatePriority);
 
-    static CCoinControl* coinControl;
+    CCoinControl* coinControl;
 
 private:
     Ui::CoinControlDialog* ui;

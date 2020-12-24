@@ -1,10 +1,11 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef SENDCHANGEADDRESSDIALOG_H
 #define SENDCHANGEADDRESSDIALOG_H
 
+#include "script/standard.h"
 #include "qt/tarian/focuseddialog.h"
 #include "qt/tarian/snackbar.h"
 
@@ -23,7 +24,7 @@ public:
     ~SendChangeAddressDialog();
 
     void setAddress(QString address);
-    QString getAddress() const;
+    CTxDestination getDestination() const;
 
     void showEvent(QShowEvent* event) override;
 
@@ -31,6 +32,8 @@ private:
     WalletModel* walletModel;
     Ui::SendChangeAddressDialog *ui;
     SnackBar *snackBar = nullptr;
+    CTxDestination dest;
+
     void inform(const QString& text);
 
 private Q_SLOTS:

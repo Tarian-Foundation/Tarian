@@ -4,7 +4,8 @@
 // Copyright (c) 2011-2013 The PPCoin developers
 // Copyright (c) 2013-2014 The NovaCoin Developers
 // Copyright (c) 2014-2018 The BlackCoin Developers
-// Copyright (c) 2015-2020 The TARIAN developers
+// Copyright (c) 2015-2020 The PIVX developers
+// Copyright (c) 2020-2020 The TARN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -41,7 +42,7 @@
 
 //////////////////////////////////////////////////////////////////////////////
 //
-// TARIANMiner
+// TARNMiner
 //
 
 //
@@ -113,8 +114,6 @@ CBlockIndex* GetChainTip()
 
 CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, bool fProofOfStake)
 {
-    CReserveKey reservekey(pwallet);
-
     // Create new block
     std::unique_ptr<CBlockTemplate> pblocktemplate(new CBlockTemplate());
     if (!pblocktemplate.get()) return nullptr;
@@ -372,8 +371,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
             if (!CheckInputs(tx, state, view, true, MANDATORY_SCRIPT_VERIFY_FLAGS, true))
                 continue;
 
-            CTxUndo txundo;
-            UpdateCoins(tx, view, txundo, nHeight);
+            UpdateCoins(tx, view, nHeight);
 
             // Added
             pblock->vtx.push_back(tx);
@@ -422,7 +420,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
 
         nLastBlockTx = nBlockTx;
         nLastBlockSize = nBlockSize;
-      //  LogPrintf("%s : total size %u\n", __func__, nBlockSize);
+        //LogPrintf("%s : total size %u\n", __func__, nBlockSize);
 
         // Compute final coinbase transaction.
         pblock->vtx[0].vin[0].scriptSig = CScript() << nHeight << OP_0;
@@ -450,12 +448,12 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
             }
         }
 
-    /*  CValidationState state;
-        if (!TestBlockValidity(state, *pblock, pindexPrev, false, false)) {
-            LogPrintf("CreateNewBlock() : TestBlockValidity failed\n");
-            mempool.clear();
-            return nullptr;
-        } */
+        //CValidationState state;
+        //if (!TestBlockValidity(state, *pblock, pindexPrev, false, false)) {
+        //    LogPrintf("CreateNewBlock() : TestBlockValidity failed\n");
+        //    mempool.clear();
+        //    return nullptr;
+        //}
     }
 
     return pblocktemplate.release();
@@ -508,7 +506,7 @@ CBlockTemplate* CreateNewBlockWithKey(CReserveKey& reservekey, CWallet* pwallet)
     return CreateNewBlock(scriptPubKey, pwallet, false);
 }
 
-bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
+bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, Optional<CReserveKey>& reservekey)
 {
     LogPrintf("%s\n", pblock->ToString());
     LogPrintf("generated %s\n", FormatMoney(pblock->vtx[0].vout[0].nValue));
@@ -517,11 +515,12 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     {
         WAIT_LOCK(g_best_block_mutex, lock);
         if (pblock->hashPrevBlock != g_best_block)
-            return error("TARIANMiner : generated block is stale");
+            return error("TARNMiner : generated block is stale");
     }
 
     // Remove key from key pool
-    reservekey.KeepKey();
+    if (reservekey)
+        reservekey->KeepKey();
 
     // Track how many getdata requests this block gets
     {
@@ -535,7 +534,7 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     // Process this block the same as if we had received it from another node
     CValidationState state;
     if (!ProcessNewBlock(state, NULL, pblock)) {
-        return error("TARIANMiner : ProcessNewBlock, block not accepted");
+        return error("TARNMiner : ProcessNewBlock, block not accepted");
     }
 
     for (CNode* node : vNodes) {
@@ -561,14 +560,19 @@ void CheckForCoins(CWallet* pwallet, const int minutes)
 
 void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
 {
-    LogPrintf("TARIANMiner started\n");
+    LogPrintf("TARNMiner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
     util::ThreadRename("tarian-miner");
     const Consensus::Params& consensus = Params().GetConsensus();
     const int64_t nSpacingMillis = consensus.nTargetSpacing * 1000;
 
     // Each thread has its own key and counter
-    CReserveKey reservekey(pwallet);
+    Optional<CReserveKey> opReservekey{nullopt};
+    if (!fProofOfStake) {
+        opReservekey = CReserveKey(pwallet);
+
+    }
+
     unsigned int nExtraNonce = 0;
 
     while (fGenerateBitcoins || fProofOfStake) {
@@ -587,7 +591,7 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
             // update fStakeableCoins (5 minute check time);
             CheckForCoins(pwallet, 5);
 
-            while ((vNodes.empty()) || pwallet->IsLocked() || !fStakeableCoins ||
+            while ((vNodes.empty() && Params().MiningRequiresPeers()) || pwallet->IsLocked() || !fStakeableCoins ||
                     masternodeSync.NotCompleted()) {
                 MilliSleep(5000);
                 // Do a separate 1 minute check here to ensure fStakeableCoins is updated
@@ -606,7 +610,7 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
             // Late PoW: run for a little while longer, just in case there is a rewind on the chain.
             LogPrintf("%s: Exiting PoW Mining Thread at height: %d\n", __func__, pindexPrev->nHeight);
             return;
-       }
+        }
 
         //
         // Create new block
@@ -615,7 +619,7 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
 
         std::unique_ptr<CBlockTemplate> pblocktemplate((fProofOfStake ?
                                                         CreateNewBlock(CScript(), pwallet, fProofOfStake) :
-                                                        CreateNewBlockWithKey(reservekey, pwallet)));
+                                                        CreateNewBlockWithKey(*opReservekey, pwallet)));
         if (!pblocktemplate.get()) continue;
         CBlock* pblock = &pblocktemplate->block;
 
@@ -623,7 +627,7 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
         if (fProofOfStake) {
             LogPrintf("%s : proof-of-stake block was signed %s \n", __func__, pblock->GetHash().ToString().c_str());
             SetThreadPriority(THREAD_PRIORITY_NORMAL);
-            if (!ProcessBlockFound(pblock, *pwallet, reservekey)) {
+            if (!ProcessBlockFound(pblock, *pwallet, opReservekey)) {
                 LogPrintf("%s: New block orphaned\n", __func__);
                 continue;
             }
@@ -634,8 +638,8 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
         // POW - miner main
         IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
 
-      //  LogPrintf("Running TARIANMiner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
-      //      ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
+        //LogPrintf("Running TARNMiner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
+        //    ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
         //
         // Search
@@ -653,7 +657,7 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
                     SetThreadPriority(THREAD_PRIORITY_NORMAL);
                     LogPrintf("%s:\n", __func__);
                     LogPrintf("proof-of-work found  \n  hash: %s  \ntarget: %s\n", hash.GetHex(), hashTarget.GetHex());
-                    ProcessBlockFound(pblock, *pwallet, reservekey);
+                    ProcessBlockFound(pblock, *pwallet, opReservekey);
                     SetThreadPriority(THREAD_PRIORITY_LOWEST);
 
                     // In regression test mode, stop mining after a block is found. This
@@ -695,7 +699,7 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
 
             // Check for stop or if block needs to be rebuilt
             boost::this_thread::interruption_point();
-            if (    (vNodes.empty()) || // Regtest mode doesn't require peers
+            if (    (vNodes.empty() && Params().MiningRequiresPeers()) || // Regtest mode doesn't require peers
                     (pblock->nNonce >= 0xffff0000) ||
                     (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 60) ||
                     (pindexPrev != chainActive.Tip())
@@ -720,12 +724,12 @@ void static ThreadBitcoinMiner(void* parg)
         BitcoinMiner(pwallet, false);
         boost::this_thread::interruption_point();
     } catch (const std::exception& e) {
-        LogPrintf("TARIANMiner exception");
+        LogPrintf("TARNMiner exception");
     } catch (...) {
-        LogPrintf("TARIANMiner exception");
+        LogPrintf("TARNMiner exception");
     }
 
-    LogPrintf("TARIANMiner exiting\n");
+    LogPrintf("TARNMiner exiting\n");
 }
 
 void GenerateBitcoins(bool fGenerate, CWallet* pwallet, int nThreads)

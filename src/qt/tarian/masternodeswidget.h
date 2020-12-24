@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -16,7 +16,7 @@
 #include <QTimer>
 #include <QWidget>
 
-class TARIANGUI;
+class TARNGUI;
 
 namespace Ui {
 class MasterNodesWidget;
@@ -32,7 +32,7 @@ class MasterNodesWidget : public PWidget
 
 public:
 
-    explicit MasterNodesWidget(TARIANGUI *parent = nullptr);
+    explicit MasterNodesWidget(TARNGUI *parent = nullptr);
     ~MasterNodesWidget();
 
     void loadWalletModel() override;

@@ -1,4 +1,4 @@
-// Copyright (c) 2019 The TARIAN developers
+// Copyright (c) 2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -32,7 +32,7 @@
 #include <QTimer>
 
 
-SettingsMainOptionsWidget::SettingsMainOptionsWidget(TARIANGUI* _window, QWidget *parent) :
+SettingsMainOptionsWidget::SettingsMainOptionsWidget(TARNGUI* _window, QWidget *parent) :
     PWidget(_window, parent),
     ui(new Ui::SettingsMainOptionsWidget)
 {
@@ -54,7 +54,7 @@ SettingsMainOptionsWidget::SettingsMainOptionsWidget(TARIANGUI* _window, QWidget
     setCssProperty({ui->labelTitleSizeDb, ui->labelTitleThreads}, "text-main-settings");
 
     // Switch
-    ui->pushSwitchStart->setText(tr("Start TARIAN on system login"));
+    ui->pushSwitchStart->setText(tr("Start TARN on system login"));
     ui->pushSwitchStart->setProperty("cssClass", "btn-switch");
 
     // Combobox

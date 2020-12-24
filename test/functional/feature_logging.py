@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2017 The Bitcoin Core developers
-# Copyright (c) 2020 The TARIAN developers
+# Copyright (c) 2020 The TARN developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,9 +8,9 @@
 
 import os
 
-from test_framework.test_framework import TarianTestFramework
+from test_framework.test_framework import TarnTestFramework
 
-class LoggingTest(TarianTestFramework):
+class LoggingTest(TarnTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
         self.setup_clean_chain = True

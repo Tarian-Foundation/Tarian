@@ -10,10 +10,10 @@
 - verify that getchaintips now returns two chain tips.
 """
 
-from test_framework.test_framework import TarianTestFramework
+from test_framework.test_framework import TarnTestFramework
 from test_framework.util import assert_equal
 
-class GetChainTipsTest (TarianTestFramework):
+class GetChainTipsTest (TarnTestFramework):
     def set_test_params(self):
         self.num_nodes = 4
 

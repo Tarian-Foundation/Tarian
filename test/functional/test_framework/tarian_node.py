@@ -7,8 +7,8 @@ from .messages import msg_getheaders, msg_headers, CBlockHeader
 from .mininode import P2PInterface, mininode_lock
 from .util import wait_until
 
-## TARIAN Test Node
-class TarianTestNode(P2PInterface):
+## TARN Test Node
+class TarnTestNode(P2PInterface):
     def __init__(self):
         super().__init__()
         self.last_sendcmpct = []

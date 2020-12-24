@@ -1,13 +1,13 @@
-TARIAN Core
+Tarian Core
 =============
 
 Setup
 ---------------------
-[TARIAN Core](http://tarian.org/wallet) is the original TARIAN client and it builds the backbone of the network. However, it downloads and stores the entire history of TARIAN transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
+[Tarian Core](http://cri.eco/wallet) is the original TARN client and it builds the backbone of the network. However, it downloads and stores the entire history of TARN transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
 
 Running
 ---------------------
-The following are some helpful notes on how to run TARIAN Core on your native platform.
+The following are some helpful notes on how to run Tarian Core on your native platform.
 
 ### Unix
 
@@ -22,18 +22,17 @@ Unpack the files into a directory, and then run tarian-qt.exe.
 
 ### macOS
 
-Drag TARIAN-Qt to your applications folder, and then run TARIAN-Qt.
+Drag Tarian-Qt to your applications folder, and then run Tarian-Qt.
 
 ### Need Help?
 
-* See the documentation at the [TARIAN Wiki](https://github.com/Tarian-Foundation/Tarian/wiki)
+* See the documentation at the [TARN Wiki](https://github.com/Carbon-Reduction-Initiative/TARN/wiki)
 for help and more information.
-* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [TARIAN Forum](http://forum.tarian.org/).
-* Join our Discord server [Discord Server](https://discord.tarian.org)
+* Ask for help on our Discord server [Discord Server](https://discord.gg/m9CwKFp)
 
 Building
 ---------------------
-The following are developer notes on how to build TARIAN Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build Tarian Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [Dependencies](dependencies.md)
 - [macOS Build Notes](build-osx.md)
@@ -43,7 +42,7 @@ The following are developer notes on how to build TARIAN Core on your native pla
 
 Development
 ---------------------
-The TARIAN repo's [root README](/README.md) contains relevant information on the development process and automated testing.
+The TARN repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)
@@ -56,8 +55,7 @@ The TARIAN repo's [root README](/README.md) contains relevant information on the
 - [Dnsseed Policy](dnsseed-policy.md)
 
 ### Resources
-* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [TARIAN](http://forum.tarian.org/) forum.
-* Join the [TARIAN Discord](https://discord.tarian.org).
+* Discuss on our [TARN Discord](https://discord.gg/m9CwKFp).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

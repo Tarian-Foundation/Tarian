@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2020 The TARIAN developers
+// Copyright (c) 2015-2020 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -430,11 +430,11 @@ void CMasternodeMan::DsegUpdate(CNode* pnode)
             std::map<CNetAddr, int64_t>::iterator it = mWeAskedForMasternodeList.find(pnode->addr);
             if (it != mWeAskedForMasternodeList.end()) {
                 if (GetTime() < (*it).second) {
-                  if (sporkManager.IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT))
-                  {
-                      LogPrint(BCLog::MASTERNODE, "dseg - we already asked peer %i for the list; skipping...\n", pnode->GetId());
-                      return;
-                  }
+                    if (sporkManager.IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT))
+                    {
+                        LogPrint(BCLog::MASTERNODE, "dseg - we already asked peer %i for the list; skipping...\n", pnode->GetId());
+                        return;
+                    }
                 }
             }
         }
@@ -543,38 +543,6 @@ CMasternode* CMasternodeMan::GetNextMasternodeInQueueForPayment(int nBlockHeight
         if (nCountTenth >= nTenthNetwork) break;
     }
     return pBestMasternode;
-}
-
-CMasternode* CMasternodeMan::FindRandomNotInVec(std::vector<CTxIn>& vecToExclude, int protocolVersion)
-{
-    LOCK(cs);
-
-    protocolVersion = protocolVersion == -1 ? masternodePayments.GetMinMasternodePaymentsProto() : protocolVersion;
-
-    int nCountEnabled = CountEnabled(protocolVersion);
-    LogPrint(BCLog::MASTERNODE, "CMasternodeMan::FindRandomNotInVec - nCountEnabled - vecToExclude.size() %d\n", nCountEnabled - vecToExclude.size());
-    if (nCountEnabled - vecToExclude.size() < 1) return NULL;
-
-    int rand = GetRandInt(nCountEnabled - vecToExclude.size());
-    LogPrint(BCLog::MASTERNODE, "CMasternodeMan::FindRandomNotInVec - rand %d\n", rand);
-    bool found;
-
-    for (CMasternode& mn : vMasternodes) {
-        if (mn.protocolVersion < protocolVersion || !mn.IsEnabled()) continue;
-        found = false;
-        for (CTxIn& usedVin : vecToExclude) {
-            if (mn.vin.prevout == usedVin.prevout) {
-                found = true;
-                break;
-            }
-        }
-        if (found) continue;
-        if (--rand < 1) {
-            return &mn;
-        }
-    }
-
-    return NULL;
 }
 
 CMasternode* CMasternodeMan::GetCurrentMasterNode(int mod, int64_t nBlockHeight, int minProtocol)
@@ -735,9 +703,10 @@ void CMasternodeMan::ProcessMessage(CNode* pfrom, std::string& strCommand, CData
 
         int nDoS = 0;
         if (!mnb.CheckAndUpdate(nDoS)) {
-            if (nDoS > 0)
+            if (nDoS > 0) {
+                LOCK(cs_main);
                 Misbehaving(pfrom->GetId(), nDoS);
-
+            }
             //failed
             return;
         }
@@ -746,6 +715,7 @@ void CMasternodeMan::ProcessMessage(CNode* pfrom, std::string& strCommand, CData
         //  - this is expensive, so it's only done once per Masternode
         if (!mnb.IsInputAssociatedWithPubkey()) {
             LogPrintf("CMasternodeMan::ProcessMessage() : mnb - Got mismatched pubkey and vin\n");
+            LOCK(cs_main);
             Misbehaving(pfrom->GetId(), 33);
             return;
         }
@@ -759,8 +729,10 @@ void CMasternodeMan::ProcessMessage(CNode* pfrom, std::string& strCommand, CData
         } else {
             LogPrint(BCLog::MASTERNODE,"mnb - Rejected Masternode entry %s\n", mnb.vin.prevout.hash.ToString());
 
-            if (nDoS > 0)
+            if (nDoS > 0) {
+                LOCK(cs_main);
                 Misbehaving(pfrom->GetId(), nDoS);
+            }
         }
     }
 
@@ -778,6 +750,7 @@ void CMasternodeMan::ProcessMessage(CNode* pfrom, std::string& strCommand, CData
 
         if (nDoS > 0) {
             // if anything significant failed, mark that node
+            LOCK(cs_main);
             Misbehaving(pfrom->GetId(), nDoS);
         } else {
             // if nothing significant failed, search existing Masternode list
@@ -805,9 +778,9 @@ void CMasternodeMan::ProcessMessage(CNode* pfrom, std::string& strCommand, CData
                     int64_t t = (*i).second;
                     if (GetTime() < t) {
                         LogPrintf("CMasternodeMan::ProcessMessage() : dseg - peer already asked me for the list\n");
-                        Misbehaving(pfrom->GetId(), 34);
                         if (sporkManager.IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT))
                         {
+                            LOCK(cs_main);
                             Misbehaving(pfrom->GetId(), 34);
                             return;
                         }

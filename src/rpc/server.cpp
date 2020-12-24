@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2020 The TARIAN developers
+// Copyright (c) 2015-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -117,22 +117,15 @@ void RPCTypeCheckObj(const UniValue& o,
     }
 }
 
-static inline int64_t roundint64(double d)
-{
-    return (int64_t)(d > 0 ? d + 0.5 : d - 0.5);
-}
-
 CAmount AmountFromValue(const UniValue& value)
 {
-    if (!value.isNum())
-        throw JSONRPCError(RPC_TYPE_ERROR, "Amount is not a number");
-
-    double dAmount = value.get_real();
-    if (dAmount <= 0.0 || dAmount > 21000000.0)
+    if (!value.isNum() && !value.isStr())
+        throw JSONRPCError(RPC_TYPE_ERROR,"Amount is not a number or string");
+    CAmount nAmount;
+    if (!ParseFixedPoint(value.getValStr(), 8, &nAmount))
         throw JSONRPCError(RPC_TYPE_ERROR, "Invalid amount");
-    CAmount nAmount = roundint64(dAmount * COIN);
     if (!Params().GetConsensus().MoneyRange(nAmount))
-        throw JSONRPCError(RPC_TYPE_ERROR, "Invalid amount");
+        throw JSONRPCError(RPC_TYPE_ERROR, "Amount out of range");
     return nAmount;
 }
 
@@ -207,23 +200,21 @@ std::string CRPCTable::help(std::string strCommand) const
     std::set<rpcfn_type> setDone;
     std::vector<std::pair<std::string, const CRPCCommand*> > vCommands;
 
-    for (std::map<std::string, const CRPCCommand*>::const_iterator mi = mapCommands.begin(); mi != mapCommands.end(); ++mi)
-        vCommands.push_back(std::make_pair(mi->second->category + mi->first, mi->second));
+    for (const auto& entry : mapCommands)
+        vCommands.push_back(std::make_pair(entry.second->category + entry.first, entry.second));
     std::sort(vCommands.begin(), vCommands.end());
 
-    for (const PAIRTYPE(std::string, const CRPCCommand*) & command : vCommands) {
+    for (const std::pair<std::string, const CRPCCommand*>& command : vCommands) {
         const CRPCCommand* pcmd = command.second;
         std::string strMethod = pcmd->name;
-        // We already filter duplicates, but these deprecated screw up the sort order
-        if (strMethod.find("label") != std::string::npos)
-            continue;
         if ((strCommand != "" || pcmd->category == "hidden") && strMethod != strCommand)
             continue;
         try {
-            UniValue params;
+            JSONRPCRequest jreq;
+            jreq.fHelp = true;
             rpcfn_type pfn = pcmd->actor;
             if (setDone.insert(pfn).second)
-                (*pfn)(params, true);
+                (*pfn)(jreq);
         } catch (const std::exception& e) {
             // Help text is returned in an exception
             std::string strHelp = std::string(e.what());
@@ -249,9 +240,9 @@ std::string CRPCTable::help(std::string strCommand) const
     return strRet;
 }
 
-UniValue help(const UniValue& params, bool fHelp)
+UniValue help(const JSONRPCRequest& jsonRequest)
 {
-    if (fHelp || params.size() > 1)
+    if (jsonRequest.fHelp || jsonRequest.params.size() > 1)
         throw std::runtime_error(
             "help ( \"command\" )\n"
             "\nList all commands, or get help for a specified command.\n"
@@ -261,24 +252,24 @@ UniValue help(const UniValue& params, bool fHelp)
             "\"text\"     (string) The help text\n");
 
     std::string strCommand;
-    if (params.size() > 0)
-        strCommand = params[0].get_str();
+    if (jsonRequest.params.size() > 0)
+        strCommand = jsonRequest.params[0].get_str();
 
     return tableRPC.help(strCommand);
 }
 
 
-UniValue stop(const UniValue& params, bool fHelp)
+UniValue stop(const JSONRPCRequest& jsonRequest)
 {
     // Accept the deprecated and ignored 'detach' boolean argument
-    if (fHelp || params.size() > 1)
+    if (jsonRequest.fHelp || jsonRequest.params.size() > 1)
         throw std::runtime_error(
             "stop\n"
-            "\nStop TARIAN server.");
+            "\nStop TARN server.");
     // Event loop will exit after current HTTP requests have been handled, so
     // this reply will get back to the client.
     StartShutdown();
-    return "TARIAN server stopping";
+    return "TARN server stopping";
 }
 
 
@@ -290,142 +281,141 @@ static const CRPCCommand vRPCCommands[] =
         //  category              name                      actor (function)         okSafeMode
         //  --------------------- ------------------------  -----------------------  ----------
         /* Overall control/query calls */
-        {"control", "getinfo", &getinfo, true }, /* uses wallet if enabled */
-        {"control", "help", &help, true },
-        {"control", "stop", &stop, true },
+        {"control", "getinfo",                      &getinfo,                   true  }, /* uses wallet if enabled */
+        {"control", "help",                         &help,                      true  },
+        {"control", "stop",                         &stop,                      true  },
 
         /* P2P networking */
-        {"network", "getnetworkinfo", &getnetworkinfo, true },
-        {"network", "addnode", &addnode, true },
-        {"network", "disconnectnode", &disconnectnode, true },
-        {"network", "getaddednodeinfo", &getaddednodeinfo, true },
-        {"network", "getconnectioncount", &getconnectioncount, true },
-        {"network", "getnettotals", &getnettotals, true },
-        {"network", "getpeerinfo", &getpeerinfo, true },
-        {"network", "ping", &ping, true },
-        {"network", "setban", &setban, true },
-        {"network", "listbanned", &listbanned, true },
-        {"network", "clearbanned", &clearbanned, true },
+        {"network", "getnetworkinfo",               &getnetworkinfo,            true  },
+        {"network", "addnode",                      &addnode,                   true  },
+        {"network", "disconnectnode",               &disconnectnode,            true  },
+        {"network", "getaddednodeinfo",             &getaddednodeinfo,          true  },
+        {"network", "getconnectioncount",           &getconnectioncount,        true  },
+        {"network", "getnettotals",                 &getnettotals,              true  },
+        {"network", "getpeerinfo",                  &getpeerinfo,               true  },
+        {"network", "ping",                         &ping,                      true  },
+        {"network", "setban",                       &setban,                    true  },
+        {"network", "listbanned",                   &listbanned,                true  },
+        {"network", "clearbanned",                  &clearbanned,               true  },
 
         /* Block chain and UTXO */
-        {"blockchain", "findserial", &findserial, true },
-        {"blockchain", "getblockindexstats", &getblockindexstats, true },
-        {"blockchain", "getserials", &getserials, true },
-        {"blockchain", "getblockchaininfo", &getblockchaininfo, true },
-        {"blockchain", "getbestblockhash", &getbestblockhash, true },
-        {"blockchain", "getblockcount", &getblockcount, true },
-        {"blockchain", "getblock", &getblock, true },
-        {"blockchain", "getblockhash", &getblockhash, true },
-        {"blockchain", "getblockheader", &getblockheader, false },
-        {"blockchain", "getchaintips", &getchaintips, true },
-        {"blockchain", "getdifficulty", &getdifficulty, true },
-        {"blockchain", "getfeeinfo", &getfeeinfo, true },
-        {"blockchain", "getmempoolinfo", &getmempoolinfo, true },
-        {"blockchain", "getrawmempool", &getrawmempool, true },
-        {"blockchain", "gettxout", &gettxout, true },
-        {"blockchain", "gettxoutsetinfo", &gettxoutsetinfo, true },
-        {"blockchain", "invalidateblock", &invalidateblock, true },
-        {"blockchain", "reconsiderblock", &reconsiderblock, true },
-        {"blockchain", "verifychain", &verifychain, true },
+        {"blockchain", "findserial",                &findserial,                true  },
+        {"blockchain", "getblockindexstats",        &getblockindexstats,        true  },
+        {"blockchain", "getserials",                &getserials,                true  },
+        {"blockchain", "getblockchaininfo",         &getblockchaininfo,         true  },
+        {"blockchain", "getbestblockhash",          &getbestblockhash,          true  },
+        {"blockchain", "getblockcount",             &getblockcount,             true  },
+        {"blockchain", "getblock",                  &getblock,                  true  },
+        {"blockchain", "getblockhash",              &getblockhash,              true  },
+        {"blockchain", "getblockheader",            &getblockheader,            false },
+        {"blockchain", "getchaintips",              &getchaintips,              true  },
+        {"blockchain", "getdifficulty",             &getdifficulty,             true  },
+        {"blockchain", "getfeeinfo",                &getfeeinfo,                true  },
+        {"blockchain", "getmempoolinfo",            &getmempoolinfo,            true  },
+        {"blockchain", "getrawmempool",             &getrawmempool,             true  },
+        {"blockchain", "gettxout",                  &gettxout,                  true  },
+        {"blockchain", "gettxoutsetinfo",           &gettxoutsetinfo,           true  },
+        {"blockchain", "invalidateblock",           &invalidateblock,           true  },
+        {"blockchain", "reconsiderblock",           &reconsiderblock,           true  },
+        {"blockchain", "verifychain",               &verifychain,               true  },
 
         /* Mining */
-        {"mining", "getblocktemplate", &getblocktemplate, true },
-        {"mining", "getmininginfo", &getmininginfo, true },
-        {"mining", "getnetworkhashps", &getnetworkhashps, true },
-        {"mining", "prioritisetransaction", &prioritisetransaction, true },
-        {"mining", "submitblock", &submitblock, true },
+        {"mining", "getblocktemplate",              &getblocktemplate,          true  },
+        {"mining", "getmininginfo",                 &getmininginfo,             true  },
+        {"mining", "getnetworkhashps",              &getnetworkhashps,          true  },
+        {"mining", "prioritisetransaction",         &prioritisetransaction,     true  },
+        {"mining", "submitblock",                   &submitblock,               true  },
 
 #ifdef ENABLE_WALLET
         /* Coin generation */
-        {"generating", "getgenerate", &getgenerate, true },
-        {"generating", "gethashespersec", &gethashespersec, true },
-        {"generating", "setgenerate", &setgenerate, true },
-        {"generating", "generate", &generate, true },
+        {"generating", "getgenerate",               &getgenerate,               true  },
+        {"generating", "gethashespersec",           &gethashespersec,           true  },
+        {"generating", "setgenerate",               &setgenerate,               true  },
+        {"generating", "generate",                  &generate,                  true  },
 #endif
 
         /* Raw transactions */
-        {"rawtransactions", "createrawtransaction", &createrawtransaction, true },
-        {"rawtransactions", "decoderawtransaction", &decoderawtransaction, true },
-        {"rawtransactions", "decodescript", &decodescript, true },
-        {"rawtransactions", "getrawtransaction", &getrawtransaction, true },
-        {"rawtransactions", "fundrawtransaction", &fundrawtransaction, false},
-        {"rawtransactions", "sendrawtransaction", &sendrawtransaction, false },
-        {"rawtransactions", "signrawtransaction", &signrawtransaction, false }, /* uses wallet if enabled */
+        {"rawtransactions", "createrawtransaction", &createrawtransaction,      true  },
+        {"rawtransactions", "decoderawtransaction", &decoderawtransaction,      true  },
+        {"rawtransactions", "decodescript",         &decodescript,              true  },
+        {"rawtransactions", "getrawtransaction",    &getrawtransaction,         true  },
+        {"rawtransactions", "fundrawtransaction",   &fundrawtransaction,        false },
+        {"rawtransactions", "sendrawtransaction",   &sendrawtransaction,        false },
+        {"rawtransactions", "signrawtransaction",   &signrawtransaction,        false }, /* uses wallet if enabled */
 
         /* Utility functions */
-        {"util", "createmultisig", &createmultisig, true },
-        {"util", "logging", &logging, true },
-        {"util", "validateaddress", &validateaddress, true }, /* uses wallet if enabled */
-        {"util", "verifymessage", &verifymessage, true },
-        {"util", "estimatefee", &estimatefee, true },
-        {"util", "estimatepriority", &estimatepriority, true },
+        {"util", "createmultisig",                  &createmultisig,            true  },
+        {"util", "logging",                         &logging,                   true  },
+        {"util", "validateaddress",                 &validateaddress,           true  }, /* uses wallet if enabled */
+        {"util", "verifymessage",                   &verifymessage,             true  },
+        {"util", "estimatefee",                     &estimatefee,               true  },
+        {"util", "estimatepriority",                &estimatepriority,          true  },
 
         /* Not shown in help */
-        {"hidden",              "invalidateblock",        &invalidateblock,        true },
-        {"hidden",              "reconsiderblock",        &reconsiderblock,        true },
-        {"hidden",              "setmocktime",            &setmocktime,            true },
-        { "hidden",             "waitfornewblock",        &waitfornewblock,        true },
-        { "hidden",             "waitforblock",           &waitforblock,           true },
-        { "hidden",             "waitforblockheight",     &waitforblockheight,     true },
-        { "hidden",             "makekeypair",            &makekeypair,            true },
+        {"hidden", "invalidateblock",               &invalidateblock,           true  },
+        {"hidden", "reconsiderblock",               &reconsiderblock,           true  },
+        {"hidden", "setmocktime",                   &setmocktime,               true  },
+        {"hidden", "waitfornewblock",               &waitfornewblock,           true  },
+        {"hidden", "waitforblock",                  &waitforblock,              true  },
+        {"hidden", "waitforblockheight",            &waitforblockheight,        true  },
+        {"hidden", "makekeypair",                   &makekeypair,               true  },
 
-        /* TARIAN features */
-        {"tarian", "listmasternodes", &listmasternodes, true },
-        {"tarian", "getmasternodecount", &getmasternodecount, true },
-        {"tarian", "createmasternodebroadcast", &createmasternodebroadcast, true },
-        {"tarian", "decodemasternodebroadcast", &decodemasternodebroadcast, true },
-        {"tarian", "relaymasternodebroadcast", &relaymasternodebroadcast, true },
-        {"tarian", "masternodecurrent", &masternodecurrent, true },
-        {"tarian", "masternodedebug", &masternodedebug, true },
-        {"tarian", "startmasternode", &startmasternode, true },
-        {"tarian", "createmasternodekey", &createmasternodekey, true },
-        {"tarian", "getmasternodeoutputs", &getmasternodeoutputs, true },
-        {"tarian", "listmasternodeconf", &listmasternodeconf, true },
-        {"tarian", "getmasternodestatus", &getmasternodestatus, true },
-        {"tarian", "getmasternodewinners", &getmasternodewinners, true },
-        {"tarian", "getmasternodescores", &getmasternodescores, true },
-        {"tarian", "preparebudget", &preparebudget, true },
-        {"tarian", "submitbudget", &submitbudget, true },
-        {"tarian", "mnbudgetvote", &mnbudgetvote, true },
-        {"tarian", "getbudgetvotes", &getbudgetvotes, true },
-        {"tarian", "getnextsuperblock", &getnextsuperblock, true },
-        {"tarian", "getbudgetprojection", &getbudgetprojection, true },
-        {"tarian", "getbudgetinfo", &getbudgetinfo, true },
-        {"tarian", "mnbudgetrawvote", &mnbudgetrawvote, true },
-        {"tarian", "mnfinalbudget", &mnfinalbudget, true },
-        {"tarian", "checkbudgets", &checkbudgets, true },
-        {"tarian", "mnsync", &mnsync, true },
-        {"tarian", "spork", &spork, true },
+        /* TARN features */
+        {"tarian", "listmasternodes",                 &listmasternodes,           true  },
+        {"tarian", "getmasternodecount",              &getmasternodecount,        true  },
+        {"tarian", "createmasternodebroadcast",       &createmasternodebroadcast, true  },
+        {"tarian", "decodemasternodebroadcast",       &decodemasternodebroadcast, true  },
+        {"tarian", "relaymasternodebroadcast",        &relaymasternodebroadcast,  true  },
+        {"tarian", "masternodecurrent",               &masternodecurrent,         true  },
+        {"tarian", "startmasternode",                 &startmasternode,           true  },
+        {"tarian", "createmasternodekey",             &createmasternodekey,       true  },
+        {"tarian", "getmasternodeoutputs",            &getmasternodeoutputs,      true  },
+        {"tarian", "listmasternodeconf",              &listmasternodeconf,        true  },
+        {"tarian", "getmasternodestatus",             &getmasternodestatus,       true  },
+        {"tarian", "getmasternodewinners",            &getmasternodewinners,      true  },
+        {"tarian", "getmasternodescores",             &getmasternodescores,       true  },
+        {"tarian", "preparebudget",                   &preparebudget,             true  },
+        {"tarian", "submitbudget",                    &submitbudget,              true  },
+        {"tarian", "mnbudgetvote",                    &mnbudgetvote,              true  },
+        {"tarian", "getbudgetvotes",                  &getbudgetvotes,            true  },
+        {"tarian", "getnextsuperblock",               &getnextsuperblock,         true  },
+        {"tarian", "getbudgetprojection",             &getbudgetprojection,       true  },
+        {"tarian", "getbudgetinfo",                   &getbudgetinfo,             true  },
+        {"tarian", "mnbudgetrawvote",                 &mnbudgetrawvote,           true  },
+        {"tarian", "mnfinalbudget",                   &mnfinalbudget,             true  },
+        {"tarian", "checkbudgets",                    &checkbudgets,              true  },
+        {"tarian", "mnsync",                          &mnsync,                    true  },
+        {"tarian", "spork",                           &spork,                     true  },
 
 #ifdef ENABLE_WALLET
         /* Wallet */
-        {"wallet", "bip38encrypt", &bip38encrypt, true },
-        {"wallet", "bip38decrypt", &bip38decrypt, true },
-        {"wallet", "getaddressinfo", &getaddressinfo, true },
-        {"wallet", "getstakingstatus", &getstakingstatus, false },
-        {"wallet", "multisend", &multisend, false },
-        {"zerocoin", "createrawzerocoinspend", &createrawzerocoinspend, false },
-        {"zerocoin", "getzerocoinbalance", &getzerocoinbalance, false },
-        {"zerocoin", "listmintedzerocoins", &listmintedzerocoins, false },
-        {"zerocoin", "listspentzerocoins", &listspentzerocoins, false },
-        {"zerocoin", "listzerocoinamounts", &listzerocoinamounts, false },
-        {"zerocoin", "mintzerocoin", &mintzerocoin, false },
-        {"zerocoin", "spendzerocoin", &spendzerocoin, false },
-        {"zerocoin", "spendrawzerocoin", &spendrawzerocoin, true },
-        {"zerocoin", "spendzerocoinmints", &spendzerocoinmints, false },
-        {"zerocoin", "resetmintzerocoin", &resetmintzerocoin, false },
-        {"zerocoin", "resetspentzerocoin", &resetspentzerocoin, false },
-        {"zerocoin", "getarchivedzerocoin", &getarchivedzerocoin, false },
-        {"zerocoin", "importzerocoins", &importzerocoins, false },
-        {"zerocoin", "exportzerocoins", &exportzerocoins, false },
-        {"zerocoin", "reconsiderzerocoins", &reconsiderzerocoins, false },
-        {"zerocoin", "getspentzerocoinamount", &getspentzerocoinamount, false },
-        {"zerocoin", "getztarnseed", &getztarnseed, false },
-        {"zerocoin", "setztarnseed", &setztarnseed, false },
-        {"zerocoin", "generatemintlist", &generatemintlist, false },
-        {"zerocoin", "searchdztarn", &searchdztarn, false },
-        {"zerocoin", "dztarnstate", &dztarnstate, false },
+        {"wallet", "bip38encrypt",                  &bip38encrypt,              true  },
+        {"wallet", "bip38decrypt",                  &bip38decrypt,              true  },
+        {"wallet", "getaddressinfo",                &getaddressinfo,            true  },
+        {"wallet", "getstakingstatus",              &getstakingstatus,          false },
+        {"wallet", "multisend",                     &multisend,                 false },
 
+        {"zerocoin", "createrawzerocoinspend",      &createrawzerocoinspend,    false },
+        {"zerocoin", "getzerocoinbalance",          &getzerocoinbalance,        false },
+        {"zerocoin", "listmintedzerocoins",         &listmintedzerocoins,       false },
+        {"zerocoin", "listspentzerocoins",          &listspentzerocoins,        false },
+        {"zerocoin", "listzerocoinamounts",         &listzerocoinamounts,       false },
+        {"zerocoin", "mintzerocoin",                &mintzerocoin,              false },
+        {"zerocoin", "spendzerocoin",               &spendzerocoin,             false },
+        {"zerocoin", "spendrawzerocoin",            &spendrawzerocoin,          true  },
+        {"zerocoin", "spendzerocoinmints",          &spendzerocoinmints,        false },
+        {"zerocoin", "resetmintzerocoin",           &resetmintzerocoin,         false },
+        {"zerocoin", "resetspentzerocoin",          &resetspentzerocoin,        false },
+        {"zerocoin", "getarchivedzerocoin",         &getarchivedzerocoin,       false },
+        {"zerocoin", "importzerocoins",             &importzerocoins,           false },
+        {"zerocoin", "exportzerocoins",             &exportzerocoins,           false },
+        {"zerocoin", "reconsiderzerocoins",         &reconsiderzerocoins,       false },
+        {"zerocoin", "getspentzerocoinamount",      &getspentzerocoinamount,    false },
+        {"zerocoin", "getztarnseed",                &getztarnseed,              false },
+        {"zerocoin", "setztarnseed",                &setztarnseed,              false },
+        {"zerocoin", "generatemintlist",            &generatemintlist,          false },
+        {"zerocoin", "searchdztarn",                &searchdztarn,              false },
+        {"zerocoin", "dztarnstate",                 &dztarnstate,               false },
 #endif // ENABLE_WALLET
 };
 
@@ -510,7 +500,7 @@ bool RPCIsInWarmup(std::string* outStatus)
     return fRPCInWarmup;
 }
 
-void JSONRequest::parse(const UniValue& valRequest)
+void JSONRPCRequest::parse(const UniValue& valRequest)
 {
     // Parse request
     if (!valRequest.isObject())
@@ -540,16 +530,22 @@ void JSONRequest::parse(const UniValue& valRequest)
         throw JSONRPCError(RPC_INVALID_REQUEST, "Params must be an array");
 }
 
+bool IsDeprecatedRPCEnabled(const std::string& method)
+{
+    const std::vector<std::string> enabled_methods = mapMultiArgs["-deprecatedrpc"];
+
+    return find(enabled_methods.begin(), enabled_methods.end(), method) != enabled_methods.end();
+}
 
 static UniValue JSONRPCExecOne(const UniValue& req)
 {
     UniValue rpc_result(UniValue::VOBJ);
 
-    JSONRequest jreq;
+    JSONRPCRequest jreq;
     try {
         jreq.parse(req);
 
-        UniValue result = tableRPC.execute(jreq.strMethod, jreq.params);
+        UniValue result = tableRPC.execute(jreq);
         rpc_result = JSONRPCReplyObj(result, NullUniValue, jreq.id);
     } catch (const UniValue& objError) {
         rpc_result = JSONRPCReplyObj(NullUniValue, objError, jreq.id);
@@ -570,10 +566,10 @@ std::string JSONRPCExecBatch(const UniValue& vReq)
     return ret.write() + "\n";
 }
 
-UniValue CRPCTable::execute(const std::string &strMethod, const UniValue &params) const
+UniValue CRPCTable::execute(const JSONRPCRequest &request) const
 {
     // Find method
-    const CRPCCommand* pcmd = tableRPC[strMethod];
+    const CRPCCommand* pcmd = tableRPC[request.strMethod];
     if (!pcmd)
         throw JSONRPCError(RPC_METHOD_NOT_FOUND, "Method not found");
 
@@ -581,7 +577,7 @@ UniValue CRPCTable::execute(const std::string &strMethod, const UniValue &params
 
     try {
         // Execute
-        return pcmd->actor(params, false);
+        return pcmd->actor(request);
     } catch (const std::exception& e) {
         throw JSONRPCError(RPC_MISC_ERROR, e.what());
     }
@@ -609,7 +605,7 @@ std::string HelpExampleRpc(std::string methodname, std::string args)
 {
     return "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", "
            "\"method\": \"" +
-           methodname + "\", \"params\": [" + args + "] }' -H 'content-type: text/plain;' http://127.0.0.1:54445/\n";
+           methodname + "\", \"params\": [" + args + "] }' -H 'content-type: text/plain;' http://127.0.0.1:31814/\n";
 }
 
 void RPCSetTimerInterfaceIfUnset(RPCTimerInterface *iface)

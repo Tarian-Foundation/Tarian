@@ -1,9 +1,9 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TARIAN_CORE_NEW_GUI_TARIANGUI_H
-#define TARIAN_CORE_NEW_GUI_TARIANGUI_H
+#ifndef TARN_CORE_NEW_GUI_TARNGUI_H
+#define TARN_CORE_NEW_GUI_TARNGUI_H
 
 #if defined(HAVE_CONFIG_H)
 #include "config/tarian-config.h"
@@ -34,18 +34,18 @@ class WalletModel;
 
 
 /**
-  TARIAN GUI main class. This class represents the main window of the TARIAN UI. It communicates with both the client and
+  TARN GUI main class. This class represents the main window of the TARN UI. It communicates with both the client and
   wallet models to give the user an up-to-date view of the current core state.
 */
-class TARIANGUI : public QMainWindow
+class TARNGUI : public QMainWindow
 {
     Q_OBJECT
 
 public:
     static const QString DEFAULT_WALLET;
 
-    explicit TARIANGUI(const NetworkStyle* networkStyle, QWidget* parent = 0);
-    ~TARIANGUI();
+    explicit TARNGUI(const NetworkStyle* networkStyle, QWidget* parent = 0);
+    ~TARNGUI();
 
     /** Set the client model.
         The client model represents the part of the core that communicates with the P2P network, and is wallet-agnostic.
@@ -189,4 +189,4 @@ Q_SIGNALS:
 };
 
 
-#endif //TARIAN_CORE_NEW_GUI_TARIANGUI_H
+#endif //TARN_CORE_NEW_GUI_TARNGUI_H

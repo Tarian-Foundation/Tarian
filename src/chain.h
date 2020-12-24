@@ -3,7 +3,7 @@
 // Copyright (c) 2011-2013 The PPCoin developers
 // Copyright (c) 2013-2014 The NovaCoin Developers
 // Copyright (c) 2014-2018 The BlackCoin Developers
-// Copyright (c) 2015-2020 The TARIAN developers
+// Copyright (c) 2015-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -139,7 +139,7 @@ enum BlockStatus {
      */
     BLOCK_VALID_TRANSACTIONS = 3,
 
-    //! Outputs do not overspend inputs, no double spends, coinbase output ok, immature coinbase spends, BIP30.
+    //! Outputs do not overspend inputs, no double spends, coinbase output ok, immature coinbase spends.
     //! Implies all parents are also at least CHAIN.
     BLOCK_VALID_CHAIN = 4,
 
@@ -272,7 +272,7 @@ public:
 
 /** Used to marshal pointers into hashes for db storage. */
 
-// New serialization introduced with 1.0.0
+// New serialization introduced with 1.0.1
 static const int DBI_OLD_SER_VERSION = 1000000;
 static const int DBI_SER_VERSION_NO_ZC = 1000100;   // removes mapZerocoinSupply, nMoneySupply
 

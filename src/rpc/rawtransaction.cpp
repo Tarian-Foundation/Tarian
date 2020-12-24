@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2020 The TARIAN developers
+// Copyright (c) 2015-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -83,9 +83,9 @@ void TxToJSON(const CTransaction& tx, const uint256 hashBlock, UniValue& entry)
     }
 }
 
-UniValue getrawtransaction(const UniValue& params, bool fHelp)
+UniValue getrawtransaction(const JSONRPCRequest& request)
 {
-    if (fHelp || params.size() < 1 || params.size() > 3)
+    if (request.fHelp || request.params.size() < 1 || request.params.size() > 3)
         throw std::runtime_error(
             "getrawtransaction \"txid\" ( verbose \"blockhash\" )\n"
 
@@ -113,6 +113,7 @@ UniValue getrawtransaction(const UniValue& params, bool fHelp)
             "  \"size\" : n,             (numeric) The serialized transaction size\n"
             "  \"version\" : n,          (numeric) The version\n"
             "  \"locktime\" : ttt,       (numeric) The lock time\n"
+            "  \"powalternative\" : b,   (boolean) The PoW Alternative flag\n"
             "  \"vin\" : [               (array of json objects)\n"
             "     {\n"
             "       \"txid\": \"id\",    (string) The transaction id\n"
@@ -159,16 +160,16 @@ UniValue getrawtransaction(const UniValue& params, bool fHelp)
     LOCK(cs_main);
 
     bool in_active_chain = true;
-    uint256 hash = ParseHashV(params[0], "parameter 1");
+    uint256 hash = ParseHashV(request.params[0], "parameter 1");
     CBlockIndex* blockindex = nullptr;
 
     bool fVerbose = false;
-    if (!params[1].isNull()) {
-        fVerbose = params[1].isNum() ? (params[1].get_int() != 0) : params[1].get_bool();
+    if (!request.params[1].isNull()) {
+        fVerbose = request.params[1].isNum() ? (request.params[1].get_int() != 0) : request.params[1].get_bool();
     }
 
-    if (!params[2].isNull()) {
-        uint256 blockhash = ParseHashV(params[2], "parameter 3");
+    if (!request.params[2].isNull()) {
+        uint256 blockhash = ParseHashV(request.params[2], "parameter 3");
         BlockMap::iterator it = mapBlockIndex.find(blockhash);
         if (it == mapBlockIndex.end()) {
             throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Block hash not found");
@@ -204,11 +205,11 @@ UniValue getrawtransaction(const UniValue& params, bool fHelp)
     return result;
 }
 
-UniValue createrawtransaction(const UniValue& params, bool fHelp)
+UniValue createrawtransaction(const JSONRPCRequest& request)
 {
-    if (fHelp || params.size() < 2 || params.size() > 3)
+    if (request.fHelp || request.params.size() < 2 || request.params.size() > 3)
         throw std::runtime_error(
-            "createrawtransaction [{\"txid\":\"id\",\"vout\":n},...] {\"address\":amount,...} ( locktime )\n"
+            "createrawtransaction [{\"txid\":\"id\",\"vout\":n},...] {\"address\":amount,...} ( locktime ) ( powalternative )\n"
             "\nCreate a transaction spending the given inputs and sending to the given addresses.\n"
             "Returns hex-encoded raw transaction.\n"
             "Note that the transaction's inputs are not signed, and\n"
@@ -230,6 +231,7 @@ UniValue createrawtransaction(const UniValue& params, bool fHelp)
             "      ,...\n"
             "    }\n"
             "3. locktime                (numeric, optional, default=0) Raw locktime. Non-0 value also locktime-activates inputs\n"
+            "4. powalternative          (boolean, optional, default=false) PoW Alternative flag\n"
 
             "\nResult:\n"
             "\"transaction\"            (string) hex string of the transaction\n"
@@ -238,20 +240,24 @@ UniValue createrawtransaction(const UniValue& params, bool fHelp)
             HelpExampleCli("createrawtransaction", "\"[{\\\"txid\\\":\\\"myid\\\",\\\"vout\\\":0}]\" \"{\\\"address\\\":0.01}\"") + HelpExampleRpc("createrawtransaction", "\"[{\\\"txid\\\":\\\"myid\\\",\\\"vout\\\":0}]\", \"{\\\"address\\\":0.01}\""));
 
     LOCK(cs_main);
-    RPCTypeCheck(params, boost::assign::list_of(UniValue::VARR)(UniValue::VOBJ)(UniValue::VNUM));
-    if (params[0].isNull() || params[1].isNull())
+    RPCTypeCheck(request.params, boost::assign::list_of(UniValue::VARR)(UniValue::VOBJ)(UniValue::VNUM));
+    if (request.params[0].isNull() || request.params[1].isNull())
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, arguments 1 and 2 must be non-null");
 
-    UniValue inputs = params[0].get_array();
-    UniValue sendTo = params[1].get_obj();
+    UniValue inputs = request.params[0].get_array();
+    UniValue sendTo = request.params[1].get_obj();
 
     CMutableTransaction rawTx;
 
-    if (params.size() > 2 && !params[2].isNull()) {
-        int64_t nLockTime = params[2].get_int64();
+    if (request.params.size() > 2 && !request.params[2].isNull()) {
+        int64_t nLockTime = request.params[2].get_int64();
         if (nLockTime < 0 || nLockTime > std::numeric_limits<uint32_t>::max())
             throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, locktime out of range");
         rawTx.nLockTime = nLockTime;
+
+        if (request.params.size() > 3 && !request.params[3].isNull()) {
+            rawTx.fPoWAlternative = request.params[3].get_bool();
+        }
     }
 
     for (unsigned int idx = 0; idx < inputs.size(); idx++) {
@@ -289,7 +295,7 @@ UniValue createrawtransaction(const UniValue& params, bool fHelp)
     for (const std::string& name_ : addrList) {
         CTxDestination address = DecodeDestination(name_);
         if (!IsValidDestination(address))
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid TARIAN address: ")+name_);
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid TARN address: ")+name_);
 
         if (setAddress.count(address))
             throw JSONRPCError(RPC_INVALID_PARAMETER, std::string("Invalid parameter, duplicated address: ")+name_);
@@ -305,9 +311,9 @@ UniValue createrawtransaction(const UniValue& params, bool fHelp)
     return EncodeHexTx(rawTx);
 }
 
-UniValue decoderawtransaction(const UniValue& params, bool fHelp)
+UniValue decoderawtransaction(const JSONRPCRequest& request)
 {
-    if (fHelp || params.size() != 1)
+    if (request.fHelp || request.params.size() != 1)
         throw std::runtime_error(
             "decoderawtransaction \"hexstring\"\n"
             "\nReturn a JSON object representing the serialized, hex-encoded transaction.\n"
@@ -321,6 +327,7 @@ UniValue decoderawtransaction(const UniValue& params, bool fHelp)
             "  \"size\" : n,             (numeric) The transaction size\n"
             "  \"version\" : n,          (numeric) The version\n"
             "  \"locktime\" : ttt,       (numeric) The lock time\n"
+            "  \"powalternative\" : b,   (boolean) The PoW Alternative flag\n"
             "  \"vin\" : [               (array of json objects)\n"
             "     {\n"
             "       \"txid\": \"id\",    (string) The transaction id\n"
@@ -356,11 +363,11 @@ UniValue decoderawtransaction(const UniValue& params, bool fHelp)
             HelpExampleCli("decoderawtransaction", "\"hexstring\"") + HelpExampleRpc("decoderawtransaction", "\"hexstring\""));
 
     LOCK(cs_main);
-    RPCTypeCheck(params, boost::assign::list_of(UniValue::VSTR));
+    RPCTypeCheck(request.params, boost::assign::list_of(UniValue::VSTR));
 
     CTransaction tx;
 
-    if (!DecodeHexTx(tx, params[0].get_str()))
+    if (!DecodeHexTx(tx, request.params[0].get_str()))
         throw JSONRPCError(RPC_DESERIALIZATION_ERROR, "TX decode failed");
 
     UniValue result(UniValue::VOBJ);
@@ -369,9 +376,9 @@ UniValue decoderawtransaction(const UniValue& params, bool fHelp)
     return result;
 }
 
-UniValue decodescript(const UniValue& params, bool fHelp)
+UniValue decodescript(const JSONRPCRequest& request)
 {
-    if (fHelp || params.size() != 1)
+    if (request.fHelp || request.params.size() != 1)
         throw std::runtime_error(
             "decodescript \"hex\"\n"
             "\nDecode a hex-encoded script.\n"
@@ -396,12 +403,12 @@ UniValue decodescript(const UniValue& params, bool fHelp)
             HelpExampleCli("decodescript", "\"hexstring\"") + HelpExampleRpc("decodescript", "\"hexstring\""));
 
     LOCK(cs_main);
-    RPCTypeCheck(params, boost::assign::list_of(UniValue::VSTR));
+    RPCTypeCheck(request.params, boost::assign::list_of(UniValue::VSTR));
 
     UniValue r(UniValue::VOBJ);
     CScript script;
-    if (params[0].get_str().size() > 0) {
-        std::vector<unsigned char> scriptData(ParseHexV(params[0], "argument"));
+    if (request.params[0].get_str().size() > 0) {
+        std::vector<unsigned char> scriptData(ParseHexV(request.params[0], "argument"));
         script = CScript(scriptData.begin(), scriptData.end());
     } else {
         // Empty scripts are valid
@@ -424,9 +431,9 @@ static void TxInErrorToJSON(const CTxIn& txin, UniValue& vErrorsRet, const std::
     vErrorsRet.push_back(entry);
 }
 
-UniValue fundrawtransaction(const UniValue& params, bool fHelp)
+UniValue fundrawtransaction(const JSONRPCRequest& request)
 {
-    if (fHelp || params.size() < 1 || params.size() > 2)
+    if (request.fHelp || request.params.size() < 1 || request.params.size() > 2)
         throw std::runtime_error(
             "fundrawtransaction \"hexstring\" ( options )\n"
             "\nAdd inputs to a transaction until it has enough in value to meet its out value.\n"
@@ -442,7 +449,7 @@ UniValue fundrawtransaction(const UniValue& params, bool fHelp)
             "1. \"hexstring\"    (string, required) The hex string of the raw transaction\n"
             "2. options          (object, optional)\n"
             "   {\n"
-            "     \"changeAddress\"     (string, optional, default pool address) The TARIAN address to receive the change\n"
+            "     \"changeAddress\"     (string, optional, default pool address) The TARN address to receive the change\n"
             "     \"changePosition\"    (numeric, optional, default random) The index of the change output\n"
             "     \"includeWatching\"   (boolean, optional, default false) Also select inputs which are watch only\n"
             "     \"lockUnspents\"      (boolean, optional, default false) Lock selected unspent outputs\n"
@@ -469,7 +476,7 @@ UniValue fundrawtransaction(const UniValue& params, bool fHelp)
     if (!pwalletMain)
         throw std::runtime_error("wallet not initialized");
 
-    RPCTypeCheck(params, boost::assign::list_of(UniValue::VSTR));
+    RPCTypeCheck(request.params, boost::assign::list_of(UniValue::VSTR));
 
     CTxDestination changeAddress = CNoDestination();
     int changePosition = -1;
@@ -478,16 +485,16 @@ UniValue fundrawtransaction(const UniValue& params, bool fHelp)
     CFeeRate feeRate = CFeeRate(0);
     bool overrideEstimatedFeerate = false;
 
-    if (params.size() > 1) {
-        RPCTypeCheck(params, boost::assign::list_of(UniValue::VSTR)(UniValue::VOBJ));
-        UniValue options = params[1];
+    if (request.params.size() > 1) {
+        RPCTypeCheck(request.params, boost::assign::list_of(UniValue::VSTR)(UniValue::VOBJ));
+        UniValue options = request.params[1];
         RPCTypeCheckObj(options, boost::assign::map_list_of("changeAddress", UniValue::VSTR)("changePosition", UniValue::VNUM)("includeWatching", UniValue::VBOOL)("lockUnspents", UniValue::VBOOL)("feeRate", UniValue::VNUM), true, true);
 
         if (options.exists("changeAddress")) {
             changeAddress = DecodeDestination(options["changeAddress"].get_str());
 
             if (!IsValidDestination(changeAddress))
-                throw JSONRPCError(RPC_INVALID_PARAMETER, "changeAddress must be a valid TARIAN address");
+                throw JSONRPCError(RPC_INVALID_PARAMETER, "changeAddress must be a valid TARN address");
         }
 
         if (options.exists("changePosition"))
@@ -507,7 +514,7 @@ UniValue fundrawtransaction(const UniValue& params, bool fHelp)
 
     // parse hex string from parameter
     CTransaction origTx;
-    if (!DecodeHexTx(origTx, params[0].get_str()))
+    if (!DecodeHexTx(origTx, request.params[0].get_str()))
         throw JSONRPCError(RPC_DESERIALIZATION_ERROR, "TX decode failed");
 
     if (origTx.vout.size() == 0)
@@ -530,9 +537,9 @@ UniValue fundrawtransaction(const UniValue& params, bool fHelp)
     return result;
 }
 
-UniValue signrawtransaction(const UniValue& params, bool fHelp)
+UniValue signrawtransaction(const JSONRPCRequest& request)
 {
-    if (fHelp || params.size() < 1 || params.size() > 4)
+    if (request.fHelp || request.params.size() < 1 || request.params.size() > 4)
         throw std::runtime_error(
             "signrawtransaction \"hexstring\" ( [{\"txid\":\"id\",\"vout\":n,\"scriptPubKey\":\"hex\",\"redeemScript\":\"hex\"},...] [\"privatekey1\",...] sighashtype )\n"
             "\nSign inputs for raw transaction (serialized, hex-encoded).\n"
@@ -593,9 +600,9 @@ UniValue signrawtransaction(const UniValue& params, bool fHelp)
 #else
     LOCK(cs_main);
 #endif
-    RPCTypeCheck(params, boost::assign::list_of(UniValue::VSTR)(UniValue::VARR)(UniValue::VARR)(UniValue::VSTR), true);
+    RPCTypeCheck(request.params, boost::assign::list_of(UniValue::VSTR)(UniValue::VARR)(UniValue::VARR)(UniValue::VSTR), true);
 
-    std::vector<unsigned char> txData(ParseHexV(params[0], "argument 1"));
+    std::vector<unsigned char> txData(ParseHexV(request.params[0], "argument 1"));
     CDataStream ssData(txData, SER_NETWORK, PROTOCOL_VERSION);
     std::vector<CMutableTransaction> txVariants;
     while (!ssData.empty()) {
@@ -647,9 +654,9 @@ UniValue signrawtransaction(const UniValue& params, bool fHelp)
 
     bool fGivenKeys = false;
     CBasicKeyStore tempKeystore;
-    if (params.size() > 2 && !params[2].isNull()) {
+    if (request.params.size() > 2 && !request.params[2].isNull()) {
         fGivenKeys = true;
-        UniValue keys = params[2].get_array();
+        UniValue keys = request.params[2].get_array();
         for (unsigned int idx = 0; idx < keys.size(); idx++) {
             UniValue k = keys[idx];
             CKey key = DecodeSecret(k.get_str());
@@ -664,8 +671,8 @@ UniValue signrawtransaction(const UniValue& params, bool fHelp)
 #endif
 
     // Add previous txouts given in the RPC call:
-    if (params.size() > 1 && !params[1].isNull()) {
-        UniValue prevTxs = params[1].get_array();
+    if (request.params.size() > 1 && !request.params[1].isNull()) {
+        UniValue prevTxs = request.params[1].get_array();
         for (unsigned int idx = 0; idx < prevTxs.size(); idx++) {
             const UniValue& p = prevTxs[idx];
             if (!p.isObject())
@@ -719,10 +726,10 @@ UniValue signrawtransaction(const UniValue& params, bool fHelp)
 #endif
 
     int nHashType = SIGHASH_ALL;
-    if (params.size() > 3 && !params[3].isNull()) {
+    if (request.params.size() > 3 && !request.params[3].isNull()) {
         static std::map<std::string, int> mapSigHashValues =
             boost::assign::map_list_of(std::string("ALL"), int(SIGHASH_ALL))(std::string("ALL|ANYONECANPAY"), int(SIGHASH_ALL | SIGHASH_ANYONECANPAY))(std::string("NONE"), int(SIGHASH_NONE))(std::string("NONE|ANYONECANPAY"), int(SIGHASH_NONE | SIGHASH_ANYONECANPAY))(std::string("SINGLE"), int(SIGHASH_SINGLE))(std::string("SINGLE|ANYONECANPAY"), int(SIGHASH_SINGLE | SIGHASH_ANYONECANPAY));
-        std::string strHashType = params[3].get_str();
+        std::string strHashType = request.params[3].get_str();
         if (mapSigHashValues.count(strHashType))
             nHashType = mapSigHashValues[strHashType];
         else
@@ -786,9 +793,9 @@ UniValue signrawtransaction(const UniValue& params, bool fHelp)
     return result;
 }
 
-UniValue sendrawtransaction(const UniValue& params, bool fHelp)
+UniValue sendrawtransaction(const JSONRPCRequest& request)
 {
-    if (fHelp || params.size() < 1 || params.size() > 3)
+    if (request.fHelp || request.params.size() < 1 || request.params.size() > 3)
         throw std::runtime_error(
             "sendrawtransaction \"hexstring\" ( allowhighfees )\n"
             "\nSubmits raw transaction (serialized, hex-encoded) to local node and network.\n"
@@ -809,21 +816,21 @@ UniValue sendrawtransaction(const UniValue& params, bool fHelp)
             "\nSend the transaction (signed hex)\n" + HelpExampleCli("sendrawtransaction", "\"signedhex\"") +
             "\nAs a json rpc call\n" + HelpExampleRpc("sendrawtransaction", "\"signedhex\""));
 
-    RPCTypeCheck(params, boost::assign::list_of(UniValue::VSTR)(UniValue::VBOOL));
+    RPCTypeCheck(request.params, boost::assign::list_of(UniValue::VSTR)(UniValue::VBOOL));
 
     // parse hex string from parameter
     CTransaction tx;
-    if (!DecodeHexTx(tx, params[0].get_str()))
+    if (!DecodeHexTx(tx, request.params[0].get_str()))
         throw JSONRPCError(RPC_DESERIALIZATION_ERROR, "TX decode failed");
     uint256 hashTx = tx.GetHash();
 
     bool fOverrideFees = false;
-    if (params.size() > 1)
-        fOverrideFees = params[1].get_bool();
+    if (request.params.size() > 1)
+        fOverrideFees = request.params[1].get_bool();
 
     bool fSwiftX = false;
-    if (params.size() > 2)
-        fSwiftX = params[2].get_bool();
+    if (request.params.size() > 2)
+        fSwiftX = request.params[2].get_bool();
 
     AssertLockNotHeld(cs_main);
     CCoinsViewCache& view = *pcoinsTip;
@@ -857,9 +864,9 @@ UniValue sendrawtransaction(const UniValue& params, bool fHelp)
     return hashTx.GetHex();
 }
 
-UniValue getspentzerocoinamount(const UniValue& params, bool fHelp)
+UniValue getspentzerocoinamount(const JSONRPCRequest& request)
 {
-    if (fHelp || params.size() != 2)
+    if (request.fHelp || request.params.size() != 2)
         throw std::runtime_error(
             "getspentzerocoinamount hexstring index\n"
             "\nReturns value of spent zerocoin output designated by transaction hash and input index.\n"
@@ -876,8 +883,8 @@ UniValue getspentzerocoinamount(const UniValue& params, bool fHelp)
 
     LOCK(cs_main);
 
-    uint256 txHash = ParseHashV(params[0], "parameter 1");
-    int inputIndex = params[1].get_int();
+    uint256 txHash = ParseHashV(request.params[0], "parameter 1");
+    int inputIndex = request.params[1].get_int();
     if (inputIndex < 0)
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter for transaction input");
 
@@ -900,9 +907,9 @@ UniValue getspentzerocoinamount(const UniValue& params, bool fHelp)
 
 #ifdef ENABLE_WALLET
 
-UniValue createrawzerocoinspend(const UniValue& params, bool fHelp)
+UniValue createrawzerocoinspend(const JSONRPCRequest& request)
 {
-    if (fHelp || params.size() < 1 || params.size() > 3)
+    if (request.fHelp || request.params.size() < 1 || request.params.size() > 3)
         throw std::runtime_error(
             "createrawzerocoinspend mint_input ( \"address\" )\n"
             "\nCreates raw zTARN public spend.\n" +
@@ -921,8 +928,8 @@ UniValue createrawzerocoinspend(const UniValue& params, bool fHelp)
             HelpExampleCli("createrawzerocoinspend", "0d8c16eee7737e3cc1e4e70dc006634182b175e039700931283b202715a0818f") +
             HelpExampleRpc("createrawzerocoinspend", "0d8c16eee7737e3cc1e4e70dc006634182b175e039700931283b202715a0818f"));
 
-    const std::string serial_hash = params[0].get_str();
-    const std::string address_str = (params.size() > 1 ? params[1].get_str() : "");
+    const std::string serial_hash = request.params[0].get_str();
+    const std::string address_str = (request.params.size() > 1 ? request.params[1].get_str() : "");
 
     if (!IsHex(serial_hash))
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, expected hex serial hash");
@@ -931,7 +938,7 @@ UniValue createrawzerocoinspend(const UniValue& params, bool fHelp)
     if (address_str != "") {
         dest = DecodeDestination(address_str);
         if(!IsValidDestination(dest))
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid TARIAN address");
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid TARN address");
     }
 
     assert(pwalletMain != NULL);

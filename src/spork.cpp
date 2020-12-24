@@ -1,5 +1,6 @@
 // Copyright (c) 2014-2016 The Dash developers
-// Copyright (c) 2016-2020 The TARIAN developers
+// Copyright (c) 2016-2020 The PIVX developers
+// Copyright (c) 2020-2020 The TARN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -26,6 +27,8 @@ std::vector<CSporkDef> sporkDefs = {
     MAKE_SPORK_DEF(SPORK_31_NEW_PROTOCOL_ENFORCEMENT_1,     4070908800ULL), // OFF
     MAKE_SPORK_DEF(SPORK_32_NEW_PROTOCOL_ENFORCEMENT_2,     4070908800ULL), // OFF
     MAKE_SPORK_DEF(SPORK_33_NEW_PROTOCOL_ENFORCEMENT_3,     4070908800ULL), // OFF
+    MAKE_SPORK_DEF(SPORK_34_NEW_PROTOCOL_ENFORCEMENT_4,     4070908800ULL), // OFF
+    MAKE_SPORK_DEF(SPORK_35_NEW_PROTOCOL_ENFORCEMENT_5,     4070908800ULL), // OFF
 };
 
 CSporkManager sporkManager;
@@ -45,7 +48,7 @@ void CSporkManager::Clear()
     mapSporksActive.clear();
 }
 
-// TARIAN: on startup load spork values from previous session if they exist in the sporkDB
+// TARN: on startup load spork values from previous session if they exist in the sporkDB
 void CSporkManager::LoadSporksFromDB()
 {
     for (const auto& sporkDef : sporkDefs) {
@@ -155,7 +158,7 @@ void CSporkManager::ProcessSpork(CNode* pfrom, std::string& strCommand, CDataStr
         }
         spork.Relay();
 
-        // TARIAN: add to spork database.
+        // TARN: add to spork database.
         pSporkDB->WriteSpork(spork.nSporkID, spork);
     }
     if (strCommand == NetMsgType::GETSPORKS) {
@@ -294,3 +297,4 @@ void CSporkMessage::Relay()
     CInv inv(MSG_SPORK, GetHash());
     RelayInv(inv);
 }
+

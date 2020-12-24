@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,7 +13,7 @@
 #include "bitcoinunits.h"
 #include "qt/tarian/qtutils.h"
 
-SettingsDisplayOptionsWidget::SettingsDisplayOptionsWidget(TARIANGUI* _window, QWidget *parent) :
+SettingsDisplayOptionsWidget::SettingsDisplayOptionsWidget(TARNGUI* _window, QWidget *parent) :
     PWidget(_window,parent),
     ui(new Ui::SettingsDisplayOptionsWidget)
 {
@@ -94,7 +94,6 @@ SettingsDisplayOptionsWidget::SettingsDisplayOptionsWidget(TARIANGUI* _window, Q
     setCssBtnSecondary(ui->pushButtonReset);
     setCssBtnSecondary(ui->pushButtonClean);
 
-    initLanguages();
     connect(ui->pushButtonSave, &QPushButton::clicked, [this] { Q_EMIT saveSettings(); });
     connect(ui->pushButtonReset, &QPushButton::clicked, this, &SettingsDisplayOptionsWidget::onResetClicked);
     connect(ui->pushButtonClean, &QPushButton::clicked, [this] { Q_EMIT discardSettings(); });
@@ -102,11 +101,15 @@ SettingsDisplayOptionsWidget::SettingsDisplayOptionsWidget(TARIANGUI* _window, Q
 
 void SettingsDisplayOptionsWidget::initLanguages()
 {
+    const QString& selectedLang = this->clientModel->getOptionsModel()->getLang();
     /* Language selector */
     QDir translations(":translations");
     QString defaultStr = QString("(") + tr("default") + QString(")");
     ui->comboBoxLanguage->addItem(defaultStr, QVariant(""));
-    Q_FOREACH (const QString& langStr, translations.entryList()) {
+    QStringList list = translations.entryList();
+    int selectedIndex = 0;
+    for (int i = 0; i < list.size(); ++i) {
+        const QString& langStr = list[i];
         QLocale locale(langStr);
 
         /** check if the locale name consists of 2 parts (language_country) */
@@ -117,7 +120,12 @@ void SettingsDisplayOptionsWidget::initLanguages()
             /** display language strings as "native language (locale name)", e.g. "Deutsch (de)" */
             ui->comboBoxLanguage->addItem(locale.nativeLanguageName() + QString(" (") + langStr + QString(")"), QVariant(langStr));
         }
+        // Save selected index
+        if (langStr == selectedLang) {
+            selectedIndex = i + 1;
+        }
     }
+    ui->comboBoxLanguage->setCurrentIndex(selectedIndex);
 }
 
 void SettingsDisplayOptionsWidget::onResetClicked()
@@ -145,6 +153,7 @@ void SettingsDisplayOptionsWidget::loadClientModel()
 {
     if (clientModel) {
         ui->comboBoxUnit->setCurrentIndex(this->clientModel->getOptionsModel()->getDisplayUnit());
+        initLanguages();
     }
 }
 

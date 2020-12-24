@@ -1,4 +1,4 @@
-// Copyright (c) 2019-2020 The TARIAN developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -36,7 +36,7 @@ bool openDialog(QDialog* widget, QWidget* gui)
     return widget->exec();
 }
 
-void closeDialog(QDialog* widget, TARIANGUI* gui)
+void closeDialog(QDialog* widget, TARNGUI* gui)
 {
     widget->setWindowFlags(Qt::CustomizeWindowHint);
     widget->setAttribute(Qt::WA_TranslucentBackground, true);
@@ -57,7 +57,7 @@ void openDialogFullScreen(QWidget* parent, QWidget* dialog)
     dialog->resize(parent->width(), parent->height());
 }
 
-bool openDialogWithOpaqueBackgroundY(QDialog* widget, TARIANGUI* gui, double posX, int posY)
+bool openDialogWithOpaqueBackgroundY(QDialog* widget, TARNGUI* gui, double posX, int posY)
 {
     widget->setWindowFlags(Qt::CustomizeWindowHint);
     widget->setAttribute(Qt::WA_TranslucentBackground, true);
@@ -74,12 +74,12 @@ bool openDialogWithOpaqueBackgroundY(QDialog* widget, TARIANGUI* gui, double pos
     return res;
 }
 
-bool openDialogWithOpaqueBackground(QDialog* widget, TARIANGUI* gui, double posX)
+bool openDialogWithOpaqueBackground(QDialog* widget, TARNGUI* gui, double posX)
 {
     return openDialogWithOpaqueBackgroundY(widget, gui, posX, 5);
 }
 
-bool openDialogWithOpaqueBackgroundFullScreen(QDialog* widget, TARIANGUI* gui)
+bool openDialogWithOpaqueBackgroundFullScreen(QDialog* widget, TARNGUI* gui)
 {
     widget->setWindowFlags(Qt::CustomizeWindowHint);
     widget->setAttribute(Qt::WA_TranslucentBackground, true);

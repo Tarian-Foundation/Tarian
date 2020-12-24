@@ -163,7 +163,7 @@
                       <enum>Qt::NoFocus</enum>
                      </property>
                      <property name="text">
-                      <string>1) What is TARIAN?</string>
+                      <string>1) What is TARN?</string>
                      </property>
                      <property name="checkable">
                       <bool>true</bool>
@@ -216,7 +216,7 @@
                       <enum>Qt::NoFocus</enum>
                      </property>
                      <property name="text">
-                      <string>3) How do I stake TARN?</string>
+                      <string>3) How do I receive TARN?</string>
                      </property>
                      <property name="checkable">
                       <bool>true</bool>
@@ -342,7 +342,7 @@
                   <enum>Qt::NoFocus</enum>
                  </property>
                  <property name="text">
-                  <string>https://TARIAN.org/</string>
+                  <string>https://cri.eco/</string>
                  </property>
                 </widget>
                </item>
@@ -495,7 +495,7 @@
                       <item>
                        <widget class="QLabel" name="labelSubtitle_Intro">
                         <property name="text">
-                         <string>What is TARIAN?</string>
+                         <string>What is TARN?</string>
                         </property>
                         <property name="wordWrap">
                          <bool>true</bool>
@@ -523,14 +523,14 @@
                         <property name="text">
                          <string>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
-                           TARIAN is a form of digital online money using blockchain technology
+                           TARN is a form of digital online money using blockchain technology
                            that can be easily transferred globally, instantly, and with near
-                           zero fees.  TARIAN incorporates market leading security &amp;
+                           zero fees.  TARN incorporates market leading security &amp;
                            privacy and is also the first PoS (Proof of Stake) Cryptocurrency
                            to implement ZeroCoin(zTARN) and Zerocoin staking.
                            &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
-                           TARIAN utilizes a Proof of Stake (PoS) consensus system algorithm,
-                           allowing all owners of TARIAN to participate in earning block rewards
+                           TARN utilizes a Proof of Stake (PoS) consensus system algorithm,
+                           allowing all owners of TARN to participate in earning block rewards
                            while securing the network with full node wallets, as well as to
                            run Masternodes to create and vote on proposals.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
@@ -629,10 +629,10 @@
                         <property name="text">
                          <string>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
-                           Newly received TARIAN requires 6 confirmations on the network
+                           Newly received TARN requires 6 confirmations on the network
                            to become eligible for spending which can take ~6 minutes.
                            &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
-                           Your TARIAN wallet also needs to be completely synchronized
+                           Your TARN wallet also needs to be completely synchronized
                            to see and spend balances on the network.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </string>
@@ -725,7 +725,7 @@
                       <item>
                        <widget class="QLabel" name="labelContent_Stake">
                         <property name="text">
-                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;ol style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Make sure your wallet is completely synchronized and you are using the latest release. &lt;/li&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;You must have a balance of TARIAN with a minimum of 600 confirmations. &lt;/li&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Your wallet must stay online and be unlocked for staking purposes. &lt;/li&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Once all those steps are followed staking should be enabled. &lt;/li&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state &amp;quot;Staking Enabled&amp;quot; to indicate it is staking. Using the command line interface (tarian-cli); the command &lt;span style=&quot; font-style:italic;&quot;&gt;getstakingstatus&lt;/span&gt; will confirm that staking is active. &lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;ol style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Make sure your wallet is completely synchronized and you are using the latest release. &lt;/li&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;You must have a balance of TARN with a minimum of 600 confirmations. &lt;/li&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Your wallet must stay online and be unlocked for staking purposes. &lt;/li&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Once all those steps are followed staking should be enabled. &lt;/li&gt;&lt;li align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state &amp;quot;Staking Enabled&amp;quot; to indicate it is staking. Using the command line interface (tarian-cli); the command &lt;span style=&quot; font-style:italic;&quot;&gt;getstakingstatus&lt;/span&gt; will confirm that staking is active. &lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -818,10 +818,10 @@
                          <string>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
                            We have support channels in most of our official chat groups, for example
-                           &lt;a style='color: #b088ff' href='https://discord.TARIAN.org'&gt;
+                           &lt;a style='color: #b088ff' href='https://discord.gg/m9CwKFp'&gt;
                            #support in our Discord&lt;/a&gt;.
                            If you prefer to submit a ticket, You can do so at
-                           &lt;a style='color: #b088ff' href='https://TARIAN.freshdesk.com'&gt;
+                           &lt;a style='color: #b088ff' href='https://TARN.freshdesk.com'&gt;
                            our Freshdesk support site&lt;/a&gt;.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </string>
@@ -916,8 +916,8 @@
                         <property name="text">
                          <string>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
-                           A masternode is a computer running a full node TARIAN core wallet with a
-                           requirement of 10,000 TARN secured collateral to provide extra services
+                           A masternode is a computer running a full node TARN core wallet with a
+                           requirement of 1,000 TARN secured collateral to provide extra services
                            to the network and in return, receive a portion of the block reward
                            regularly.  These services include:
                            &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
@@ -939,17 +939,17 @@
                            Masternode Perks:
                            &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
                            &lt;ul&gt;
-                           &lt;li&gt;Participate in TARIAN Governance&lt;/li&gt;
+                           &lt;li&gt;Participate in TARN Governance&lt;/li&gt;
                            &lt;li&gt;Earn Masternode Rewards&lt;/li&gt;
                            &lt;li&gt;Commodity option for future sale&lt;/li&gt;
-                           &lt;li&gt;Help secure the TARIAN network&lt;/li&gt;
+                           &lt;li&gt;Help secure the TARN network&lt;/li&gt;
                            &lt;/ul&gt;
                            &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
 
                            Requirements:
                            &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
                            &lt;ul&gt;
-                           &lt;li&gt;10,000 TARN per single Masternode instance&lt;/li&gt;
+                           &lt;li&gt;1,000 TARN per single Masternode instance&lt;/li&gt;
                            &lt;li&gt;Must be stored in a core wallet&lt;/li&gt;
                            &lt;li&gt;Need dedicated IP address&lt;/li&gt;
                            &lt;li&gt;Masternode wallet to remain online&lt;/li&gt;
@@ -1045,7 +1045,7 @@
                       <item>
                        <widget class="QLabel" name="labelContent_MNController">
                         <property name="text">
-                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;A Masternode Controller wallet is where the 10,000 TARN collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet(s) and allows you to keep your collateral coins offline while the remote masternode remains online. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;A Masternode Controller wallet is where the 1,000 TARN collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet(s) and allows you to keep your collateral coins offline while the remote masternode remains online. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>

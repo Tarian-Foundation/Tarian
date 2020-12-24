@@ -2,7 +2,7 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
 
 set(QT_MINIMUM_VERSION 5.5.1)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/forms ${CMAKE_CURRENT_SOURCE_DIR}/pivx/forms ${CMAKE_CURRENT_SOURCE_DIR}/pivx/settings/forms)
+set(CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/forms ${CMAKE_CURRENT_SOURCE_DIR}/tarian/forms ${CMAKE_CURRENT_SOURCE_DIR}/tarian/settings/forms)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
@@ -94,7 +94,6 @@ SET(QT_SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/qvalidatedlineedit.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/qvaluecombobox.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/rpcconsole.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/splashscreen.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/trafficgraphwidget.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/utilitydialog.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/addressbookpage.cpp
@@ -113,80 +112,81 @@ SET(QT_SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/transactiontablemodel.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/walletmodel.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/walletmodeltransaction.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/pivxgui.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/loadingdialog.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/pwidget.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/focuseddialog.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/guitransactionsutils.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/snackbar.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/navmenuwidget.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/lockunlock.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/receivedialog.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/furabstractlistitemdelegate.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/txviewholder.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/qtutils.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/expandablebutton.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/topbar.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/txrow.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/addressfilterproxymodel.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/dashboardwidget.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/addresslabelrow.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/contactdropdownrow.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/contactsdropdown.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/optionbutton.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/mninfodialog.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/coldstakingmodel.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/mnmodel.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/masternodewizarddialog.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/mnrow.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/masternodeswidget.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/sendchangeaddressdialog.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/sendconfirmdialog.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/sendcustomfeedialog.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/sendchangeaddressdialog.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/sendmultirow.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/send.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/addnewaddressdialog.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/addnewcontactdialog.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/requestdialog.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/receivewidget.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/myaddressrow.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/csrow.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/addressholder.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/tooltipmenu.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/addresseswidget.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/defaultdialog.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/coldstakingwidget.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/settings/settingsbackupwallet.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/settings/settingsbittoolwidget.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/settings/settingsconsolewidget.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/settings/settingsdisplayoptionswidget.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/settings/settingsfaqwidget.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/settings/settingsinformationwidget.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/settings/settingsmainoptionswidget.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/settings/settingsmultisenddialog.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/settings/settingsmultisendwidget.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/settings/settingssignmessagewidgets.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/settings/settingswalletoptionswidget.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/settings/settingswalletrepairwidget.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/settings/settingsexportcsv.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/settings/settingswidget.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/welcomecontentwidget.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/splash.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/tariangui.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/loadingdialog.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/pwidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/focuseddialog.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/guitransactionsutils.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/snackbar.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/navmenuwidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/lockunlock.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/receivedialog.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/furabstractlistitemdelegate.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/txviewholder.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/qtutils.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/expandablebutton.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/topbar.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/txrow.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/addressfilterproxymodel.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/dashboardwidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/addresslabelrow.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/contactdropdownrow.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/contactsdropdown.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/optionbutton.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/mninfodialog.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/coldstakingmodel.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/mnmodel.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/masternodewizarddialog.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/mnrow.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/masternodeswidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/sendchangeaddressdialog.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/sendconfirmdialog.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/sendcustomfeedialog.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/sendchangeaddressdialog.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/sendmultirow.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/send.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/addnewaddressdialog.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/addnewcontactdialog.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/requestdialog.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/receivewidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/myaddressrow.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/csrow.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/addressholder.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/tooltipmenu.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/addresseswidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/defaultdialog.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/privacywidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/coldstakingwidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/settings/settingsbackupwallet.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/settings/settingsbittoolwidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/settings/settingsconsolewidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/settings/settingsdisplayoptionswidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/settings/settingsfaqwidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/settings/settingsinformationwidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/settings/settingsmainoptionswidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/settings/settingsmultisenddialog.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/settings/settingsmultisendwidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/settings/settingssignmessagewidgets.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/settings/settingswalletoptionswidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/settings/settingswalletrepairwidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/settings/settingsexportcsv.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/settings/settingswidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/welcomecontentwidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/splash.cpp
         )
 
 # Workaround until the old rpcconsole UI window is fully removed
-set_property(SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/pivx/settings/settingsconsolewidget.cpp PROPERTY SKIP_AUTOMOC ON)
+set_property(SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/tarian/settings/settingsconsolewidget.cpp PROPERTY SKIP_AUTOMOC ON)
 execute_process(
         COMMAND ${MOC_BIN} -o moc_settingsconsolewidget.cpp settingsconsolewidget.h
-        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/pivx/settings
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/tarian/settings
 )
 
 execute_process(
         COMMAND ${MOC_BIN} -o moc_pfborderimage.cpp pfborderimage.h
-        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/pivx
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/tarian
 )
-list(APPEND QT_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/pivx/moc_pfborderimage.cpp)
+list(APPEND QT_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/tarian/moc_pfborderimage.cpp)
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     list(APPEND QT_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/macdockiconhandler.mm)
@@ -199,8 +199,8 @@ target_include_directories(qt_stuff PUBLIC ${CMAKE_SOURCE_DIR}/src
         ${CMAKE_SOURCE_DIR}/src/univalue/include
         ${CMAKE_SOURCE_DIR}/src/secp256k1/include
         ${CMAKE_CURRENT_SOURCE_DIR}
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx
-        ${CMAKE_CURRENT_SOURCE_DIR}/pivx/settings
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian
+        ${CMAKE_CURRENT_SOURCE_DIR}/tarian/settings
         ${OPENSSL_INCLUDE_DIR}
         ${BerkeleyDB_INCLUDE_DIRS}
         )
@@ -214,13 +214,13 @@ set_source_files_properties(${QT_TRANSLATIONS_FILES} PROPERTIES OUTPUT_LOCATION 
 QT5_ADD_TRANSLATION(QM ${QT_TRANSLATIONS_FILES})
 add_custom_target(translations_target ALL DEPENDS ${QM})
 
-QT5_ADD_RESOURCES(QRC_RESOURCE pivx.qrc)
-QT5_ADD_RESOURCES(QRC_LOCALE_RESOURCE pivx_locale.qrc)
+QT5_ADD_RESOURCES(QRC_RESOURCE tarian.qrc)
+QT5_ADD_RESOURCES(QRC_LOCALE_RESOURCE tarian_locale.qrc)
 
-add_executable(pivx-qt pivx.cpp ${QM} ${QRC_RESOURCE} ${QRC_LOCALE_RESOURCE})
-add_dependencies(pivx-qt translations_target libunivalue libsecp256k1 leveldb leveldb_sse42 memenv)
-target_include_directories(pivx-qt PUBLIC ${ENDIAN_INCLUDES})
-target_link_libraries(pivx-qt
+add_executable(tarian-qt tarian.cpp ${QM} ${QRC_RESOURCE} ${QRC_LOCALE_RESOURCE})
+add_dependencies(tarian-qt translations_target libunivalue libsecp256k1 leveldb leveldb_sse42 memenv)
+target_include_directories(tarian-qt PUBLIC ${ENDIAN_INCLUDES})
+target_link_libraries(tarian-qt
         qt_stuff
         univalue
         SERVER_A UTIL_A WALLET_A CLI_A COMMON_A BITCOIN_CRYPTO_A ZEROCOIN_A
@@ -229,30 +229,30 @@ target_link_libraries(pivx-qt
         pthread
         )
 if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-    target_link_libraries(pivx-qt "-framework Cocoa")
+    target_link_libraries(tarian-qt "-framework Cocoa")
 endif()
 if(GMP_FOUND)
-    target_link_libraries(pivx-qt ${GMP_LIBRARY})
-    target_include_directories(pivx-qt PUBLIC ${GMP_INCLUDE_DIR})
+    target_link_libraries(tarian-qt ${GMP_LIBRARY})
+    target_include_directories(tarian-qt PUBLIC ${GMP_INCLUDE_DIR})
 endif()
 if(ZMQ_FOUND)
-    target_link_libraries(pivx-qt ZMQ_A ${ZMQ_LIB})
-    target_include_directories(pivx-qt PUBLIC ${ZMQ_INCLUDE_DIR})
+    target_link_libraries(tarian-qt ZMQ_A ${ZMQ_LIB})
+    target_include_directories(tarian-qt PUBLIC ${ZMQ_INCLUDE_DIR})
 endif()
 if (QRCODE_FOUND)
-    target_link_libraries(pivx-qt ${QRCODE_LIB})
-    target_include_directories(pivx-qt PUBLIC ${QRCODE_INCLUDE_DIR})
+    target_link_libraries(tarian-qt ${QRCODE_LIB})
+    target_include_directories(tarian-qt PUBLIC ${QRCODE_INCLUDE_DIR})
 endif()
 if(MINIUPNP_FOUND)
-    target_compile_definitions(pivx-qt PUBLIC "-DSTATICLIB -DMINIUPNP_STATICLIB")
-    target_link_libraries(pivx-qt ${MINIUPNP_LIBRARY})
-    target_include_directories(pivx-qt PUBLIC ${MINIUPNP_INCLUDE_DIR})
+    target_compile_definitions(tarian-qt PUBLIC "-DSTATICLIB -DMINIUPNP_STATICLIB")
+    target_link_libraries(tarian-qt ${MINIUPNP_LIBRARY})
+    target_include_directories(tarian-qt PUBLIC ${MINIUPNP_INCLUDE_DIR})
 endif()
 
-target_link_libraries(pivx-qt Qt5::Gui Qt5::Core Qt5::Widgets Qt5::Network Qt5::Svg ${QT_LIBRARIES})
+target_link_libraries(tarian-qt Qt5::Gui Qt5::Core Qt5::Widgets Qt5::Network Qt5::Svg ${QT_LIBRARIES})
 if (Qt5DBus_FOUND)
-    target_link_libraries(pivx-qt Qt5::DBus ${QT_LIBRARIES})
+    target_link_libraries(tarian-qt Qt5::DBus ${QT_LIBRARIES})
 endif()
 if (Qt5Charts_FOUND)
-    target_link_libraries(pivx-qt Qt5::Charts ${QT_LIBRARIES})
+    target_link_libraries(tarian-qt Qt5::Charts ${QT_LIBRARIES})
 endif()

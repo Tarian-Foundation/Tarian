@@ -6,8 +6,8 @@
         <translation>Dijaloški okvir</translation>
     </message>
     <message>
-        <source>My Address</source>
-        <translation>Moja adresa</translation>
+        <source>New Address</source>
+        <translation>Nova adresa</translation>
     </message>
     <message>
         <source>Address</source>
@@ -22,8 +22,8 @@
         <translation>PONIŠTI</translation>
     </message>
     <message>
-        <source>OK</source>
-        <translation>OK</translation>
+        <source>SAVE</source>
+        <translation>SPREMI</translation>
     </message>
 </context>
 <context>
@@ -33,16 +33,8 @@
         <translation>Dijaloški okvir</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TekstOznake</translation>
-    </message>
-    <message>
         <source>CANCEL</source>
         <translation>PONIŠTI</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>OK</translation>
     </message>
     <message>
         <source>Edit Contact</source>
@@ -53,8 +45,8 @@
         <translation>Postavite oznaku za odabranu adresu</translation>
     </message>
     <message>
-        <source>Enter a name for the address (e.g Exchange)</source>
-        <translation>Upišite ime adrese (npr. Mjenjačnica)</translation>
+        <source>Enter a label for the address (e.g. Exchange)</source>
+        <translation>Unesite oznaku za adresu (npr. Burza)</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -130,12 +122,12 @@
         <translation>Adrese za primanje</translation>
     </message>
     <message>
-        <source>These are your TARIAN addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>To su vaše TARIAN adrese za slanje plaćanja. Uvijek provjerite iznos i adresu primatelja prije slanja novca.</translation>
+        <source>These are your TARN addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>To su vaše TARN adrese za slanje plaćanja. Uvijek provjerite iznos i adresu primatelja prije slanja novca.</translation>
     </message>
     <message>
-        <source>These are your TARIAN addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>To su vaše TARIAN adrese za primanje uplata. Preporuča se upotreba nove adrese primatelja za svaku transakciju.</translation>
+        <source>These are your TARN addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>To su vaše TARN adrese za primanje uplata. Preporuča se upotreba nove adrese primatelja za svaku transakciju.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -211,28 +203,12 @@
         <translation>Obrazac</translation>
     </message>
     <message>
-        <source>Send</source>
-        <translation>Pošalji</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TekstOznake</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
-    </message>
-    <message>
         <source>Contact name</source>
         <translation>Ime kontakta</translation>
     </message>
     <message>
         <source>Enter address</source>
         <translation>Unesite adresu</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>OK</translation>
     </message>
     <message>
         <source>Contacts</source>
@@ -247,16 +223,12 @@
         <translation>Nema još kontakata</translation>
     </message>
     <message>
-        <source>e.g. John Doe</source>
-        <translation>npr. Ivan Ivić</translation>
-    </message>
-    <message>
-        <source>Enter TARIAN address</source>
-        <translation>Unesite TARIAN adresu</translation>
-    </message>
-    <message>
         <source>SAVE</source>
         <translation>SPREMI</translation>
+    </message>
+    <message>
+        <source>Add new contact</source>
+        <translation>Dodaj novi kontakt</translation>
     </message>
     <message>
         <source>Invalid Contact Address</source>
@@ -380,10 +352,6 @@ za staking</translation>
         <translation>Ako napravite enkripciju Vašeg novčanika i izgubite lozinku, tada ćete</translation>
     </message>
     <message>
-        <source>LOSE ALL OF YOUR TARN</source>
-        <translation>IZGUBITI SVE VAŠE TARN-ove</translation>
-    </message>
-    <message>
         <source>ENCRYPT</source>
         <translation>KRIPTIRAJ</translation>
     </message>
@@ -392,12 +360,8 @@ za staking</translation>
         <translation>PONIŠTI</translation>
     </message>
     <message>
-        <source>WARNING: The Caps Lock key is on!</source>
-        <translation>UPOZORENJE: Caps Lock tipka je uključena!</translation>
-    </message>
-    <message>
-        <source>TARIAN will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TARNs from being stolen by malware infecting your computer.</source>
-        <translation>TARIAN će se sada zatvoriti kako bi se dovršio proces šifriranja. Ne zaboravite da šifriranje Vašeg novčanika ne može u potpunosti zaštititi vaše TARN od krađje zlonamjernog softvera koji zarazi vaše računalo.</translation>
+        <source>TARN will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TARNs from being stolen by malware infecting your computer.</source>
+        <translation>TARN će se sada zatvoriti kako bi se dovršio proces šifriranja. Ne zaboravite da šifriranje Vašeg novčanika ne može u potpunosti zaštititi vaše TARN od krađje zlonamjernog softvera koji zarazi vaše računalo.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -406,6 +370,14 @@ za staking</translation>
     <message>
         <source>Wallet encrypted</source>
         <translation>Novčanik šifriran</translation>
+    </message>
+    <message>
+        <source>WARNING:</source>
+        <translation>UPOZORENJE:</translation>
+    </message>
+    <message>
+        <source>Passphrases do not match!</source>
+        <translation>Lozinke se ne podudaraju!</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -426,6 +398,10 @@ za staking</translation>
     <message>
         <source>The supplied passphrases do not match.</source>
         <translation>Unesene lozinke se ne podudaraju.</translation>
+    </message>
+    <message>
+        <source>LOSE ALL OF YOUR COINS</source>
+        <translation>IZGUBIT ĆETE SVE NOVČIĆE</translation>
     </message>
     <message>
         <source>Wallet unlock failed</source>
@@ -692,6 +668,10 @@ za staking</translation>
         <translation>delegirano %1 za cold staking</translation>
     </message>
     <message>
+        <source>Select All</source>
+        <translation>Označi sve</translation>
+    </message>
+    <message>
         <source>no</source>
         <translation>ne</translation>
     </message>
@@ -720,10 +700,6 @@ za staking</translation>
         <translation>Ova oznaka postaje crvena ako neki primatelj prima iznos manji od %1.</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 utarn per input.</source>
-        <translation>Može varirati +/- %1 utarn po unosu.</translation>
-    </message>
-    <message>
         <source>(no label)</source>
         <translation>(bez oznake)</translation>
     </message>
@@ -743,28 +719,12 @@ za staking</translation>
         <translation>Obrazac</translation>
     </message>
     <message>
-        <source>Title</source>
-        <translation>Naslov</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TekstOznake</translation>
-    </message>
-    <message>
         <source>Owner address (optional, if empty a new address will be created)</source>
         <translation>Adresa vlasnika (neobavezno, ako ostavite prazno nova adresa će biti napravljena)</translation>
     </message>
     <message>
         <source>Total Staking:</source>
         <translation>Ukupan staking:</translation>
-    </message>
-    <message>
-        <source>List of delegated balance by address</source>
-        <translation>Popis delegiranih iznosa po adresama</translation>
-    </message>
-    <message>
-        <source>No balance delegated</source>
-        <translation>Nema delegiranog iznosa</translation>
     </message>
     <message>
         <source>Cold Staking</source>
@@ -836,6 +796,18 @@ stake on your behalf, while you keep the keys securely offline.</source>
         <translation>Cold staking je mrežno onemogućen</translation>
     </message>
     <message>
+        <source>Coin Control</source>
+        <translation>Upravljanje novčićima</translation>
+    </message>
+    <message>
+        <source>Create Cold Staking Address</source>
+        <translation>Stvori Cold Staking adresu</translation>
+    </message>
+    <message>
+        <source>My Cold Staking Addresses</source>
+        <translation>Moje Cold Staking adrese</translation>
+    </message>
+    <message>
         <source>Invalid entry</source>
         <translation>Neispravan unos</translation>
     </message>
@@ -877,10 +849,6 @@ Potrošnja ovih novčića morat će se obaviti iz novčanika ili uredjaja koji s
     <message>
         <source>Coins delegated</source>
         <translation>Novčići delegirani</translation>
-    </message>
-    <message>
-        <source>You don't have any TARN to select.</source>
-        <translation>Nemate TARN-a za odabrati</translation>
     </message>
     <message>
         <source>Cannot perform operation, wallet locked</source>
@@ -967,14 +935,6 @@ vlasnika</translation>
         <source>Form</source>
         <translation>Obrazac</translation>
     </message>
-    <message>
-        <source>Bob Allen</source>
-        <translation>Bob Allen</translation>
-    </message>
-    <message>
-        <source>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</source>
-        <translation>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</translation>
-    </message>
 </context>
 <context>
     <name>DashboardWidget</name>
@@ -987,36 +947,12 @@ vlasnika</translation>
         <translation>Tranksacije</translation>
     </message>
     <message>
-        <source>You can see here the history of your account</source>
-        <translation>Ovdje možete vidjeti povijest vašeg računa</translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation>Upozorenje</translation>
-    </message>
-    <message>
-        <source>No transactions</source>
-        <translation>Nema transakcija</translation>
-    </message>
-    <message>
         <source>Staking Rewards</source>
         <translation>Staking nagrade</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TekstOznake</translation>
-    </message>
-    <message>
         <source>Staking statistics</source>
         <translation>Statistika stakinga</translation>
-    </message>
-    <message>
-        <source>TARN</source>
-        <translation>TARN</translation>
-    </message>
-    <message>
-        <source>zTARN</source>
-        <translation>zTARN</translation>
     </message>
     <message>
         <source>Sort by</source>
@@ -1039,14 +975,6 @@ vlasnika</translation>
         <translation>Filtriraj prema</translation>
     </message>
     <message>
-        <source>LabelText</source>
-        <translation>TekstNaziva</translation>
-    </message>
-    <message>
-        <source>You can view your account's history</source>
-        <translation>Možete pregledati povijest računa</translation>
-    </message>
-    <message>
         <source>Amount of TARN and zTARN staked.</source>
         <translation>Iznos TARN i zTARN koji se stakea.</translation>
     </message>
@@ -1057,10 +985,6 @@ vlasnika</translation>
     <message>
         <source>No transactions yet</source>
         <translation>Nema još transakcija</translation>
-    </message>
-    <message>
-        <source>How to get TARN or zTARN</source>
-        <translation>Kako nabaviti TARN ili zTARN</translation>
     </message>
     <message>
         <source>You can verify the staking activity in the status bar at the top right of the wallet.
@@ -1100,20 +1024,12 @@ Automatski će se pokrenuti čim novčanik dobije dovoljno potvrda o neiskorišt
         <translation>Obrazac</translation>
     </message>
     <message>
-        <source>Transaction Details</source>
-        <translation>Detalji tranksacije</translation>
-    </message>
-    <message>
-        <source>Text Label</source>
-        <translation>Oznaka teksta</translation>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
     <message>
         <source>CANCEL</source>
         <translation>PONIŠTI</translation>
-    </message>
-    <message>
-        <source>SAVE</source>
-        <translation>SPREMI</translation>
     </message>
 </context>
 <context>
@@ -1155,8 +1071,8 @@ Automatski će se pokrenuti čim novčanik dobije dovoljno potvrda o neiskorišt
         <translation>Uredi adresu pošiljatelja</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid TARIAN address.</source>
-        <translation>Unesena adresa "%1" nije ispravna TARIAN adresa.</translation>
+        <source>The entered address "%1" is not a valid TARN address.</source>
+        <translation>Unesena adresa "%1" nije ispravna TARN adresa.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -1208,16 +1124,16 @@ Automatski će se pokrenuti čim novčanik dobije dovoljno potvrda o neiskorišt
         <translation>verzija</translation>
     </message>
     <message>
-        <source>TARIAN Core</source>
-        <translation>TARIAN Core</translation>
+        <source>Tarian Core</source>
+        <translation>Tarian Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About TARIAN Core</source>
-        <translation>O TARIAN Core-u</translation>
+        <source>About Tarian Core</source>
+        <translation>O Tarian Core-u</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1271,16 +1187,16 @@ Automatski će se pokrenuti čim novčanik dobije dovoljno potvrda o neiskorišt
         <translation>Dobrodošli</translation>
     </message>
     <message>
-        <source>Welcome to TARIAN Core.</source>
-        <translation>Dobrodošli u TARIAN Core.</translation>
+        <source>Welcome to Tarian Core.</source>
+        <translation>Dobrodošli u Tarian Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where TARIAN Core will store its data.</source>
-        <translation>Budući da je prvi put pokrenut program, možete odabrati gdje će TARIAN Core pohraniti svoje podatke.</translation>
+        <source>As this is the first time the program is launched, you can choose where Tarian Core will store its data.</source>
+        <translation>Budući da je prvi put pokrenut program, možete odabrati gdje će Tarian Core pohraniti svoje podatke.</translation>
     </message>
     <message>
-        <source>TARIAN Core will download and store a copy of the TARIAN block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>TARIAN Core preuzima i pohranjuje kopiju TARIAN blok-lanca. Barem će %1GB podataka biti pohranjeno u ovom direktoriju i to će s vremenom rasti. Novčanik će također biti pohranjena u ovom direktoriju.</translation>
+        <source>Tarian Core will download and store a copy of the TARN block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Tarian Core preuzima i pohranjuje kopiju TARN blok-lanca. Barem će %1GB podataka biti pohranjeno u ovom direktoriju i to će s vremenom rasti. Novčanik će također biti pohranjena u ovom direktoriju.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1299,8 +1215,8 @@ Automatski će se pokrenuti čim novčanik dobije dovoljno potvrda o neiskorišt
         <translation>OK</translation>
     </message>
     <message>
-        <source>TARIAN Core</source>
-        <translation>TARIAN Core</translation>
+        <source>Tarian Core</source>
+        <translation>Tarian Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1363,6 +1279,10 @@ Automatski će se pokrenuti čim novčanik dobije dovoljno potvrda o neiskorišt
         <source>Form</source>
         <translation>Obrazac</translation>
     </message>
+    <message>
+        <source>Status: %1</source>
+        <translation>Status: %1</translation>
+    </message>
 </context>
 <context>
     <name>MasterNodeWizardDialog</name>
@@ -1399,8 +1319,8 @@ Automatski će se pokrenuti čim novčanik dobije dovoljno potvrda o neiskorišt
         <translation>Stvori novi Masternode Controller</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;To create a TARIAN Masternode you must dedicate 10,000 TARN (the unit of TARIAN) to the network (however, these coins are still yours and will never leave your possession). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;You can deactivate the node and unlock the coins at any time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Da biste stvoriti TARIAN Masternode, morate odvojiti 10,000 TARN (jedinica TARIAN-a) prema mreži (međjutim, ti novčići su i dalje vaši i nikad neće napustiti vaše vlasništvo). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt; Možete isključiti node i otključati novčiće u bilo kojem trenutku.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;To create a TARN Masternode you must dedicate 1,000 TARN (the unit of TARN) to the network (however, these coins are still yours and will never leave your possession). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;You can deactivate the node and unlock the coins at any time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Da biste stvoriti TARN Masternode, morate odvojiti 1,000 TARN (jedinica TARN-a) prema mreži (međjutim, ti novčići su i dalje vaši i nikad neće napustiti vaše vlasništvo). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt; Možete isključiti node i otključati novčiće u bilo kojem trenutku.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Set Masternode Name</source>
@@ -1419,8 +1339,8 @@ Automatski će se pokrenuti čim novčanik dobije dovoljno potvrda o neiskorišt
         <translation>Obavezno imajte tu količinu novčića.</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of 10,000 TARN will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node's name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Transakcija od 10,000 TARN će biti napravljena&lt;/p&gt;&lt;p&gt;u novu praznu adresu u Vašem novčaniku.&lt;/p&gt;&lt;p&gt;Adresa je označena pod imenom Masternode-a.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of 1,000 TARN will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node's name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Transakcija od 1,000 TARN će biti napravljena&lt;/p&gt;&lt;p&gt;u novu praznu adresu u Vašem novčaniku.&lt;/p&gt;&lt;p&gt;Adresa je označena pod imenom Masternode-a.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Address of the node that must always be online running the actual master node.</source>
@@ -1429,18 +1349,6 @@ Automatski će se pokrenuti čim novčanik dobije dovoljno potvrda o neiskorišt
     <message>
         <source>Enter IP address</source>
         <translation>Unesite IP adresu</translation>
-    </message>
-    <message>
-        <source>CANCEL</source>
-        <translation>PONIŠTI</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>OK</translation>
-    </message>
-    <message>
-        <source>e.g user_masternode</source>
-        <translation>npr. korisnik_masternode</translation>
     </message>
     <message>
         <source>NEXT</source>
@@ -1461,6 +1369,10 @@ Automatski će se pokrenuti čim novčanik dobije dovoljno potvrda o neiskorišt
     <message>
         <source>Invalid IP address</source>
         <translation>Neispravna IP adresa</translation>
+    </message>
+    <message>
+        <source>Unknown error</source>
+        <translation>Nepoznata greška</translation>
     </message>
     <message>
         <source>Prepare master node failed.
@@ -1506,14 +1418,6 @@ Automatski će se pokrenuti čim novčanik dobije dovoljno potvrda o neiskorišt
     <message>
         <source>Form</source>
         <translation>Obrazac</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TekstOznake</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
     </message>
     <message>
         <source>Start All</source>
@@ -1614,6 +1518,14 @@ Molimo pričekajte nekoliko minuta (zalog za Masternode zahtjeva %1 potvrda).</t
         <translation>Podaci za udaljeni Masternode</translation>
     </message>
     <message>
+        <source>What is a Masternode?</source>
+        <translation>Što je Masternode?</translation>
+    </message>
+    <message>
+        <source>What is a Controller?</source>
+        <translation>Što je Controller?</translation>
+    </message>
+    <message>
         <source>You are just about to export the required data to run a Masternode
 on a remote server to your clipboard.
 
@@ -1662,10 +1574,6 @@ Jeste li sigurni?</translation>
         <translation>Ne može se kreirati Masternode controller, novčanik je zaključan</translation>
     </message>
     <message>
-        <source>Not enough balance to create a masternode, 10,000 TARN required.</source>
-        <translation>Nema dovoljno novčića za stvaranje Masternodea, potrebno je 10000 TARN.</translation>
-    </message>
-    <message>
         <source>Error creating masternode</source>
         <translation>Greška pri stvaranju Masternode-a</translation>
     </message>
@@ -1685,16 +1593,8 @@ Jeste li sigurni?</translation>
         <translation>Javni ključ:</translation>
     </message>
     <message>
-        <source>492526e7fa3c810b35016...40a5df85ee227ab00b1156994</source>
-        <translation>492526e7fa3c810b35016...40a5df85ee227ab00b1156994</translation>
-    </message>
-    <message>
         <source>Address: </source>
         <translation>Adresa:</translation>
-    </message>
-    <message>
-        <source>127.0.0.2:43223</source>
-        <translation>127.0.0.2:43223</translation>
     </message>
     <message>
         <source>Collaterall tx id:</source>
@@ -1713,31 +1613,19 @@ Jeste li sigurni?</translation>
         <translation>Status:</translation>
     </message>
     <message>
-        <source>MISSING</source>
-        <translation>NEDOSTAJE</translation>
-    </message>
-    <message>
         <source>Export data to run the Masternode on a remote server</source>
         <translation>Izvoz podataka za pokretanje Masternode-a na udaljenom poslužitelju</translation>
     </message>
-</context>
+    <message>
+        <source>Masternode public key copied</source>
+        <translation>Masternode javni ključ je kopiran</translation>
+    </message>
+    </context>
 <context>
     <name>MyAddressRow</name>
     <message>
         <source>Form</source>
         <translation>Obrazac</translation>
-    </message>
-    <message>
-        <source>Savings</source>
-        <translation>Ušteđjevina</translation>
-    </message>
-    <message>
-        <source>Jan. 19, 2019</source>
-        <translation>19. siječanj, 2020</translation>
-    </message>
-    <message>
-        <source>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</source>
-        <translation>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</translation>
     </message>
 </context>
 <context>
@@ -1745,6 +1633,48 @@ Jeste li sigurni?</translation>
     <message>
         <source>Form</source>
         <translation>Obrazac</translation>
+    </message>
+    <message>
+        <source>HOME
+</source>
+        <translation>GLAVNO
+</translation>
+    </message>
+    <message>
+        <source>SEND
+</source>
+        <translation>POŠALJI
+</translation>
+    </message>
+    <message>
+        <source>RECEIVE
+</source>
+        <translation>PRIMI
+</translation>
+    </message>
+    <message>
+        <source>CONTACTS
+</source>
+        <translation>KONTAKTI
+</translation>
+    </message>
+    <message>
+        <source>MASTER
+NODES</source>
+        <translation>MASTER
+NODEOVI</translation>
+    </message>
+    <message>
+        <source>COLD
+STAKING</source>
+        <translation>COLD
+STAKING</translation>
+    </message>
+    <message>
+        <source>SETTINGS
+</source>
+        <translation>POSTAVKE
+</translation>
     </message>
     <message>
         <source>V 1.0.0</source>
@@ -1804,10 +1734,6 @@ Jeste li sigurni?</translation>
         <source>Form</source>
         <translation>Obrazac</translation>
     </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TekstOznake</translation>
-    </message>
 </context>
 <context>
     <name>OptionsDialog</name>
@@ -1844,8 +1770,8 @@ Jeste li sigurni?</translation>
         <translation>Ako onemogućite potrošnju nepotvrđjenog ostatka, ostatak od transakcije &lt;br/&gt;ne može se koristiti dok ta transakcija nema barem jednu potvrdu. &lt;br/&gt;Ovo takođjer utječe na izračun vašeg salda.</translation>
     </message>
     <message>
-        <source>Automatically open the TARIAN client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automatski otvorite TARIAN klijentski ulaz na ruteru. To funkcionira samo kada vaš ruter podržava UPnP i omogućen je.</translation>
+        <source>Automatically open the TARN client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Automatski otvorite TARN klijentski ulaz na ruteru. To funkcionira samo kada vaš ruter podržava UPnP i omogućen je.</translation>
     </message>
     <message>
         <source>Accept connections from outside</source>
@@ -1864,12 +1790,12 @@ Jeste li sigurni?</translation>
         <translation>Stručnjak</translation>
     </message>
     <message>
-        <source>Automatically start TARIAN after logging in to the system.</source>
-        <translation>Automatski pokrenite TARIAN nakon prijave u sustav.</translation>
+        <source>Automatically start TARN after logging in to the system.</source>
+        <translation>Automatski pokrenite TARN nakon prijave u sustav.</translation>
     </message>
     <message>
-        <source>&amp;Start TARIAN on system login</source>
-        <translation>&amp;Pokrenite TARIAN pri pokretanju sustava</translation>
+        <source>&amp;Start TARN on system login</source>
+        <translation>&amp;Pokrenite TARN pri pokretanju sustava</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1896,14 +1822,14 @@ Jeste li sigurni?</translation>
         <translation>&amp;Mreža</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting TARIAN.</source>
-        <translation>Jezik korisničkog sučelja možete postaviti ovdje. Postavke će stupiti na snagu nakon ponovnog pokretanja TARIAN novčanika.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting TARN.</source>
+        <translation>Jezik korisničkog sučelja možete postaviti ovdje. Postavke će stupiti na snagu nakon ponovnog pokretanja TARN novčanika.</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/Tarian-Foundation/Tarian-project-translations</source>
+https://www.transifex.com/tarian-project/tarian-project-translations</source>
         <translation>Jezik nedostaje ili prijevod nije potpun? Pomozite s prijevodom ovdje:
-https://www.transifex.com/Tarian-Foundation/Tarian-project-translations</translation>
+https://www.transifex.com/tarian-project/tarian-project-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1946,8 +1872,8 @@ https://www.transifex.com/Tarian-Foundation/Tarian-project-translations</transla
         <translation>Prag razdvajanja Stake-a:</translation>
     </message>
     <message>
-        <source>Connect to the TARIAN network through a SOCKS5 proxy.</source>
-        <translation>Povežite se s TARIAN mrežom putem SOCKS5 proxy poslužitelja.</translation>
+        <source>Connect to the TARN network through a SOCKS5 proxy.</source>
+        <translation>Povežite se s TARN mrežom putem SOCKS5 proxy poslužitelja.</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -2011,7 +1937,7 @@ https://www.transifex.com/Tarian-Foundation/Tarian-project-translations</transla
     </message>
     <message>
         <source>Hide empty balances</source>
-        <translation>Sakrij prazni saldo</translation>
+        <translation>Sakrij prazna salda</translation>
     </message>
     <message>
         <source>Hide orphan stakes in transaction lists</source>
@@ -2055,7 +1981,7 @@ https://www.transifex.com/Tarian-Foundation/Tarian-project-translations</transla
     </message>
     <message>
         <source>default</source>
-        <translation>zadani</translation>
+        <translation>zadano</translation>
     </message>
     <message>
         <source>none</source>
@@ -2067,7 +1993,7 @@ https://www.transifex.com/Tarian-Foundation/Tarian-project-translations</transla
     </message>
     <message>
         <source>Client restart required to activate changes.</source>
-        <translation>Ponovno pokretanje klijenta potrebno je za aktiviranje promjena.</translation>
+        <translation>Ponovno pokretanje klijenta je potrebno za aktiviranje promjena.</translation>
     </message>
     <message>
         <source>Client will be shutdown, do you want to proceed?</source>
@@ -2091,10 +2017,10 @@ https://www.transifex.com/Tarian-Foundation/Tarian-project-translations</transla
     </message>
 </context>
 <context>
-    <name>TARIANGUI</name>
+    <name>TARNGUI</name>
     <message>
-        <source>TARIAN Core</source>
-        <translation>TARIAN Core</translation>
+        <source>Tarian Core</source>
+        <translation>Tarian Core</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -2121,7 +2047,7 @@ https://www.transifex.com/Tarian-Foundation/Tarian-project-translations</transla
         <translation>Napusti aplikaciju</translation>
     </message>
     <message>
-        <source>TARIAN Core client</source>
+        <source>Tarian Core client</source>
         <translation>TARNIX Core Klijent</translation>
     </message>
     <message>
@@ -2164,10 +2090,6 @@ Tip: %3
 Adresa: %4
 </translation>
     </message>
-    <message>
-        <source>A fatal error occurred. TARIAN can no longer continue safely and will quit.</source>
-        <translation>Dogodila se fatalna pogreška. TARIAN ne može sigurno nastaviti i izaći će.</translation>
-    </message>
 </context>
 <context>
     <name>PaymentServer</name>
@@ -2196,8 +2118,8 @@ Adresa: %4
         <translation>Ne može se pokrenuti tarian: clik-to-pay handler</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid TARIAN address or malformed URI parameters.</source>
-        <translation>URI se ne može analizirati! To može biti uzrokovana nevažećom TARIAN adresom ili nepravilnim URI parametrima.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid TARN address or malformed URI parameters.</source>
+        <translation>URI se ne može analizirati! To može biti uzrokovana nevažećom TARN adresom ili nepravilnim URI parametrima.</translation>
     </message>
     <message>
         <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
@@ -2276,139 +2198,14 @@ Adresa: %4
     </message>
 </context>
 <context>
-    <name>PrivacyWidget</name>
-    <message>
-        <source>Form</source>
-        <translation>Obrazac</translation>
-    </message>
-    <message>
-        <source>Title</source>
-        <translation>Naslov</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TekstOznake</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>TipkaZaPritisak</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
-    </message>
-    <message>
-        <source>Privacy</source>
-        <translation>Privatnost</translation>
-    </message>
-    <message>
-        <source>Convert</source>
-        <translation>Konvertiraj</translation>
-    </message>
-    <message>
-        <source>Mint</source>
-        <translation>Stvori</translation>
-    </message>
-    <message>
-        <source>Minting zTARN anonymizes your TARN by removing any
-transaction history, making transactions untraceable </source>
-        <translation>Stvaranje zTARN-a anonimizira Vaš TARN brišući cijelu
-povijest transakcija, čineći transakcije nepratljivima</translation>
-    </message>
-    <message>
-        <source>Mint new zTARN or convert back to TARN</source>
-        <translation>Stvori novi zTARN ili pretvori natrag u TARN</translation>
-    </message>
-    <message>
-        <source>Last zTARN Movements</source>
-        <translation>Posljednja zTARN kretanja</translation>
-    </message>
-    <message>
-        <source>No transactions yet</source>
-        <translation>Nema još transakcija</translation>
-    </message>
-    <message>
-        <source>Mint zTARN</source>
-        <translation>Stvori zTARN</translation>
-    </message>
-    <message>
-        <source>Enter amount of TARN to mint into zTARN</source>
-        <translation>Unesite iznos TARN-a za pretvorbu u zTARN</translation>
-    </message>
-    <message>
-        <source>Convert back to TARN</source>
-        <translation>Pretvori natrag u TARN</translation>
-    </message>
-    <message>
-        <source>Enter amount of zTARN to convert back into TARN</source>
-        <translation>Upišite iznos zTARN za konverziju natrag u TARN</translation>
-    </message>
-    <message>
-        <source>Zerocoin</source>
-        <translation>Zerocoin</translation>
-    </message>
-    <message>
-        <source>zTARN is currently undergoing maintenance</source>
-        <translation>zTARN se trenutno održava</translation>
-    </message>
-    <message>
-        <source>You need to unlock the wallet to be able to %1 zTARN</source>
-        <translation>Morate otključati novčanik kako biste mogli %1 zTARN</translation>
-    </message>
-    <message>
-        <source>convert</source>
-        <translation>konvert</translation>
-    </message>
-    <message>
-        <source>mint</source>
-        <translation>stvori</translation>
-    </message>
-    <message>
-        <source>Invalid value</source>
-        <translation>Nevažeća vrijednost</translation>
-    </message>
-    <message>
-        <source>zTARN minted successfully</source>
-        <translation>zTARN uspješno stvoren</translation>
-    </message>
-    <message>
-        <source>zTARN converted back to TARN</source>
-        <translation>zTARN pretvoren natrag u TARN</translation>
-    </message>
-    <message>
-        <source>You don't have any TARN to select.</source>
-        <translation>Nemate TARN-a za odabrati</translation>
-    </message>
-    <message>
-        <source>Rescan Mints</source>
-        <translation>Ponovno pretraži stvorene novčiće</translation>
-    </message>
-    <message>
-        <source>Your zerocoin mints are going to be scanned from the blockchain from scratch</source>
-        <translation>Vaši zerocoin novčići skenirat će se iz blockchaina od samog početka</translation>
-    </message>
-    <message>
-        <source>Reset Spent zTARN</source>
-        <translation>Resetiraj potrošeni zTARN</translation>
-    </message>
-    <message>
-        <source>Your zerocoin spends are going to be scanned from the blockchain from scratch</source>
-        <translation>Vaša zerocoin potrošnja će biti skenirana s blockchaina od početka</translation>
-    </message>
-    <message>
-        <source>Total %1</source>
-        <translation>Ukupno %1</translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <source>Amount</source>
         <translation>Iznos</translation>
     </message>
     <message>
-        <source>Enter TARIAN address (e.g. %1)</source>
-        <translation>Upišite TARIAN adresu (npr. %1)</translation>
+        <source>Enter TARN address (e.g. %1)</source>
+        <translation>Upišite TARN adresu (npr. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2451,8 +2248,12 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
         <translation>%1 ms</translation>
     </message>
     <message>
-        <source>TARIAN Core</source>
-        <translation>TARIAN Core</translation>
+        <source>A fatal error occurred. TARN can no longer continue safely and will quit.</source>
+        <translation>Dogodila se fatalna pogreška. TARN ne može sigurno nastaviti i izaći će.</translation>
+    </message>
+    <message>
+        <source>Tarian Core</source>
+        <translation>Tarian Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" does not exist.</source>
@@ -2471,8 +2272,8 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
         <translation>Greška pri čitanju masternode konfiguracijske datoteke: %1</translation>
     </message>
     <message>
-        <source>TARIAN Core didn't yet exit safely...</source>
-        <translation>TARIAN Core nije ugašen sigurno...</translation>
+        <source>Tarian Core didn't yet exit safely...</source>
+        <translation>Tarian Core nije ugašen sigurno...</translation>
     </message>
     <message>
         <source>Contact</source>
@@ -2511,10 +2312,6 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
         <translation>Kontakti</translation>
     </message>
     <message>
-        <source>Delegators</source>
-        <translation>Delegatori</translation>
-    </message>
-    <message>
         <source>Staking Contacts</source>
         <translation>Staking kontakti</translation>
     </message>
@@ -2544,7 +2341,7 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
     </message>
     <message>
         <source>Mined</source>
-        <translation>Mined</translation>
+        <translation>Stvoreno</translation>
     </message>
     <message>
         <source>Minted</source>
@@ -2585,6 +2382,58 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
     <message>
         <source>by Date</source>
         <translation>po Datumu</translation>
+    </message>
+    <message>
+        <source>Jan</source>
+        <translation>Sij</translation>
+    </message>
+    <message>
+        <source>Feb</source>
+        <translation>Velj</translation>
+    </message>
+    <message>
+        <source>Mar</source>
+        <translation>Ožu</translation>
+    </message>
+    <message>
+        <source>Apr</source>
+        <translation>Tra</translation>
+    </message>
+    <message>
+        <source>May</source>
+        <translation>Svi</translation>
+    </message>
+    <message>
+        <source>Jun</source>
+        <translation>Lip</translation>
+    </message>
+    <message>
+        <source>Jul</source>
+        <translation>Srp</translation>
+    </message>
+    <message>
+        <source>Aug</source>
+        <translation>Kol</translation>
+    </message>
+    <message>
+        <source>Sep</source>
+        <translation>Ruj</translation>
+    </message>
+    <message>
+        <source>Oct</source>
+        <translation>Lip</translation>
+    </message>
+    <message>
+        <source>Nov</source>
+        <translation>Stu</translation>
+    </message>
+    <message>
+        <source>Dec</source>
+        <translation>Pro</translation>
+    </message>
+    <message>
+        <source>Address with no label</source>
+        <translation>Adresa bez oznake</translation>
     </message>
 </context>
 <context>
@@ -2658,8 +2507,8 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
         <translation>Block chain</translation>
     </message>
     <message>
-        <source>Open the TARIAN debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Otvorite TARIAN debug log datoteku iz aktualnog direktorija podataka. To može potrajati nekoliko sekundi za velike datoteke zapisnika.</translation>
+        <source>Open the TARN debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Otvorite TARN debug log datoteku iz aktualnog direktorija podataka. To može potrajati nekoliko sekundi za velike datoteke zapisnika.</translation>
     </message>
     <message>
         <source>Number of Masternodes</source>
@@ -2882,8 +2731,8 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
         <translation>Iz:</translation>
     </message>
     <message>
-        <source>Welcome to the TARIAN RPC console.</source>
-        <translation>Dobrodošli na TARIAN RPC konzolu.</translation>
+        <source>Welcome to the TARN RPC console.</source>
+        <translation>Dobrodošli na TARN RPC konzolu.</translation>
     </message>
     <message>
         <source>&amp;Disconnect Node</source>
@@ -2915,7 +2764,7 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
     </message>
     <message>
         <source>This will delete your local blockchain folders and the wallet will synchronize the complete Blockchain from scratch.&lt;br /&gt;&lt;br /&gt;</source>
-        <translation>Ovo će izbrisati vaše lokalne blockchain foldere i novčanik će sinkronizirati cjelokupan blockchain od početka.&lt;br /&gt;&lt;br /&gt;</translation>
+        <translation>Ovo će izbrisati vaše lokalne blockchain direktorije i novčanik će sinkronizirati cjelokupan Blockchain ispočetka.&lt;br /&gt;&lt;br /&gt;</translation>
     </message>
     <message>
         <source>This needs quite some time and downloads a lot of data.&lt;br /&gt;&lt;br /&gt;</source>
@@ -2923,7 +2772,7 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
     </message>
     <message>
         <source>Your transactions and funds will be visible again after the download has completed.&lt;br /&gt;&lt;br /&gt;</source>
-        <translation>Vaše transakcije i sredstva bit će ponovno vidljivi nakon preuzimanja završe.&lt;br /&gt;&lt;br /&gt;</translation>
+        <translation>Vaše transakcije i sredstva bit će ponovno vidljivi nakon što se preuzimanje završi.&lt;br /&gt;&lt;br /&gt;</translation>
     </message>
     <message>
         <source>Do you want to continue?.&lt;br /&gt;</source>
@@ -3001,20 +2850,16 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
         <translation>Dijaloški okvir</translation>
     </message>
     <message>
-        <source>Transaction Details</source>
-        <translation>Detalji tranksacije</translation>
+        <source>My Address</source>
+        <translation>Moja adresa</translation>
     </message>
     <message>
-        <source>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
-        <translation>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z</translation>
+        <source>COPY</source>
+        <translation>KOPIRAJ</translation>
     </message>
     <message>
         <source>CANCEL</source>
         <translation>PONIŠTI</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -3022,10 +2867,6 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
     <message>
         <source>Form</source>
         <translation>Obrazac</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TekstOznake</translation>
     </message>
     <message>
         <source>No address</source>
@@ -3048,12 +2889,12 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
         <translation>Primi</translation>
     </message>
     <message>
-        <source>Scan the QR code or copy the address to receive TARN.</source>
-        <translation>Skenirajte QR kod ili kopirajte adresu da biste primili TARN.</translation>
+        <source>My Addresses</source>
+        <translation>Moje adrese</translation>
     </message>
     <message>
-        <source>No address </source>
-        <translation>Nema adrese</translation>
+        <source>Create Request</source>
+        <translation>Kreiraj zahtjev</translation>
     </message>
     <message>
         <source>No available address, try unlocking the wallet</source>
@@ -3146,14 +2987,6 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
         <translation>Dijaloški okvir</translation>
     </message>
     <message>
-        <source>New Request Payment</source>
-        <translation>Novi zahtjev za plaćanje</translation>
-    </message>
-    <message>
-        <source>Lorem ipsum dolor sit amet, consectur cling elit, sed do </source>
-        <translation>Lorem ipsum dolor sit amet, consectur cling elit, sed do</translation>
-    </message>
-    <message>
         <source>Amount</source>
         <translation>Iznos</translation>
     </message>
@@ -3162,12 +2995,8 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
         <translation>TARN</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TekstOznake</translation>
-    </message>
-    <message>
         <source>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
-        <translation>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </translation>
+        <translation>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z</translation>
     </message>
     <message>
         <source>COPY ADDRESS</source>
@@ -3182,10 +3011,6 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
         <translation>PONIŠTI</translation>
     </message>
     <message>
-        <source>REQUEST</source>
-        <translation>ZAHTJEV</translation>
-    </message>
-    <message>
         <source>Label</source>
         <translation>Oznaka</translation>
     </message>
@@ -3196,10 +3021,6 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
     <message>
         <source>New Payment Request</source>
         <translation>Novi zahtjev za plaćanje</translation>
-    </message>
-    <message>
-        <source>Instead of sharing only a TARIAN address, you can create a payment request, bundling up more information.</source>
-        <translation>Umjesto da dijelite samo TARIAN adresu, možete stvoriti zahtjev za plaćanje i povezivati više informacija.</translation>
     </message>
     <message>
         <source>Enter a label for the address</source>
@@ -3229,7 +3050,19 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
         <source>Amount (optional)</source>
         <translation>Iznos (neobavezno)</translation>
     </message>
-</context>
+    <message>
+        <source>Address label cannot be empty</source>
+        <translation>Oznaka adrese ne može biti prazna</translation>
+    </message>
+    <message>
+        <source>Invalid amount</source>
+        <translation>Neispravan iznos</translation>
+    </message>
+    <message>
+        <source>Request for </source>
+        <translation>Zahtjev za</translation>
+    </message>
+    </context>
 <context>
     <name>SendChangeAddressDialog</name>
     <message>
@@ -3237,28 +3070,16 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
         <translation>Dijaloški okvir</translation>
     </message>
     <message>
-        <source>Transaction Details</source>
-        <translation>Detalji tranksacije</translation>
-    </message>
-    <message>
-        <source>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</source>
-        <translation>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</translation>
-    </message>
-    <message>
         <source>CANCEL</source>
         <translation>PONIŠTI</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>OK</translation>
     </message>
     <message>
         <source>Custom Change Address</source>
         <translation>Prilagođjena adresa za ostatak</translation>
     </message>
     <message>
-        <source>The remainder of the value resultant from the inputs minus the outputs value goes to the "change" TARIAN address</source>
-        <translation>Ostatak vrijednosti koja proizlazi iz ulaza umanjen za izlaznu vrijednost ide na TARIAN adresu za "ostatak"</translation>
+        <source>The remainder of the value resultant from the inputs minus the outputs value goes to the "change" TARN address</source>
+        <translation>Ostatak vrijednosti koja proizlazi iz ulaza umanjen za izlaznu vrijednost ide na TARN adresu za "ostatak"</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -3272,20 +3093,12 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
         <source>Invalid address</source>
         <translation>Nevažeća adresa</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>SendCustomFeeDialog</name>
     <message>
         <source>Form</source>
         <translation>Obrazac</translation>
-    </message>
-    <message>
-        <source>Transaction Details</source>
-        <translation>Detalji tranksacije</translation>
-    </message>
-    <message>
-        <source>Customize the transaction fee at your to your liking, depending on the fee value your transaction will be included or not in the blockchain.</source>
-        <translation>Prilagodite naknadu za transakciju po Vašoj želji, ovisno o visini naknade vaša transakcija će biti uključena brže u blockchain.</translation>
     </message>
     <message>
         <source>Recommended</source>
@@ -3308,16 +3121,8 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
         <translation>PONIŠTI</translation>
     </message>
     <message>
-        <source>OK</source>
-        <translation>OK</translation>
-    </message>
-    <message>
         <source>Customize Fee</source>
         <translation>Prilagodite naknadu</translation>
-    </message>
-    <message>
-        <source>Customize the transaction fee, depending on the fee value your transaction might be included faster in the blockchain.</source>
-        <translation>Prilagodite naknadu za transakciju, ovisno o visini naknade Vaša transakcija mogla bi biti brže uključena u blockchain.</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -3335,7 +3140,15 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
         <source>SAVE</source>
         <translation>SPREMI</translation>
     </message>
-    </context>
+    <message>
+        <source>Fee too high. Must be below: %1</source>
+        <translation>Naknada je previsoka. Mora biti manja od: %1</translation>
+    </message>
+    <message>
+        <source>Fee too low. Must be at least: %1</source>
+        <translation>Naknada je preniska. Mora biti barem: %1</translation>
+    </message>
+</context>
 <context>
     <name>SendMultiRow</name>
     <message>
@@ -3343,12 +3156,12 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
         <translation>Obrazac</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TekstOznake</translation>
-    </message>
-    <message>
         <source>Enter address</source>
         <translation>Unesite adresu</translation>
+    </message>
+    <message>
+        <source>Address label (optional)</source>
+        <translation>Oznaka adrese (neobavezno)</translation>
     </message>
     <message>
         <source>Enter label</source>
@@ -3358,56 +3171,8 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
 <context>
     <name>SendWidget</name>
     <message>
-        <source>Send</source>
-        <translation>Pošalji</translation>
-    </message>
-    <message>
-        <source>You can transfer public coins (TARN) or private coins (zTARN)</source>
-        <translation>Mogućnost prijenosa javnih novčića (TARN) ili anonimnih novčića (zTARN)</translation>
-    </message>
-    <message>
-        <source>Select coin type to spend</source>
-        <translation>Označi tip novčića za potrošiti</translation>
-    </message>
-    <message>
-        <source>Amount</source>
-        <translation>Iznos</translation>
-    </message>
-    <message>
-        <source>Customize fee</source>
-        <translation>Prilagodite naknadu</translation>
-    </message>
-    <message>
-        <source>Clear all</source>
-        <translation>Očisti sve</translation>
-    </message>
-    <message>
-        <source>Add recipient</source>
-        <translation>Dodaj primatelja</translation>
-    </message>
-    <message>
-        <source>Reset to default</source>
-        <translation>Resetiraj na početno stanje</translation>
-    </message>
-    <message>
-        <source>Total to send</source>
-        <translation>Ukupno za slanje</translation>
-    </message>
-    <message>
-        <source>Send TARN</source>
-        <translation>Pošalji TARN</translation>
-    </message>
-    <message>
-        <source>Send zTARN</source>
-        <translation>Pošalji zTARN</translation>
-    </message>
-    <message>
         <source>Total remaining from the selected UTXO</source>
         <translation>Ukupno preostalo od odabranog UTXO</translation>
-    </message>
-    <message>
-        <source>Total remaining</source>
-        <translation>Ukupno preostalo</translation>
     </message>
     <message>
         <source>Warning!</source>
@@ -3430,10 +3195,6 @@ Do you want to continue?</source>
         <translation>Maksimalni iznos rezultata dosegnut</translation>
     </message>
     <message>
-        <source>TARIAN address or contact label</source>
-        <translation>TARIAN adresa ili naziv kontakta</translation>
-    </message>
-    <message>
         <source>Invalid entry, previous entries must be valid before add a new one</source>
         <translation>Neispravan unos, prethodni unosi moraju biti ispravni prije dodavanja novog</translation>
     </message>
@@ -3443,7 +3204,7 @@ Do you want to continue?</source>
     </message>
     <message>
         <source>Invalid entry</source>
-        <translation>Nevažeći unos</translation>
+        <translation>Neispravan unos</translation>
     </message>
     <message>
         <source>No set recipients</source>
@@ -3470,54 +3231,6 @@ Ovi novčići više neće biti cold-stakeani.</translation>
         <translation>Transakcija poslana</translation>
     </message>
     <message>
-        <source>Spend Zerocoin</source>
-        <translation>Potroši Zerocoin</translation>
-    </message>
-    <message>
-        <source>zTARN is currently undergoing maintenance.</source>
-        <translation>Radovi u tijeku na zTARN.</translation>
-    </message>
-    <message>
-        <source>Coin control mint not found</source>
-        <translation>Novčić nije pronađen u Upravljanju novčićima</translation>
-    </message>
-    <message>
-        <source>Sending %1 to address %2
-</source>
-        <translation>Slanje %1 na adresu %2
-</translation>
-    </message>
-    <message>
-        <source>Sending %1 to addresses:
-%2</source>
-        <translation>Slanje %1 na adrese:
-%2</translation>
-    </message>
-    <message>
-        <source>zTARN transaction sent!</source>
-        <translation>zTARN transakcija poslana!</translation>
-    </message>
-    <message>
-        <source>Version 1 zTARN require a security level of 100 to successfully spend.</source>
-        <translation>Verzija 1 zTARN zahtjeva sigurnosnu razinu 100 da se uspješno utroši.</translation>
-    </message>
-    <message>
-        <source>Too much inputs (</source>
-        <translation>Previše unosa (</translation>
-    </message>
-    <message>
-        <source>) needed.
-Maximum allowed: </source>
-        <translation>) potrebno.
-Maksimalno dopušteno:</translation>
-    </message>
-    <message>
-        <source>
-Either mint higher denominations (so fewer inputs are needed) or reduce the amount to spend.</source>
-        <translation>
-Ili mintaj više vrijedne denominacije (tako da je potrebno manje ulaza) ili smanjiti iznos potrošnje</translation>
-    </message>
-    <message>
         <source>Address label update failed for address: %1</source>
         <translation>Ažuriranje oznake adrese nije uspjelo za adresu: %1</translation>
     </message>
@@ -3534,12 +3247,16 @@ Ili mintaj više vrijedne denominacije (tako da je potrebno manje ulaza) ili sma
         <translation>Prilagođjena naknada %1</translation>
     </message>
     <message>
-        <source>You don't have any TARN to select.</source>
-        <translation>Nemate TARN-a za odabrati</translation>
+        <source>Coin Control</source>
+        <translation>Upravljanje novčićima</translation>
     </message>
     <message>
-        <source>You don't have any zTARN in your balance to select.</source>
-        <translation>Nemate zTARN u svom saldu za odabir.</translation>
+        <source>Change Address</source>
+        <translation>Adresa za ostatak</translation>
+    </message>
+    <message>
+        <source>Open URI</source>
+        <translation>Otvori URI</translation>
     </message>
     <message>
         <source>No contacts available, you can go to the contacts screen and add some there!</source>
@@ -3585,32 +3302,12 @@ Ili mintaj više vrijedne denominacije (tako da je potrebno manje ulaza) ili sma
         <translation>Obrazac</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TekstOznake</translation>
-    </message>
-    <message>
-        <source>Backup Wallet </source>
-        <translation>Pohrani novčanik</translation>
-    </message>
-    <message>
         <source>Change Wallet Passphrase</source>
         <translation>Promjeni lozinku novčanika</translation>
     </message>
     <message>
-        <source>This will decrypt the whole wallet data and encrypt it back with the new passphrase.
-Remember to write it down and store it safely, otherwise you might lose access to your funds.</source>
-        <translation>Ovo će dekriptirati sve podatke novčanika i kriptirati ih ponovno s novom lozinkom.
-Ne zaboravite zapisati lozinku i spremite je na sigurno, u suprotnom ćete izgubiti pristup vašim sredstvima.</translation>
-    </message>
-    <message>
         <source>Where</source>
         <translation>Gdje</translation>
-    </message>
-    <message>
-        <source>Keep your wallet safe by doing regular backups and storing your backup file externally.
-This option creates a wallet.dat file that can be used to recover your whole balance (transactions and addresses) on another device.</source>
-        <translation>Čuvajte svoj novčanik radeći redovite sigurnosne kopije i pohranjivanjem datoteke sigurnosne kopije na sigurnom.
-Ova opcija stvara datoteku wallet.dat koja se može koristiti za oporavak cijelog stanja (transakcija i adresa) na drugom uređjaju.</translation>
     </message>
     <message>
         <source>Select folder...</source>
@@ -3648,24 +3345,8 @@ Ova opcija stvara datoteku wallet.dat koja se može koristiti za oporavak cijelo
         <translation>Obrazac</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TekstOznake</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>TipkaZaPritisak</translation>
-    </message>
-    <message>
-        <source>Decrypt Address Result</source>
-        <translation>Rezultat dešifrirane adrese</translation>
-    </message>
-    <message>
         <source>Import Address</source>
         <translation>Uvezi adresu</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation>Izbriši</translation>
     </message>
     <message>
         <source>BIP38 Tool</source>
@@ -3692,10 +3373,6 @@ Ova opcija stvara datoteku wallet.dat koja se može koristiti za oporavak cijelo
         <translation>Lozinka</translation>
     </message>
     <message>
-        <source>Enter a passphrase </source>
-        <translation>Unesite lozinku</translation>
-    </message>
-    <message>
         <source>Decrypted address result</source>
         <translation>Rezultat dešifrirane adrese</translation>
     </message>
@@ -3708,8 +3385,8 @@ Ova opcija stvara datoteku wallet.dat koja se može koristiti za oporavak cijelo
         <translation>DEŠIFRIRAJ KLJUČ</translation>
     </message>
     <message>
-        <source>TARIAN address</source>
-        <translation>TARIAN adresa</translation>
+        <source>TARN address</source>
+        <translation>TARN adresa</translation>
     </message>
     <message>
         <source>Enter address</source>
@@ -3725,11 +3402,15 @@ Ova opcija stvara datoteku wallet.dat koja se može koristiti za oporavak cijelo
     </message>
     <message>
         <source>ENCRYPT</source>
-        <translation>KRIPTIRATI</translation>
+        <translation>KRIPTIRAJ</translation>
     </message>
     <message>
         <source>CLEAR ALL</source>
         <translation>OČISTI SVE</translation>
+    </message>
+    <message>
+        <source>Enter a passphrase</source>
+        <translation>Unesite zaporku</translation>
     </message>
     <message>
         <source>CLEAR</source>
@@ -3749,11 +3430,11 @@ Ova opcija stvara datoteku wallet.dat koja se može koristiti za oporavak cijelo
     </message>
     <message>
         <source>Please check the address and try again.</source>
-        <translation>Provjerite adresu i pokušajte ponovno.</translation>
+        <translation>Molimo provjerite adresu i pokušajte ponovno.</translation>
     </message>
     <message>
         <source>The entered address does not refer to a key.</source>
-        <translation>Unesena adresa ne odnosi se na ključ.</translation>
+        <translation>Unesena adresa se ne odnosi na ključ.</translation>
     </message>
     <message>
         <source>Wallet unlock was cancelled.</source>
@@ -3811,20 +3492,12 @@ Ova opcija stvara datoteku wallet.dat koja se može koristiti za oporavak cijelo
         <translation>Obrazac</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TekstOznake</translation>
-    </message>
-    <message>
         <source>Console</source>
         <translation>Konzola</translation>
     </message>
     <message>
         <source>Console input</source>
         <translation>Unos u konzolu</translation>
-    </message>
-    <message>
-        <source>Command Line Options </source>
-        <translation>Mogućnosti naredbene linije</translation>
     </message>
     <message>
         <source>Open Debug File</source>
@@ -3841,8 +3514,8 @@ Verify that you have installed a predetermined text editor.</source>
 Provjerite jeste li instalirali unaprijed određjeni uređjivač teksta.</translation>
     </message>
     <message>
-        <source>Welcome to the TARIAN RPC console.</source>
-        <translation>Dobrodošli na TARIAN RPC konzolu.</translation>
+        <source>Welcome to the TARN RPC console.</source>
+        <translation>Dobrodošli na TARN RPC konzolu.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and %1 to clear screen.</source>
@@ -3862,10 +3535,6 @@ Provjerite jeste li instalirali unaprijed određjeni uređjivač teksta.</transl
     <message>
         <source>Form</source>
         <translation>Obrazac</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TekstOznake</translation>
     </message>
     <message>
         <source>Hide stake charts in the dashboard</source>
@@ -3955,12 +3624,12 @@ Provjerite jeste li instalirali unaprijed određjeni uređjivač teksta.</transl
         <translation>Izvezi popis adresa</translation>
     </message>
     <message>
-        <source>TARIAN_tx_csv_export(*.csv)</source>
-        <translation>TARIAN_transakcije_csv_izvoz(*.csv)</translation>
+        <source>TARN_tx_csv_export(*.csv)</source>
+        <translation>TARN_transakcije_csv_izvoz(*.csv)</translation>
     </message>
     <message>
-        <source>TARIAN_addresses_csv_export(*.csv)</source>
-        <translation>TARIAN_adrese_csv_izvoz(*.csv)</translation>
+        <source>TARN_addresses_csv_export(*.csv)</source>
+        <translation>TARN_adrese_csv_izvoz(*.csv)</translation>
     </message>
     <message>
         <source>Please select a folder to export the csv file first.</source>
@@ -4030,88 +3699,50 @@ Došlo je do greške prilikom spremanja popisa adresa u %1. Molimo pokušajte po
         <translation>Obrazac</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TekstOznake</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>TipkaZaPritisak</translation>
-    </message>
-    <message>
-        <source>1) What is TARIAN?</source>
-        <translation>1) Što je TARIAN?</translation>
+        <source>1) What is TARN?</source>
+        <translation>1) Što je TARN?</translation>
     </message>
     <message>
         <source>2) Why are my TARN unspendable?</source>
         <translation>2) Zašto se moji TARN ne mogu potrošiti?</translation>
     </message>
     <message>
-        <source>3) TARIAN privacy? What is Zerocoin (zTARN)?</source>
-        <translation>3) TARIAN privatnost? Što je Zerocoin (zTARN)?</translation>
-    </message>
-    <message>
-        <source>4) Why are my zTARN unspendable?</source>
-        <translation>4) Zašto se moji zTARN ne mogu potrošiti?</translation>
-    </message>
-    <message>
-        <source>5) Why did my wallet convert the balance
-    into zTARN automatically?</source>
-        <translation>5) Zašto je moj novčanik pretvorio saldo
-u zTARN automatski?</translation>
-    </message>
-    <message>
-        <source>6) How do I receive TARN/zTARN?</source>
-        <translation>6) Kako mogu primiti TARN/zTARN?</translation>
-    </message>
-    <message>
-        <source>7) How do I stake TARN/zTARN?</source>
-        <translation>7) Kako stakeam TARN/zTARN?</translation>
-    </message>
-    <message>
-        <source>8) Where I should go if I need support?</source>
-        <translation>8) Gdje se trebam javiti ako mi treba pomoć?</translation>
-    </message>
-    <message>
-        <source>9) What is a Masternode?</source>
-        <translation>9) Što je Masternode?</translation>
-    </message>
-    <message>
-        <source>10) What is a Masternode Controller?</source>
-        <translation>10) Što je Masternode Controller?</translation>
+        <source>https://TARN.org/</source>
+        <translation>https://TARN.org/</translation>
     </message>
     <message>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <source>What is TARIAN?</source>
-        <translation>Što je TARIAN?</translation>
+        <source>What is TARN?</source>
+        <translation>Što je TARN?</translation>
     </message>
     <message>
         <source>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           TARIAN is a form of digital online money using blockchain technology
+                           TARN is a form of digital online money using blockchain technology
                            that can be easily transferred globally, instantly, and with near
-                           zero fees.  TARIAN incorporates market leading security &amp;
+                           zero fees.  TARN incorporates market leading security &amp;
                            privacy and is also the first PoS (Proof of Stake) Cryptocurrency
                            to implement ZeroCoin(zTARN) and Zerocoin staking.
                            &lt;/p&gt;&lt;p align="justify"&gt;
-                           TARIAN utilizes a Proof of Stake (PoS) consensus system algorithm,
-                           allowing all owners of TARIAN to participate in earning block rewards
+                           TARN utilizes a Proof of Stake (PoS) consensus system algorithm,
+                           allowing all owners of TARN to participate in earning block rewards
                            while securing the network with full node wallets, as well as to
                            run Masternodes to create and vote on proposals.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </source>
         <translation>
 &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-TARIAN je oblik digitalnog online novca koji koristi blockchain tehnologiju
+TARN je oblik digitalnog online novca koji koristi blockchain tehnologiju
 koji se lako može slati i primati globalno, trenutno, i gotovo bez naknade.
-TARIAN uključuje vodeću sigurnost  i privatnost na tržištu
+TARN uključuje vodeću sigurnost  i privatnost na tržištu
 i takođjer je prva PoS (Proof of Stake) kriptovaluta
 koja je implementirala ZeroCoin (zTARN) i Zerocoin staking.
 &lt;/p&gt;&lt;p align="justify"&gt;
-TARIAN koristi algoritam konsenzusa Proof of Stake (PoS),
-omogućujući svim vlasnicima TARIAN-a sudjelovanje u zarađi blokovih nagrada
+TARN koristi algoritam konsenzusa Proof of Stake (PoS),
+omogućujući svim vlasnicima TARN-a sudjelovanje u zarađi blokovih nagrada
 dok osiguravaju mrežu full node novčanicima, kao i
 vodjenje Masternode-ova za stvaranje i glasanje o prijedlozima.
 &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
@@ -4128,19 +3759,19 @@ vodjenje Masternode-ova za stvaranje i glasanje o prijedlozima.
     <message>
         <source>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           Newly received TARIAN requires 6 confirmations on the network
+                           Newly received TARN requires 6 confirmations on the network
                            to become eligible for spending which can take ~6 minutes.
                            &lt;/p&gt;&lt;p align="justify"&gt;
-                           Your TARIAN wallet also needs to be completely synchronized
+                           Your TARN wallet also needs to be completely synchronized
                            to see and spend balances on the network.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </source>
         <translation>
 &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-Novoprimljeni TARIAN zahtjeva 6 potvrda na mreži
+Novoprimljeni TARN zahtjeva 6 potvrda na mreži
 da bi se mogao potrošiti što može potrajati ~6 minuta.
 &lt;/p&gt;&lt;p align="justify"&gt;
-Vaš TARIAN novčanik takođjer treba biti u potpunosti sinkroniziran
+Vaš TARN novčanik takođjer treba biti u potpunosti sinkroniziran
 da biste vidjeli i mogli potrošiti sredstva na mreži.
 &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
 </translation>
@@ -4150,183 +3781,16 @@ da biste vidjeli i mogli potrošiti sredstva na mreži.
         <translation>3</translation>
     </message>
     <message>
-        <source>TARIAN privacy? What is Zerocoin (zTARN)?</source>
-        <translation>TARIAN privatnost? Što je Zerocoin (zTARN)?</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           zTARN is an optional privacy-centric method of coin mixing on the
-                           TARIAN blockchain. Basically all your transactions cannot be tracked
-                           on to any block explorer. You can read more about the technicals in the
-                           &lt;a style='color: #b088ff' href='https://TARIAN.org/ztarn/'&gt;
-                           "TARIAN Zerocoin (zTARN) Technical Paper"&lt;/a&gt;.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-zTARN je opcionalna metoda miješanja novčića usmjerena na privatnost
-na TARIAN blockchainu. Sve transakcije ne mogu biti praćene na bilo kojem block exploreru. Više o tehničkim detaljima možete pročitati na
-&lt;a style='color: #b088ff' href='https://TARIAN.org/ztarn/'&gt;
-"TARIAN Zerocoin (zTARN) Technical Paper"&lt;/a&gt;.
-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-</translation>
-    </message>
-    <message>
         <source>4</source>
         <translation>4</translation>
-    </message>
-    <message>
-        <source>Why are my zTARN unspendable?</source>
-        <translation>Zašto se moji zTARN ne mogu potrošiti?</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           After minting, zTARN will require 20 confirmations as well as 1
-                           additional mint of the same denomination on the network to
-                           become eligible for spending.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-Nakon stvaranja, zTARN će zahtjevati 20 potvrda kao i 1
-dodatno stvaranje iste denominacije na mreži
-da bi se mogli potrošiti.
-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-</translation>
     </message>
     <message>
         <source>5</source>
         <translation>5</translation>
     </message>
     <message>
-        <source>Why did my wallet convert the balance into zTARN automatically?</source>
-        <translation>Zašto je moj novčanik automatski pretvorio saldo u zTARN?</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           By default the TARIAN wallet will convert 10% of your entire TARN
-                           balance to zTARN to assist the network. If you do not wish to
-                           stake zTARN or take advantage of the privacy benefit it brings,
-                           you can disable the automatic minting in your TARIAN wallet by
-                           going to Settings-&gt;Options and deselecting “Enable zTARN Automint”.
-                           If you are not making use of the TARIAN-QT or GUI you can simply open
-                           your tarian.conf file and add &lt;i&gt;enablezeromint=0&lt;/i&gt; Without the quotation
-                           marks and restart your wallet to disable automint.&lt;/p&gt;
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           You can read more about zTARN in the
-                           &lt;a style='color: #b088ff' href='https://TARIAN.org/ztarn/'&gt; "TARIAN Zerocoin (zTARN) Technical Paper"&lt;/a&gt;.
-                           If you would like to keep and stake your zTARN, please read the "How do I stake"
-                           section of the FAQ below.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-Prema početno zadanom TARIAN novčanik će pretvoriti 10% vaših TARN sredstava u zTARN da pomognu mreži. Ako ne želite stake-ati zTARN ili iskoristiti prednosti privatnosti koje donosi,
-možete onemogućiti autoamtsko stvaranje u vašem TARIAN novčaniku tako da
-odete u Postavke -&gt; Mogućnosti i odznačite "Omogući automatsko stvaranje zTARN-a".
-Ako ne koristite TARIAN-QT ili grafičko sučelje, jednostavno možete otvoriti
-vašu tarian.conf datoteku i dodati &lt;i&gt;enablezeromint=0&lt;/i&gt; bez navodnika
-i ponovno pokrenuti novčanik da biste onemogućili automatsko stvaranje.&lt;/p&gt;
-&lt;/p&gt;&lt;p align="justify"&gt;
-Više o zTARN-u možete pročitati u
-&lt;a style='color: #b088ff' href='https://TARIAN.org/ztarn/'&gt;"TARIAN Zerocoin (zTARN) Technical Paper"&lt;/a&gt;.
-Ako želite zadržati i stake-ati vaš zTARN, molimo pročitajte "Kako mogu stake-ati"
-odjeljak u najčešće postavljenim pitanjima ispod.
-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <source>6</source>
         <translation>6</translation>
-    </message>
-    <message>
-        <source>How do I receive TARN/zTARN?</source>
-        <translation>Kako mogu primiti TARN/zTARN?</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           zTARN can be spent and sent to any TARIAN address. The receiver will
-                           receive standard TARIAN but the origin of the TARIAN is anonymized by the zTARN Protocol.
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           If you want more zTARN you will need to mint your balance in the “Privacy” tab.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-zTARN se može trošiti i slati na bilo koju TARIAN adresu. Primatelj će
-primiti standardni TARIAN, ali podrijetlo TARIAN-a je postalo anonimno zTARN Protokolom.
-&lt;/p&gt;&lt;p align="justify"&gt;
-Ako želite više zTARN-a, morat ćete stvoriti svoj saldo u kartici "Privatnost" .
-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-</translation>
-    </message>
-    <message>
-        <source>7</source>
-        <translation>7</translation>
-    </message>
-    <message>
-        <source>How do I stake TARN/zTARN?</source>
-        <translation>Kako stakeam TARN/zTARN?</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           To Stake TARIAN:
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           &lt;ol&gt;&lt;li&gt;
-                           Make sure your wallet is completely synchronized and you are using the latest release.
-                           &lt;li&gt;
-                           You must have a balance of TARIAN with a minimum of 600 confirmations.
-                           &lt;li&gt;
-                           Your wallet must stay online and be unlocked for staking purposes.
-                           &lt;li&gt;
-                           Once all those steps are followed staking should be enabled.
-                           &lt;li&gt;
-                           You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state "Staking Enabled" to indicate it is staking.  Using the command line interface (tarian-cli); the command &lt;i&gt;getstakingstatus&lt;/i&gt; will confirm that staking is active.
-                           &lt;/li&gt;&lt;/ol&gt;
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           To Stake zTARN:
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           &lt;ol&gt;&lt;li&gt;
-                           Make sure your wallet is completely synchronized and you are using the latest release.
-                           &lt;li&gt;
-                           Your newly minted or existing zTARN balance must have a minimum of 200 confirmations.
-                           &lt;li&gt;
-                           Your wallet must stay online and be unlocked for anonymization and staking purposes.
-                           Staking should now be enabled.
-                           &lt;/li&gt;&lt;/ol&gt;
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-Da biste stake-ali TARIAN:
-&lt;/p&gt;&lt;p align="justify"&gt;
-&lt;ol&gt;&lt;li&gt;
-Provjerite da je vaš wallet u potpunosti sinkroniziran i koristite li najnoviju verziju.
-&lt;li&gt;
-Saldo TARIAN-a mora imati najmanje 600 potvrda.
-&lt;li&gt;
-Vaš novčanik mora ostati online i biti otključan za staking.
-&lt;li&gt;
-Kada su svi navedeni koraci napravljeni, tada će staking biti omogućen.
-&lt;li&gt;
-Status stakinga možete vidjeti u vašem novčaniku prelaskom miša preko Staking ikone u gornjem desnom kutu. Ikona će zasvjetliti i ispisati "Staking omogućen" i potvrditi staking. Koristeći sučelje naredbene linije (tarian-cli); naredba &lt;i&gt;getstakingstatus&lt;/i&gt;će potvrditi da je staking aktivan.
-&lt;/li&gt;&lt;/ol&gt;
-&lt;/p&gt;&lt;p align="justify"&gt;
-Da biste stake-ali zTARN:&lt;/p&gt;&lt;p align="justify"&gt;
-&lt;ol&gt;&lt;li&gt;
-Provjerite da je vaš wallet u potpunosti sinkroniziran i koristite li najnoviju verziju.
-&lt;li&gt;
-Vaši novostvoreni ili postojeći zTARN saldo mora imati najmanje 200 potvrda.
-&lt;li&gt;
-Vaš novčanik mora ostati online i biti otključan za staking.
-Sada bi staking trebao biti omogućen.
-&lt;/li&gt;&lt;/ol&gt;
-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-</translation>
     </message>
     <message>
         <source>Where should I go if I need support?</source>
@@ -4341,44 +3805,14 @@ Sada bi staking trebao biti omogućen.
         <translation>Što je Masternode Controller?</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;A Masternode Controller wallet is where the 10,000 TARN collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet(s) and allows you to keep your collateral coins offline while the remote masternode remains online. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;Masternode Controller novčanik je mjesto gdje zalog od 10,000 TARN može stajati tijekom Controller-Remote podešavanja masternode-a. To je novčanik koji može aktivirati Remote masternode novčanik(e) i omogućiti Vam držanje zaloga novčića offline dok Remote masternode novčanik ostaje online.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>8</source>
-        <translation>8</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;A Masternode Controller wallet is where the 1,000 TARN collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet(s) and allows you to keep your collateral coins offline while the remote masternode remains online. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;Masternode Controller novčanik je mjesto gdje zalog od 1,000 TARN može stajati tijekom Controller-Remote podešavanja masternode-a. To je novčanik koji može aktivirati Remote masternode novčanik(e) i omogućiti Vam držanje zaloga novčića offline dok Remote masternode novčanik ostaje online.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           We have support channels in most of our official chat groups, for example
-                           &lt;a style='color: #b088ff' href='https://discord.TARIAN.org'&gt;
-                           #support in our Discord&lt;/a&gt;.
-                           If you prefer to submit a ticket, One can be
-                           &lt;a style='color: #b088ff' href='https://TARIAN.freshdesk.com'&gt;
-                           our Freshdesk support site&lt;/a&gt;.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-Imamo korisničku podršku u većini naših službenih chat grupa, na primjer
-&lt;a style='color: #b088ff' href='https://discord.TARIAN.org'&gt;
-#support na Discordu&lt;/a&gt;.
-Možete i podnijeti zahtjev, a to možete
-&lt;a style='color: #b088ff' href='https://TARIAN.freshdesk.com'&gt;
-na našoj Freshdesk stranici za podršku&lt;/a&gt;.
-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-</translation>
-    </message>
-    <message>
-        <source>9</source>
-        <translation>9</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           A masternode is a computer running a full node TARIAN core wallet with a
-                           requirement of 10,000 TARN secured collateral to provide extra services
+                           A masternode is a computer running a full node TARN core wallet with a
+                           requirement of 1,000 TARN secured collateral to provide extra services
                            to the network and in return, receive a portion of the block reward
                            regularly.  These services include:
                            &lt;/p&gt;&lt;p align="justify"&gt;
@@ -4400,17 +3834,17 @@ na našoj Freshdesk stranici za podršku&lt;/a&gt;.
                            Masternode Perks:
                            &lt;/p&gt;&lt;p align="justify"&gt;
                            &lt;ul&gt;
-                           &lt;li&gt;Participate in TARIAN Governance&lt;/li&gt;
+                           &lt;li&gt;Participate in TARN Governance&lt;/li&gt;
                            &lt;li&gt;Earn Masternode Rewards&lt;/li&gt;
                            &lt;li&gt;Commodity option for future sale&lt;/li&gt;
-                           &lt;li&gt;Help secure the TARIAN network&lt;/li&gt;
+                           &lt;li&gt;Help secure the TARN network&lt;/li&gt;
                            &lt;/ul&gt;
                            &lt;/p&gt;&lt;p align="justify"&gt;
 
                            Requirements:
                            &lt;/p&gt;&lt;p align="justify"&gt;
                            &lt;ul&gt;
-                           &lt;li&gt;10,000 TARN per single Masternode instance&lt;/li&gt;
+                           &lt;li&gt;1,000 TARN per single Masternode instance&lt;/li&gt;
                            &lt;li&gt;Must be stored in a core wallet&lt;/li&gt;
                            &lt;li&gt;Need dedicated IP address&lt;/li&gt;
                            &lt;li&gt;Masternode wallet to remain online&lt;/li&gt;
@@ -4419,8 +3853,8 @@ na našoj Freshdesk stranici za podršku&lt;/a&gt;.
                          </source>
         <translation>
 &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-Masternode je računalo koje pokreće full node TARIAN Core novčanik sa
-zahtjevanih 10,000 TARN-a osiguranog zaloga da pruži dodatne usluge
+Masternode je računalo koje pokreće full node Tarian Core novčanik sa
+zahtjevanih 1,000 TARN-a osiguranog zaloga da pruži dodatne usluge
 mreži, i zauzvrat redovito primi dio nagrade blokova.
 Te usluge uključuju:
 &lt;/p&gt;&lt;p align="justify"&gt;
@@ -4442,27 +3876,23 @@ vlasnicima masternode-ova umanjeno za troškove održavanja.
 Povlastice masternode-ova:
 &lt;/p&gt;&lt;p align="justify"&gt;
 &lt;ul&gt;
-&lt;li&gt;Sudjelovanje u upravljanju TARIAN-a&lt;/li&gt;
+&lt;li&gt;Sudjelovanje u upravljanju TARN-a&lt;/li&gt;
 &lt;li&gt;Zaradjivanje Masternode nagrada&lt;/li&gt;
 &lt;li&gt;Robna opcija za buduću prodaju&lt;/li&gt;
-&lt;li&gt;Pomaže u osiguravanju TARIAN mreže&lt;/li&gt;
+&lt;li&gt;Pomaže u osiguravanju TARN mreže&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/p&gt;&lt;p align="justify"&gt;
 
 Zahtjevi:
 &lt;/p&gt;&lt;p align="justify"&gt;
 &lt;ul&gt;
-&lt;li&gt;10,000 TARN po svakom Masternode-u&lt;/li&gt;
+&lt;li&gt;1,000 TARN po svakom Masternode-u&lt;/li&gt;
 &lt;li&gt;Mora biti pohranjem u Core novčaniku&lt;/li&gt;
 &lt;li&gt;Mora biti jedinstvena IP adresa&lt;/li&gt;
 &lt;li&gt;Masternode novčanik treba ostati online&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
 </translation>
-    </message>
-    <message>
-        <source>10</source>
-        <translation>10</translation>
     </message>
     <message>
         <source>Frequently Asked Questions</source>
@@ -4595,20 +4025,12 @@ Zahtjevi:
         <translation>Obrazac</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TekstOznake</translation>
-    </message>
-    <message>
         <source>Window</source>
         <translation>Prozor</translation>
     </message>
     <message>
         <source>Customize the application window options</source>
         <translation>Prilagodite opcije prozora aplikacije</translation>
-    </message>
-    <message>
-        <source>CheckBox</source>
-        <translation>PotvrdniOkvir</translation>
     </message>
     <message>
         <source>Reset to default</source>
@@ -4635,8 +4057,8 @@ Zahtjevi:
         <translation>Number of script verification threads</translation>
     </message>
     <message>
-        <source>Start TARIAN on system login</source>
-        <translation>Pokrenite TARIAN pri pokretanju računala</translation>
+        <source>Start TARN on system login</source>
+        <translation>Pokrenite TARN pri pokretanju računala</translation>
     </message>
     <message>
         <source>Minimize to the tray instead of the taskbar</source>
@@ -4723,8 +4145,8 @@ Jeste li sigurni?
         <translation>PotvrdniOkvir</translation>
     </message>
     <message>
-        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other TARIAN addresses after it matures.</source>
-        <translation>MultiSend vam omogućuje da automatski pošaljete do 100% svog uloga ili nagrade masternode na popis drugih TARIAN adresa nakon što sazriju.</translation>
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other TARN addresses after it matures.</source>
+        <translation>MultiSend vam omogućuje da automatski pošaljete do 100% svog uloga ili nagrade masternode na popis drugih TARN adresa nakon što sazriju.</translation>
     </message>
     <message>
         <source>Active</source>
@@ -4826,14 +4248,6 @@ Označite jedan ili oba polja za potvrdu da biste poslali staking i/ili masterno
         <translation>Obrazac</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TekstOznake</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation>Izbriši</translation>
-    </message>
-    <message>
         <source>Sign/Verify Message</source>
         <translation>Potpiši/verificiraj poruku</translation>
     </message>
@@ -4854,16 +4268,12 @@ Označite jedan ili oba polja za potvrdu da biste poslali staking i/ili masterno
         <translation>Poruka</translation>
     </message>
     <message>
-        <source>TARIAN address or contact label</source>
-        <translation>TARIAN adresa ili naziv kontakta</translation>
+        <source>TARN address or contact label</source>
+        <translation>TARN adresa ili naziv kontakta</translation>
     </message>
     <message>
         <source>Enter address</source>
         <translation>Unesite adresu</translation>
-    </message>
-    <message>
-        <source>Write message</source>
-        <translation>Napiši poruku</translation>
     </message>
     <message>
         <source>Signature</source>
@@ -4949,18 +4359,6 @@ Označite jedan ili oba polja za potvrdu da biste poslali staking i/ili masterno
         <translation>Obrazac</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TekstOznake</translation>
-    </message>
-    <message>
-        <source>CheckBox</source>
-        <translation>PotvrdniOkvir</translation>
-    </message>
-    <message>
-        <source>RadioButton</source>
-        <translation>RadioTipka</translation>
-    </message>
-    <message>
         <source>Reset to default</source>
         <translation>Resetiraj na početno stanje</translation>
     </message>
@@ -4977,10 +4375,6 @@ Označite jedan ili oba polja za potvrdu da biste poslali staking i/ili masterno
         <translation>Prilagodite postavke internog novčanika</translation>
     </message>
     <message>
-        <source>Stake split threshold:</source>
-        <translation>Prag razdvajanja Stake-a:</translation>
-    </message>
-    <message>
         <source>Spend unconfirmed change</source>
         <translation>Potroši nepotvrđjeni ostatak</translation>
     </message>
@@ -4993,16 +4387,16 @@ Označite jedan ili oba polja za potvrdu da biste poslali staking i/ili masterno
         <translation>Prilagodite postavke čvorova mreže</translation>
     </message>
     <message>
-        <source>Proxy IP:</source>
-        <translation>Proxy IP:</translation>
+        <source>Port</source>
+        <translation>Ulaz</translation>
+    </message>
+    <message>
+        <source>Enter port</source>
+        <translation>Unesite ulaz</translation>
     </message>
     <message>
         <source>Enter proxy IP</source>
         <translation>Unesite IP proxyja</translation>
-    </message>
-    <message>
-        <source>Port:</source>
-        <translation>Ulaz:</translation>
     </message>
     <message>
         <source>Map port using UPnP</source>
@@ -5011,10 +4405,6 @@ Označite jedan ili oba polja za potvrdu da biste poslali staking i/ili masterno
     <message>
         <source>Allow incoming connections</source>
         <translation>Dopusti dolazne veze</translation>
-    </message>
-    <message>
-        <source>Connect through SOCKS5 proxy (default proxy):</source>
-        <translation>Spajanje putem proxy SOCKS5 (zadani proxy):</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -5032,48 +4422,20 @@ Označite jedan ili oba polja za potvrdu da biste poslali staking i/ili masterno
         <translation>Obrazac</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TekstOznake</translation>
-    </message>
-    <message>
         <source>Wallet Repair</source>
         <translation>Popravak novčanika</translation>
-    </message>
-    <message>
-        <source>The buttons below will restart the wallet with command-line options to repair this wallet, fix issues with corrupt blockchain files or missing/obsolete transactions.</source>
-        <translation>Tipke ispod će ponovno pokrenuti novčanik s mogućnostima naredbene linije da popravi novčanik, riješi probleme s oštećenim datotekama blockchaina ili nedostajalim/zastarjelim transakcijama.</translation>
-    </message>
-    <message>
-        <source>Attempt to recover private keys from a corrupt wallet.dat.</source>
-        <translation>Pokušaj oporavka privatnih ključeva iz korumpirane wallet.dat.</translation>
-    </message>
-    <message>
-        <source>Rescan the blockchain for missing wallet transactions.</source>
-        <translation>Ponovno skenirajte blockchain za transakcije koje nedostaju u novčaniku.</translation>
-    </message>
-    <message>
-        <source>Recover transactions from blockchain (keep-meta-data, e.g. account owner).</source>
-        <translation>Oporavi transakcije iz blockchaina (zadrži meta-podatke, npr. Vlasnika računa).</translation>
-    </message>
-    <message>
-        <source>Recover transactions from blockchain (drop meta-data).</source>
-        <translation>Obnova transakcija iz blockchaina (izbaci meta-podatake).</translation>
     </message>
     <message>
         <source>Upgrade wallet to latest format on startup. (Note: this is NOT an update of the wallet itself)</source>
         <translation>Nadogradite novčanik na najnoviji format pri pokretanju. (Napomena: ovo NIJE ažuriranje samog novčanika)</translation>
     </message>
     <message>
-        <source>Rebuild blockchain index from current blk000???.dat files.</source>
-        <translation>Ponovno izgradite blockchain indeks iz trenutnih blk000 ???.dat datoteka.</translation>
-    </message>
-    <message>
-        <source>Deletes all local blockchain folders so the wallet synchronizes from scratch.</source>
-        <translation>Briše sve lokalne mape blokiranja tako da se novčanik sinkronizira ispočetka.</translation>
-    </message>
-    <message>
         <source>Salvage wallet</source>
         <translation>Spasi novčanik</translation>
+    </message>
+    <message>
+        <source>Attempt to recover private keys from a corrupt wallet.dat</source>
+        <translation>Pokušaj oporavka privatnih ključeva iz korumpirane wallet.dat</translation>
     </message>
     <message>
         <source>Rescan blockchain file</source>
@@ -5081,23 +4443,19 @@ Označite jedan ili oba polja za potvrdu da biste poslali staking i/ili masterno
     </message>
     <message>
         <source>Recover transactions 1</source>
-        <translation>Oporavak transakcije 1</translation>
+        <translation>Oporavak transakcija 1</translation>
     </message>
     <message>
         <source>Recover transactions 2</source>
-        <translation>Oporavak transakcije 2</translation>
+        <translation>Oporavak transakcija 2</translation>
     </message>
     <message>
         <source>Upgrade wallet format</source>
-        <translation>Nadogradnja formata Novčanika</translation>
+        <translation>Nadogradnja formata novčanika</translation>
     </message>
     <message>
         <source>Rebuild index</source>
         <translation>Obnovi indeks</translation>
-    </message>
-    <message>
-        <source>Delete local blockchain </source>
-        <translation>Izbrišite lokalni blockchain</translation>
     </message>
     <message>
         <source>This will delete your local blockchain folders and the wallet will synchronize the complete Blockchain from scratch.&lt;br /&gt;&lt;br /&gt;</source>
@@ -5117,7 +4475,7 @@ Označite jedan ili oba polja za potvrdu da biste poslali staking i/ili masterno
     </message>
     <message>
         <source>Confirm resync Blockchain</source>
-        <translation>Potvrdite resync Blockchain</translation>
+        <translation>Potvrdite resinkronizaciju Blockchaina</translation>
     </message>
 </context>
 <context>
@@ -5140,7 +4498,7 @@ Označite jedan ili oba polja za potvrdu da biste poslali staking i/ili masterno
     </message>
     <message>
         <source>Export Accounting</source>
-        <translation>Izvezi računovodstvo</translation>
+        <translation>Izvezi računovodstvene podatke</translation>
     </message>
     <message>
         <source>Tools</source>
@@ -5191,8 +4549,8 @@ Označite jedan ili oba polja za potvrdu da biste poslali staking i/ili masterno
         <translation>Najčešće postavljena pitanja</translation>
     </message>
     <message>
-        <source>About TARIAN</source>
-        <translation>O TARIAN-u</translation>
+        <source>About TARN</source>
+        <translation>O TARN-u</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -5258,8 +4616,8 @@ Jeste li sigurni?
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>TARIAN Core is shutting down...</source>
-        <translation>TARIAN Core se zatvara...</translation>
+        <source>Tarian Core is shutting down...</source>
+        <translation>Tarian Core se zatvara...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -5288,32 +4646,12 @@ Jeste li sigurni?
         <translation>Učitavanje...</translation>
     </message>
     <message>
-        <source>TARIAN Core</source>
-        <translation>TARIAN Core</translation>
+        <source>Tarian Core</source>
+        <translation>Tarian Core</translation>
     </message>
 </context>
 <context>
     <name>SplashScreen</name>
-    <message>
-        <source>TARIAN Core</source>
-        <translation>TARIAN Core</translation>
-    </message>
-    <message>
-        <source>Version %1</source>
-        <translation>Verzija %1</translation>
-    </message>
-    <message>
-        <source>The Bitcoin Core developers</source>
-        <translation>Bitcoin Core programeri</translation>
-    </message>
-    <message>
-        <source>The Dash Core developers</source>
-        <translation>Dash Core programeri</translation>
-    </message>
-    <message>
-        <source>The TARIAN Core developers</source>
-        <translation>TARIAN Core programeri</translation>
-    </message>
     <message>
         <source>[testnet]</source>
         <translation>[testnet]</translation>
@@ -5380,10 +4718,6 @@ Jeste li sigurni?
         <source>Staking not active</source>
         <translation>Staking nije aktivan</translation>
     </message>
-    <message numerus="yes">
-        <source>%n active connection(s)</source>
-        <translation><numerusform>%n aktivna veza</numerusform><numerusform>%n aktivnih veza</numerusform><numerusform>%n aktivnih veza</numerusform></translation>
-    </message>
     <message>
         <source>Synchronized - Block: %1</source>
         <translation>Sinkronizirano - Blok: %1</translation>
@@ -5445,6 +4779,46 @@ se nova sigurnosna kopija.
         <translation>Tor onemogućen</translation>
     </message>
     <message>
+        <source>FAQ</source>
+        <translation>Najčešće postavljena pitanja</translation>
+    </message>
+    <message>
+        <source>Upgrade to HD Wallet</source>
+        <translation>Nadogradi na HD novčanik</translation>
+    </message>
+    <message>
+        <source>No Connection</source>
+        <translation>Nema veza</translation>
+    </message>
+    <message>
+        <source>Staking Disabled</source>
+        <translation>Staking onemogućen</translation>
+    </message>
+    <message>
+        <source>Light Theme</source>
+        <translation>Svijetla tema</translation>
+    </message>
+    <message>
+        <source>Dark Theme</source>
+        <translation>Tamna tema</translation>
+    </message>
+    <message>
+        <source>Wallet Locked </source>
+        <translation>Novčanik zaključan</translation>
+    </message>
+    <message>
+        <source>Wallet Locked</source>
+        <translation>Novčanik zaključan</translation>
+    </message>
+    <message>
+        <source>Wallet Unlocked</source>
+        <translation>Novčanik otključan</translation>
+    </message>
+    <message>
+        <source>Wallet Unencrypted</source>
+        <translation>Novčanik nekriptiran</translation>
+    </message>
+    <message>
         <source>Available (Locked included)</source>
         <translation>Raspoloživo (Zaključani uključeni)</translation>
     </message>
@@ -5466,7 +4840,7 @@ se nova sigurnosna kopija.
     </message>
     <message>
         <source>Wallet Data (*.dat)</source>
-        <translation>Wallet Data (*.dat)</translation>
+        <translation>Podaci novčanika (*.dat)</translation>
     </message>
     <message>
         <source>Backup created</source>
@@ -5502,10 +4876,6 @@ se nova sigurnosna kopija.
 </context>
 <context>
     <name>TransactionDesc</name>
-    <message numerus="yes">
-        <source>Open for %n more block(s)</source>
-        <translation><numerusform>Otvoreno za još %n blok</numerusform><numerusform>Otvoreno za još %n blokova</numerusform><numerusform>Otvoreno za još %n blokova</numerusform></translation>
-    </message>
     <message>
         <source>Open until %1</source>
         <translation>Otvoreno do %1</translation>
@@ -5566,10 +4936,6 @@ se nova sigurnosna kopija.
         <source>, has not been successfully broadcast yet</source>
         <translation>, još nije uspješno emitiran</translation>
     </message>
-    <message numerus="yes">
-        <source>, broadcast through %n node(s)</source>
-        <translation><numerusform>, emitiraju se putem %n čvora</numerusform><numerusform>, emitiraju se putem %n čvorova</numerusform><numerusform>, emitiraju se putem %n čvorova</numerusform></translation>
-    </message>
     <message>
         <source>Date</source>
         <translation>Datum</translation>
@@ -5609,10 +4975,6 @@ se nova sigurnosna kopija.
     <message>
         <source>Credit</source>
         <translation>Kredit</translation>
-    </message>
-    <message numerus="yes">
-        <source>matures in %n more block(s)</source>
-        <translation><numerusform>sazrijeva za %n blok</numerusform><numerusform>sazrijeva za %n blokova</numerusform><numerusform>sazrijeva za %n blokova</numerusform></translation>
     </message>
     <message>
         <source>not accepted</source>
@@ -5697,10 +5059,6 @@ se nova sigurnosna kopija.
         <source>Address</source>
         <translation>Adresa</translation>
     </message>
-    <message numerus="yes">
-        <source>Open for %n more block(s)</source>
-        <translation><numerusform>Otvoreno još %n blok</numerusform><numerusform>Otvoreno još %n blokova</numerusform><numerusform>Otvoreno još %n blokova</numerusform></translation>
-    </message>
     <message>
         <source>Open until %1</source>
         <translation>Otvoreno do %1</translation>
@@ -5746,40 +5104,8 @@ se nova sigurnosna kopija.
         <translation>Zaprimljeno s</translation>
     </message>
     <message>
-        <source>TARN Stake</source>
-        <translation>TARN Stake</translation>
-    </message>
-    <message>
-        <source>zTARN Stake</source>
-        <translation>zTARN Stake</translation>
-    </message>
-    <message>
-        <source>TARN Cold Stake</source>
-        <translation>TARN Cold Stake</translation>
-    </message>
-    <message>
         <source>Stake delegation</source>
         <translation>Stake delegacija</translation>
-    </message>
-    <message>
-        <source>Converted TARN to zTARN</source>
-        <translation>Pretvoreni TARN u zTARN</translation>
-    </message>
-    <message>
-        <source>Spent zTARN</source>
-        <translation>Potrošeni zTARN</translation>
-    </message>
-    <message>
-        <source>Received TARN from zTARN</source>
-        <translation>Primljeni TARN od zTARN</translation>
-    </message>
-    <message>
-        <source>Minted Change as zTARN from zTARN Spend</source>
-        <translation>Mintana razlika zTARN od zTARN Utroška</translation>
-    </message>
-    <message>
-        <source>Converted zTARN to TARN</source>
-        <translation>Pretvoreni zTARN u TARN</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -5792,10 +5118,6 @@ se nova sigurnosna kopija.
     <message>
         <source>Payment to yourself</source>
         <translation>Plaćanje sebi</translation>
-    </message>
-    <message>
-        <source>TARN Stake on behalf of</source>
-        <translation>TARN Stake u korist</translation>
     </message>
     <message>
         <source>Stake delegation spent by</source>
@@ -5951,18 +5273,6 @@ se nova sigurnosna kopija.
         <source>Form</source>
         <translation>Obrazac</translation>
     </message>
-    <message>
-        <source>Received from Bob</source>
-        <translation>Primljeno od Marka</translation>
-    </message>
-    <message>
-        <source>18/05/18</source>
-        <translation>18/05/18</translation>
-    </message>
-    <message>
-        <source>+0.000585 TARN</source>
-        <translation>+0.000585 TARN</translation>
-    </message>
 </context>
 <context>
     <name>WalletModel</name>
@@ -5971,10 +5281,12 @@ se nova sigurnosna kopija.
         <translation>Šalji novčiće</translation>
     </message>
     <message>
-        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 TARN.</source>
-        <translation>SwiftX ne podržava slanje visokih vrijednosti. Transakcije su trenutačno ograničene na %1 TARN.</translation>
+        <source>Transaction creation failed!
+%1</source>
+        <translation>Stvaranje transakcije neuspjelo!
+%1</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>WelcomeContentWidget</name>
     <message>
@@ -6015,25 +5327,25 @@ se nova sigurnosna kopija.
     </message>
     <message>
         <source>Welcome to
-TARIAN Core Wallet</source>
+Tarian Core Wallet</source>
         <translation>Dobrodošli u
-TARIAN temeljni novčanik</translation>
+TARN temeljni novčanik</translation>
     </message>
     <message>
-        <source>TARIAN is the world’s most innovative Proof of Stake blockchain based technology. Developed by a team of highly experienced developers and cryptographers.</source>
-        <translation>TARIAN je najinovativnija blockchain tehnologija na svijetu bazirana na Proof of Stake tehnologiji. Razvijena je od strane vrlo iskusnih programera i kriptografa.</translation>
+        <source>TARN is the world’s most innovative Proof of Stake blockchain based technology. Developed by a team of highly experienced developers and cryptographers.</source>
+        <translation>TARN je najinovativnija blockchain tehnologija na svijetu bazirana na Proof of Stake tehnologiji. Razvijena je od strane vrlo iskusnih programera i kriptografa.</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;As our manifesto says: Privacy is a non-negotiable basic human right; it grants users the freedom to share their data whenever and with whomever they want - TARIAN believes in self sovereignty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Kao što kaže naš manifest: Privatnost je temeljno ljudsko pravo o kojemu se ne pregovara; korisnicima daje slobodu dijeljenja svojih podataka kad god i s kim god žele - TARIAN vjeruje u suverenitet.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;As our manifesto says: Privacy is a non-negotiable basic human right; it grants users the freedom to share their data whenever and with whomever they want - TARN believes in self sovereignty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Kao što kaže naš manifest: Privatnost je temeljno ljudsko pravo o kojemu se ne pregovara; korisnicima daje slobodu dijeljenja svojih podataka kad god i s kim god žele - TARN vjeruje u suverenitet.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>The masternode network is TARIAN's second layer network on top of the blockchain that enables our DAO to provide decentralized governance and a treasury.</source>
-        <translation>Masternode mreža je mreža drugog sloja TARIAN-a na vrhu blockchaina koja omogućuje našem DAO-u pružanje decentraliziranog upravljanja i riznice.</translation>
+        <source>The masternode network is TARN's second layer network on top of the blockchain that enables our DAO to provide decentralized governance and a treasury.</source>
+        <translation>Masternode mreža je mreža drugog sloja TARN-a na vrhu blockchaina koja omogućuje našem DAO-u pružanje decentraliziranog upravljanja i riznice.</translation>
     </message>
     <message>
-        <source>How TARIAN respects your privacy?</source>
-        <translation>Kako TARIAN poštuje Vašu privatnost?</translation>
+        <source>How TARN respects your privacy?</source>
+        <translation>Kako TARN poštuje Vašu privatnost?</translation>
     </message>
     <message>
         <source>What is a Masternode?</source>
@@ -6042,49 +5354,6 @@ TARIAN temeljni novčanik</translation>
     <message>
         <source>default</source>
         <translation>zadano</translation>
-    </message>
-</context>
-<context>
-    <name>ZTarnControlDialog</name>
-    <message>
-        <source>Select zTARN to Spend</source>
-        <translation>Odabrani zTARN za utrošiti</translation>
-    </message>
-    <message>
-        <source>Coin Control</source>
-        <translation>Upravljanje novčićima</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>TipkaZaPritisak</translation>
-    </message>
-    <message>
-        <source>zTarn</source>
-        <translation>zTarn</translation>
-    </message>
-    <message>
-        <source>0.00 </source>
-        <translation>0.00</translation>
-    </message>
-    <message>
-        <source>Quantity:</source>
-        <translation>Količina:</translation>
-    </message>
-    <message>
-        <source>Is Spendable</source>
-        <translation>Je moguće utrošiti</translation>
-    </message>
-    <message>
-        <source>0</source>
-        <translation>0</translation>
-    </message>
-    <message>
-        <source>Select/Deselect All</source>
-        <translation>Odaberite/poništi odabir za Sve</translation>
-    </message>
-    <message>
-        <source>Select zTARN Denominations to Spend</source>
-        <translation>Odaberite zTARN denominacije za potrošnju</translation>
     </message>
 </context>
 <context>
@@ -6110,8 +5379,8 @@ TARIAN temeljni novčanik</translation>
         <translation>Pridržavajte se na navedenu adresu da biste slušali veze JSON-RPC. Koristite [host]: port notation za IPv6. Ova se opcija može odrediti više puta (zadano: vezati se na sva sučelja)</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. TARIAN Core is probably already running.</source>
-        <translation>Nije moguće dobiti zaključavanje na direktoriju podataka %s. TARIAN Core vjerojatno već radi.</translation>
+        <source>Cannot obtain a lock on data directory %s. Tarian Core is probably already running.</source>
+        <translation>Nije moguće dobiti zaključavanje na direktoriju podataka %s. Tarian Core vjerojatno već radi.</translation>
     </message>
     <message>
         <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
@@ -6140,14 +5409,6 @@ TARIAN temeljni novčanik</translation>
     <message>
         <source>Enable cold staking functionality (0-1, default: %u). Disabled if staking=0</source>
         <translation>Omogući cold staking funkcionalnost (0-1, zadano: %u). Onemogućeno ako je staking=0</translation>
-    </message>
-    <message>
-        <source>Enable or disable staking functionality for TARN inputs (0-1, default: %u)</source>
-        <translation>Omogući ili onemogući staking funkcionalnosti za TARN unose (0-1, default: %u)</translation>
-    </message>
-    <message>
-        <source>Enable or disable staking functionality for zTARN inputs (0-1, default: %u)</source>
-        <translation>Omogući ili onemogući staking funkcionalnosti za zTARN unose (0-1, default: %u)</translation>
     </message>
     <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
@@ -6186,14 +5447,6 @@ TARIAN temeljni novčanik</translation>
         <translation>Izvrši naredbu kada se promijeni najbolji blok (%s u cmd zamjenjuje se blokovskim raspršivanjem)</translation>
     </message>
     <message>
-        <source>Fees (in TARN/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>Naknade (u TARN / Kb) manje od toga smatraju se nulom naknadom za prosljeđivanje (zadano: %s)</translation>
-    </message>
-    <message>
-        <source>Fees (in TARN/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Naknade (u TARN / Kb) manje od toga smatraju se nulom naknadom za izradu transakcija (zadano: %s)</translation>
-    </message>
-    <message>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
         <translation>Ispraznite aktivnost baze podataka iz baze memorije na dnevnik diska svakog megabajta (zadano: %u)</translation>
     </message>
@@ -6212,10 +5465,6 @@ TARIAN temeljni novčanik</translation>
     <message>
         <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s' (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
         <translation>Nevažeći iznos za -maxtxfee =&lt;amount&gt;: '%s' (mora biti barem minimalna naknada od %s kako bi se spriječili zastoji)</translation>
-    </message>
-    <message>
-        <source>Keep the specified amount available for spending at all times (default: 0)</source>
-        <translation>Zadržavajte određeni iznos dostupan za potrošnju u svakom trenutku (zadano: 0)</translation>
     </message>
     <message>
         <source>Log transaction priority and fee per kB when mining blocks (default: %u)</source>
@@ -6248,10 +5497,6 @@ TARIAN temeljni novčanik</translation>
     <message>
         <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
         <translation>Izlazne informacije o pogrešci (zadano: %u, &lt;category&gt; unos je neobavezan)</translation>
-    </message>
-    <message>
-        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
-        <translation>Upit za peer adrese putem DNS traženja, ako je niska adresa (zadana: 1 ako nije povezana)</translation>
     </message>
     <message>
         <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
@@ -6298,8 +5543,8 @@ TARIAN temeljni novčanik</translation>
         <translation>Ukupna duljina teksta mrežne verzije (%i) prelazi maksimalnu duljinu (%i). Smanjite broj ili veličinu uacommentsa.</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. TARIAN Core is probably already running.</source>
-        <translation>Nije moguće vezati se na %s na ovom računalu. TARIAN Core vjerojatno već radi.</translation>
+        <source>Unable to bind to %s on this computer. Tarian Core is probably already running.</source>
+        <translation>Nije moguće vezati se na %s na ovom računalu. Tarian Core vjerojatno već radi.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
@@ -6314,8 +5559,8 @@ TARIAN temeljni novčanik</translation>
         <translation>Upozorenje: -paytxfee je vrlo visoka! To je transakcijska naknada koju ćete platiti ako šaljete transakciju.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong TARIAN Core will not work properly.</source>
-        <translation>Upozorenje: Provjerite jesu li datum i vrijeme vašeg računala točni! Ako je vaš sat pogrešan, TARIAN Core neće raditi ispravno.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Tarian Core will not work properly.</source>
+        <translation>Upozorenje: Provjerite jesu li datum i vrijeme vašeg računala točni! Ako je vaš sat pogrešan, Tarian Core neće raditi ispravno.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -6346,10 +5591,6 @@ TARIAN temeljni novčanik</translation>
         <translation>Morate odrediti masternodeprivkey u konfiguraciji. Za pomoć pogledajte dokumentaciju.</translation>
     </message>
     <message>
-        <source>(54444 could be used only on mainnet)</source>
-        <translation>(54444 se može koristiti samo na mainnetu)</translation>
-    </message>
-    <message>
         <source>(default: %s)</source>
         <translation>(default: %s)</translation>
     </message>
@@ -6358,16 +5599,8 @@ TARIAN temeljni novčanik</translation>
         <translation>(default: 1)</translation>
     </message>
     <message>
-        <source>(must be 54444 for mainnet)</source>
-        <translation>(mora biti 54444 za glavnu mrežu)</translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>Prihvatite naredbeni redak i JSON-RPC naredbe</translation>
-    </message>
-    <message>
-        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
-        <translation>Prihvatite veze s vanjske strane (zadana postavka: 1 ako nema proxy ili -connect)</translation>
     </message>
     <message>
         <source>Accept public REST requests (default: %u)</source>
@@ -6406,10 +5639,6 @@ TARIAN temeljni novčanik</translation>
         <translation>Nije moguće novčanik vratiti na nižu verziju</translation>
     </message>
     <message>
-        <source>Connect only to the specified node(s)</source>
-        <translation>Povežite se samo s navedenim čvorom(ima)</translation>
-    </message>
-    <message>
         <source>Connect through SOCKS5 proxy</source>
         <translation>Povežite se preko SOCKS5 proxyja</translation>
     </message>
@@ -6430,8 +5659,8 @@ TARIAN temeljni novčanik</translation>
         <translation>Autorska prava (C) 2014-%i The Dash Core Developers</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The TARIAN Core Developers</source>
-        <translation>Autorska prava (C) 2015-%i The TARIAN Core Developers</translation>
+        <source>Copyright (C) 2015-%i The Tarian Core Developers</source>
+        <translation>Autorska prava (C) 2015-%i The Tarian Core Developers</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -6507,8 +5736,8 @@ TARIAN temeljni novčanik</translation>
         <translation>Pogreška pri učitavanju wallet.dat: Novčanik oštećen</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of TARIAN Core</source>
-        <translation>Pogreška prilikom učitavanja wallet.dat: Novčanik zahtijeva noviju verziju TARIAN jezgre</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Tarian Core</source>
+        <translation>Pogreška prilikom učitavanja wallet.dat: Novčanik zahtijeva noviju verziju TARN jezgre</translation>
     </message>
     <message>
         <source>Error opening block database</source>
@@ -6555,14 +5784,6 @@ TARIAN temeljni novčanik</translation>
         <translation>Failed to parse host:port string</translation>
     </message>
     <message>
-        <source>Failed to read block</source>
-        <translation>Greška čitanja bloka</translation>
-    </message>
-    <message>
-        <source>Fee (in TARN/kB) to add to transactions you send (default: %s)</source>
-        <translation>Naknada (u TARN / kB) za dodavanje transakcija koje šaljete (zadano: %s)</translation>
-    </message>
-    <message>
         <source>Force safe mode (default: %u)</source>
         <translation>Prisilno poktretanje sigurnosnog načina rada (zadano: %u)</translation>
     </message>
@@ -6599,8 +5820,8 @@ TARIAN temeljni novčanik</translation>
         <translation>Informacije</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. TARIAN Core is shutting down.</source>
-        <translation>Provjera ispravnosti inicijalizacije nije uspjela. TARIAN Core se zatvara.</translation>
+        <source>Initialization sanity check failed. Tarian Core is shutting down.</source>
+        <translation>Provjera ispravnosti inicijalizacije nije uspjela. Tarian Core se zatvara.</translation>
     </message>
     <message>
         <source>Insufficient funds</source>
@@ -6631,16 +5852,8 @@ TARIAN temeljni novčanik</translation>
         <translation>Nevažeća mrežna maska specificirana u kategoriji -whitelist: '%s'</translation>
     </message>
     <message>
-        <source>Invalid port detected in masternode.conf</source>
-        <translation>Nevažeći port otkriven u masternode.conf</translation>
-    </message>
-    <message>
         <source>Recalculating TARN supply...</source>
         <translation>Preračunavanje TARN-a u optjecaju...</translation>
-    </message>
-    <message>
-        <source>Reindex the TARN and zTARN money supply statistics</source>
-        <translation>Ponovno indeksirati statistiku TARN i zTARN ponude novca</translation>
     </message>
     <message>
         <source>Reindexing zerocoin database...</source>
@@ -6679,16 +5892,12 @@ TARIAN temeljni novčanik</translation>
 </translation>
     </message>
     <message>
-        <source>Disable all TARIAN specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)</source>
-        <translation>Onemogući sve specifične funkcije TARIAN (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, zadano: %u)</translation>
+        <source>Disable all TARN specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)</source>
+        <translation>Onemogući sve specifične funkcije TARN (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, zadano: %u)</translation>
     </message>
     <message>
         <source>Enable SwiftX, show confirmations for locked transactions (bool, default: %s)</source>
         <translation>Omogućite SwiftX, prikažite potvrde za zaključane transakcije (bool, zadano: %s)</translation>
-    </message>
-    <message>
-        <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Pogreška: transakcija je odbijena! To se može dogoditi ako su neki od novčića u vašem novčaniku već bili potrošeni, primjerice, ako ste upotrijebili kopiju wallet.data, a novčići su potrošeni u kopiji, ali nisu označeni kao ovdje potrošeni.</translation>
     </message>
     <message>
         <source>Error: Unsupported argument -checklevel found. Checklevel must be level 4.</source>
@@ -6789,10 +5998,6 @@ TARIAN temeljni novčanik</translation>
     <message>
         <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
         <translation>Zadržite najviše &lt;n&gt; neprenosive transakcije u memoriji (zadano: %u)</translation>
-    </message>
-    <message>
-        <source>Limit size of signature cache to &lt;n&gt; entries (default: %u)</source>
-        <translation>Ograničite veličinu predmemorije potpisa na 1 unosa (zadano: %u)</translation>
     </message>
     <message>
         <source>Line: %d</source>
@@ -6939,8 +6144,8 @@ TARIAN temeljni novčanik</translation>
         <translation>Priprema za resinkronizaciju...</translation>
     </message>
     <message>
-        <source>Please check that your computer's date and time are correct! If your clock is wrong TARIAN Core will not work properly.</source>
-        <translation>Provjerite jesu li datum i vrijeme vašeg računala točni! Ako je vaš sat pogrešan, TARIAN Core neće raditi ispravno.</translation>
+        <source>Please check that your computer's date and time are correct! If your clock is wrong Tarian Core will not work properly.</source>
+        <translation>Provjerite jesu li datum i vrijeme vašeg računala točni! Ako je vaš sat pogrešan, Tarian Core neće raditi ispravno.</translation>
     </message>
     <message>
         <source>Specify location of debug log file: this can be an absolute path or a path relative to the data directory (default: %s)</source>
@@ -6957,6 +6162,10 @@ TARIAN temeljni novčanik</translation>
     <message>
         <source>Need destination or change address because change is not exact</source>
         <translation>Potrebno odredište ili promjenu adrese jer promjena nije točna</translation>
+    </message>
+    <message>
+        <source>No error</source>
+        <translation>Nema grešaka</translation>
     </message>
     <message>
         <source>Prepend debug output with timestamp (default: %u)</source>
@@ -7155,6 +6364,10 @@ TARIAN temeljni novčanik</translation>
         <translation>To je namijenjeno alatima za test regresije i razvoju aplikacija.</translation>
     </message>
     <message>
+        <source>This is not a masternode.</source>
+        <translation>Ovo nije masternode.</translation>
+    </message>
+    <message>
         <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
         <translation>Prag za odspajanje loših korisnika (zadano: %u)</translation>
     </message>
@@ -7185,6 +6398,10 @@ TARIAN temeljni novčanik</translation>
     <message>
         <source>Transaction amounts must be positive</source>
         <translation>Iznos transakcije mora biti pozitivan</translation>
+    </message>
+    <message>
+        <source>Transaction canceled.</source>
+        <translation>Transakcija otkazana.</translation>
     </message>
     <message>
         <source>Transaction too large for fee policy</source>
@@ -7271,8 +6488,8 @@ TARIAN temeljni novčanik</translation>
         <translation>Novčanik %s nalazi se izvan direktorija podataka %s</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart TARIAN Core to complete</source>
-        <translation>Potrebno je prepisati novčanik: ponovo pokrenite TARIAN Core</translation>
+        <source>Wallet needed to be rewritten: restart Tarian Core to complete</source>
+        <translation>Potrebno je prepisati novčanik: ponovo pokrenite Tarian Core</translation>
     </message>
     <message>
         <source>Wallet options:</source>
@@ -7342,16 +6559,40 @@ TARIAN temeljni novčanik</translation>
         <translation>Pošalji</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TekstOznake</translation>
+        <source>Send public coins (TARN)</source>
+        <translation>Pošalji javne novčiće (TARN)</translation>
+    </message>
+    <message>
+        <source>TARN address or contact label</source>
+        <translation>TARN adresa ili naziv kontakta</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Iznos</translation>
+    </message>
+    <message>
+        <source>Customize fee</source>
+        <translation>Prilagodite naknadu</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>Očisti sve</translation>
+    </message>
+    <message>
+        <source>Add recipient</source>
+        <translation>Dodaj primatelja</translation>
+    </message>
+    <message>
+        <source>Total to send</source>
+        <translation>Ukupno za slanje</translation>
+    </message>
+    <message>
+        <source>Reset to default</source>
+        <translation>Resetiraj na početno stanje</translation>
     </message>
     <message>
         <source>Include delegated</source>
         <translation>Uključi delegirane</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>TipkaZaPritisak</translation>
     </message>
 </context>
 </TS>

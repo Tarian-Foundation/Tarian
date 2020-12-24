@@ -1,9 +1,9 @@
-// Copyright (c) 2017-2020 The TARIAN developers
+// Copyright (c) 2017-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TARIAN_ZTARNWALLET_H
-#define TARIAN_ZTARNWALLET_H
+#ifndef TARN_ZTARNWALLET_H
+#define TARN_ZTARNWALLET_H
 
 #include <map>
 #include "libzerocoin/Coin.h"
@@ -50,4 +50,4 @@ private:
     uint512 GetZerocoinSeed(uint32_t n);
 };
 
-#endif //TARIAN_ZTARNWALLET_H
+#endif //TARN_ZTARNWALLET_H

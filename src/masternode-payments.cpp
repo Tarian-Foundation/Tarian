@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2020 The TARIAN developers
+// Copyright (c) 2015-2020 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -306,8 +306,8 @@ bool IsBlockPayeeValid(const CBlock& block, int nBlockHeight)
     }
 
     // No Masternode Payments during PoW
-        if (!isPoSActive)
-            return true;
+    if (!isPoSActive)
+        return true;
 
     // If we end here the transaction was either TrxValidationStatus::InValid and Budget enforcement is disabled, or
     // a double budget payment (status = TrxValidationStatus::DoublePayment) was detected, or no/not enough masternode
@@ -331,9 +331,6 @@ void FillBlockPayee(CMutableTransaction& txNew, CAmount nFees, bool fProofOfStak
     CBlockIndex* pindexPrev = chainActive.Tip();
     if (!pindexPrev) return;
 
-    const bool isPoSActive = Params().GetConsensus().NetworkUpgradeActive(pindexPrev->nHeight + 1, Consensus::UPGRADE_POS);
-    if (!isPoSActive) return;
-
     if (sporkManager.IsSporkActive(SPORK_13_ENABLE_SUPERBLOCKS) && budget.IsBudgetPaymentBlock(pindexPrev->nHeight + 1)) {
         budget.FillBlockPayee(txNew, nFees, fProofOfStake);
     } else {
@@ -355,6 +352,9 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
     CBlockIndex* pindexPrev = chainActive.Tip();
     if (!pindexPrev) return;
 
+    const bool isPoSActive = Params().GetConsensus().NetworkUpgradeActive(pindexPrev->nHeight + 1, Consensus::UPGRADE_POS);
+    if (!isPoSActive) return;
+
     bool hasPayment = true;
     CScript payee;
 
@@ -370,10 +370,10 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
         }
     }
 
-    CAmount blockValue = GetBlockValue(pindexPrev->nHeight + 1);
-    CAmount masternodePayment = GetMasternodePayment(pindexPrev->nHeight +1);
-
     if (hasPayment) {
+        CAmount blockValue = GetBlockValue(pindexPrev->nHeight + 1);
+        CAmount masternodePayment = GetMasternodePayment(pindexPrev->nHeight + 1);
+
         if (fProofOfStake) {
             /**For Proof Of Stake vout[0] must be null
              * Stake reward can be split into many different outputs, so we must
@@ -437,11 +437,12 @@ void CMasternodePayments::ProcessMessageMasternodePayments(CNode* pfrom, std::st
         if (Params().NetworkID() == CBaseChainParams::MAIN) {
             if (pfrom->HasFulfilledRequest(NetMsgType::GETMNWINNERS)) {
                 if (sporkManager.IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT))
-                  {
+                {
                     LogPrintf("CMasternodePayments::ProcessMessageMasternodePayments() : mnget - peer already asked me for the list\n");
-                      Misbehaving(pfrom->GetId(), 20);
-                      return;
-                  }
+                    LOCK(cs_main);
+		    Misbehaving(pfrom->GetId(), 20);
+                    return;
+                }
                 pfrom->ClearFulfilledRequest(NetMsgType::GETMNWINNERS);
             }
         }
@@ -495,6 +496,7 @@ void CMasternodePayments::ProcessMessageMasternodePayments(CNode* pfrom, std::st
         if (!winner.CheckSignature()) {
             if (masternodeSync.IsSynced()) {
                 LogPrintf("CMasternodePayments::ProcessMessageMasternodePayments() : mnw - invalid signature\n");
+                LOCK(cs_main);
                 Misbehaving(pfrom->GetId(), 20);
             }
             // it could just be a non-synced masternode
@@ -699,9 +701,12 @@ bool CMasternodePayments::ProcessBlock(int nBlockHeight)
 {
     if (!fMasterNode) return false;
 
+    if (activeMasternode.vin == nullopt)
+        return error("%s: Active Masternode not initialized.", __func__);
+
     //reference node - hybrid mode
 
-    int n = mnodeman.GetMasternodeRank(activeMasternode.vin, nBlockHeight - 100, ActiveProtocol());
+    int n = mnodeman.GetMasternodeRank(*(activeMasternode.vin), nBlockHeight - 100, ActiveProtocol());
 
     if (n == -1) {
         LogPrint(BCLog::MASTERNODE, "CMasternodePayments::ProcessBlock - Unknown Masternode\n");
@@ -715,12 +720,12 @@ bool CMasternodePayments::ProcessBlock(int nBlockHeight)
 
     if (nBlockHeight <= nLastBlockHeight) return false;
 
-    CMasternodePaymentWinner newWinner(activeMasternode.vin);
+    CMasternodePaymentWinner newWinner(*(activeMasternode.vin));
 
     if (budget.IsBudgetPaymentBlock(nBlockHeight)) {
         //is budget payment block -- handled by the budgeting software
     } else {
-        LogPrint(BCLog::MASTERNODE,"CMasternodePayments::ProcessBlock() Start nHeight %d - vin %s. \n", nBlockHeight, activeMasternode.vin.prevout.hash.ToString());
+        LogPrint(BCLog::MASTERNODE,"CMasternodePayments::ProcessBlock() Start nHeight %d - vin %s. \n", nBlockHeight, activeMasternode.vin->prevout.hash.ToString());
 
         // pay to the oldest MN that still had no payment but its input is old enough and it was active long enough
         int nCount = 0;

@@ -1,11 +1,11 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2015-2019 The TARIAN developers
+// Copyright (c) 2015-2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TARIAN_SERIALIZE_H
-#define TARIAN_SERIALIZE_H
+#ifndef TARN_SERIALIZE_H
+#define TARN_SERIALIZE_H
 
 #include <algorithm>
 #include <assert.h>
@@ -905,4 +905,4 @@ size_t GetSerializeSize(const S& s, const T& t)
     return (CSizeComputer(s.GetType(), s.GetVersion()) << t).size();
 }
 
-#endif // TARIAN_SERIALIZE_H
+#endif // TARN_SERIALIZE_H

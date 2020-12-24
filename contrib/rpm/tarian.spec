@@ -20,22 +20,22 @@ Summary:	Peer to Peer Cryptographic Currency
 
 Group:		Applications/System
 License:	MIT
-URL:		https://tarian.org/
-Source0:	https://tarian.org/bin/tarian-core-%{version}/tarian-%{version}.tar.gz
+URL:		https://cri.eco/
+Source0:	https://cri.eco/bin/tarian-core-%{version}/tarian-%{version}.tar.gz
 Source1:	http://download.oracle.com/berkeley-db/db-%{bdbv}.NC.tar.gz
 
-Source10:	https://raw.githubusercontent.com/Tarian-Foundation/Tarian/v%{version}/contrib/debian/examples/tarian.conf
+Source10:	https://raw.githubusercontent.com/Carbon-Reduction-Initiative/TARN/v%{version}/contrib/debian/examples/tarian.conf
 
 #man pages
-Source20:	https://raw.githubusercontent.com/Tarian-Foundation/Tarian/v%{version}/doc/man/tariand.1
-Source21:	https://raw.githubusercontent.com/Tarian-Foundation/Tarian/v%{version}/doc/man/tarian-cli.1
-Source22:	https://raw.githubusercontent.com/Tarian-Foundation/Tarian/v%{version}/doc/man/tarian-qt.1
+Source20:	https://raw.githubusercontent.com/Carbon-Reduction-Initiative/TARN/v%{version}/doc/man/tariand.1
+Source21:	https://raw.githubusercontent.com/Carbon-Reduction-Initiative/TARN/v%{version}/doc/man/tarian-cli.1
+Source22:	https://raw.githubusercontent.com/Carbon-Reduction-Initiative/TARN/v%{version}/doc/man/tarian-qt.1
 
 #selinux
-Source30:	https://raw.githubusercontent.com/Tarian-Foundation/Tarian/v%{version}/contrib/rpm/tarian.te
+Source30:	https://raw.githubusercontent.com/Carbon-Reduction-Initiative/TARN/v%{version}/contrib/rpm/tarian.te
 # Source31 - what about tarian-tx and bench_tarian ???
-Source31:	https://raw.githubusercontent.com/Tarian-Foundation/Tarian/v%{version}/contrib/rpm/tarian.fc
-Source32:	https://raw.githubusercontent.com/Tarian-Foundation/Tarian/v%{version}/contrib/rpm/tarian.if
+Source31:	https://raw.githubusercontent.com/Carbon-Reduction-Initiative/TARN/v%{version}/contrib/rpm/tarian.fc
+Source32:	https://raw.githubusercontent.com/Carbon-Reduction-Initiative/TARN/v%{version}/contrib/rpm/tarian.if
 
 Source100:	https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg
 

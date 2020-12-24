@@ -6,10 +6,6 @@
         <translation>对话框</translation>
     </message>
     <message>
-        <source>My Address</source>
-        <translation>我的地址</translation>
-    </message>
-    <message>
         <source>Address</source>
         <translation>地址</translation>
     </message>
@@ -22,8 +18,8 @@
         <translation>删除</translation>
     </message>
     <message>
-        <source>OK</source>
-        <translation>好的</translation>
+        <source>SAVE</source>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
@@ -33,16 +29,8 @@
         <translation>对话框</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>文本标签</translation>
-    </message>
-    <message>
         <source>CANCEL</source>
         <translation>删除</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>好的</translation>
     </message>
     <message>
         <source>Edit Contact</source>
@@ -51,10 +39,6 @@
     <message>
         <source>Set a label for the selected address</source>
         <translation>为所选地址设置标签</translation>
-    </message>
-    <message>
-        <source>Enter a name for the address (e.g Exchange)</source>
-        <translation>输入地址的名称(例如：交换所)</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -111,11 +95,11 @@
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation>选择发送TARIAN coin的地址</translation>
+        <translation>选择发送TARN coin的地址</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation>选择接收TARIAN coin的地址</translation>
+        <translation>选择接收TARN coin的地址</translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
@@ -130,12 +114,12 @@
         <translation>接收地址</translation>
     </message>
     <message>
-        <source>These are your TARIAN addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>这是用于发送TARIAN的地址。在发送TARIAN之前，请认真核查发送金额和接收地址。</translation>
+        <source>These are your TARN addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>这是用于发送TARN的地址。在发送TARN之前，请认真核查发送金额和接收地址。</translation>
     </message>
     <message>
-        <source>These are your TARIAN addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>这是用于接收TARIAN的钱包地址。建议每一笔交易都使用一个新的钱包地址。</translation>
+        <source>These are your TARN addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>这是用于接收TARN的钱包地址。建议每一笔交易都使用一个新的钱包地址。</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -211,28 +195,12 @@
         <translation>来自</translation>
     </message>
     <message>
-        <source>Send</source>
-        <translation>发送</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>文本标签</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
-    </message>
-    <message>
         <source>Contact name</source>
         <translation>联系人名字</translation>
     </message>
     <message>
         <source>Enter address</source>
         <translation>输入地址</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>好的</translation>
     </message>
     <message>
         <source>Contacts</source>
@@ -245,14 +213,6 @@
     <message>
         <source>No contacts yet</source>
         <translation>暂无联系人</translation>
-    </message>
-    <message>
-        <source>e.g. John Doe</source>
-        <translation>例如John Doe</translation>
-    </message>
-    <message>
-        <source>Enter TARIAN address</source>
-        <translation>输入TARIAN地址</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -380,10 +340,6 @@ for staking</source>
         <translation>如果你对钱包进行加密但丢失密码的话，你会</translation>
     </message>
     <message>
-        <source>LOSE ALL OF YOUR TARN</source>
-        <translation>丢失你所有的TARN</translation>
-    </message>
-    <message>
         <source>ENCRYPT</source>
         <translation>加密</translation>
     </message>
@@ -392,12 +348,8 @@ for staking</source>
         <translation>删除</translation>
     </message>
     <message>
-        <source>WARNING: The Caps Lock key is on!</source>
-        <translation>注意：键盘目前为大写锁定状态。</translation>
-    </message>
-    <message>
-        <source>TARIAN will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TARNs from being stolen by malware infecting your computer.</source>
-        <translation>TARIAN将关闭以完成加密过程。但是，仅仅加密您的钱包是不够的，因为它并不能阻止恶意软件从您的电脑里面偷取TARNs。</translation>
+        <source>TARN will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TARNs from being stolen by malware infecting your computer.</source>
+        <translation>TARN将关闭以完成加密过程。但是，仅仅加密您的钱包是不够的，因为它并不能阻止恶意软件从您的电脑里面偷取TARNs。</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -692,6 +644,10 @@ for staking</source>
         <translation>委托到%1进行冷加注</translation>
     </message>
     <message>
+        <source>Select All</source>
+        <translation>选择所有</translation>
+    </message>
+    <message>
         <source>no</source>
         <translation>否</translation>
     </message>
@@ -720,10 +676,6 @@ for staking</source>
         <translation>如果任何收件人收到的金额小于%1，此标签将变为红色。</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 utarn per input.</source>
-        <translation>每个输入可以浮动+/- %1 utarn。</translation>
-    </message>
-    <message>
         <source>(no label)</source>
         <translation>未设置标签</translation>
     </message>
@@ -743,28 +695,12 @@ for staking</source>
         <translation>来自</translation>
     </message>
     <message>
-        <source>Title</source>
-        <translation>抬头</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>文本标签</translation>
-    </message>
-    <message>
         <source>Owner address (optional, if empty a new address will be created)</source>
         <translation>所有者地址(可选项，如果为空，将创建一个新地址)</translation>
     </message>
     <message>
         <source>Total Staking:</source>
         <translation>加注总额：</translation>
-    </message>
-    <message>
-        <source>List of delegated balance by address</source>
-        <translation>按地址划分的委托余额清单</translation>
-    </message>
-    <message>
-        <source>No balance delegated</source>
-        <translation>没有佣金余额</translation>
     </message>
     <message>
         <source>Cold Staking</source>
@@ -837,6 +773,10 @@ stake on your behalf, while you keep the keys securely offline.</source>
         <translation>禁用网络冷积累</translation>
     </message>
     <message>
+        <source>Coin Control</source>
+        <translation>币控制</translation>
+    </message>
+    <message>
         <source>Invalid entry</source>
         <translation>条目无效</translation>
     </message>
@@ -879,10 +819,6 @@ Do you wish to proceed?</source>
     <message>
         <source>Coins delegated</source>
         <translation>委托硬币</translation>
-    </message>
-    <message>
-        <source>You don't have any TARN to select.</source>
-        <translation>您没有任何TARN可选择。</translation>
     </message>
     <message>
         <source>Cannot perform operation, wallet locked</source>
@@ -969,14 +905,6 @@ address</source>
         <source>Form</source>
         <translation>来自</translation>
     </message>
-    <message>
-        <source>Bob Allen</source>
-        <translation>Bob Allen</translation>
-    </message>
-    <message>
-        <source>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</source>
-        <translation>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</translation>
-    </message>
 </context>
 <context>
     <name>DashboardWidget</name>
@@ -989,36 +917,12 @@ address</source>
         <translation>交易</translation>
     </message>
     <message>
-        <source>You can see here the history of your account</source>
-        <translation>你可以在这里查看你账户的历史</translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation>注意</translation>
-    </message>
-    <message>
-        <source>No transactions</source>
-        <translation>无交易</translation>
-    </message>
-    <message>
         <source>Staking Rewards</source>
         <translation>加注奖励</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>文本标签</translation>
-    </message>
-    <message>
         <source>Staking statistics</source>
         <translation>加注数据</translation>
-    </message>
-    <message>
-        <source>TARN</source>
-        <translation>TARN</translation>
-    </message>
-    <message>
-        <source>zTARN</source>
-        <translation>zTARN</translation>
     </message>
     <message>
         <source>Sort by</source>
@@ -1041,14 +945,6 @@ address</source>
         <translation>过滤</translation>
     </message>
     <message>
-        <source>LabelText</source>
-        <translation>标签文本</translation>
-    </message>
-    <message>
-        <source>You can view your account's history</source>
-        <translation>您可以查看您的帐户的历史</translation>
-    </message>
-    <message>
         <source>Amount of TARN and zTARN staked.</source>
         <translation>已加注的TARN 和 zTARN 金额</translation>
     </message>
@@ -1059,10 +955,6 @@ address</source>
     <message>
         <source>No transactions yet</source>
         <translation>暂无交易</translation>
-    </message>
-    <message>
-        <source>How to get TARN or zTARN</source>
-        <translation>如何获取TARN 或 zTARN</translation>
     </message>
     <message>
         <source>You can verify the staking activity in the status bar at the top right of the wallet.
@@ -1102,20 +994,12 @@ It will start automatically as soon as the wallet has enough confirmations on an
         <translation>来自</translation>
     </message>
     <message>
-        <source>Transaction Details</source>
-        <translation>交易明细</translation>
-    </message>
-    <message>
-        <source>Text Label</source>
-        <translation>文本标签</translation>
+        <source>OK</source>
+        <translation>好的</translation>
     </message>
     <message>
         <source>CANCEL</source>
         <translation>删除</translation>
-    </message>
-    <message>
-        <source>SAVE</source>
-        <translation>保存</translation>
     </message>
 </context>
 <context>
@@ -1157,8 +1041,8 @@ It will start automatically as soon as the wallet has enough confirmations on an
         <translation>编辑发送地址</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid TARIAN address.</source>
-        <translation>所输入的地址“%1”不是有效的TARIAN地址。</translation>
+        <source>The entered address "%1" is not a valid TARN address.</source>
+        <translation>所输入的地址“%1”不是有效的TARN地址。</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -1210,16 +1094,16 @@ It will start automatically as soon as the wallet has enough confirmations on an
         <translation>版本</translation>
     </message>
     <message>
-        <source>TARIAN Core</source>
-        <translation>TARIAN Core</translation>
+        <source>Tarian Core</source>
+        <translation>Tarian Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-位)</translation>
     </message>
     <message>
-        <source>About TARIAN Core</source>
-        <translation>关于TARIAN Core</translation>
+        <source>About Tarian Core</source>
+        <translation>关于Tarian Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1273,16 +1157,16 @@ It will start automatically as soon as the wallet has enough confirmations on an
         <translation>欢迎</translation>
     </message>
     <message>
-        <source>Welcome to TARIAN Core.</source>
-        <translation>欢迎使用 TARIAN Core</translation>
+        <source>Welcome to Tarian Core.</source>
+        <translation>欢迎使用 Tarian Core</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where TARIAN Core will store its data.</source>
-        <translation>由于这是该程序第一次启动，您可以选择存储TARIAN Core 数据的位置。</translation>
+        <source>As this is the first time the program is launched, you can choose where Tarian Core will store its data.</source>
+        <translation>由于这是该程序第一次启动，您可以选择存储Tarian Core 数据的位置。</translation>
     </message>
     <message>
-        <source>TARIAN Core will download and store a copy of the TARIAN block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>TARIAN Core将下载并存储TARIAN区块链副本。 至少 %1 GB的数据将存储在此目录中，并且会随着时间的推移而增长。 钱包也将存储在此目录中。</translation>
+        <source>Tarian Core will download and store a copy of the TARN block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Tarian Core将下载并存储TARN区块链副本。 至少 %1 GB的数据将存储在此目录中，并且会随着时间的推移而增长。 钱包也将存储在此目录中。</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1301,8 +1185,8 @@ It will start automatically as soon as the wallet has enough confirmations on an
         <translation>好的</translation>
     </message>
     <message>
-        <source>TARIAN Core</source>
-        <translation>TARIAN Core</translation>
+        <source>Tarian Core</source>
+        <translation>Tarian Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1365,7 +1249,7 @@ It will start automatically as soon as the wallet has enough confirmations on an
         <source>Form</source>
         <translation>来自</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>MasterNodeWizardDialog</name>
     <message>
@@ -1401,8 +1285,8 @@ It will start automatically as soon as the wallet has enough confirmations on an
         <translation>创建新的主节点控制器</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;To create a TARIAN Masternode you must dedicate 10,000 TARN (the unit of TARIAN) to the network (however, these coins are still yours and will never leave your possession). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;You can deactivate the node and unlock the coins at any time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;要去创建一个TARIAN主节点，你必须奉献10,000 TARN（TARIAN的单位）到网络（但是这些币还是属于你的，一直为你所有）。&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;你可以在任何时候关闭该节点并解锁币。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;To create a TARN Masternode you must dedicate 1,000 TARN (the unit of TARN) to the network (however, these coins are still yours and will never leave your possession). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;You can deactivate the node and unlock the coins at any time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;要去创建一个TARN主节点，你必须奉献1,000 TARN（TARN的单位）到网络（但是这些币还是属于你的，一直为你所有）。&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;你可以在任何时候关闭该节点并解锁币。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Set Masternode Name</source>
@@ -1421,8 +1305,8 @@ It will start automatically as soon as the wallet has enough confirmations on an
         <translation>确保你有这么多币</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of 10,000 TARN will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node's name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;将进行10,000 TARN的交易&lt;/p&gt;&lt;p&gt;到您的钱包空地址&lt;/p&gt;&lt;p&gt;地址被标记在主节点的名称之下&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of 1,000 TARN will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node's name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;将进行1,000 TARN的交易&lt;/p&gt;&lt;p&gt;到您的钱包空地址&lt;/p&gt;&lt;p&gt;地址被标记在主节点的名称之下&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Address of the node that must always be online running the actual master node.</source>
@@ -1431,18 +1315,6 @@ It will start automatically as soon as the wallet has enough confirmations on an
     <message>
         <source>Enter IP address</source>
         <translation>输入IP 地址</translation>
-    </message>
-    <message>
-        <source>CANCEL</source>
-        <translation>删除</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>好的</translation>
-    </message>
-    <message>
-        <source>e.g user_masternode</source>
-        <translation>例如 用户_主节点</translation>
     </message>
     <message>
         <source>NEXT</source>
@@ -1508,14 +1380,6 @@ It will start automatically as soon as the wallet has enough confirmations on an
     <message>
         <source>Form</source>
         <translation>来自</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>文本标签</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
     </message>
     <message>
         <source>Start All</source>
@@ -1616,6 +1480,10 @@ Please wait few more minutes (masternode collaterals require %1 confirmations).<
         <translation>远程主节点数据</translation>
     </message>
     <message>
+        <source>What is a Masternode?</source>
+        <translation>主节点是什么？</translation>
+    </message>
+    <message>
         <source>You are just about to export the required data to run a Masternode
 on a remote server to your clipboard.
 
@@ -1664,10 +1532,6 @@ Are you sure?</source>
         <translation>无法创建主节点控制器，钱包被锁了</translation>
     </message>
     <message>
-        <source>Not enough balance to create a masternode, 10,000 TARN required.</source>
-        <translation>没有足够的余额创建主节点，需要10,000 TARN。</translation>
-    </message>
-    <message>
         <source>Error creating masternode</source>
         <translation>创建主节点出错</translation>
     </message>
@@ -1687,16 +1551,8 @@ Are you sure?</source>
         <translation>公钥：</translation>
     </message>
     <message>
-        <source>492526e7fa3c810b35016...40a5df85ee227ab00b1156994</source>
-        <translation>492526e7fa3c810b35016...40a5df85ee227ab00b1156994</translation>
-    </message>
-    <message>
         <source>Address: </source>
         <translation>地址：</translation>
-    </message>
-    <message>
-        <source>127.0.0.2:43223</source>
-        <translation>127.0.0.2:43223</translation>
     </message>
     <message>
         <source>Collaterall tx id:</source>
@@ -1715,31 +1571,15 @@ Are you sure?</source>
         <translation>状态：</translation>
     </message>
     <message>
-        <source>MISSING</source>
-        <translation>略过</translation>
-    </message>
-    <message>
         <source>Export data to run the Masternode on a remote server</source>
         <translation>导出数据去远程服务器上运行主节点</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>MyAddressRow</name>
     <message>
         <source>Form</source>
         <translation>来自</translation>
-    </message>
-    <message>
-        <source>Savings</source>
-        <translation>存款</translation>
-    </message>
-    <message>
-        <source>Jan. 19, 2019</source>
-        <translation>2019年1月19日</translation>
-    </message>
-    <message>
-        <source>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</source>
-        <translation>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</translation>
     </message>
 </context>
 <context>
@@ -1806,10 +1646,6 @@ Are you sure?</source>
         <source>Form</source>
         <translation>来自</translation>
     </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>文本标签</translation>
-    </message>
 </context>
 <context>
     <name>OptionsDialog</name>
@@ -1846,8 +1682,8 @@ Are you sure?</source>
         <translation>如果您要禁用未经确认发送，在至少有一个确认之前&lt;br/&gt;不能更改。&lt;br/&gt;这也将影响您的余额计算。</translation>
     </message>
     <message>
-        <source>Automatically open the TARIAN client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>自动打开路由器上的TARIAN钱包使用的端口。 这只有当您的路由器支持UPnP并且该享生效时才有用。</translation>
+        <source>Automatically open the TARN client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>自动打开路由器上的TARN钱包使用的端口。 这只有当您的路由器支持UPnP并且该享生效时才有用。</translation>
     </message>
     <message>
         <source>Accept connections from outside</source>
@@ -1866,12 +1702,12 @@ Are you sure?</source>
         <translation>专家</translation>
     </message>
     <message>
-        <source>Automatically start TARIAN after logging in to the system.</source>
-        <translation>登录系统后自动启动TARIAN。</translation>
+        <source>Automatically start TARN after logging in to the system.</source>
+        <translation>登录系统后自动启动TARN。</translation>
     </message>
     <message>
-        <source>&amp;Start TARIAN on system login</source>
-        <translation>&amp;开机启动TARIAN</translation>
+        <source>&amp;Start TARN on system login</source>
+        <translation>&amp;开机启动TARN</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1898,14 +1734,14 @@ Are you sure?</source>
         <translation>&amp;网络</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting TARIAN.</source>
-        <translation>可以在这里设置用户界面语言。此设置将在重新启动TARIAN后生效。</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting TARN.</source>
+        <translation>可以在这里设置用户界面语言。此设置将在重新启动TARN后生效。</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/Tarian-Foundation/Tarian-project-translations</source>
+https://www.transifex.com/tarian-project/tarian-project-translations</source>
         <translation>语言缺失或翻译不完整?帮助贡献翻译在这里:
-https://www.transifex.com/Tarian-Foundation/Tarian-project-translations</translation>
+https://www.transifex.com/tarian-project/tarian-project-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1948,8 +1784,8 @@ https://www.transifex.com/Tarian-Foundation/Tarian-project-translations</transla
         <translation>股权分割阈值:</translation>
     </message>
     <message>
-        <source>Connect to the TARIAN network through a SOCKS5 proxy.</source>
-        <translation>通过SOCKS5代理连接到TARIAN网络。</translation>
+        <source>Connect to the TARN network through a SOCKS5 proxy.</source>
+        <translation>通过SOCKS5代理连接到TARN网络。</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -2005,7 +1841,7 @@ https://www.transifex.com/Tarian-Foundation/Tarian-project-translations</transla
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>选择显示发送TARIAN的默认单位。</translation>
+        <translation>选择显示发送TARN的默认单位。</translation>
     </message>
     <message>
         <source>Decimal digits</source>
@@ -2093,10 +1929,10 @@ https://www.transifex.com/Tarian-Foundation/Tarian-project-translations</transla
     </message>
 </context>
 <context>
-    <name>TARIANGUI</name>
+    <name>TARNGUI</name>
     <message>
-        <source>TARIAN Core</source>
-        <translation>TARIAN Core</translation>
+        <source>Tarian Core</source>
+        <translation>Tarian Core</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -2123,8 +1959,8 @@ https://www.transifex.com/Tarian-Foundation/Tarian-project-translations</transla
         <translation>关闭应用</translation>
     </message>
     <message>
-        <source>TARIAN Core client</source>
-        <translation>TARIAN Core 客户端</translation>
+        <source>Tarian Core client</source>
+        <translation>Tarian Core 客户端</translation>
     </message>
     <message>
         <source>Error</source>
@@ -2166,10 +2002,6 @@ Address: %4
 地址：%4
 </translation>
     </message>
-    <message>
-        <source>A fatal error occurred. TARIAN can no longer continue safely and will quit.</source>
-        <translation>发生了一个致命的错误。TARIAN不能继续安全，将退出。</translation>
-    </message>
 </context>
 <context>
     <name>PaymentServer</name>
@@ -2198,8 +2030,8 @@ Address: %4
         <translation>无法启动tarian:点击支付处理程序</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid TARIAN address or malformed URI parameters.</source>
-        <translation>URI不能被解析!这可能是由无效的TARIAN地址或格式错误的URI参数造成的。</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid TARN address or malformed URI parameters.</source>
+        <translation>URI不能被解析!这可能是由无效的TARN地址或格式错误的URI参数造成的。</translation>
     </message>
     <message>
         <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
@@ -2278,139 +2110,14 @@ Address: %4
     </message>
 </context>
 <context>
-    <name>PrivacyWidget</name>
-    <message>
-        <source>Form</source>
-        <translation>来自</translation>
-    </message>
-    <message>
-        <source>Title</source>
-        <translation>抬头</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>文本标签</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>按钮</translation>
-    </message>
-    <message>
-        <source>N/A</source>
-        <translation>N/A</translation>
-    </message>
-    <message>
-        <source>Privacy</source>
-        <translation>隐私</translation>
-    </message>
-    <message>
-        <source>Convert</source>
-        <translation>转换</translation>
-    </message>
-    <message>
-        <source>Mint</source>
-        <translation>铸造</translation>
-    </message>
-    <message>
-        <source>Minting zTARN anonymizes your TARN by removing any
-transaction history, making transactions untraceable </source>
-        <translation>铸造zTARN会通过删除任何
-交易历史匿名化您的TARN，使交易无法被跟踪</translation>
-    </message>
-    <message>
-        <source>Mint new zTARN or convert back to TARN</source>
-        <translation>铸造新的zTARN或转换回TARN</translation>
-    </message>
-    <message>
-        <source>Last zTARN Movements</source>
-        <translation>最后zTARN轨迹</translation>
-    </message>
-    <message>
-        <source>No transactions yet</source>
-        <translation>暂无交易</translation>
-    </message>
-    <message>
-        <source>Mint zTARN</source>
-        <translation>铸造zTARN</translation>
-    </message>
-    <message>
-        <source>Enter amount of TARN to mint into zTARN</source>
-        <translation>输入一定量的TARN铸造成zTARN</translation>
-    </message>
-    <message>
-        <source>Convert back to TARN</source>
-        <translation>转换回TARN</translation>
-    </message>
-    <message>
-        <source>Enter amount of zTARN to convert back into TARN</source>
-        <translation>输入一定量的zTARN转换回TARN</translation>
-    </message>
-    <message>
-        <source>Zerocoin</source>
-        <translation>零币</translation>
-    </message>
-    <message>
-        <source>zTARN is currently undergoing maintenance</source>
-        <translation>zTARN目前正在维护中</translation>
-    </message>
-    <message>
-        <source>You need to unlock the wallet to be able to %1 zTARN</source>
-        <translation>你需要解锁钱包才能%1 zTARN</translation>
-    </message>
-    <message>
-        <source>convert</source>
-        <translation>转换</translation>
-    </message>
-    <message>
-        <source>mint</source>
-        <translation>铸造</translation>
-    </message>
-    <message>
-        <source>Invalid value</source>
-        <translation>无效值</translation>
-    </message>
-    <message>
-        <source>zTARN minted successfully</source>
-        <translation>zTARN铸造成功</translation>
-    </message>
-    <message>
-        <source>zTARN converted back to TARN</source>
-        <translation>zTARN 转换回TARN</translation>
-    </message>
-    <message>
-        <source>You don't have any TARN to select.</source>
-        <translation>您没有任何TARN可选择。</translation>
-    </message>
-    <message>
-        <source>Rescan Mints</source>
-        <translation>重新扫描铸造</translation>
-    </message>
-    <message>
-        <source>Your zerocoin mints are going to be scanned from the blockchain from scratch</source>
-        <translation>你的零币铸造将从零区块链被扫描</translation>
-    </message>
-    <message>
-        <source>Reset Spent zTARN</source>
-        <translation>重置花费zTARN</translation>
-    </message>
-    <message>
-        <source>Your zerocoin spends are going to be scanned from the blockchain from scratch</source>
-        <translation>你的零币花费铸造将从零区块链被扫描</translation>
-    </message>
-    <message>
-        <source>Total %1</source>
-        <translation>总额%1</translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <source>Amount</source>
         <translation>金额</translation>
     </message>
     <message>
-        <source>Enter TARIAN address (e.g. %1)</source>
-        <translation>输入TARIAN a地址(e.g. %1)</translation>
+        <source>Enter TARN address (e.g. %1)</source>
+        <translation>输入TARN a地址(e.g. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2453,8 +2160,12 @@ transaction history, making transactions untraceable </source>
         <translation>%1 毫秒</translation>
     </message>
     <message>
-        <source>TARIAN Core</source>
-        <translation>TARIAN Core</translation>
+        <source>A fatal error occurred. TARN can no longer continue safely and will quit.</source>
+        <translation>发生了一个致命的错误。TARN不能继续安全，将退出。</translation>
+    </message>
+    <message>
+        <source>Tarian Core</source>
+        <translation>Tarian Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" does not exist.</source>
@@ -2473,8 +2184,8 @@ transaction history, making transactions untraceable </source>
         <translation>读取主节点配置文件出错:%1</translation>
     </message>
     <message>
-        <source>TARIAN Core didn't yet exit safely...</source>
-        <translation>TARIAN核心尚未安全退出……</translation>
+        <source>Tarian Core didn't yet exit safely...</source>
+        <translation>TARN核心尚未安全退出……</translation>
     </message>
     <message>
         <source>Contact</source>
@@ -2511,10 +2222,6 @@ transaction history, making transactions untraceable </source>
     <message>
         <source>Contacts</source>
         <translation>联系人</translation>
-    </message>
-    <message>
-        <source>Delegators</source>
-        <translation>委托人</translation>
     </message>
     <message>
         <source>Staking Contacts</source>
@@ -2588,7 +2295,7 @@ transaction history, making transactions untraceable </source>
         <source>by Date</source>
         <translation>日期</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>RPCConsole</name>
     <message>
@@ -2660,8 +2367,8 @@ transaction history, making transactions untraceable </source>
         <translation>区块链</translation>
     </message>
     <message>
-        <source>Open the TARIAN debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>从当前数据目录打开TARIAN调试日志文件。对于大型日志文件，这可能需要几秒钟。</translation>
+        <source>Open the TARN debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>从当前数据目录打开TARN调试日志文件。对于大型日志文件，这可能需要几秒钟。</translation>
     </message>
     <message>
         <source>Number of Masternodes</source>
@@ -2884,8 +2591,8 @@ transaction history, making transactions untraceable </source>
         <translation>出：</translation>
     </message>
     <message>
-        <source>Welcome to the TARIAN RPC console.</source>
-        <translation>欢迎访问TARIAN RPC控制台</translation>
+        <source>Welcome to the TARN RPC console.</source>
+        <translation>欢迎访问TARN RPC控制台</translation>
     </message>
     <message>
         <source>&amp;Disconnect Node</source>
@@ -3003,20 +2710,12 @@ transaction history, making transactions untraceable </source>
         <translation>对话框</translation>
     </message>
     <message>
-        <source>Transaction Details</source>
-        <translation>交易明细</translation>
-    </message>
-    <message>
-        <source>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
-        <translation>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </translation>
+        <source>My Address</source>
+        <translation>我的地址</translation>
     </message>
     <message>
         <source>CANCEL</source>
         <translation>删除</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>好的</translation>
     </message>
 </context>
 <context>
@@ -3024,10 +2723,6 @@ transaction history, making transactions untraceable </source>
     <message>
         <source>Form</source>
         <translation>来自</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>文本标签</translation>
     </message>
     <message>
         <source>No address</source>
@@ -3048,14 +2743,6 @@ transaction history, making transactions untraceable </source>
     <message>
         <source>Receive</source>
         <translation>接收</translation>
-    </message>
-    <message>
-        <source>Scan the QR code or copy the address to receive TARN.</source>
-        <translation>扫描二维码或复制地址接收TARN</translation>
-    </message>
-    <message>
-        <source>No address </source>
-        <translation>无地址</translation>
     </message>
     <message>
         <source>No available address, try unlocking the wallet</source>
@@ -3148,24 +2835,12 @@ transaction history, making transactions untraceable </source>
         <translation>对话框</translation>
     </message>
     <message>
-        <source>New Request Payment</source>
-        <translation>新支付请求</translation>
-    </message>
-    <message>
-        <source>Lorem ipsum dolor sit amet, consectur cling elit, sed do </source>
-        <translation>Lorem ipsum dolor sit amet, consectur cling elit, sed do </translation>
-    </message>
-    <message>
         <source>Amount</source>
         <translation>金额</translation>
     </message>
     <message>
         <source>TARN</source>
         <translation>TARN</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>文本标签</translation>
     </message>
     <message>
         <source>D7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
@@ -3184,10 +2859,6 @@ transaction history, making transactions untraceable </source>
         <translation>删除</translation>
     </message>
     <message>
-        <source>REQUEST</source>
-        <translation>请求</translation>
-    </message>
-    <message>
         <source>Label</source>
         <translation>标签</translation>
     </message>
@@ -3198,10 +2869,6 @@ transaction history, making transactions untraceable </source>
     <message>
         <source>New Payment Request</source>
         <translation>新的支付请求</translation>
-    </message>
-    <message>
-        <source>Instead of sharing only a TARIAN address, you can create a payment request, bundling up more information.</source>
-        <translation>与只共享TARIAN地址不同，您可以创建一个支付请求，绑定更多信息。</translation>
     </message>
     <message>
         <source>Enter a label for the address</source>
@@ -3231,7 +2898,11 @@ transaction history, making transactions untraceable </source>
         <source>Amount (optional)</source>
         <translation>金额（可选项）</translation>
     </message>
-</context>
+    <message>
+        <source>Invalid amount</source>
+        <translation>金额无效</translation>
+    </message>
+    </context>
 <context>
     <name>SendChangeAddressDialog</name>
     <message>
@@ -3239,29 +2910,16 @@ transaction history, making transactions untraceable </source>
         <translation>对话框</translation>
     </message>
     <message>
-        <source>Transaction Details</source>
-        <translation>交易明细</translation>
-    </message>
-    <message>
-        <source>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</source>
-        <translation> 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</translation>
-    </message>
-    <message>
         <source>CANCEL</source>
         <translation>删除</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>好的</translation>
     </message>
     <message>
         <source>Custom Change Address</source>
         <translation>自定义更改地址</translation>
     </message>
     <message>
-        <source>The remainder of the value resultant from the inputs minus the outputs value goes to the "change" TARIAN address</source>
-        <translation>输入值减去输出值所得的值的其余部分归为“更改”TARIAN地址</translation>
+        <source>The remainder of the value resultant from the inputs minus the outputs value goes to the "change" TARN address</source>
+        <translation>输入值减去输出值所得的值的其余部分归为“更改”TARN地址</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -3275,20 +2933,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         <source>Invalid address</source>
         <translation>地址无效</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>SendCustomFeeDialog</name>
     <message>
         <source>Form</source>
         <translation>来自</translation>
-    </message>
-    <message>
-        <source>Transaction Details</source>
-        <translation>交易明细</translation>
-    </message>
-    <message>
-        <source>Customize the transaction fee at your to your liking, depending on the fee value your transaction will be included or not in the blockchain.</source>
-        <translation>根据您的喜好定制交易费用，取决于您的交易是否包含在区块链中。</translation>
     </message>
     <message>
         <source>Recommended</source>
@@ -3311,16 +2961,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         <translation>删除</translation>
     </message>
     <message>
-        <source>OK</source>
-        <translation>好的</translation>
-    </message>
-    <message>
         <source>Customize Fee</source>
         <translation>定制费用</translation>
-    </message>
-    <message>
-        <source>Customize the transaction fee, depending on the fee value your transaction might be included faster in the blockchain.</source>
-        <translation>定制交易费用，根据费用高低，您的交易可能更快地被融入到区块链。</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -3346,10 +2988,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         <translation>来自</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>文本标签</translation>
-    </message>
-    <message>
         <source>Enter address</source>
         <translation>输入地址</translation>
     </message>
@@ -3361,56 +2999,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <context>
     <name>SendWidget</name>
     <message>
-        <source>Send</source>
-        <translation>发送</translation>
-    </message>
-    <message>
-        <source>You can transfer public coins (TARN) or private coins (zTARN)</source>
-        <translation>您可以转换公共币(TARN)或私人币(zTARN)</translation>
-    </message>
-    <message>
-        <source>Select coin type to spend</source>
-        <translation>选择需要花费的币种类</translation>
-    </message>
-    <message>
-        <source>Amount</source>
-        <translation>金额</translation>
-    </message>
-    <message>
-        <source>Customize fee</source>
-        <translation>定制费用</translation>
-    </message>
-    <message>
-        <source>Clear all</source>
-        <translation>清除所有</translation>
-    </message>
-    <message>
-        <source>Add recipient</source>
-        <translation>添加接收人</translation>
-    </message>
-    <message>
-        <source>Reset to default</source>
-        <translation>重置到默认值</translation>
-    </message>
-    <message>
-        <source>Total to send</source>
-        <translation>花费总金额</translation>
-    </message>
-    <message>
-        <source>Send TARN</source>
-        <translation>花费TARN</translation>
-    </message>
-    <message>
-        <source>Send zTARN</source>
-        <translation>花费zTARN</translation>
-    </message>
-    <message>
         <source>Total remaining from the selected UTXO</source>
         <translation>所选UTXO的剩余总数</translation>
-    </message>
-    <message>
-        <source>Total remaining</source>
-        <translation>总剩余</translation>
     </message>
     <message>
         <source>Warning!</source>
@@ -3431,10 +3021,6 @@ Do you want to continue?</source>
     <message>
         <source>Maximum amount of outputs reached</source>
         <translation>达到最大输出金额</translation>
-    </message>
-    <message>
-        <source>TARIAN address or contact label</source>
-        <translation>TARIAN 地址或者联系人标签</translation>
     </message>
     <message>
         <source>Invalid entry, previous entries must be valid before add a new one</source>
@@ -3473,54 +3059,6 @@ These coins will no longer be cold-staked.</source>
         <translation>交易已发送</translation>
     </message>
     <message>
-        <source>Spend Zerocoin</source>
-        <translation>花费零币</translation>
-    </message>
-    <message>
-        <source>zTARN is currently undergoing maintenance.</source>
-        <translation>zTARN目前正在维护中</translation>
-    </message>
-    <message>
-        <source>Coin control mint not found</source>
-        <translation>硬币控制铸币不存在</translation>
-    </message>
-    <message>
-        <source>Sending %1 to address %2
-</source>
-        <translation>正在发送%1 到 地址%2
-</translation>
-    </message>
-    <message>
-        <source>Sending %1 to addresses:
-%2</source>
-        <translation>正在发送%1到地址：
-%2</translation>
-    </message>
-    <message>
-        <source>zTARN transaction sent!</source>
-        <translation>zTARN交易已发送！</translation>
-    </message>
-    <message>
-        <source>Version 1 zTARN require a security level of 100 to successfully spend.</source>
-        <translation>版本1 zTARN要求安全级别为100才能成功使用。</translation>
-    </message>
-    <message>
-        <source>Too much inputs (</source>
-        <translation>输入过多（</translation>
-    </message>
-    <message>
-        <source>) needed.
-Maximum allowed: </source>
-        <translation>)需要。
-最大额限制:</translation>
-    </message>
-    <message>
-        <source>
-Either mint higher denominations (so fewer inputs are needed) or reduce the amount to spend.</source>
-        <translation>
-要么铸造更高面额的币(这样需要的投入就更少)，要么减少开支。</translation>
-    </message>
-    <message>
         <source>Address label update failed for address: %1</source>
         <translation>地址标签更新失败的地址:%1</translation>
     </message>
@@ -3537,12 +3075,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>定制费用%1</translation>
     </message>
     <message>
-        <source>You don't have any TARN to select.</source>
-        <translation>您没有任何TARN可选择。</translation>
+        <source>Coin Control</source>
+        <translation>币控制</translation>
     </message>
     <message>
-        <source>You don't have any zTARN in your balance to select.</source>
-        <translation>你的余额中没有zTARN可供选择。</translation>
+        <source>Open URI</source>
+        <translation>开源URI</translation>
     </message>
     <message>
         <source>No contacts available, you can go to the contacts screen and add some there!</source>
@@ -3588,32 +3126,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>来自</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>文本标签</translation>
-    </message>
-    <message>
-        <source>Backup Wallet </source>
-        <translation>返回钱包</translation>
-    </message>
-    <message>
         <source>Change Wallet Passphrase</source>
         <translation>变更钱包密码</translation>
     </message>
     <message>
-        <source>This will decrypt the whole wallet data and encrypt it back with the new passphrase.
-Remember to write it down and store it safely, otherwise you might lose access to your funds.</source>
-        <translation>这将解密整个钱包数据，并使用新密码将其加密回来。
-请记住将其写下并安全地存储，否则您可能无法使用这笔资金。</translation>
-    </message>
-    <message>
         <source>Where</source>
         <translation>哪里</translation>
-    </message>
-    <message>
-        <source>Keep your wallet safe by doing regular backups and storing your backup file externally.
-This option creates a wallet.dat file that can be used to recover your whole balance (transactions and addresses) on another device.</source>
-        <translation>通过定期备份和将备份文件存储在外部来保证钱包的安全。
-此选项创建一个wallet.dat文件，可用于在另一个设备上恢复您的全部余额(交易和地址)。</translation>
     </message>
     <message>
         <source>Select folder...</source>
@@ -3651,24 +3169,8 @@ This option creates a wallet.dat file that can be used to recover your whole bal
         <translation>来自</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>文本标签</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>按钮</translation>
-    </message>
-    <message>
-        <source>Decrypt Address Result</source>
-        <translation>解密地址结果</translation>
-    </message>
-    <message>
         <source>Import Address</source>
         <translation>导入地址</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation>清除</translation>
     </message>
     <message>
         <source>BIP38 Tool</source>
@@ -3695,10 +3197,6 @@ This option creates a wallet.dat file that can be used to recover your whole bal
         <translation>密码</translation>
     </message>
     <message>
-        <source>Enter a passphrase </source>
-        <translation>输入密码</translation>
-    </message>
-    <message>
         <source>Decrypted address result</source>
         <translation>解密地址结果</translation>
     </message>
@@ -3711,8 +3209,8 @@ This option creates a wallet.dat file that can be used to recover your whole bal
         <translation>解密钥匙</translation>
     </message>
     <message>
-        <source>TARIAN address</source>
-        <translation>TARIAN地址</translation>
+        <source>TARN address</source>
+        <translation>TARN地址</translation>
     </message>
     <message>
         <source>Enter address</source>
@@ -3814,20 +3312,12 @@ This option creates a wallet.dat file that can be used to recover your whole bal
         <translation>来自</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>文本标签</translation>
-    </message>
-    <message>
         <source>Console</source>
         <translation>控制台</translation>
     </message>
     <message>
         <source>Console input</source>
         <translation>控制台输入</translation>
-    </message>
-    <message>
-        <source>Command Line Options </source>
-        <translation>命令行选项</translation>
     </message>
     <message>
         <source>Open Debug File</source>
@@ -3844,8 +3334,8 @@ Verify that you have installed a predetermined text editor.</source>
 确认您已经安装了预定的文本编辑器</translation>
     </message>
     <message>
-        <source>Welcome to the TARIAN RPC console.</source>
-        <translation>欢迎访问TARIAN RPC控制台</translation>
+        <source>Welcome to the TARN RPC console.</source>
+        <translation>欢迎访问TARN RPC控制台</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and %1 to clear screen.</source>
@@ -3865,10 +3355,6 @@ Verify that you have installed a predetermined text editor.</source>
     <message>
         <source>Form</source>
         <translation>来自</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>文本标签</translation>
     </message>
     <message>
         <source>Hide stake charts in the dashboard</source>
@@ -3958,12 +3444,12 @@ Verify that you have installed a predetermined text editor.</source>
         <translation>导出地址列表</translation>
     </message>
     <message>
-        <source>TARIAN_tx_csv_export(*.csv)</source>
-        <translation>TARIAN_tx_csv_export(*.csv)</translation>
+        <source>TARN_tx_csv_export(*.csv)</source>
+        <translation>TARN_tx_csv_export(*.csv)</translation>
     </message>
     <message>
-        <source>TARIAN_addresses_csv_export(*.csv)</source>
-        <translation>TARIAN_addresses_csv_export(*.csv)</translation>
+        <source>TARN_addresses_csv_export(*.csv)</source>
+        <translation>TARN_addresses_csv_export(*.csv)</translation>
     </message>
     <message>
         <source>Please select a folder to export the csv file first.</source>
@@ -4033,88 +3519,46 @@ There was an error trying to save the address list to %1. Please try again.</sou
         <translation>来自</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>文本标签</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>按钮</translation>
-    </message>
-    <message>
-        <source>1) What is TARIAN?</source>
-        <translation>1）什么是TARIAN?</translation>
+        <source>1) What is TARN?</source>
+        <translation>1）什么是TARN?</translation>
     </message>
     <message>
         <source>2) Why are my TARN unspendable?</source>
         <translation>2) 我的TARN为什么不能用？</translation>
     </message>
     <message>
-        <source>3) TARIAN privacy? What is Zerocoin (zTARN)?</source>
-        <translation>3）TARIAN 隐私？什么是零币(zTARN)？</translation>
-    </message>
-    <message>
-        <source>4) Why are my zTARN unspendable?</source>
-        <translation>4) 我的zTARN为什么不能用？</translation>
-    </message>
-    <message>
-        <source>5) Why did my wallet convert the balance
-    into zTARN automatically?</source>
-        <translation>5）为什么我的钱包把余额自动转换成
-zTARN了?</translation>
-    </message>
-    <message>
-        <source>6) How do I receive TARN/zTARN?</source>
-        <translation>6）如何接收TARN/zTARN?</translation>
-    </message>
-    <message>
-        <source>7) How do I stake TARN/zTARN?</source>
-        <translation>7）如何加注TARN/zTARN?</translation>
-    </message>
-    <message>
-        <source>8) Where I should go if I need support?</source>
-        <translation>8）该到哪里寻求帮助？</translation>
-    </message>
-    <message>
-        <source>9) What is a Masternode?</source>
-        <translation>9）什么是主节点？</translation>
-    </message>
-    <message>
-        <source>10) What is a Masternode Controller?</source>
-        <translation>10）什么是主节点控制器？</translation>
-    </message>
-    <message>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <source>What is TARIAN?</source>
-        <translation>TARIAN是什么?</translation>
+        <source>What is TARN?</source>
+        <translation>TARN是什么?</translation>
     </message>
     <message>
         <source>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           TARIAN is a form of digital online money using blockchain technology
+                           TARN is a form of digital online money using blockchain technology
                            that can be easily transferred globally, instantly, and with near
-                           zero fees.  TARIAN incorporates market leading security &amp;
+                           zero fees.  TARN incorporates market leading security &amp;
                            privacy and is also the first PoS (Proof of Stake) Cryptocurrency
                            to implement ZeroCoin(zTARN) and Zerocoin staking.
                            &lt;/p&gt;&lt;p align="justify"&gt;
-                           TARIAN utilizes a Proof of Stake (PoS) consensus system algorithm,
-                           allowing all owners of TARIAN to participate in earning block rewards
+                           TARN utilizes a Proof of Stake (PoS) consensus system algorithm,
+                           allowing all owners of TARN to participate in earning block rewards
                            while securing the network with full node wallets, as well as to
                            run Masternodes to create and vote on proposals.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </source>
         <translation>
 &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-TARIAN是一种使用区块链技术的数字在线货币
+TARN是一种使用区块链技术的数字在线货币
 全球范围内快捷交易，即时，基本为
-零的交易费用。TARIAN是市场上领先的安全和
+零的交易费用。TARN是市场上领先的安全和
 隐私加密货币，也是第一个PoS(股权证明)加密货币
 实现零币(zTARN)和零币加注。
 &lt;/p&gt;&lt;p align="justify"&gt;
-TARIAN使用了一个股权证明(PoS)一致系统算法，
-允许所有TARIAN的所有者参与赚取区块奖励
+TARN使用了一个股权证明(PoS)一致系统算法，
+允许所有TARN的所有者参与赚取区块奖励
 同时保护网络与完整的节点钱包，以及
 运行主节点创建和投票来进行提案。</translation>
     </message>
@@ -4129,19 +3573,19 @@ TARIAN使用了一个股权证明(PoS)一致系统算法，
     <message>
         <source>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           Newly received TARIAN requires 6 confirmations on the network
+                           Newly received TARN requires 6 confirmations on the network
                            to become eligible for spending which can take ~6 minutes.
                            &lt;/p&gt;&lt;p align="justify"&gt;
-                           Your TARIAN wallet also needs to be completely synchronized
+                           Your TARN wallet also needs to be completely synchronized
                            to see and spend balances on the network.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </source>
         <translation>
 &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-接收到的TARIAN需要网络上的6个确认
+接收到的TARN需要网络上的6个确认
 才能成为有资格的花费，可以花~6分钟。
 &lt;/p&gt;&lt;p align="justify"&gt;
-您的TARIAN钱包也需要完全同步
+您的TARN钱包也需要完全同步
 查看网络收支余额。
 &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
 </translation>
@@ -4151,152 +3595,16 @@ TARIAN使用了一个股权证明(PoS)一致系统算法，
         <translation>3</translation>
     </message>
     <message>
-        <source>TARIAN privacy? What is Zerocoin (zTARN)?</source>
-        <translation>TARIAN 隐私？什么是零币(zTARN)？</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           zTARN is an optional privacy-centric method of coin mixing on the
-                           TARIAN blockchain. Basically all your transactions cannot be tracked
-                           on to any block explorer. You can read more about the technicals in the
-                           &lt;a style='color: #b088ff' href='https://TARIAN.org/ztarn/'&gt;
-                           "TARIAN Zerocoin (zTARN) Technical Paper"&lt;/a&gt;.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-zTARN是一种可选的以隐私为中心的隐私币
-它是TARIAN区块链的一员，基本上在任何块资源管理器
-所有的交易都不能被跟踪&lt;a style='color: #b088ff' href='https://TARIAN.org/ztarn/'&gt;
-
-你可以阅读更多关于技术方面的文章&lt;/a&gt;
-
-TARIAN零币(zTARN)技术文件
-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-</translation>
-    </message>
-    <message>
         <source>4</source>
         <translation>4</translation>
-    </message>
-    <message>
-        <source>Why are my zTARN unspendable?</source>
-        <translation>我的TARN为什么不能用？</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           After minting, zTARN will require 20 confirmations as well as 1
-                           additional mint of the same denomination on the network to
-                           become eligible for spending.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-铸币后，zTARN将需要20个确认和1个确认
-在网络上增加相同面额的铸币
-才够资格消费。
-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>5</source>
         <translation>5</translation>
     </message>
     <message>
-        <source>Why did my wallet convert the balance into zTARN automatically?</source>
-        <translation>为什么我的钱包会自动将余额转换成zTARN ?</translation>
-    </message>
-    <message>
         <source>6</source>
         <translation>6</translation>
-    </message>
-    <message>
-        <source>How do I receive TARN/zTARN?</source>
-        <translation>我怎么接收TARN/zTARN?</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           zTARN can be spent and sent to any TARIAN address. The receiver will
-                           receive standard TARIAN but the origin of the TARIAN is anonymized by the zTARN Protocol.
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           If you want more zTARN you will need to mint your balance in the “Privacy” tab.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-可以使用zTARN并将其发送到任何TARIAN地址。接收机将
-接收标准的TARIAN，但是根据zTARN协议，TARIAN的来源是匿名的。
-&lt;/p&gt;&lt;p align="justify"&gt;
-如果你想要更多的zTARN，你将需要在“隐私”标签上铸造你的余额。
-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>7</source>
-        <translation>7</translation>
-    </message>
-    <message>
-        <source>How do I stake TARN/zTARN?</source>
-        <translation>我怎么加注TARN/zTARN?</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           To Stake TARIAN:
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           &lt;ol&gt;&lt;li&gt;
-                           Make sure your wallet is completely synchronized and you are using the latest release.
-                           &lt;li&gt;
-                           You must have a balance of TARIAN with a minimum of 600 confirmations.
-                           &lt;li&gt;
-                           Your wallet must stay online and be unlocked for staking purposes.
-                           &lt;li&gt;
-                           Once all those steps are followed staking should be enabled.
-                           &lt;li&gt;
-                           You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state "Staking Enabled" to indicate it is staking.  Using the command line interface (tarian-cli); the command &lt;i&gt;getstakingstatus&lt;/i&gt; will confirm that staking is active.
-                           &lt;/li&gt;&lt;/ol&gt;
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           To Stake zTARN:
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           &lt;ol&gt;&lt;li&gt;
-                           Make sure your wallet is completely synchronized and you are using the latest release.
-                           &lt;li&gt;
-                           Your newly minted or existing zTARN balance must have a minimum of 200 confirmations.
-                           &lt;li&gt;
-                           Your wallet must stay online and be unlocked for anonymization and staking purposes.
-                           Staking should now be enabled.
-                           &lt;/li&gt;&lt;/ol&gt;
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
- &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-加注TARIAN:
-&lt;/p&gt;&lt;p align="justify"&gt;
-&lt;ol&gt;&lt;li&gt;
-确保你的钱包保持完全同步且当前使用的是最新版本。
-&lt;li&gt;
-您必须有至少600的确认TARIAN余额。
-&lt;li&gt;
-你必须保证钱包在线且用于加注目的未锁状态。
-&lt;li&gt;
-所有这些步骤都完成后应该就可以启用加注了。
-&lt;li&gt;
-您可以将鼠标移到钱包界面左上角的行中的包图标上来查看在钱包加注的状态。加注状态的时候，包会被点亮且状态显示“加注启用”。使用命令行接口(tarian-cli);命令&lt;i&gt;getstakingstatus&lt;/i&gt;将确认加注是激活状态。
-&lt;/li&gt;&lt;/ol&gt;
-&lt;/p&gt;&lt;p align="justify"&gt;
-加注zTARN:
-&lt;/p&gt;&lt;p align="justify"&gt;
-&lt;ol&gt;&lt;li&gt;
-确保你的钱包保持完全同步且当前使用的是最新版本。
-&lt;li&gt;
-你最新铸造或现有的zTARN余额必须至少有200个确认。
-&lt;li&gt;
-你必须保证钱包在线且用于加注和匿名目的处于未锁状态。
-现在加注应该已经可以启用了
-&lt;/li&gt;&lt;/ol&gt;
-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                          </translation>
     </message>
     <message>
         <source>Where should I go if I need support?</source>
@@ -4311,44 +3619,14 @@ TARIAN零币(zTARN)技术文件
         <translation>什么是主节点控制器？</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;A Masternode Controller wallet is where the 10,000 TARN collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet(s) and allows you to keep your collateral coins offline while the remote masternode remains online. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;主节点控制器钱包是控制器-远程主节点建立期间10,000 TARN抵押可以驻留的地方。这是一个可以激活远程主节点钱包(s)的钱包，可以让你的抵押币离线但远程主节点保持在线。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>8</source>
-        <translation>8</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;A Masternode Controller wallet is where the 1,000 TARN collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet(s) and allows you to keep your collateral coins offline while the remote masternode remains online. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;主节点控制器钱包是控制器-远程主节点建立期间1,000 TARN抵押可以驻留的地方。这是一个可以激活远程主节点钱包(s)的钱包，可以让你的抵押币离线但远程主节点保持在线。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           We have support channels in most of our official chat groups, for example
-                           &lt;a style='color: #b088ff' href='https://discord.TARIAN.org'&gt;
-                           #support in our Discord&lt;/a&gt;.
-                           If you prefer to submit a ticket, One can be
-                           &lt;a style='color: #b088ff' href='https://TARIAN.freshdesk.com'&gt;
-                           our Freshdesk support site&lt;/a&gt;.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-我们在大多数官方聊天群都有支持频道，例如
-&lt;a style='color: #b088ff' href='https://discord.TARIAN.org'&gt;
-＃Discord  里面的支持&lt;/a&gt;。
-如果你想要提交门票，请到这里
-&lt;a style='color: #b088ff' href='https://TARIAN.freshdesk.com'&gt;
-我们的前台支持网站&lt;/a&gt;。
-&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-</translation>
-    </message>
-    <message>
-        <source>9</source>
-        <translation>9</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           A masternode is a computer running a full node TARIAN core wallet with a
-                           requirement of 10,000 TARN secured collateral to provide extra services
+                           A masternode is a computer running a full node TARN core wallet with a
+                           requirement of 1,000 TARN secured collateral to provide extra services
                            to the network and in return, receive a portion of the block reward
                            regularly.  These services include:
                            &lt;/p&gt;&lt;p align="justify"&gt;
@@ -4370,17 +3648,17 @@ TARIAN零币(zTARN)技术文件
                            Masternode Perks:
                            &lt;/p&gt;&lt;p align="justify"&gt;
                            &lt;ul&gt;
-                           &lt;li&gt;Participate in TARIAN Governance&lt;/li&gt;
+                           &lt;li&gt;Participate in TARN Governance&lt;/li&gt;
                            &lt;li&gt;Earn Masternode Rewards&lt;/li&gt;
                            &lt;li&gt;Commodity option for future sale&lt;/li&gt;
-                           &lt;li&gt;Help secure the TARIAN network&lt;/li&gt;
+                           &lt;li&gt;Help secure the TARN network&lt;/li&gt;
                            &lt;/ul&gt;
                            &lt;/p&gt;&lt;p align="justify"&gt;
 
                            Requirements:
                            &lt;/p&gt;&lt;p align="justify"&gt;
                            &lt;ul&gt;
-                           &lt;li&gt;10,000 TARN per single Masternode instance&lt;/li&gt;
+                           &lt;li&gt;1,000 TARN per single Masternode instance&lt;/li&gt;
                            &lt;li&gt;Must be stored in a core wallet&lt;/li&gt;
                            &lt;li&gt;Need dedicated IP address&lt;/li&gt;
                            &lt;li&gt;Masternode wallet to remain online&lt;/li&gt;
@@ -4389,8 +3667,8 @@ TARIAN零币(zTARN)技术文件
                          </source>
         <translation>
 &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-主节点是运行完整节点TARIAN核心钱包的计算机
-需要10,000个TARN作抵押以提供额外服务
+主节点是运行完整节点TARN核心钱包的计算机
+需要1,000个TARN作抵押以提供额外服务
 到网络，会收到一部分的区块奖励作为定期
 回报
 这些服务包括:
@@ -4412,17 +3690,17 @@ TARIAN零币(zTARN)技术文件
 主节点福利：
 &lt;/p&gt;&lt;p align="justify"&gt;
 &lt;ul&gt;
-&lt;li&gt;参与TARIAN治理&lt;/li&gt;
+&lt;li&gt;参与TARN治理&lt;/li&gt;
 &lt;li&gt;赢取主节点奖励&lt;/li&gt;
 &lt;li&gt;商品期货期权&lt;/li&gt;
-&lt;li&gt;帮助保护TARIAN网络&lt;/li&gt;
+&lt;li&gt;帮助保护TARN网络&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/p&gt;&lt;p align="justify"&gt;
 
 要求：
 &lt;/p&gt;&lt;p align="justify"&gt;
 &lt;ul&gt;
-&lt;li&gt;每个主节点实例有10,000 TARN&lt;/li&gt;
+&lt;li&gt;每个主节点实例有1,000 TARN&lt;/li&gt;
 &lt;li&gt;必须存储在核心钱包&lt;/li&gt;
 &lt;li&gt;需要专用IP地址&lt;/li&gt;
 主节点钱包保持在线&lt;li&gt;
@@ -4430,10 +3708,6 @@ TARIAN零币(zTARN)技术文件
 &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
 
 </translation>
-    </message>
-    <message>
-        <source>10</source>
-        <translation>10</translation>
     </message>
     <message>
         <source>Frequently Asked Questions</source>
@@ -4566,20 +3840,12 @@ TARIAN零币(zTARN)技术文件
         <translation>来自</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>文本标签</translation>
-    </message>
-    <message>
         <source>Window</source>
         <translation>窗口</translation>
     </message>
     <message>
         <source>Customize the application window options</source>
         <translation>自定义应用视图选项</translation>
-    </message>
-    <message>
-        <source>CheckBox</source>
-        <translation>查看列表</translation>
     </message>
     <message>
         <source>Reset to default</source>
@@ -4606,8 +3872,8 @@ TARIAN零币(zTARN)技术文件
         <translation>脚本&amp;验证线程数</translation>
     </message>
     <message>
-        <source>Start TARIAN on system login</source>
-        <translation>开机启动TARIAN</translation>
+        <source>Start TARN on system login</source>
+        <translation>开机启动TARN</translation>
     </message>
     <message>
         <source>Minimize to the tray instead of the taskbar</source>
@@ -4694,8 +3960,8 @@ Are you sure?
         <translation>查看列表</translation>
     </message>
     <message>
-        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other TARIAN addresses after it matures.</source>
-        <translation>成熟以后，多重花费允许您自动发送高达 100% 的股权或主节点奖励到其他TARIAN地址列表</translation>
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other TARN addresses after it matures.</source>
+        <translation>成熟以后，多重花费允许您自动发送高达 100% 的股权或主节点奖励到其他TARN地址列表</translation>
     </message>
     <message>
         <source>Active</source>
@@ -4793,14 +4059,6 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation>来自</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>文本标签</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation>清除</translation>
-    </message>
-    <message>
         <source>Sign/Verify Message</source>
         <translation>签署/验证消息</translation>
     </message>
@@ -4821,16 +4079,12 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation>消息 </translation>
     </message>
     <message>
-        <source>TARIAN address or contact label</source>
-        <translation>TARIAN 地址或者联系人标签</translation>
+        <source>TARN address or contact label</source>
+        <translation>TARN 地址或者联系人标签</translation>
     </message>
     <message>
         <source>Enter address</source>
         <translation>输入地址</translation>
-    </message>
-    <message>
-        <source>Write message</source>
-        <translation>写入信息</translation>
     </message>
     <message>
         <source>Signature</source>
@@ -4916,18 +4170,6 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation>来自</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>文本标签</translation>
-    </message>
-    <message>
-        <source>CheckBox</source>
-        <translation>查看列表</translation>
-    </message>
-    <message>
-        <source>RadioButton</source>
-        <translation>单选按钮</translation>
-    </message>
-    <message>
         <source>Reset to default</source>
         <translation>重置到默认值</translation>
     </message>
@@ -4944,10 +4186,6 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation>自定义内部钱包选项</translation>
     </message>
     <message>
-        <source>Stake split threshold:</source>
-        <translation>股权分割阈值:</translation>
-    </message>
-    <message>
         <source>Spend unconfirmed change</source>
         <translation>&amp;花费未经证实的变化</translation>
     </message>
@@ -4960,16 +4198,12 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation>自定义节点网络选项</translation>
     </message>
     <message>
-        <source>Proxy IP:</source>
-        <translation>代理 IP</translation>
+        <source>Enter port</source>
+        <translation>输入端口</translation>
     </message>
     <message>
         <source>Enter proxy IP</source>
         <translation>输入代理 IP</translation>
-    </message>
-    <message>
-        <source>Port:</source>
-        <translation>端口：</translation>
     </message>
     <message>
         <source>Map port using UPnP</source>
@@ -4978,10 +4212,6 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
     <message>
         <source>Allow incoming connections</source>
         <translation>允许进来的连接</translation>
-    </message>
-    <message>
-        <source>Connect through SOCKS5 proxy (default proxy):</source>
-        <translation>使用SOCKS5代理（默认代理）：</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -4999,48 +4229,20 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation>来自</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>文本标签</translation>
-    </message>
-    <message>
         <source>Wallet Repair</source>
         <translation>钱包修复</translation>
-    </message>
-    <message>
-        <source>The buttons below will restart the wallet with command-line options to repair this wallet, fix issues with corrupt blockchain files or missing/obsolete transactions.</source>
-        <translation>下面的按钮将用命令行选项重新启动钱包来修复这个钱包，修复损坏的区块链文件或丢失/过时的交易。</translation>
-    </message>
-    <message>
-        <source>Attempt to recover private keys from a corrupt wallet.dat.</source>
-        <translation>尝试从损坏的钱包中恢复私钥。</translation>
-    </message>
-    <message>
-        <source>Rescan the blockchain for missing wallet transactions.</source>
-        <translation>重新扫描区块链以查找丢失的钱包交易。</translation>
-    </message>
-    <message>
-        <source>Recover transactions from blockchain (keep-meta-data, e.g. account owner).</source>
-        <translation>从区块链恢复交易(保存元数据，例如帐户所有者)。</translation>
-    </message>
-    <message>
-        <source>Recover transactions from blockchain (drop meta-data).</source>
-        <translation>从区块链恢复交易(删除元数据)。</translation>
     </message>
     <message>
         <source>Upgrade wallet to latest format on startup. (Note: this is NOT an update of the wallet itself)</source>
         <translation>启动时将钱包升级到最新格式。(注意:这不是钱包本身的更新)</translation>
     </message>
     <message>
-        <source>Rebuild blockchain index from current blk000???.dat files.</source>
-        <translation>从当前的blk000?? .dat文件重建区块链索引。</translation>
-    </message>
-    <message>
-        <source>Deletes all local blockchain folders so the wallet synchronizes from scratch.</source>
-        <translation>删除所有本地区块链文件夹，使钱包从零开始同步。</translation>
-    </message>
-    <message>
         <source>Salvage wallet</source>
         <translation>Salvage 钱包：</translation>
+    </message>
+    <message>
+        <source>Attempt to recover private keys from a corrupt wallet.dat</source>
+        <translation>试图从损坏的钱包中恢复私钥</translation>
     </message>
     <message>
         <source>Rescan blockchain file</source>
@@ -5061,10 +4263,6 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
     <message>
         <source>Rebuild index</source>
         <translation>重建索引</translation>
-    </message>
-    <message>
-        <source>Delete local blockchain </source>
-        <translation>删除本地区块链</translation>
     </message>
     <message>
         <source>This will delete your local blockchain folders and the wallet will synchronize the complete Blockchain from scratch.&lt;br /&gt;&lt;br /&gt;</source>
@@ -5107,7 +4305,7 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
     </message>
     <message>
         <source>Export Accounting</source>
-        <translation>输出计数</translation>
+        <translation>导出账单</translation>
     </message>
     <message>
         <source>Tools</source>
@@ -5158,8 +4356,8 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation>常见问题</translation>
     </message>
     <message>
-        <source>About TARIAN</source>
-        <translation>关于TARIAN </translation>
+        <source>About TARN</source>
+        <translation>关于TARN </translation>
     </message>
     <message>
         <source>Settings</source>
@@ -5225,8 +4423,8 @@ Are you sure?
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>TARIAN Core is shutting down...</source>
-        <translation>TARIAN 核心正在关闭...</translation>
+        <source>Tarian Core is shutting down...</source>
+        <translation>TARN 核心正在关闭...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -5255,32 +4453,12 @@ Are you sure?
         <translation>正在下载…</translation>
     </message>
     <message>
-        <source>TARIAN Core</source>
-        <translation>TARIAN Core</translation>
+        <source>Tarian Core</source>
+        <translation>Tarian Core</translation>
     </message>
 </context>
 <context>
     <name>SplashScreen</name>
-    <message>
-        <source>TARIAN Core</source>
-        <translation>TARIAN Core</translation>
-    </message>
-    <message>
-        <source>Version %1</source>
-        <translation>版本%1</translation>
-    </message>
-    <message>
-        <source>The Bitcoin Core developers</source>
-        <translation>比特币核心开发者</translation>
-    </message>
-    <message>
-        <source>The Dash Core developers</source>
-        <translation>达世币核心开发者</translation>
-    </message>
-    <message>
-        <source>The TARIAN Core developers</source>
-        <translation>TARIAN 核心开发者</translation>
-    </message>
     <message>
         <source>[testnet]</source>
         <translation>［测试网］</translation>
@@ -5347,33 +4525,13 @@ Are you sure?
         <source>Staking not active</source>
         <translation>加注没激活</translation>
     </message>
-    <message numerus="yes">
-        <source>%n active connection(s)</source>
-        <translation><numerusform>%n 激活连接 （秒）</numerusform></translation>
-    </message>
     <message>
         <source>Synchronized - Block: %1</source>
         <translation>已同步区块：%1</translation>
     </message>
-    <message numerus="yes">
-        <source>%n hour(s)</source>
-        <translation><numerusform>%n小时</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n day(s)</source>
-        <translation><numerusform> %n天</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n week(s)</source>
-        <translation><numerusform>%n周</numerusform></translation>
-    </message>
     <message>
         <source>%1 and %2</source>
         <translation>%1 和 %2</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n year(s)</source>
-        <translation><numerusform>%n年</numerusform></translation>
     </message>
     <message>
         <source>Wallet Upgrade</source>
@@ -5410,6 +4568,14 @@ backup will be created.
     <message>
         <source>Tor Disabled</source>
         <translation>Tor 关闭</translation>
+    </message>
+    <message>
+        <source>FAQ</source>
+        <translation>常见问题</translation>
+    </message>
+    <message>
+        <source>Wallet Locked</source>
+        <translation>钱包已锁住</translation>
     </message>
     <message>
         <source>Available (Locked included)</source>
@@ -5469,10 +4635,6 @@ backup will be created.
 </context>
 <context>
     <name>TransactionDesc</name>
-    <message numerus="yes">
-        <source>Open for %n more block(s)</source>
-        <translation><numerusform>打开％n更多的区块</numerusform></translation>
-    </message>
     <message>
         <source>Open until %1</source>
         <translation>直到%1才打开</translation>
@@ -5533,10 +4695,6 @@ backup will be created.
         <source>, has not been successfully broadcast yet</source>
         <translation>，尚未成功播出</translation>
     </message>
-    <message numerus="yes">
-        <source>, broadcast through %n node(s)</source>
-        <translation><numerusform>，通过%n节点广播</numerusform></translation>
-    </message>
     <message>
         <source>Date</source>
         <translation>日期</translation>
@@ -5576,10 +4734,6 @@ backup will be created.
     <message>
         <source>Credit</source>
         <translation>信用</translation>
-    </message>
-    <message numerus="yes">
-        <source>matures in %n more block(s)</source>
-        <translation><numerusform>在更多%n区块生成</numerusform></translation>
     </message>
     <message>
         <source>not accepted</source>
@@ -5664,10 +4818,6 @@ backup will be created.
         <source>Address</source>
         <translation>地址</translation>
     </message>
-    <message numerus="yes">
-        <source>Open for %n more block(s)</source>
-        <translation><numerusform>打开％n更多的区块</numerusform></translation>
-    </message>
     <message>
         <source>Open until %1</source>
         <translation>直到%1才打开</translation>
@@ -5713,40 +4863,8 @@ backup will be created.
         <translation>接收</translation>
     </message>
     <message>
-        <source>TARN Stake</source>
-        <translation>TARN加注</translation>
-    </message>
-    <message>
-        <source>zTARN Stake</source>
-        <translation>zTARN 加注</translation>
-    </message>
-    <message>
-        <source>TARN Cold Stake</source>
-        <translation>TARN冷饮</translation>
-    </message>
-    <message>
         <source>Stake delegation</source>
         <translation>股权委托</translation>
-    </message>
-    <message>
-        <source>Converted TARN to zTARN</source>
-        <translation>转换TARN为zTARN</translation>
-    </message>
-    <message>
-        <source>Spent zTARN</source>
-        <translation>已经花费zTARN</translation>
-    </message>
-    <message>
-        <source>Received TARN from zTARN</source>
-        <translation>从zTARN接收TARN</translation>
-    </message>
-    <message>
-        <source>Minted Change as zTARN from zTARN Spend</source>
-        <translation>铸币的变化，从zTARN花费zTARN</translation>
-    </message>
-    <message>
-        <source>Converted zTARN to TARN</source>
-        <translation>转换TARN为zTARN</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -5759,10 +4877,6 @@ backup will be created.
     <message>
         <source>Payment to yourself</source>
         <translation>支付给您自己</translation>
-    </message>
-    <message>
-        <source>TARN Stake on behalf of</source>
-        <translation>代表TARN加注</translation>
     </message>
     <message>
         <source>Stake delegation spent by</source>
@@ -5918,18 +5032,6 @@ backup will be created.
         <source>Form</source>
         <translation>来自</translation>
     </message>
-    <message>
-        <source>Received from Bob</source>
-        <translation>从Bob接收</translation>
-    </message>
-    <message>
-        <source>18/05/18</source>
-        <translation>18/05/18</translation>
-    </message>
-    <message>
-        <source>+0.000585 TARN</source>
-        <translation>+0.000585 TARN</translation>
-    </message>
 </context>
 <context>
     <name>WalletModel</name>
@@ -5937,11 +5039,7 @@ backup will be created.
         <source>Send Coins</source>
         <translation>发送币</translation>
     </message>
-    <message>
-        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 TARN.</source>
-        <translation>SwiftX目前还不支持发送这么高的值。当前的交易限制为%1 TARN。</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>WelcomeContentWidget</name>
     <message>
@@ -5982,25 +5080,25 @@ backup will be created.
     </message>
     <message>
         <source>Welcome to
-TARIAN Core Wallet</source>
+Tarian Core Wallet</source>
         <translation>欢迎
-TARIAN核心钱包</translation>
+TARN核心钱包</translation>
     </message>
     <message>
-        <source>TARIAN is the world’s most innovative Proof of Stake blockchain based technology. Developed by a team of highly experienced developers and cryptographers.</source>
-        <translation>TARIAN是世界上最先进的隐私保护技术，由经验丰富的开发人员和密码专家开发。</translation>
+        <source>TARN is the world’s most innovative Proof of Stake blockchain based technology. Developed by a team of highly experienced developers and cryptographers.</source>
+        <translation>TARN是世界上最先进的隐私保护技术，由经验丰富的开发人员和密码专家开发。</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;As our manifesto says: Privacy is a non-negotiable basic human right; it grants users the freedom to share their data whenever and with whomever they want - TARIAN believes in self sovereignty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;正如我们的宣言所说:隐私是一项不容协商的基本人权;它赋予用户随时随地与任何人共享数据的自由——TARIAN相信自我主权&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;As our manifesto says: Privacy is a non-negotiable basic human right; it grants users the freedom to share their data whenever and with whomever they want - TARN believes in self sovereignty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;正如我们的宣言所说:隐私是一项不容协商的基本人权;它赋予用户随时随地与任何人共享数据的自由——TARN相信自我主权&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>The masternode network is TARIAN's second layer network on top of the blockchain that enables our DAO to provide decentralized governance and a treasury.</source>
-        <translation>主节点网络是TARIAN在区块链之上的第二层网络，它使我们的DAO能够提供去中心的治理。</translation>
+        <source>The masternode network is TARN's second layer network on top of the blockchain that enables our DAO to provide decentralized governance and a treasury.</source>
+        <translation>主节点网络是TARN在区块链之上的第二层网络，它使我们的DAO能够提供去中心的治理。</translation>
     </message>
     <message>
-        <source>How TARIAN respects your privacy?</source>
-        <translation>TARIAN 到底是怎么尊重你的隐私的？</translation>
+        <source>How TARN respects your privacy?</source>
+        <translation>TARN 到底是怎么尊重你的隐私的？</translation>
     </message>
     <message>
         <source>What is a Masternode?</source>
@@ -6009,49 +5107,6 @@ TARIAN核心钱包</translation>
     <message>
         <source>default</source>
         <translation>默认</translation>
-    </message>
-</context>
-<context>
-    <name>ZTarnControlDialog</name>
-    <message>
-        <source>Select zTARN to Spend</source>
-        <translation>选择zTARN 花费</translation>
-    </message>
-    <message>
-        <source>Coin Control</source>
-        <translation>币控制</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>按钮</translation>
-    </message>
-    <message>
-        <source>zTarn</source>
-        <translation>zTarn</translation>
-    </message>
-    <message>
-        <source>0.00 </source>
-        <translation>0.00</translation>
-    </message>
-    <message>
-        <source>Quantity:</source>
-        <translation>数量：</translation>
-    </message>
-    <message>
-        <source>Is Spendable</source>
-        <translation>可用</translation>
-    </message>
-    <message>
-        <source>0</source>
-        <translation>0</translation>
-    </message>
-    <message>
-        <source>Select/Deselect All</source>
-        <translation>选择／删除所有</translation>
-    </message>
-    <message>
-        <source>Select zTARN Denominations to Spend</source>
-        <translation>选择zTARN 面额花费</translation>
     </message>
 </context>
 <context>
@@ -6077,8 +5132,8 @@ TARIAN核心钱包</translation>
         <translation>绑定到给定地址监听JSON-RPC连接。使用[主机]: IPv6的端口符号。可以多次指定此选项(默认:绑定到所有接口)</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. TARIAN Core is probably already running.</source>
-        <translation>无法获取数据目录%s锁。TARIAN核心可能已经在运行了。</translation>
+        <source>Cannot obtain a lock on data directory %s. Tarian Core is probably already running.</source>
+        <translation>无法获取数据目录%s锁。TARN核心可能已经在运行了。</translation>
     </message>
     <message>
         <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
@@ -6107,14 +5162,6 @@ TARIAN核心钱包</translation>
     <message>
         <source>Enable cold staking functionality (0-1, default: %u). Disabled if staking=0</source>
         <translation>启用冷堆叠（0-1，默认值：%u）。 如果累计= 0，则禁用</translation>
-    </message>
-    <message>
-        <source>Enable or disable staking functionality for TARN inputs (0-1, default: %u)</source>
-        <translation>启用或禁用TARN输入标记功能(0-1，默认值:%u)</translation>
-    </message>
-    <message>
-        <source>Enable or disable staking functionality for zTARN inputs (0-1, default: %u)</source>
-        <translation>启用或禁用zTARN输入的标记功能(0-1，默认值:%u)</translation>
     </message>
     <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
@@ -6153,14 +5200,6 @@ TARIAN核心钱包</translation>
         <translation>当最佳区块更改时执行命令(cmd中的%s被块散列替换)</translation>
     </message>
     <message>
-        <source>Fees (in TARN/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>小于此值的费用(以TARN/Kb为单位)视为零中继费用(默认值:%s)</translation>
-    </message>
-    <message>
-        <source>Fees (in TARN/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>小于此值的费用(以TARN/Kb为单位)被认为是交易创建的零费用(默认值:%s)</translation>
-    </message>
-    <message>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
         <translation>每&lt;n&gt;兆字节将数据库活动从内存池刷新到磁盘日志(默认:%u)</translation>
     </message>
@@ -6179,10 +5218,6 @@ TARIAN核心钱包</translation>
     <message>
         <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s' (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
         <translation>最大tx费用金额无效=&lt;amount&gt;:'%s'(必须至少是%s的最小中继费用，以防止交易中断)</translation>
-    </message>
-    <message>
-        <source>Keep the specified amount available for spending at all times (default: 0)</source>
-        <translation>始终保留指定的支出金额(默认值:0)</translation>
     </message>
     <message>
         <source>Log transaction priority and fee per kB when mining blocks (default: %u)</source>
@@ -6215,10 +5250,6 @@ TARIAN核心钱包</translation>
     <message>
         <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
         <translation>输出调试信息(默认:%u，&lt;category&gt;可选提供)</translation>
-    </message>
-    <message>
-        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
-        <translation>如果地址为低值的话，通过DNS查询端口地址(默认:1除非-连接)</translation>
     </message>
     <message>
         <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
@@ -6265,8 +5296,8 @@ TARIAN核心钱包</translation>
         <translation>网络版本字符串的总长度(%i)超过最大长度(%i)。减少任务的数量或大小。</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. TARIAN Core is probably already running.</source>
-        <translation>无法绑定到此计算机上的%s。TARIAN核心可能已经在运行了。</translation>
+        <source>Unable to bind to %s on this computer. Tarian Core is probably already running.</source>
+        <translation>无法绑定到此计算机上的%s。TARN核心可能已经在运行了。</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
@@ -6281,8 +5312,8 @@ TARIAN核心钱包</translation>
         <translation>警告:-支付tx费用设置的非常高!这是您发送交易时要支付的交易费。</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong TARIAN Core will not work properly.</source>
-        <translation>注意：请检查您的电脑的日期和时间是否正确！ 如果您的时间设置不正确，TARIAN Core将无法正常工作。</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Tarian Core will not work properly.</source>
+        <translation>注意：请检查您的电脑的日期和时间是否正确！ 如果您的时间设置不正确，Tarian Core将无法正常工作。</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -6313,10 +5344,6 @@ TARIAN核心钱包</translation>
         <translation>您必须在配置中指定一个主节点privkey。有关帮助，请参阅文档。</translation>
     </message>
     <message>
-        <source>(54444 could be used only on mainnet)</source>
-        <translation>(54444只可在网上使用)</translation>
-    </message>
-    <message>
         <source>(default: %s)</source>
         <translation>(默认: %s)</translation>
     </message>
@@ -6325,16 +5352,8 @@ TARIAN核心钱包</translation>
         <translation>(默认: 1)</translation>
     </message>
     <message>
-        <source>(must be 54444 for mainnet)</source>
-        <translation>(主网必须为54444)</translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>接受命令行和JSON-RPC命令</translation>
-    </message>
-    <message>
-        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
-        <translation>接受外部连接(如果没有-proxy或-connect，默认为1)</translation>
     </message>
     <message>
         <source>Accept public REST requests (default: %u)</source>
@@ -6373,10 +5392,6 @@ TARIAN核心钱包</translation>
         <translation>不能降级钱包</translation>
     </message>
     <message>
-        <source>Connect only to the specified node(s)</source>
-        <translation>只连接到指定的节点（）</translation>
-    </message>
-    <message>
         <source>Connect through SOCKS5 proxy</source>
         <translation>通过SOCKS5代理连接</translation>
     </message>
@@ -6397,8 +5412,8 @@ TARIAN核心钱包</translation>
         <translation>版权所有(C) 2014-%i的达世核心开发者</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The TARIAN Core Developers</source>
-        <translation>版权所有(C) 2015-%i TARIAN核心开发者</translation>
+        <source>Copyright (C) 2015-%i The Tarian Core Developers</source>
+        <translation>版权所有(C) 2015-%i TARN核心开发者</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -6473,8 +5488,8 @@ TARIAN核心钱包</translation>
         <translation>加载钱包出错。dat:钱包损坏</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of TARIAN Core</source>
-        <translation>加载的钱包出错。dat: 钱包需要更新版本的TARIAN核心</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Tarian Core</source>
+        <translation>加载的钱包出错。dat: 钱包需要更新版本的TARN核心</translation>
     </message>
     <message>
         <source>Error opening block database</source>
@@ -6521,14 +5536,6 @@ TARIAN核心钱包</translation>
         <translation>未能解析:主机端口字符串</translation>
     </message>
     <message>
-        <source>Failed to read block</source>
-        <translation>读取区块失败</translation>
-    </message>
-    <message>
-        <source>Fee (in TARN/kB) to add to transactions you send (default: %s)</source>
-        <translation>将费用(以TARN/kB为单位)添加到您发送的交易中(默认:%s)</translation>
-    </message>
-    <message>
         <source>Force safe mode (default: %u)</source>
         <translation>安全模式原力(默认值:%u)</translation>
     </message>
@@ -6565,8 +5572,8 @@ TARIAN核心钱包</translation>
         <translation>信息</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. TARIAN Core is shutting down.</source>
-        <translation>初始化完整性检查失败。TARIAN核心快要关闭了。</translation>
+        <source>Initialization sanity check failed. Tarian Core is shutting down.</source>
+        <translation>初始化完整性检查失败。TARN核心快要关闭了。</translation>
     </message>
     <message>
         <source>Insufficient funds</source>
@@ -6597,16 +5604,8 @@ TARIAN核心钱包</translation>
         <translation>白名单中指定的无效网络掩码:'%s'</translation>
     </message>
     <message>
-        <source>Invalid port detected in masternode.conf</source>
-        <translation>在masternode.conf中检测到无效端口</translation>
-    </message>
-    <message>
         <source>Recalculating TARN supply...</source>
         <translation>重新计算TARN供应量……</translation>
-    </message>
-    <message>
-        <source>Reindex the TARN and zTARN money supply statistics</source>
-        <translation>重新索引TARN和zTARN货币供应统计数据</translation>
     </message>
     <message>
         <source>Reindexing zerocoin database...</source>
@@ -6645,16 +5644,12 @@ TARIAN核心钱包</translation>
 </translation>
     </message>
     <message>
-        <source>Disable all TARIAN specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)</source>
-        <translation>禁用所有TARIAN特定功能(主节点, 零币, SwiftX, budget)(0-1，默认值:%u)</translation>
+        <source>Disable all TARN specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)</source>
+        <translation>禁用所有TARN特定功能(主节点, 零币, SwiftX, budget)(0-1，默认值:%u)</translation>
     </message>
     <message>
         <source>Enable SwiftX, show confirmations for locked transactions (bool, default: %s)</source>
         <translation>启用SwiftX，显示锁定交易的确认(bool，默认值:%s)</translation>
-    </message>
-    <message>
-        <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>错误:交易被拒绝!如果你钱包里的硬币已经花掉了，比如你用了复制钱包，那么这种情况就会发生。</translation>
     </message>
     <message>
         <source>Error: Unsupported argument -checklevel found. Checklevel must be level 4.</source>
@@ -6755,10 +5750,6 @@ TARIAN核心钱包</translation>
     <message>
         <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
         <translation>在内存中保留最多&lt;n&gt;不可连接的交易(默认值:%u)</translation>
-    </message>
-    <message>
-        <source>Limit size of signature cache to &lt;n&gt; entries (default: %u)</source>
-        <translation>将签名缓存的大小限制为&lt;n&gt;条目大小(默认为%u)</translation>
     </message>
     <message>
         <source>Line: %d</source>
@@ -6905,8 +5896,8 @@ TARIAN核心钱包</translation>
         <translation>准备重新同步……</translation>
     </message>
     <message>
-        <source>Please check that your computer's date and time are correct! If your clock is wrong TARIAN Core will not work properly.</source>
-        <translation>请检查您的电脑的日期和时间是否正确!如果你的时间错误，TARIAN Core将无法正常工作。</translation>
+        <source>Please check that your computer's date and time are correct! If your clock is wrong Tarian Core will not work properly.</source>
+        <translation>请检查您的电脑的日期和时间是否正确!如果你的时间错误，Tarian Core将无法正常工作。</translation>
     </message>
     <message>
         <source>Specify location of debug log file: this can be an absolute path or a path relative to the data directory (default: %s)</source>
@@ -7237,8 +6228,8 @@ TARIAN核心钱包</translation>
         <translation>钱包%s驻留在数据目录%s之外</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart TARIAN Core to complete</source>
-        <translation>钱包需要重写:重新启动TARIAN核心完成</translation>
+        <source>Wallet needed to be rewritten: restart Tarian Core to complete</source>
+        <translation>钱包需要重写:重新启动TARN核心完成</translation>
     </message>
     <message>
         <source>Wallet options:</source>
@@ -7308,16 +6299,36 @@ TARIAN核心钱包</translation>
         <translation>发送</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>文本标签</translation>
+        <source>TARN address or contact label</source>
+        <translation>TARN 地址或者联系人标签</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>金额</translation>
+    </message>
+    <message>
+        <source>Customize fee</source>
+        <translation>定制费用</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>清除所有</translation>
+    </message>
+    <message>
+        <source>Add recipient</source>
+        <translation>添加接收人</translation>
+    </message>
+    <message>
+        <source>Total to send</source>
+        <translation>花费总金额</translation>
+    </message>
+    <message>
+        <source>Reset to default</source>
+        <translation>重置到默认值</translation>
     </message>
     <message>
         <source>Include delegated</source>
         <translation>包含委托</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>按钮</translation>
     </message>
 </context>
 </TS>

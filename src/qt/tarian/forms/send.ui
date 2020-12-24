@@ -141,7 +141,7 @@
              <string notr="true">margin-left:8px;</string>
             </property>
             <property name="text">
-             <string>TARIAN address or contact label</string>
+             <string>TARN address or contact label</string>
             </property>
            </widget>
           </item>
@@ -276,6 +276,16 @@
             </property>
             <property name="text">
              <string>Include delegated</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="checkBoxPoWAlternative">
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="text">
+             <string>Mark as Bitcoin PoW Alternative</string>
             </property>
            </widget>
           </item>

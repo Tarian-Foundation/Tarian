@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-# Copyright (c) 2018-2020 The TARIAN developers
+# Copyright (c) 2018-2020 The TARN developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 """Test RPC commands for BIP38 encrypting and decrypting addresses."""
 
-from test_framework.test_framework import TarianTestFramework
+from test_framework.test_framework import TarnTestFramework
 from test_framework.util import assert_equal
 
-class Bip38Test(TarianTestFramework):
+class Bip38Test(TarnTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 2
