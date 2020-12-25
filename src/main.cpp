@@ -59,7 +59,7 @@
 
 
 #if defined(NDEBUG)
-#error "TARN cannot be compiled without assertions."
+#error "Tarian cannot be compiled without assertions."
 #endif
 
 /**

@@ -51,8 +51,8 @@ static const int MAX_URI_LENGTH = 255;
 #define EXPORT_IMAGE_SIZE 256
 
 
-#define QAPP_ORG_NAME "TARN"
-#define QAPP_ORG_DOMAIN "cri.eco"
+#define QAPP_ORG_NAME "Tarian"
+#define QAPP_ORG_DOMAIN "tarian-foundation.io"
 #define QAPP_APP_NAME_DEFAULT "Tarian-Qt"
 #define QAPP_APP_NAME_TESTNET "Tarian-Qt-testnet"
 

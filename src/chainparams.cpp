@@ -187,12 +187,12 @@ public:
         nDefaultPort       = 35350;
 
         // Note that of those with the service bits flag, most only support a subset of possible options
-        vSeeds.push_back(CDNSSeedData("207.246.65.188", "207.246.65.188", true));                        // Official DNS Seeder
-        vSeeds.push_back(CDNSSeedData("45.32.161.7", "45.32.161.7", true));                        // Official DNS Seeder
-        vSeeds.push_back(CDNSSeedData("8.9.15.135", "8.9.15.135", true));                        // Official DNS Seeder
-        vSeeds.push_back(CDNSSeedData("149.28.44.36", "149.28.44.36", true));                        // Official DNS Seeder
-        vSeeds.push_back(CDNSSeedData("149.28.55.60", "149.28.55.60", true));                        // Official DNS Seeder
-        vSeeds.push_back(CDNSSeedData("", "", true));                        // Official DNS Seeder
+        vSeeds.push_back(CDNSSeedData("207.246.65.188", "207.246.65.188", true)); // Official DNS Seeder
+        vSeeds.push_back(CDNSSeedData("45.32.161.7", "45.32.161.7", true));       // Official DNS Seeder
+        vSeeds.push_back(CDNSSeedData("8.9.15.135", "8.9.15.135", true));         // Official DNS Seeder
+        vSeeds.push_back(CDNSSeedData("149.28.44.36", "149.28.44.36", true));     // Official DNS Seeder
+        vSeeds.push_back(CDNSSeedData("149.28.55.60", "149.28.55.60", true));     // Official DNS Seeder
+        vSeeds.push_back(CDNSSeedData("", "", true));                             // Official DNS Seeder
 
         base58Prefixes[PUBKEY_ADDRESS]  = std::vector<unsigned char>(1, 65);        // Start with 'T' from https://en.bitcoin.it/wiki/List_of_address_prefixes
         base58Prefixes[SCRIPT_ADDRESS]  = std::vector<unsigned char>(1, 18);        // Start with '8' from https://en.bitcoin.it/wiki/List_of_address_prefixes

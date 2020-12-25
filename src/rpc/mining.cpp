@@ -479,10 +479,10 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid mode");
 
     if (vNodes.empty())
-        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "TARN is not connected!");
+        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Tarian is not connected!");
 
     if (IsInitialBlockDownload())
-        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "TARN is downloading blocks...");
+        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Tarian is downloading blocks...");
 
     static unsigned int nTransactionsUpdatedLast;
 

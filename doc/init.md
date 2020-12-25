@@ -84,9 +84,9 @@ OpenRC).
 ### macOS
 
 Binary:              `/usr/local/bin/tariand`
-Configuration file:  `~/Library/Application Support/TARN/tarian.conf`
-Data directory:      `~/Library/Application Support/TARN`
-Lock file:           `~/Library/Application Support/TARN/.lock`
+Configuration file:  `~/Library/Application Support/Tarian/tarian.conf`
+Data directory:      `~/Library/Application Support/Tarian`
+Lock file:           `~/Library/Application Support/Tarian/.lock`
 
 Installing Service Configuration
 -----------------------------------

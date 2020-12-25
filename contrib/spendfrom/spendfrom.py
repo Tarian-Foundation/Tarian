@@ -35,9 +35,9 @@ def check_json_precision():
 def determine_db_dir():
     """Return the default location of the tarian data directory"""
     if platform.system() == "Darwin":
-        return os.path.expanduser("~/Library/Application Support/TARN/")
+        return os.path.expanduser("~/Library/Application Support/Tarian/")
     elif platform.system() == "Windows":
-        return os.path.join(os.environ['APPDATA'], "TARN")
+        return os.path.join(os.environ['APPDATA'], "Tarian")
     return os.path.expanduser("~/.tarian")
 
 def read_bitcoin_config(dbdir):

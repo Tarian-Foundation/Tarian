@@ -969,7 +969,7 @@ void InitLogging()
 #else
     version_string += " (release build)";
 #endif
-    LogPrintf("TARN version %s (%s)\n", version_string, CLIENT_DATE);
+    LogPrintf("Tarian version %s (%s)\n", version_string, CLIENT_DATE);
 }
 
 /** Initialize tarian.
